@@ -23,7 +23,6 @@ export const nftCollection: {
   stack: string[];
   process: NftCreativeStep[];
   character: string;
-  featured: NftArtwork;
   artworks: NftArtwork[];
 } = {
   label: "the creative wing · concept to collectible",
@@ -82,17 +81,14 @@ export const nftCollection: {
       short:
         "Selecting the strongest results and refining them into final, presentable pieces.",
     },
+    {
+      step: "05",
+      title: "Artwork",
+      short:
+        "Assembling the selected pieces into a coherent final set — frame, tone, and the finished run.",
+    },
   ],
   character: "HRLN",
-  featured: {
-    id: "hrln-origin",
-    title: "The Device",
-    character: "HRLN",
-    image: "/nft/nft-featured.webp",
-    description:
-      "The anchor artwork — the character's base identity, refined into a single confident frame.",
-    tags: ["Character", "Base Style", "Concept"],
-  },
   artworks: [
     {
       id: "hrln-rain",
@@ -121,37 +117,5 @@ export const nftCollection: {
         "Accessory variation defining the character's everyday loadout across the collection.",
       tags: ["Accessories", "Variant"],
     },
-    {
-      id: "hrln-redroom",
-      title: "Red Room",
-      character: "HRLN",
-      image: "/nft/nft-04.webp",
-      description:
-        "A background study — the character trapped in a small, neon-lit interior.",
-      tags: ["Background", "Interior"],
-    },
-    {
-      id: "hrln-cut",
-      title: "Contrast Cut",
-      character: "HRLN",
-      image: "/nft/nft-05.webp",
-      description:
-        "A silhouette-first iteration testing how far the design can read at a glance.",
-      tags: ["Style", "Silhouette"],
-    },
-    {
-      id: "hrln-cast",
-      title: "Final Cast",
-      character: "HRLN",
-      image: "/nft/nft-06.webp",
-      description:
-        "A selected piece from the refinement pass — the strongest expression of the run.",
-      tags: ["Refined", "Final"],
-    },
   ],
 };
-
-export const nftGallery = [
-  nftCollection.featured,
-  ...nftCollection.artworks,
-];
