@@ -1,12 +1,103 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { site } from "@/data/site";
 import { Skyline } from "@/components/ui/Skyline";
 import { Vignette } from "@/components/effects/Vignette";
+import { gsap, usePrefersReducedMotion } from "@/lib/motion";
 
 export function HeroCityScene() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || reduced) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 0.2 });
+      tl.from("[data-hero-item]", {
+          y: 34,
+          autoAlpha: 0,
+          stagger: 0.14,
+          duration: 0.9,
+        })
+        .fromTo(
+          ".light-sweep",
+          { xPercent: -170 },
+          { xPercent: 170, duration: 1.15, ease: "power2.inOut" },
+          "-=0.75"
+        );
+
+      gsap.fromTo(
+        ".city-stage",
+        { scale: 0.92, y: 30 },
+        {
+          scale: 1,
+          y: 0,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "45% top",
+            scrub: true,
+          },
+        }
+      );
+
+      gsap.to(".sky-row-front", {
+        y: 150,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.to(".sky-row-back", {
+        y: 55,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.to("[data-hero-copy]", {
+        yPercent: -34,
+        autoAlpha: 0.15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "60% top",
+          scrub: true,
+        },
+      });
+
+      gsap.to("[data-scroll-cue]", {
+        autoAlpha: 0,
+        y: 16,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "12% top",
+          end: "30% top",
+          scrub: true,
+        },
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, [reduced]);
+
   return (
     <section
+      ref={sectionRef}
       id="scene-hero"
       aria-labelledby="hero-title"
       className="scene"
@@ -21,16 +112,27 @@ export function HeroCityScene() {
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(230,184,74,0.10),transparent_70%)]"
         />
-        <div className="absolute inset-0 flex items-end justify-center pb-[12vh]">
-          <p className="select-none whitespace-nowrap font-mono text-[clamp(0.7rem,1.6vw,1.3rem)] uppercase tracking-[0.55em] text-yellow/70">
-            {site.city}
-          </p>
+        <div
+          aria-hidden="true"
+          className="light-sweep absolute inset-0 z-[5] bg-[linear-gradient(105deg,transparent_42%,rgba(230,184,74,0.16)_50%,transparent_58%)]"
+        />
+
+        <div className="city-stage absolute inset-0 will-change-transform">
+          <div className="absolute inset-0 flex items-end justify-center pb-[12vh]">
+            <p className="select-none whitespace-nowrap font-mono text-[clamp(0.7rem,1.6vw,1.3rem)] uppercase tracking-[0.55em] text-yellow/70">
+              {site.city}
+            </p>
+          </div>
+          <Skyline />
         </div>
-        <Skyline />
+
         <Vignette />
       </div>
 
-      <div className="scene-inner relative z-20 flex min-h-svh flex-col justify-end pb-28 sm:justify-center sm:pb-0">
+      <div
+        data-hero-copy
+        className="scene-inner relative z-20 flex min-h-svh flex-col justify-end pb-28 will-change-transform sm:justify-center sm:pb-0"
+      >
         <p
           className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-gold"
           data-hero-item
@@ -74,7 +176,10 @@ export function HeroCityScene() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-6 z-30 flex justify-center">
+      <div
+        data-scroll-cue
+        className="absolute inset-x-0 bottom-6 z-30 flex justify-center"
+      >
         <div className="border border-cream/20 bg-midnight/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] text-fog">
           scroll to descend
         </div>

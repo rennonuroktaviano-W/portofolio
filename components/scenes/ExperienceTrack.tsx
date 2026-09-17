@@ -1,11 +1,43 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { milestones } from "@/data/experience";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
 
 export function ExperienceTrack() {
+  const sectionRef = useReveals<HTMLElement>();
+  const lineRef = useRef<HTMLDivElement | null>(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const line = lineRef.current;
+    const section = sectionRef.current;
+    if (!line || !section || reduced) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        line,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 55%",
+            end: "bottom 75%",
+            scrub: true,
+          },
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, [reduced, sectionRef]);
+
   return (
     <section
+      ref={sectionRef}
       id="scene-experience"
       aria-labelledby="experience-title"
       className="scene"
@@ -25,8 +57,13 @@ export function ExperienceTrack() {
         />
 
         <ol className="relative space-y-10 border-l border-cream/15 pl-8 sm:pl-10">
+          <div
+            ref={lineRef}
+            aria-hidden="true"
+            className="absolute -left-px top-0 bottom-0 w-px origin-top bg-gradient-to-b from-yellow via-blood to-transparent"
+          />
           {milestones.map((milestone) => (
-            <li key={milestone.id} className="relative">
+            <li key={milestone.id} className="relative" data-reveal>
               <span
                 aria-hidden="true"
                 className="absolute -left-[37px] top-1 flex h-3 w-3 items-center justify-center sm:-left-[45px]"

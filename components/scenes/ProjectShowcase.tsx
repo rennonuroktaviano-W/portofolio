@@ -2,6 +2,7 @@
 
 import { projects, type Project } from "@/data/projects";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 const featured: Project[] = [projects[0]!, projects[2]!];
 
@@ -33,8 +34,11 @@ function VisualPlaceholder({ project }: { project: Project }) {
 }
 
 export function ProjectShowcase() {
+  const sectionRef = useReveals<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="scene-showcase"
       aria-labelledby="showcase-title"
       className="scene"
@@ -56,11 +60,11 @@ export function ProjectShowcase() {
               aria-labelledby={`file-${project.id}-title`}
               className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10"
             >
-              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+              <div className={index % 2 === 1 ? "lg:order-2" : ""} data-reveal data-reveal-delay={index % 2 === 1 ? 120 : 0}>
                 <VisualPlaceholder project={project} />
               </div>
 
-              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+              <div className={index % 2 === 1 ? "lg:order-1" : ""} data-reveal data-reveal-delay={index % 2 === 1 ? 0 : 120}>
                 <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.4em] text-gold">
                   evidence file {String(index + 1).padStart(2, "0")} — {project.year}
                 </p>

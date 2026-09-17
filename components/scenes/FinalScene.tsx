@@ -1,11 +1,58 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { site } from "@/data/site";
 import { Skyline } from "@/components/ui/Skyline";
+import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
 
 export function FinalScene() {
+  const sectionRef = useReveals<HTMLElement>();
+  const skyRef = useRef<HTMLDivElement | null>(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const sky = skyRef.current;
+    if (!section || !sky || reduced) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sky,
+        { scale: 1.28, y: 70 },
+        {
+          scale: 1,
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        "[data-final-copy]",
+        { autoAlpha: 0, y: 42 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 55%",
+            once: true,
+          },
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, [reduced, sectionRef]);
+
   return (
     <section
+      ref={sectionRef}
       id="scene-final"
       aria-labelledby="final-title"
       className="scene"
@@ -15,8 +62,17 @@ export function FinalScene() {
         aria-hidden="true"
         className="absolute inset-0 bg-[linear-gradient(to_top,#08090b_0%,#111827_60%,#0a0c12_100%)]"
       />
-      <Skyline />
-      <div className="scene-inner relative z-20 flex min-h-svh flex-col items-center justify-end pb-40 pt-24 text-center">
+      <div
+        ref={skyRef}
+        className="absolute inset-0 will-change-transform"
+        aria-hidden="true"
+      >
+        <Skyline />
+      </div>
+      <div
+        data-final-copy
+        className="scene-inner relative z-20 flex min-h-svh flex-col items-center justify-end pb-40 pt-24 text-center"
+      >
         <p className="font-mono text-xs uppercase tracking-[0.4em] text-gold">
           closing caption
         </p>

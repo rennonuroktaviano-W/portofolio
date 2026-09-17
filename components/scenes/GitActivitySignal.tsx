@@ -2,14 +2,17 @@
 
 import { projects } from "@/data/projects";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 export function GitActivitySignal() {
+  const sectionRef = useReveals<HTMLElement>();
   const repoProjects = projects.filter((p) =>
     p.links.some((l) => l.label === "github")
   );
 
   return (
     <section
+      ref={sectionRef}
       id="scene-git"
       aria-labelledby="git-title"
       className="scene"
@@ -25,8 +28,8 @@ export function GitActivitySignal() {
         />
 
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {repoProjects.map((project) => (
-            <li key={project.id}>
+          {repoProjects.map((project, index) => (
+            <li key={project.id} data-reveal data-reveal-delay={(index % 3) * 100}>
               <article className="comic-panel bg-midnight/70 p-5">
                 <div className="flex items-center justify-between gap-3">
                   <p className="truncate font-mono text-xs text-cream">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { socials } from "@/data/socials";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 type FormState = "idle" | "sending" | "sent";
 
@@ -29,7 +30,7 @@ function ContactForm() {
   const red = <span className="text-neon">*</span>;
 
   return (
-    <div className="comic-panel paper-sheet p-6 sm:p-8">
+    <div className="comic-panel paper-sheet p-6 sm:p-8" data-reveal data-reveal-delay={140}>
       {state === "sent" ? (
         <div className="flex flex-col items-center gap-4 py-12 text-center">
           <span
@@ -117,8 +118,11 @@ function ContactForm() {
 }
 
 export function ContactSignal() {
+  const sectionRef = useReveals<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="scene-contact"
       aria-labelledby="contact-title"
       className="scene"
@@ -142,7 +146,7 @@ export function ContactSignal() {
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6" data-reveal>
             <a
               href={socials.emailHref}
               className="comic-panel bg-midnight/70 p-6 transition-colors hover:border-yellow/50"

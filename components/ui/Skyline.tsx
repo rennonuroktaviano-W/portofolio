@@ -76,12 +76,12 @@ export function Skyline() {
       aria-hidden="true"
       className="absolute inset-x-0 bottom-0 z-10 flex h-full w-full flex-col justify-end"
     >
-      <div className="flex h-[62%] w-full items-end justify-between px-1 opacity-70">
+      <div className="sky-row-back flex h-[62%] w-full items-end justify-between px-1 opacity-70 will-change-transform">
         {rowB.map((b, i) => (
           <BuildingBlock key={`b-${i}`} b={b} />
         ))}
       </div>
-      <div className="flex h-[70%] w-full items-end justify-between px-1 opacity-90">
+      <div className="sky-row-front flex h-[70%] w-full items-end justify-between px-1 opacity-90 will-change-transform">
         {rowA.map((b, i) => (
           <BuildingBlock key={`a-${i}`} b={b} />
         ))}

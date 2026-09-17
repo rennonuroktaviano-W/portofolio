@@ -2,6 +2,7 @@
 
 import { profile } from "@/data/profile";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 const meta = [
   { label: "STATUS", value: profile.status, tone: "text-neon" },
@@ -12,8 +13,11 @@ const meta = [
 ] as const;
 
 export function AboutCaseFile() {
+  const sectionRef = useReveals<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="scene-about"
       aria-labelledby="about-title"
       className="scene"
@@ -33,7 +37,7 @@ export function AboutCaseFile() {
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
-          <div className="comic-panel paper-sheet relative p-6 sm:p-8">
+          <div className="comic-panel paper-sheet relative p-6 sm:p-8" data-reveal>
             <div className="mb-5 flex items-center justify-between">
               <h3 className="font-display text-2xl font-semibold uppercase text-cream">
                 Subject Profile
@@ -62,7 +66,7 @@ export function AboutCaseFile() {
           </div>
 
           <div className="flex flex-col gap-6">
-            <div className="comic-panel relative p-6 sm:p-8">
+            <div className="comic-panel relative p-6 sm:p-8" data-reveal>
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
                 Personal statement
               </p>
@@ -73,7 +77,7 @@ export function AboutCaseFile() {
               </div>
             </div>
 
-            <div className="comic-panel relative flex flex-col justify-between gap-6 p-6 sm:flex-row sm:p-8">
+            <div className="comic-panel relative flex flex-col justify-between gap-6 p-6 sm:flex-row sm:p-8" data-reveal>
               <div>
                 <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
                   Current interests
@@ -91,7 +95,7 @@ export function AboutCaseFile() {
               </div>
             </div>
 
-            <blockquote className="comic-panel relative bg-midnight/60 p-6 sm:p-8">
+            <blockquote className="comic-panel relative bg-midnight/60 p-6 sm:p-8" data-reveal>
               <p
                 aria-hidden="true"
                 className="absolute -top-4 left-5 bg-midnight px-2 font-display text-5xl leading-none text-yellow/60"

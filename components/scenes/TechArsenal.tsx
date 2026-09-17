@@ -2,10 +2,14 @@
 
 import { skillCategories } from "@/data/skills";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 export function TechArsenal() {
+  const sectionRef = useReveals<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="scene-arsenal"
       aria-labelledby="arsenal-title"
       className="scene"
@@ -32,6 +36,8 @@ export function TechArsenal() {
             <div
               key={category.id}
               className="comic-panel paper-sheet flex flex-col p-5 sm:p-6"
+              data-reveal
+              data-reveal-delay={(ci % 3) * 110}
             >
               <div className="mb-5 flex items-baseline justify-between border-b border-cream/15 pb-3">
                 <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-yellow">

@@ -2,10 +2,14 @@
 
 import { RetroTerminal } from "@/components/terminal/RetroTerminal";
 import { SceneHeader } from "@/components/ui/SceneHeader";
+import { useReveals } from "@/lib/motion";
 
 export function DeveloperLab() {
+  const sectionRef = useReveals<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="scene-lab"
       aria-labelledby="lab-title"
       className="scene"
@@ -29,7 +33,7 @@ export function DeveloperLab() {
         />
 
         <div className="grid items-start gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="comic-panel paper-sheet p-5 sm:p-7" data-lab-notes>
+          <div className="comic-panel paper-sheet p-5 sm:p-7" data-reveal data-lab-notes>
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
               Workshop memo
             </p>
@@ -51,7 +55,7 @@ export function DeveloperLab() {
             </ul>
           </div>
 
-          <div className="relative" data-lab-terminal>
+          <div className="relative" data-reveal data-reveal-delay={120} data-lab-terminal>
             <div
               aria-hidden="true"
               className="absolute -inset-x-4 -inset-y-3 -z-10 rounded-md bg-[radial-gradient(ellipse_at_50%_0%,rgba(230,184,74,0.12),transparent_65%)] blur-md"
