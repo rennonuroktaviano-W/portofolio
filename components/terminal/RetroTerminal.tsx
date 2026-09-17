@@ -6,19 +6,44 @@ import { skillCategories } from "@/data/skills";
 import { projects } from "@/data/projects";
 import { socials } from "@/data/socials";
 import { site } from "@/data/site";
+import { sceneDefinitions } from "@/lib/scenes";
 
 type Line = {
   text: string;
-  kind?: "cmd" | "out" | "ok" | "err" | "dim" | "bare";
+  kind?: "cmd" | "out" | "ok" | "err" | "dim" | "bare" | "jump";
 };
 
-const COMMANDS = ["help", "about", "skills", "projects", "contact", "clear"];
+const COMMANDS = [
+  "help",
+  "about",
+  "skills",
+  "projects",
+  "scenes",
+  "visit",
+  "contact",
+  "clear",
+  "exit",
+];
 
 const banners: Line[] = [
-  { text: "KODECITY TERMINAL v1.0.0 — RESTRICTED ACCESS", kind: "out" },
+  { text: "KODECITY TERMINAL v1.1.0 — RESTRICTED ACCESS", kind: "out" },
+  { text: "Uplink established. Rain registered.", kind: "dim" },
   { text: "Type 'help' to see available commands.", kind: "dim" },
   { text: "", kind: "bare" },
 ];
+
+function resolveScene(ref: string): string | null {
+  const q = ref.toLowerCase().trim();
+  const numeric = Number.parseInt(q, 10);
+  if (!Number.isNaN(numeric) && numeric >= 1 && numeric <= sceneDefinitions.length) {
+    return sceneDefinitions[numeric - 1]!.id;
+  }
+  return (
+    sceneDefinitions.find(
+      (s) => s.id === q || s.label.toLowerCase().includes(q)
+    )?.id ?? null
+  );
+}
 
 function runCommand(raw: string): Line[] {
   const cmd = raw.trim().toLowerCase();
@@ -30,7 +55,10 @@ function runCommand(raw: string): Line[] {
         { text: "  about     — developer dossier", kind: "out" },
         { text: "  skills    — the arsenal list", kind: "out" },
         { text: "  projects  — shipped case folders", kind: "out" },
+        { text: "  scenes    — map of the city blocks", kind: "out" },
+        { text: "  visit <n> — jump to a scene (e.g. visit 4)", kind: "out" },
         { text: "  contact   — open a channel to the subject", kind: "out" },
+        { text: "  exit      — leave through the final scene", kind: "out" },
         { text: "  clear     — wipe the screen", kind: "out" },
         { text: "", kind: "bare" },
         { text: "hint: hit TAB to autocomplete.", kind: "dim" },
@@ -82,6 +110,21 @@ function runCommand(raw: string): Line[] {
       ];
     case "clear":
       return [{ text: "__CLEAR__", kind: "bare" }];
+    case "scenes":
+      return [
+        { text: "city blocks (north → south):", kind: "ok" },
+        ...sceneDefinitions.map<Line>((scene, i) => ({
+          text: `  ${String(i + 1).padStart(2, " ")}  ${scene.label.padEnd(22)} ${scene.id}`,
+          kind: "out",
+        })),
+        { text: "", kind: "bare" },
+        { text: "use 'visit <n>' to jump straight to one.", kind: "dim" },
+      ];
+    case "exit":
+      return [
+        { text: "Good night. The city door is behind the credits.", kind: "dim" },
+        { text: "scene:final", kind: "jump" },
+      ];
     case "":
       return [{ text: "", kind: "bare" }];
     case "whoami":
@@ -92,6 +135,19 @@ function runCommand(raw: string): Line[] {
         },
       ];
     default:
+      if (raw.trim().toLowerCase().startsWith("visit")) {
+        const target = resolveScene(raw.trim().toLowerCase().slice(5));
+        if (target) {
+          return [
+            { text: `Routing to ${target}…`, kind: "ok" },
+            { text: `scene:${target}`, kind: "jump" },
+          ];
+        }
+        return [
+          { text: "! unknown block. try 'scenes' for a map.", kind: "err" },
+          { text: "usage: visit <scene-id | index>", kind: "dim" },
+        ];
+      }
       return [
         { text: `! unknown command: '${raw.trim()}'`, kind: "err" },
         { text: "Try 'help'.", kind: "dim" },
@@ -100,12 +156,27 @@ function runCommand(raw: string): Line[] {
 }
 
 export function RetroTerminal() {
-  const [lines, setLines] = useState<Line[]>(banners);
+  const [lines, setLines] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [cursorOn, setCursorOn] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let i = 0;
+    const timers: number[] = [];
+    const push = (delay: number) =>
+      timers.push(
+        window.setTimeout(() => {
+          setLines((prev) => [...prev, banners[i]!]);
+          i += 1;
+          if (i < banners.length) push(520 + i * 160);
+        }, delay)
+      );
+    push(260);
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, []);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
@@ -129,13 +200,21 @@ export function RetroTerminal() {
     setHistory((h) => [...h, value]);
     setHistoryIndex(-1);
     if (output.some((l) => l.text === "__CLEAR__")) {
-      setLines([{ text: "KODECITY TERMINAL v1.0.0 — screen wiped", kind: "dim" }]);
+      setLines([
+        { text: "KODECITY TERMINAL v1.1.0 — screen wiped", kind: "dim" },
+      ]);
     } else {
+      const jump = output.find((l) => l.kind === "jump")?.text.split(":")[1];
       setLines((prev) => [
         ...prev,
         { text: `${site.city.toLowerCase()}@guest:~$ ${value}`, kind: "cmd" },
-        ...output,
+        ...output.filter((l) => l.text !== "__CLEAR__"),
       ]);
+      if (jump) {
+        document
+          .getElementById(jump)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
     setInput("");
   };
@@ -179,7 +258,9 @@ export function RetroTerminal() {
                   : line.kind === "ok"
                     ? "text-[#8fcb7f]"
                     : line.kind === "dim"
-                      ? "opacity-60"
+                    ? "opacity-60"
+                    : line.kind === "jump"
+                      ? "opacity-50 text-gold"
                       : ""
             }
           >
