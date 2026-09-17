@@ -3,19 +3,20 @@ type Building = {
   h: number;
   lit: boolean;
   antenna?: number;
+  twinkle?: boolean;
 };
 
 const rowA: Building[] = [
   { w: 7, h: 38, lit: false, antenna: 10 },
   { w: 5, h: 62, lit: true },
-  { w: 8, h: 46, lit: true },
+  { w: 8, h: 46, lit: true, twinkle: true },
   { w: 4, h: 78, lit: false, antenna: 14 },
   { w: 6, h: 55, lit: true },
   { w: 9, h: 40, lit: false },
   { w: 5, h: 70, lit: true },
   { w: 7, h: 50, lit: true },
   { w: 4, h: 34, lit: false },
-  { w: 6, h: 64, lit: true },
+  { w: 6, h: 64, lit: true, twinkle: true },
   { w: 8, h: 30, lit: false },
   { w: 5, h: 48, lit: true },
   { w: 7, h: 42, lit: false, antenna: 8 },
@@ -28,10 +29,10 @@ const rowB: Building[] = [
   { w: 5, h: 60, lit: true },
   { w: 9, h: 34, lit: false },
   { w: 6, h: 50, lit: true },
-  { w: 8, h: 28, lit: true },
+  { w: 8, h: 28, lit: true, twinkle: true },
   { w: 5, h: 66, lit: false, antenna: 12 },
   { w: 7, h: 38, lit: true },
-  { w: 9, h: 30, lit: true },
+  { w: 9, h: 30, lit: true, twinkle: true },
   { w: 6, h: 52, lit: false },
   { w: 8, h: 40, lit: true },
   { w: 5, h: 56, lit: true },
@@ -53,7 +54,9 @@ function BuildingBlock({ b, className }: { b: Building; className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`relative shrink-0 ${className ?? ""}`}
+      className={`relative shrink-0 ${b.twinkle ? "window-twinkle " : ""}${
+        className ?? ""
+      }`}
       style={{
         width: `${b.w}%`,
         height: `${b.h}%`,

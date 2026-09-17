@@ -162,6 +162,18 @@
   80% { opacity: 1; }
 }
 
+@keyframes window-twinkle {
+  0%, 100% { filter: brightness(1); }
+  43% { filter: brightness(1); }
+  47% { filter: brightness(0.85); }
+  51% { filter: brightness(1.3); }
+  55% { filter: brightness(1); }
+}
+
+.window-twinkle {
+  animation: window-twinkle 7s ease-in-out infinite;
+}
+
 @keyframes comic-burst {
   0% {
     transform: scale(0.35) rotate(-8deg);
@@ -231,5 +243,45 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  .grain-overlay,
+  .fog-layer,
+  canvas,
+  .crt-overlay,
+  .vignette,
+  .scene-indicator {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  body {
+    color: #000000 !important;
+  }
+
+  .scene {
+    break-inside: avoid;
+    padding: 0.5in 0 !important;
+  }
+
+  .scene-inner {
+    max-width: 100% !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    color: #444444;
+    font-size: 0.8em;
+  }
+
+  .sky-row-back,
+  .sky-row-front {
+    display: none;
   }
 }
