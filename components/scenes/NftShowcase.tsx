@@ -17,7 +17,6 @@ export function NftShowcase() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const pieces = nftCollection.artworks;
-  const heroArtwork = pieces[0];
 
   useEffect(() => {
     const pairs: { pin: HTMLDivElement | null; track: HTMLElement | null }[] = [
@@ -82,80 +81,9 @@ export function NftShowcase() {
           title={nftCollection.title}
           caption={nftCollection.caption}
         />
-
-        <ul
-          aria-label="Creative workflow"
-          className="mb-12 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-fog"
-        >
-          {nftCollection.flow.map((step, i) => (
-            <li key={step} className="flex items-center gap-3">
-              {i > 0 ? (
-                <span aria-hidden="true" className="text-gold">
-                  →
-                </span>
-              ) : null}
-              <span>{step}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          <div data-reveal>
-            <button
-              type="button"
-              onClick={() => setActiveIndex(0)}
-              aria-label={`Open artwork ${heroArtwork.title} in the viewer`}
-              className="group relative block w-full overflow-hidden border border-yellow/40 bg-midnight/70 text-left shadow-[0_30px_80px_-40px_rgba(230,184,74,0.4)] transition-colors duration-300 hover:border-yellow focus-visible:border-yellow"
-            >
-              <span className="absolute left-4 top-4 z-10 border border-yellow/60 bg-midnight/80 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-yellow">
-                featured
-              </span>
-              <span className="block w-full transition-transform duration-500 group-hover:scale-[1.03]">
-                <ArtworkCover
-                  artwork={heroArtwork}
-                  sizes="(min-width: 1024px) 44vw, 100vw"
-                  priority
-                />
-              </span>
-            </button>
-          </div>
-
-          <div data-reveal data-reveal-delay={120}>
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-              featured piece
-            </p>
-            <h3 className="font-display text-3xl font-semibold uppercase tracking-wide text-cream sm:text-4xl">
-              {heroArtwork.title}
-            </h3>
-            <p className="mt-2 font-mono text-xs uppercase tracking-widest text-fog">
-              {heroArtwork.character} · {heroArtwork.tags.join(" · ")}
-            </p>
-
-            <p className="mt-6 text-sm leading-relaxed text-cream/85 sm:text-base">
-              {nftCollection.description}
-            </p>
-            <p className="mt-4 border-l-2 border-blood/60 pl-4 font-mono text-[11px] uppercase tracking-widest text-neon/90">
-              {nftCollection.notes[2]}
-            </p>
-
-            <p className="mb-3 mt-8 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-              creative stack
-            </p>
-            <ul className="flex flex-wrap gap-2">
-              {nftCollection.stack.map((tag) => (
-                <li
-                  key={tag}
-                  className="border border-gold/40 bg-gold/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-gold"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </div>
 
-      <div ref={framesPinRef} className="mt-20 overflow-hidden">
+      <div ref={framesPinRef} className="mt-16 overflow-hidden">
         <div className="scene-inner">
           <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">
@@ -234,13 +162,9 @@ export function NftShowcase() {
           aria-label="Creative workflow steps"
           className="flex flex-col gap-4 px-5 sm:px-8 lg:w-max lg:flex-row lg:items-stretch lg:gap-6 lg:px-10 lg:will-change-transform"
         >
-          {nftCollection.process.map((step, i) => (
+          {nftCollection.process.map((step) => (
             <li key={step.step} className="shrink-0 lg:w-[26rem]">
-              <div
-                className="comic-panel paper-sheet h-full p-5"
-                data-reveal
-                data-reveal-delay={(i % 5) * 70}
-              >
+              <div className="comic-panel paper-sheet h-full p-5">
                 <span className="font-display text-4xl font-semibold leading-none text-outline-gold">
                   {step.step}
                 </span>
