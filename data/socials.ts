@@ -9,8 +9,8 @@ export const socials: {
   emailHref: string;
   links: SocialLink[];
 } = {
-  email: "hello@rennonuroktaviano.dev",
-  emailHref: "mailto:hello@rennonuroktaviano.dev",
+  email: "rennonuroktaviano@gmail.com",
+  emailHref: "mailto:rennonuroktaviano@gmail.com",
   links: [
     {
       label: "GitHub",
