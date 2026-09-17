@@ -1,0 +1,69 @@
+"use client";
+
+import { milestones } from "@/data/experience";
+import { SceneHeader } from "@/components/ui/SceneHeader";
+
+export function ExperienceTrack() {
+  return (
+    <section
+      id="scene-experience"
+      aria-labelledby="experience-title"
+      className="scene"
+      style={{ padding: "10svh 0" }}
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,#08090b,#0d0f16_40%,#08090b)]"
+      />
+      <div className="scene-inner">
+        <SceneHeader
+          id="experience-title"
+          chapter={7}
+          label="the night train · route log"
+          title="Experience Timeline"
+          caption="The route this decade took — every stop a station where something learned."
+        />
+
+        <ol className="relative space-y-10 border-l border-cream/15 pl-8 sm:pl-10">
+          {milestones.map((milestone) => (
+            <li key={milestone.id} className="relative">
+              <span
+                aria-hidden="true"
+                className="absolute -left-[37px] top-1 flex h-3 w-3 items-center justify-center sm:-left-[45px]"
+              >
+                <span className="h-2 w-2 rounded-full bg-midnight ring-2 ring-yellow" />
+              </span>
+              <article className="comic-panel bg-midnight/70 p-5 transition-colors hover:border-gold/50 sm:p-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-display text-xl font-semibold uppercase tracking-wide text-cream">
+                    {milestone.title}
+                  </h3>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-gold">
+                    {milestone.period}
+                  </span>
+                </div>
+                <p className="mt-1 font-mono text-xs uppercase tracking-widest text-fog">
+                  {milestone.org} ·{" "}
+                  <span className="text-yellow">{milestone.type}</span>
+                </p>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fog">
+                  {milestone.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {milestone.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border border-cream/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-cream/70"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
