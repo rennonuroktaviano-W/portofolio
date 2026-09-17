@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { site } from "@/data/site";
 import { Skyline } from "@/components/ui/Skyline";
 import { Vignette } from "@/components/effects/Vignette";
@@ -158,18 +159,25 @@ export function HeroCityScene() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6" data-hero-item>
-          <a
-            href="#scene-archive"
-            className="group relative inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
+          <motion.div
+            whileHover={{ x: 8 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 380, damping: 24 }}
+            className="inline-flex"
           >
-            ENTER THE ARCHIVE
-            <span
-              aria-hidden="true"
-              className="inline-block transition-transform group-hover:translate-x-1"
+            <a
+              href="#scene-archive"
+              className="group inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
             >
-              →
-            </span>
-          </a>
+              ENTER THE ARCHIVE
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
+          </motion.div>
           <a
             href="#scene-identity"
             className="font-mono text-xs uppercase tracking-[0.3em] text-fog transition-colors hover:text-cream"

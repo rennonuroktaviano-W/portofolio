@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { socials } from "@/data/socials";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
@@ -128,13 +129,15 @@ function ContactForm() {
             </p>
           ) : null}
 
-          <button
+          <motion.button
             type="submit"
             disabled={state === "sending"}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 380, damping: 24 }}
             className="mt-6 inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight disabled:opacity-60"
           >
             {state === "sending" ? "transmitting…" : "send signal"} →
-          </button>
+          </motion.button>
         </form>
       )}
     </div>
