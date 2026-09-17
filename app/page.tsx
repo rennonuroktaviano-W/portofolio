@@ -4,6 +4,7 @@ import { AboutCaseFile } from "@/components/scenes/AboutCaseFile";
 import { TechArsenal } from "@/components/scenes/TechArsenal";
 import { ProjectArchive } from "@/components/scenes/ProjectArchive";
 import { ProjectShowcase } from "@/components/scenes/ProjectShowcase";
+import { NftShowcase } from "@/components/scenes/NftShowcase";
 import { ExperienceTrack } from "@/components/scenes/ExperienceTrack";
 import { DeveloperLab } from "@/components/scenes/DeveloperLab";
 import { GitActivitySignal } from "@/components/scenes/GitActivitySignal";
@@ -36,6 +37,7 @@ export default function Home() {
         <TechArsenal />
         <ProjectArchive />
         <ProjectShowcase />
+        <NftShowcase />
         <ExperienceTrack />
         <DeveloperLab />
         <GitActivitySignal />

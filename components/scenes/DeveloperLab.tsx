@@ -26,7 +26,7 @@ export function DeveloperLab() {
       <div className="scene-inner">
         <SceneHeader
           id="lab-title"
-          chapter={8}
+          chapter={9}
           label="the workshop"
           title="Developer Lab"
           caption="A working CRT, restored and safe. Type a command — nothing leaves this room."

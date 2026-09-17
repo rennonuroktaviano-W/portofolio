@@ -21,7 +21,7 @@ export function GitActivitySignal() {
       <div className="scene-inner">
         <SceneHeader
           id="git-title"
-          chapter={9}
+          chapter={10}
           label="monitor room · optional feed"
           title="Activity Signal"
           caption="Live-ish pulses from the version control tower. Static stamps — refreshed on every deploy."

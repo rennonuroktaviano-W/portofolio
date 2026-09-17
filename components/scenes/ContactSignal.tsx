@@ -166,7 +166,7 @@ export function ContactSignal() {
       <div className="scene-inner">
         <SceneHeader
           id="contact-title"
-          chapter={10}
+          chapter={11}
           label="rooftop radio room"
           title="Contact Signal"
           caption="The city&apos;s switchboard is open. Dial a channel or transmit a message directly."

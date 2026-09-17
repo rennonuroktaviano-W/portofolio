@@ -26,7 +26,7 @@ export function SceneHeader({ chapter, label, title, caption, id }: SceneHeaderP
         </p>
       ) : null}
       <div aria-hidden="true" className="mt-6 h-px w-24 bg-gradient-to-r from-gold to-transparent">
-        <i className="block h-px w-3 -translate-x-9 bg-yellow" />
+        <i className="block h-px w-3 -translate-x-4 bg-yellow" />
       </div>
     </header>
   );

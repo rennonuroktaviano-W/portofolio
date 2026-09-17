@@ -50,7 +50,7 @@ export function ExperienceTrack() {
       <div className="scene-inner">
         <SceneHeader
           id="experience-title"
-          chapter={7}
+          chapter={8}
           label="the night train · route log"
           title="Experience Timeline"
           caption="The route this decade took — every stop a station where something learned."

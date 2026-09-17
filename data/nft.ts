@@ -1,0 +1,157 @@
+export type NftArtwork = {
+  id: string;
+  title: string;
+  character: string;
+  image: string;
+  description: string;
+  tags: string[];
+};
+
+export type NftCreativeStep = {
+  step: string;
+  title: string;
+  short: string;
+};
+
+export const nftCollection: {
+  label: string;
+  title: string;
+  caption: string;
+  description: string;
+  notes: string[];
+  flow: string[];
+  stack: string[];
+  process: NftCreativeStep[];
+  character: string;
+  featured: NftArtwork;
+  artworks: NftArtwork[];
+} = {
+  label: "the creative wing · concept to collectible",
+  title: "AI-Assisted NFT Collection",
+  caption:
+    "An experimental studio wing — character design and digital collectibles explored through AI-assisted image generation. A learning exercise in how generative tools become part of a human creative workflow, not the whole story.",
+  description:
+    "I explored AI-assisted creative workflows to develop a series of NFT-style digital collectibles centered around a consistent character identity. The project involved concept development, visual direction, iterative generation, outfit and accessory variations, background studies, and refinement of selected artworks.",
+  notes: [
+    "The single recurring identity is HRLN — a rain-coat silhouette the city already knows.",
+    "Every frame is a real experiment run through image-generation tooling, then selected and refined by hand.",
+    "This is creative research — not a minted collection, not a marketplace, not a sales pitch.",
+  ],
+  flow: [
+    "concept",
+    "direction",
+    "generation",
+    "iteration",
+    "refinement",
+    "artwork",
+  ],
+  stack: [
+    "AI-Assisted",
+    "Generative AI",
+    "Image Prompting",
+    "ChatGPT",
+    "Gemini",
+    "DeepSeek",
+    "Claude",
+    "Creative Direction",
+    "Character Design",
+    "Visual Iteration",
+  ],
+  process: [
+    {
+      step: "01",
+      title: "Concept",
+      short:
+        "Designing the character identity — silhouette, mood, and the fictional street it belongs to.",
+    },
+    {
+      step: "02",
+      title: "Generation",
+      short:
+        "Prompt experiments across ChatGPT, Gemini, DeepSeek, and Claude to discover visual directions.",
+    },
+    {
+      step: "03",
+      title: "Iteration",
+      short:
+        "Pushing outfits, accessories, lighting, and backgrounds — one identity, many variations.",
+    },
+    {
+      step: "04",
+      title: "Refinement",
+      short:
+        "Selecting the strongest results and refining them into final, presentable pieces.",
+    },
+  ],
+  character: "HRLN",
+  featured: {
+    id: "hrln-origin",
+    title: "The Device",
+    character: "HRLN",
+    image: "/nft/nft-featured.webp",
+    description:
+      "The anchor artwork — the character's base identity, refined into a single confident frame.",
+    tags: ["Character", "Base Style", "Concept"],
+  },
+  artworks: [
+    {
+      id: "hrln-rain",
+      title: "Rain Version",
+      character: "HRLN",
+      image: "/nft/nft-01.webp",
+      description:
+        "Outfit variation under the city's signature downpour — generated, then cleaned up by hand.",
+      tags: ["Outfit", "Rain"],
+    },
+    {
+      id: "hrln-midnight",
+      title: "Midnight Shift",
+      character: "HRLN",
+      image: "/nft/nft-02.webp",
+      description:
+        "A lighting and palette study — the same silhouette pushed into the late-night blue.",
+      tags: ["Lighting", "Night"],
+    },
+    {
+      id: "hrln-look",
+      title: "Accessory Pass",
+      character: "HRLN",
+      image: "/nft/nft-03.webp",
+      description:
+        "Accessory variation defining the character's everyday loadout across the collection.",
+      tags: ["Accessories", "Variant"],
+    },
+    {
+      id: "hrln-redroom",
+      title: "Red Room",
+      character: "HRLN",
+      image: "/nft/nft-04.webp",
+      description:
+        "A background study — the character trapped in a small, neon-lit interior.",
+      tags: ["Background", "Interior"],
+    },
+    {
+      id: "hrln-cut",
+      title: "Contrast Cut",
+      character: "HRLN",
+      image: "/nft/nft-05.webp",
+      description:
+        "A silhouette-first iteration testing how far the design can read at a glance.",
+      tags: ["Style", "Silhouette"],
+    },
+    {
+      id: "hrln-cast",
+      title: "Final Cast",
+      character: "HRLN",
+      image: "/nft/nft-06.webp",
+      description:
+        "A selected piece from the refinement pass — the strongest expression of the run.",
+      tags: ["Refined", "Final"],
+    },
+  ],
+};
+
+export const nftGallery = [
+  nftCollection.featured,
+  ...nftCollection.artworks,
+];
