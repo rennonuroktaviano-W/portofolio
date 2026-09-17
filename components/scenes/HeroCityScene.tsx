@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { site } from "@/data/site";
-import { Skyline } from "@/components/ui/Skyline";
+import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { Vignette } from "@/components/effects/Vignette";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
@@ -48,7 +48,7 @@ export function HeroCityScene() {
         }
       );
 
-      gsap.to(".sky-row-front", {
+      gsap.to(".gotham-front", {
         y: 150,
         ease: "none",
         scrollTrigger: {
@@ -59,7 +59,7 @@ export function HeroCityScene() {
         },
       });
 
-      gsap.to(".sky-row-back", {
+      gsap.to(".gotham-back", {
         y: 55,
         ease: "none",
         scrollTrigger: {
@@ -129,15 +129,24 @@ export function HeroCityScene() {
               {site.city}
             </p>
           </div>
-          <Skyline />
+          <GothamSkyline />
         </div>
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,9,11,0.55)_0%,transparent_45%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_top,rgba(8,9,11,0.85),transparent_100%)]"
+        />
 
         <Vignette />
       </div>
 
       <div
         data-hero-copy
-        className="scene-inner relative z-20 flex min-h-svh flex-col justify-end pb-28 will-change-transform sm:justify-center sm:pb-0"
+        className="scene-inner relative z-20 flex min-h-svh flex-col items-center justify-end pb-28 text-center will-change-transform sm:justify-center sm:pb-0"
       >
         <p
           className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-gold"
@@ -147,20 +156,20 @@ export function HeroCityScene() {
         </p>
         <h1
           id="hero-title"
-          className="max-w-4xl font-display text-[clamp(2.8rem,10vw,7.5rem)] font-semibold uppercase leading-[0.9] tracking-tight text-cream"
+          className="mx-auto max-w-4xl font-display text-[clamp(2.8rem,10vw,7.5rem)] font-semibold uppercase leading-[0.9] tracking-tight text-cream"
           data-hero-item
         >
           <span className="block text-glow-yellow">{site.brand}</span>
           <span className="block text-outline">{t("hero.role")}</span>
         </h1>
         <p
-          className="mt-6 max-w-xl text-sm leading-relaxed text-fog sm:text-lg"
+          className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-fog sm:text-lg"
           data-hero-item
         >
           {t("hero.tagline")}
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-6" data-hero-item>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6" data-hero-item>
           <motion.div
             whileHover={{ x: 8 }}
             whileTap={{ scale: 0.97 }}

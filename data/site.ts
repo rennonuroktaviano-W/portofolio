@@ -1,6 +1,6 @@
 export const site = {
-  name: "Renno Nuroktaviano",
-  brand: "RENNO NUROKTAVIANO",
+  name: "Renno Nur Oktaviano",
+  brand: "RENNO NUR OKTAVIANO",
   initials: "RN",
   role: "Full-Stack Developer",
   tagline: "Building web systems that keep working after midnight.",
@@ -9,9 +9,9 @@ export const site = {
   established: 2024,
   url: "https://rennonuroktaviano.vercel.app",
   metaDescription:
-    "Cinematic neo-noir developer portfolio of Renno Nuroktaviano — full-stack developer building resilient web experiences in a rainy fictional metropolis.",
+    "Cinematic neo-noir developer portfolio of Renno Nur Oktaviano — full-stack developer building resilient web experiences in a rainy fictional metropolis.",
   keywords: [
-    "Renno Nuroktaviano",
+    "Renno Nur Oktaviano",
     "full-stack developer",
     "web developer",
     "Next.js",

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { profile } from "@/data/profile";
 import { site } from "@/data/site";
+import { Searchlight } from "@/components/effects/Searchlight";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
 
@@ -99,8 +100,9 @@ export function IdentityReveal() {
           </p>
         </div>
 
-        <div className="mx-auto w-full max-w-sm" data-panel-right>
-          <div className="identity-window comic-panel paper-sheet relative aspect-[4/5] origin-center will-change-transform overflow-hidden">
+        <div className="relative mx-auto w-full max-w-sm" data-panel-right>
+          <Searchlight />
+          <div className="identity-window comic-panel paper-sheet relative z-10 aspect-[4/5] origin-center will-change-transform overflow-hidden">
             <div
               aria-hidden="true"
               className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_50%_35%,#1b1e26,#0d0f14_70%)]"

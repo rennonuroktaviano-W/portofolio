@@ -19,7 +19,7 @@ export const socials: {
     },
     {
       label: "LinkedIn",
-      handle: "Renno Nuroktaviano",
+      handle: "Renno Nur Oktaviano",
       url: "https://www.linkedin.com/in/rennonuroktaviano",
     },
     {

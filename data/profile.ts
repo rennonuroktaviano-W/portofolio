@@ -14,7 +14,7 @@ export type Profile = {
 };
 
 export const profile: Profile = {
-  displayName: "RENNO NUROKTAVIANO",
+  displayName: "RENNO NUR OKTAVIANO",
   developerTitle: "Full-Stack Developer",
   positioning:
     "I build dependable web systems that keep the lights on after midnight.",

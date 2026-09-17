@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { site } from "@/data/site";
-import { Skyline } from "@/components/ui/Skyline";
+import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
 
@@ -69,7 +69,7 @@ export function FinalScene() {
         className="absolute inset-0 will-change-transform"
         aria-hidden="true"
       >
-        <Skyline />
+        <GothamSkyline />
       </div>
       <div
         data-final-copy
