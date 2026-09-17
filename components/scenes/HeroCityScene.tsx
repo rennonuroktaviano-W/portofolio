@@ -6,10 +6,12 @@ import { site } from "@/data/site";
 import { Skyline } from "@/components/ui/Skyline";
 import { Vignette } from "@/components/effects/Vignette";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function HeroCityScene() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t } = useI18n();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -141,7 +143,7 @@ export function HeroCityScene() {
           className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-gold"
           data-hero-item
         >
-          {site.city} · a rainy metropolis of interfaces
+          {t("hero.cityLine", { city: site.city })}
         </p>
         <h1
           id="hero-title"
@@ -149,13 +151,13 @@ export function HeroCityScene() {
           data-hero-item
         >
           <span className="block text-glow-yellow">{site.brand}</span>
-          <span className="block text-outline">{site.role}</span>
+          <span className="block text-outline">{t("hero.role")}</span>
         </h1>
         <p
           className="mt-6 max-w-xl text-sm leading-relaxed text-fog sm:text-lg"
           data-hero-item
         >
-          {site.tagline}
+          {t("hero.tagline")}
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6" data-hero-item>
@@ -169,7 +171,7 @@ export function HeroCityScene() {
               href="#scene-archive"
               className="group inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
             >
-              ENTER THE ARCHIVE
+              {t("hero.enterArchive")}
               <span
                 aria-hidden="true"
                 className="inline-block transition-transform group-hover:translate-x-1"
@@ -182,7 +184,7 @@ export function HeroCityScene() {
             href="#scene-identity"
             className="font-mono text-xs uppercase tracking-[0.3em] text-fog transition-colors hover:text-cream"
           >
-            Read on —
+            {t("hero.readOn")}
           </a>
         </div>
       </div>
@@ -192,7 +194,7 @@ export function HeroCityScene() {
         className="absolute inset-x-0 bottom-6 z-30 flex justify-center"
       >
         <div className="border border-cream/20 bg-midnight/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] text-fog">
-          scroll to descend
+          {t("hero.scrollToDescend")}
         </div>
       </div>
     </section>

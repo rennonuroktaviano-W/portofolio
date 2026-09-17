@@ -4,11 +4,13 @@ import { useEffect, useRef } from "react";
 import { profile } from "@/data/profile";
 import { site } from "@/data/site";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function IdentityReveal() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t } = useI18n();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -78,22 +80,22 @@ export function IdentityReveal() {
       >
         <div className="max-w-xl" data-panel-left>
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-gold">
-            scene 02 · introduction
+            {t("identity.intro")}
           </p>
           <h2
             id="identity-title"
             className="font-display text-4xl font-semibold uppercase leading-[0.95] text-cream sm:text-5xl"
           >
-            So the city asks…
+            {t("identity.titleAsk")}
             <span className="block text-outline-gold">
-              who&apos;s behind the lights?
+              {t("identity.titleWho")}
             </span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-fog sm:text-lg">
-            {profile.shortBio}
+            {t("profile.shortBio")}
           </p>
           <p className="mt-4 max-w-md border-l-2 border-yellow/50 pl-4 font-mono text-sm text-cream/80">
-            {profile.positioning}
+            {t("profile.positioning")}
           </p>
         </div>
 
@@ -112,7 +114,7 @@ export function IdentityReveal() {
               />
             </div>
             <div className="absolute inset-x-3 bottom-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-midnight">
-              <span className="bg-yellow px-2 py-0.5">DEV PROFILE</span>
+              <span className="bg-yellow px-2 py-0.5">{t("identity.devProfile")}</span>
               <span className="bg-midnight px-2 py-0.5 text-cream">
                 {profile.caseNumber}
               </span>

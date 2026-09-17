@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
+import { useI18n } from "@/lib/i18n/provider";
 
 const STORAGE_KEY = "kodecity:ambience";
 
@@ -102,6 +103,7 @@ export function AmbientAudioControl() {
   const ctxRef = useRef<AudioContext | null>(null);
   const graphRef = useRef<ReturnType<typeof buildGraph> | null>(null);
   const [on, setOn] = useStateFromStorage();
+  const { t } = useI18n();
 
   const toggle = () => {
     const next = !on;
@@ -143,7 +145,7 @@ export function AmbientAudioControl() {
       type="button"
       onClick={toggle}
       aria-pressed={on}
-      aria-label={on ? "Disable ambient sound" : "Enable ambient sound"}
+      aria-label={on ? t("audio.disable") : t("audio.enable")}
       className="fixed bottom-4 left-4 z-50 flex items-center gap-2 rounded-sm border border-cream/25 bg-midnight/80 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-cream backdrop-blur-sm transition-colors hover:border-yellow hover:text-yellow"
     >
       {on ? (
@@ -152,7 +154,7 @@ export function AmbientAudioControl() {
         <VolumeOff aria-hidden="true" className="h-4 w-4 text-fog" />
       )}
       <span className="hidden sm:inline">
-        ambience: {on ? "on" : "off"}
+        {on ? t("audio.ambienceOn") : t("audio.ambienceOff")}
       </span>
     </button>
   );

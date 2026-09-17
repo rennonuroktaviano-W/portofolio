@@ -5,6 +5,8 @@ import "./globals.css";
 import { site } from "@/data/site";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
+import { I18nProvider } from "@/lib/i18n/provider";
+import { LOCALE_KEY, languages } from "@/lib/i18n/languages";
 
 const personLd = {
   "@context": "https://schema.org",
@@ -86,11 +88,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${oswald.variable} ${manrope.variable} ${jetbrains.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_KEY)});var codes=${JSON.stringify(languages.map((x) => x.code))};if(l&&codes.indexOf(l)>-1){document.documentElement.lang=l;}}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-full">
-        {children}
+        <I18nProvider>{children}</I18nProvider>
         <noscript>
           <p className="fixed bottom-4 right-4 z-[90] border border-gold/40 bg-midnight/90 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-gold">
             no-js mode: this city rains in silence

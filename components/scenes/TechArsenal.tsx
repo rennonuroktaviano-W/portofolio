@@ -3,9 +3,11 @@
 import { skillCategories } from "@/data/skills";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function TechArsenal() {
   const sectionRef = useReveals<HTMLElement>();
+  const { t } = useI18n();
 
   return (
     <section
@@ -23,12 +25,12 @@ export function TechArsenal() {
         <SceneHeader
           id="arsenal-title"
           chapter={4}
-          label="equipment locker"
-          title="Tech Arsenal"
-          caption="The tools on the evidence wall. Every piece here has seen real production work."
+          label={t("arsenal.label")}
+          title={t("arsenal.title")}
+          caption={t("arsenal.caption")}
         />
         <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-fog">
-          hover or tap a device for deployment notes
+          {t("arsenal.hint")}
         </p>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -41,7 +43,7 @@ export function TechArsenal() {
             >
               <div className="mb-5 flex items-baseline justify-between border-b border-cream/15 pb-3">
                 <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-yellow">
-                  {category.label}
+                  {t(`arsenal.category.${category.id}`)}
                 </h3>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-fog">
                   {String(ci + 1).padStart(2, "0")} / {category.code}
@@ -73,7 +75,7 @@ export function TechArsenal() {
                     </div>
                     <div className="mt-2 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-28 group-hover:opacity-100">
                       <p className="text-xs leading-relaxed text-fog">
-                        {skill.description}
+                        {t(`arsenal.skill.${category.id}.${skill.name}`)}
                       </p>
                       <p className="mt-1.5 font-mono text-[10px] uppercase tracking-widest text-gold">
                         {skill.tags?.join(" · ")}

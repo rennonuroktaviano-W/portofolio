@@ -3,9 +3,26 @@
 import { RetroTerminal } from "@/components/terminal/RetroTerminal";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
+
+const kbdClass =
+  "border border-cream/25 bg-midnight px-1.5 py-0.5 font-mono text-[10px] uppercase text-cream";
+
+function richText(text: string) {
+  return text.split(/(<[^>]+>)/g).map((part, i) =>
+    part.startsWith("<") && part.endsWith(">") ? (
+      <kbd key={i} className={kbdClass}>
+        {part.slice(1, -1)}
+      </kbd>
+    ) : (
+      part
+    )
+  );
+}
 
 export function DeveloperLab() {
   const sectionRef = useReveals<HTMLElement>();
+  const { t } = useI18n();
 
   return (
     <section
@@ -27,30 +44,28 @@ export function DeveloperLab() {
         <SceneHeader
           id="lab-title"
           chapter={9}
-          label="the workshop"
-          title="Developer Lab"
-          caption="A working CRT, restored and safe. Type a command — nothing leaves this room."
+          label={t("lab.label")}
+          title={t("lab.title")}
+          caption={t("lab.caption")}
         />
 
         <div className="grid items-start gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="comic-panel paper-sheet p-5 sm:p-7" data-reveal data-lab-notes>
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-              Workshop memo
+              {t("lab.memoTitle")}
             </p>
             <ul className="space-y-3 text-sm leading-relaxed text-fog">
               <li className="flex gap-2">
                 <span aria-hidden="true" className="text-yellow">▸</span>
-                The terminal is presentational — commands never touch a real shell.
+                {t("lab.noteOne")}
               </li>
               <li className="flex gap-2">
                 <span aria-hidden="true" className="text-yellow">▸</span>
-                Try <kbd className="border border-cream/25 bg-midnight px-1.5 py-0.5 font-mono text-[10px] uppercase text-cream">help</kbd>,{" "}
-                <kbd className="border border-cream/25 bg-midnight px-1.5 py-0.5 font-mono text-[10px] uppercase text-cream">skills</kbd>, or{" "}
-                <kbd className="border border-cream/25 bg-midnight px-1.5 py-0.5 font-mono text-[10px] uppercase text-cream">projects</kbd>.
+                <span>{richText(t("lab.noteTwo"))}</span>
               </li>
               <li className="flex gap-2">
                 <span aria-hidden="true" className="text-yellow">▸</span>
-                Highlight: press <kbd className="border border-cream/25 bg-midnight px-1.5 py-0.5 font-mono text-[10px] uppercase text-cream">Tab</kbd> to autocomplete a command.
+                <span>{richText(t("lab.noteThree"))}</span>
               </li>
             </ul>
           </div>

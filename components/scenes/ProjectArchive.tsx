@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { projects } from "@/data/projects";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 const statusTone: Record<string, string> = {
   LIVE: "bg-gold/15 text-gold border-gold/50",
@@ -16,6 +17,14 @@ export function ProjectArchive() {
   const pinRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLUListElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t } = useI18n();
+
+  const statusLabel = (status: string) =>
+    status === "LIVE"
+      ? t("status.live")
+      : status === "ARCHIVED"
+        ? t("status.archived")
+        : t("status.inProgress");
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -72,12 +81,12 @@ export function ProjectArchive() {
           <SceneHeader
             id="archive-title"
             chapter={5}
-            label="the vault · case folders"
-            title="Project Archive"
-            caption="The basement archive. Pull a folder — every case below shipped for real."
+            label={t("archive.label")}
+            title={t("archive.title")}
+            caption={t("archive.caption")}
           />
           <p className="mb-8 font-mono text-[11px] uppercase tracking-widest text-fog">
-            the vault runs sideways on wide screens — keep scrolling to flip folders
+            {t("archive.hint")}
           </p>
         </div>
 
@@ -95,7 +104,7 @@ export function ProjectArchive() {
                   <span
                     className={`border px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${statusTone[project.status]}`}
                   >
-                    {project.status}
+                    {statusLabel(project.status)}
                   </span>
                 </div>
 
@@ -103,7 +112,7 @@ export function ProjectArchive() {
                   {project.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fog">
-                  {project.oneLiner}
+                  {t(`showcase.projects.${project.id}.oneLiner`)}
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-widest text-gold">
@@ -113,13 +122,13 @@ export function ProjectArchive() {
 
                 <div className="mt-5 flex items-center justify-between border-t border-cream/10 pt-4">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                    role: {project.role}
+                    role: {t(`showcase.projects.${project.id}.role`)}
                   </span>
                   <a
                     href="#scene-showcase"
                     className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-yellow underline decoration-yellow/30 underline-offset-4 hover:text-cream"
                   >
-                    open case <span aria-hidden="true">→</span>
+                    {t("archive.openCase")} <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </article>
@@ -132,10 +141,10 @@ export function ProjectArchive() {
           >
             <div>
               <p className="font-display text-5xl font-semibold text-outline">
-                end of the vault
+                {t("archive.endTitle")}
               </p>
               <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
-                deeper dossiers live in the cinematics below
+                {t("archive.endText")}
               </p>
             </div>
           </li>

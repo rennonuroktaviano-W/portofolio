@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { sceneDefinitions } from "@/lib/scenes";
+import { sceneDefinitions, type SceneDefinition } from "@/lib/scenes";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function SceneIndicator() {
+  const { t } = useI18n();
+  const sceneTitle = (scene: SceneDefinition) =>
+    t(`scenes.${scene.id}.title`);
   const [activeId, setActiveId] = useState(sceneDefinitions[0].id);
   const [mountedAfterHero, setMountedAfterHero] = useState(false);
   const [idle, setIdle] = useState(true);
@@ -86,7 +90,7 @@ export function SceneIndicator() {
 
   return (
     <nav
-      aria-label="Scene index"
+      aria-label={t("sceneIndicator.label")}
       className={`fixed right-3 top-1/2 z-50 -translate-y-1/2 flex-col items-center gap-2 sm:right-5 ${
         mountedAfterHero ? "flex" : "hidden"
       } transition-opacity duration-500 ${idle ? "opacity-30" : "opacity-100"}`}
@@ -102,8 +106,11 @@ export function SceneIndicator() {
                 .getElementById(scene.id)
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            aria-label={`Go to chapter ${scene.chapter}: ${scene.title}`}
-            title={`${scene.chapter} · ${scene.title}`}
+            aria-label={t("sceneIndicator.goTo", {
+              chapter: scene.chapter,
+              title: sceneTitle(scene),
+            })}
+            title={`${scene.chapter} · ${sceneTitle(scene)}`}
             className="group relative flex h-6 w-5 items-center justify-center"
           >
             <span
@@ -118,7 +125,7 @@ export function SceneIndicator() {
                 isActive ? "!opacity-100" : ""
               }`}
             >
-              {String(scene.chapter).padStart(2, "0")} — {scene.title}
+              {String(scene.chapter).padStart(2, "0")} — {sceneTitle(scene)}
             </span>
           </button>
         );

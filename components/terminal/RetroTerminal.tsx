@@ -7,11 +7,23 @@ import { projects } from "@/data/projects";
 import { socials } from "@/data/socials";
 import { site } from "@/data/site";
 import { sceneDefinitions } from "@/lib/scenes";
+import { useI18n } from "@/lib/i18n/provider";
 
 type Line = {
   text: string;
   kind?: "cmd" | "out" | "ok" | "err" | "dim" | "bare" | "jump";
 };
+
+type T = ReturnType<typeof useI18n>["t"];
+
+function bannerLines(t: T): Line[] {
+  return [
+    { text: t("terminal.bannerTitle"), kind: "out" },
+    { text: t("terminal.bannerUplink"), kind: "dim" },
+    { text: t("terminal.bannerHelp"), kind: "dim" },
+    { text: "", kind: "bare" },
+  ];
+}
 
 const COMMANDS = [
   "help",
@@ -23,13 +35,6 @@ const COMMANDS = [
   "contact",
   "clear",
   "exit",
-];
-
-const banners: Line[] = [
-  { text: "KODECITY TERMINAL v1.1.0 — RESTRICTED ACCESS", kind: "out" },
-  { text: "Uplink established. Rain registered.", kind: "dim" },
-  { text: "Type 'help' to see available commands.", kind: "dim" },
-  { text: "", kind: "bare" },
 ];
 
 function resolveScene(ref: string): string | null {
@@ -45,38 +50,38 @@ function resolveScene(ref: string): string | null {
   );
 }
 
-function runCommand(raw: string): Line[] {
+function runCommand(raw: string, t: T): Line[] {
   const cmd = raw.trim().toLowerCase();
   switch (cmd) {
     case "help":
       return [
-        { text: "available channels:", kind: "ok" },
-        { text: "  help      — reprint this manifesto", kind: "out" },
-        { text: "  about     — developer dossier", kind: "out" },
-        { text: "  skills    — the arsenal list", kind: "out" },
-        { text: "  projects  — shipped case folders", kind: "out" },
-        { text: "  scenes    — map of the city blocks", kind: "out" },
-        { text: "  visit <n> — jump to a scene (e.g. visit 4)", kind: "out" },
-        { text: "  contact   — open a channel to the subject", kind: "out" },
-        { text: "  exit      — leave through the final scene", kind: "out" },
-        { text: "  clear     — wipe the screen", kind: "out" },
+        { text: t("terminal.help.available"), kind: "ok" },
+        { text: t("terminal.help.help"), kind: "out" },
+        { text: t("terminal.help.about"), kind: "out" },
+        { text: t("terminal.help.skills"), kind: "out" },
+        { text: t("terminal.help.projects"), kind: "out" },
+        { text: t("terminal.help.scenes"), kind: "out" },
+        { text: t("terminal.help.visit"), kind: "out" },
+        { text: t("terminal.help.contact"), kind: "out" },
+        { text: t("terminal.help.exit"), kind: "out" },
+        { text: t("terminal.help.clear"), kind: "out" },
         { text: "", kind: "bare" },
-        { text: "hint: hit TAB to autocomplete.", kind: "dim" },
+        { text: t("terminal.help.hintTab"), kind: "dim" },
       ];
     case "about":
       return [
-        { text: `NAME     ${profile.displayName}`, kind: "out" },
-        { text: `ROLE     ${profile.developerTitle}`, kind: "out" },
-        { text: `STATUS   ${profile.status}`, kind: "ok" },
-        { text: `LOCATION ${profile.location}`, kind: "out" },
-        { text: `FOCUS    ${profile.currentFocus}`, kind: "out" },
+        { text: `${t("terminal.about.name")}     ${profile.displayName}`, kind: "out" },
+        { text: `${t("terminal.about.role")}     ${t("profile.developerTitle")}`, kind: "out" },
+        { text: `${t("terminal.about.status")}   ${t("profile.status")}`, kind: "ok" },
+        { text: `${t("terminal.about.location")} ${t("profile.location")}`, kind: "out" },
+        { text: `${t("terminal.about.focus")}    ${t("profile.currentFocus")}`, kind: "out" },
         { text: "", kind: "bare" },
-        { text: profile.shortBio, kind: "dim" },
+        { text: t("profile.shortBio"), kind: "dim" },
       ];
     case "skills":
       return skillCategories.flatMap((category) => [
         {
-          text: `[${category.code}] ${category.label}`,
+          text: `[${category.code}] ${t(`arsenal.category.${category.id}`)}`,
           kind: "ok" as const,
         },
         ...category.items.map<Line>((skill) => ({
@@ -92,11 +97,11 @@ function runCommand(raw: string): Line[] {
         ...projects.map<Line>((p) => ({
           text:
             `  ${p.title}`.padEnd(16) +
-            `${p.status} · ${p.year} · ${p.stack[0]}`,
+            `${t(`status.${p.status.toLowerCase() === "live" ? "live" : p.status.toLowerCase() === "in progress" ? "inProgress" : "archived"}`)} · ${p.year} · ${p.stack[0]}`,
           kind: "out",
         })),
         { text: "", kind: "bare" },
-        { text: "Full dossiers live in the Project Archive above.", kind: "dim" },
+        { text: t("terminal.projectsNote"), kind: "dim" },
       ];
     case "contact":
       return [
@@ -106,23 +111,23 @@ function runCommand(raw: string): Line[] {
           kind: "out",
         })),
         { text: "", kind: "bare" },
-        { text: "Open channel via the Contact Signal below.", kind: "dim" },
+        { text: t("terminal.contactNote"), kind: "dim" },
       ];
     case "clear":
       return [{ text: "__CLEAR__", kind: "bare" }];
     case "scenes":
       return [
-        { text: "city blocks (north → south):", kind: "ok" },
+        { text: t("terminal.scenesHead"), kind: "ok" },
         ...sceneDefinitions.map<Line>((scene, i) => ({
-          text: `  ${String(i + 1).padStart(2, " ")}  ${scene.label.padEnd(22)} ${scene.id}`,
+          text: `  ${String(i + 1).padStart(2, " ")}  ${t(`scenes.${scene.id}.title`).padEnd(22)} ${scene.id}`,
           kind: "out",
         })),
         { text: "", kind: "bare" },
-        { text: "use 'visit <n>' to jump straight to one.", kind: "dim" },
+        { text: t("terminal.scenesNote"), kind: "dim" },
       ];
     case "exit":
       return [
-        { text: "Good night. The city door is behind the credits.", kind: "dim" },
+        { text: t("terminal.exitLine"), kind: "dim" },
         { text: "scene:scene-final", kind: "jump" },
       ];
     case "":
@@ -130,7 +135,10 @@ function runCommand(raw: string): Line[] {
     case "whoami":
       return [
         {
-          text: `${profile.displayName.toLowerCase().replace(/\s+/g, "")}@${site.city.toLowerCase()} — a developer who pays attention.`,
+          text: t("terminal.whoami", {
+            user: profile.displayName.toLowerCase().replace(/\s+/g, ""),
+            city: site.city.toLowerCase(),
+          }),
           kind: "ok",
         },
       ];
@@ -139,18 +147,18 @@ function runCommand(raw: string): Line[] {
         const target = resolveScene(raw.trim().toLowerCase().slice(5));
         if (target) {
           return [
-            { text: `Routing to ${target}…`, kind: "ok" },
+            { text: t("terminal.routingTo", { target }), kind: "ok" },
             { text: `scene:${target}`, kind: "jump" },
           ];
         }
         return [
-          { text: "! unknown block. try 'scenes' for a map.", kind: "err" },
-          { text: "usage: visit <scene-id | index>", kind: "dim" },
+          { text: t("terminal.unknownBlock"), kind: "err" },
+          { text: t("terminal.usageVisit"), kind: "dim" },
         ];
       }
       return [
-        { text: `! unknown command: '${raw.trim()}'`, kind: "err" },
-        { text: "Try 'help'.", kind: "dim" },
+        { text: t("terminal.unknownCmd", { cmd: raw.trim() }), kind: "err" },
+        { text: t("terminal.tryHelp"), kind: "dim" },
       ];
   }
 }
@@ -162,14 +170,16 @@ export function RetroTerminal() {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [cursorOn, setCursorOn] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
-    const timers = banners.map((line, idx) =>
+    const timers = bannerLines(t).map((line, idx) =>
       window.setTimeout(() => {
         setLines((prev) => [...prev, line]);
       }, 260 + idx * 520)
     );
-    return () => timers.forEach((t) => window.clearTimeout(t));
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -190,18 +200,22 @@ export function RetroTerminal() {
   );
 
   const submit = (value: string) => {
-    const output = runCommand(value);
+    const output = runCommand(value, t);
     setHistory((h) => [...h, value]);
     setHistoryIndex(-1);
     if (output.some((l) => l.text === "__CLEAR__")) {
-      setLines([
-        { text: "KODECITY TERMINAL v1.1.0 — screen wiped", kind: "dim" },
-      ]);
+      setLines([{ text: t("terminal.wiped"), kind: "dim" }]);
     } else {
       const jump = output.find((l) => l.kind === "jump")?.text.split(":")[1];
       setLines((prev) => [
         ...prev,
-        { text: `${site.city.toLowerCase()}@guest:~$ ${value}`, kind: "cmd" },
+        {
+          text: t("terminal.prompt", {
+            city: site.city.toLowerCase(),
+            value,
+          }),
+          kind: "cmd",
+        },
         ...output.filter((l) => l && l.text !== "__CLEAR__"),
       ]);
       if (jump) {
@@ -217,7 +231,7 @@ export function RetroTerminal() {
     <div
       className="overflow-hidden rounded-md border-2 border-cream/20 bg-[#050607] shadow-[0_0_0_3px_rgba(0,0,0,0.6),0_30px_80px_-30px_rgba(0,0,0,0.9)]"
       role="log"
-      aria-label="Interactive retro terminal"
+      aria-label={t("terminal.ariaLog")}
     >
       <div className="flex items-center justify-between border-b border-cream/15 bg-charcoal px-4 py-2.5">
         <div className="flex items-center gap-2" aria-hidden="true">
@@ -226,7 +240,7 @@ export function RetroTerminal() {
           <span className="h-2.5 w-2.5 rounded-full bg-yellow/80" />
         </div>
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-fog">
-          crt://guest@kodecity
+          {t("terminal.crtLabel")}
         </span>
       </div>
 
@@ -267,7 +281,7 @@ export function RetroTerminal() {
         <form
           className="mt-1 flex items-center gap-2"
           role="search"
-          aria-label="Terminal input"
+          aria-label={t("terminal.ariaInput")}
           onSubmit={(e) => {
             e.preventDefault();
             submit(input);
@@ -302,7 +316,7 @@ export function RetroTerminal() {
                 if (suggestions.length === 1) setInput(suggestions[0]!);
               }
             }}
-            aria-label="Type a command"
+            aria-label={t("terminal.typeCmd")}
             className="min-w-0 flex-1 bg-transparent caret-transparent focus:outline-none"
             spellCheck={false}
             autoComplete="off"
@@ -315,8 +329,8 @@ export function RetroTerminal() {
       </div>
 
       <div className="flex items-center justify-between border-t border-cream/15 bg-charcoal px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-fog">
-        <span>TAB autocomplete · ↑ history</span>
-        <span className="text-blood">safe mode — no real shell</span>
+        <span>{t("terminal.tabStatus")}</span>
+        <span className="text-blood">{t("terminal.safeMode")}</span>
       </div>
     </div>
   );

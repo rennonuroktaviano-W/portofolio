@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { NftArtwork } from "@/data/nft";
 import { ArtworkCover } from "@/components/nft/ArtworkCover";
 import { usePrefersReducedMotion } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 type NFTLightboxProps = {
   items: NftArtwork[];
@@ -19,6 +20,7 @@ const iconButton =
 
 export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProps) {
   const reduced = usePrefersReducedMotion();
+  const { t, lookup } = useI18n();
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const touchX = useRef<number | null>(null);
@@ -92,7 +94,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
           key="viewer"
           role="dialog"
           aria-modal="true"
-          aria-label={`Artwork viewer — ${current.title}`}
+          aria-label={t("lightbox.viewerLabel", { title: current.title })}
           className="fixed inset-0 z-[75] flex items-center justify-center p-4 sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -115,7 +117,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
           >
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-cream/15 px-4 py-2.5 sm:px-5">
               <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-fog">
-                kodecity · art vault
+                {t("lightbox.vault")}
               </span>
               <span
                 aria-live="polite"
@@ -128,7 +130,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
                 ref={closeRef}
                 type="button"
                 onClick={onClose}
-                aria-label="Close artwork viewer"
+                aria-label={t("lightbox.close")}
                 className={iconButton}
               >
                 <X aria-hidden="true" className="h-4 w-4" />
@@ -165,7 +167,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
                 <button
                   type="button"
                   onClick={() => go(-1)}
-                  aria-label="Previous artwork"
+                  aria-label={t("lightbox.prev")}
                   className={`${iconButton} absolute left-2 top-1/2 hidden -translate-y-1/2 sm:flex`}
                 >
                   <ChevronLeft aria-hidden="true" className="h-5 w-5" />
@@ -173,7 +175,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
                 <button
                   type="button"
                   onClick={() => go(1)}
-                  aria-label="Next artwork"
+                  aria-label={t("lightbox.next")}
                   className={`${iconButton} absolute right-2 top-1/2 hidden -translate-y-1/2 sm:flex`}
                 >
                   <ChevronRight aria-hidden="true" className="h-5 w-5" />
@@ -188,7 +190,7 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
                   {current.title}
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {current.tags.map((tag) => (
+                  {(lookup(`nft.artwork.${current.id}.tags`) as string[] | undefined)?.map((tag) => (
                     <span
                       key={tag}
                       className="border border-cream/20 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-cream/70"
@@ -198,28 +200,28 @@ export function NFTLightbox({ items, index, onClose, onSelect }: NFTLightboxProp
                   ))}
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-fog">
-                  {current.description}
+                  {t(`nft.artwork.${current.id}.description`)}
                 </p>
                 <p className="mt-3 font-mono text-[9px] uppercase tracking-widest text-gold/80">
-                  ai-assisted digital artwork
+                  {t("lightbox.aiLabel")}
                 </p>
 
                 <div className="mt-auto flex gap-3 pt-5 sm:hidden">
                   <button
                     type="button"
                     onClick={() => go(-1)}
-                    aria-label="Previous artwork"
+                    aria-label={t("lightbox.prev")}
                     className="flex flex-1 items-center justify-center gap-2 border border-cream/25 px-4 py-2.5 font-mono text-[10px] uppercase tracking-widest text-cream transition-colors hover:border-yellow hover:text-yellow"
                   >
-                    <ChevronLeft aria-hidden="true" className="h-4 w-4" /> prev
+                    <ChevronLeft aria-hidden="true" className="h-4 w-4" /> {t("lightbox.prevShort")}
                   </button>
                   <button
                     type="button"
                     onClick={() => go(1)}
-                    aria-label="Next artwork"
+                    aria-label={t("lightbox.next")}
                     className="flex flex-1 items-center justify-center gap-2 border border-cream/25 px-4 py-2.5 font-mono text-[10px] uppercase tracking-widest text-cream transition-colors hover:border-yellow hover:text-yellow"
                   >
-                    next <ChevronRight aria-hidden="true" className="h-4 w-4" />
+                    {t("lightbox.nextShort")} <ChevronRight aria-hidden="true" className="h-4 w-4" />
                   </button>
                 </div>
               </div>

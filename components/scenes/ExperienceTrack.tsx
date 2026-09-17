@@ -4,11 +4,13 @@ import { useEffect, useRef } from "react";
 import { milestones } from "@/data/experience";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function ExperienceTrack() {
   const sectionRef = useReveals<HTMLElement>();
   const lineRef = useRef<HTMLDivElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t } = useI18n();
 
   useEffect(() => {
     const line = lineRef.current;
@@ -51,9 +53,9 @@ export function ExperienceTrack() {
         <SceneHeader
           id="experience-title"
           chapter={8}
-          label="the night train · route log"
-          title="Experience Timeline"
-          caption="The route this decade took — every stop a station where something learned."
+          label={t("experience.label")}
+          title={t("experience.title")}
+          caption={t("experience.caption")}
         />
 
         <ol className="relative space-y-10 border-l border-cream/15 pl-8 sm:pl-10">
@@ -73,21 +75,23 @@ export function ExperienceTrack() {
               <article className="comic-panel bg-midnight/70 p-5 transition-colors hover:border-gold/50 sm:p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="font-display text-xl font-semibold uppercase tracking-wide text-cream">
-                    {milestone.title}
+                    {t(`experience.items.${milestone.id}.title`)}
                   </h3>
                   <span className="font-mono text-[10px] uppercase tracking-widest text-gold">
                     {milestone.period}
                   </span>
                 </div>
                 <p className="mt-1 font-mono text-xs uppercase tracking-widest text-fog">
-                  {milestone.org} ·{" "}
-                  <span className="text-yellow">{milestone.type}</span>
+                  {t(`experience.items.${milestone.id}.org`)} ·{" "}
+                  <span className="text-yellow">
+                    {t(`experience.type.${milestone.type}`)}
+                  </span>
                 </p>
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fog">
-                  {milestone.description}
+                  {t(`experience.items.${milestone.id}.description`)}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {milestone.tags.map((tag) => (
+                  {(milestone.tags as string[]).map((tag) => (
                     <span
                       key={tag}
                       className="border border-cream/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-cream/70"

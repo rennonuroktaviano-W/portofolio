@@ -1,16 +1,18 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { socials } from "@/data/socials";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 type FormState = "idle" | "sending" | "sent";
 
 function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState<string | null>(null);
+  const { t } = useI18n();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ function ContactForm() {
     const message = String(data.get("message") ?? "").trim();
 
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Missing or malformed fields — check name and email.");
+      setError(t("contact.form.errFields"));
       return;
     }
     setError(null);
@@ -42,7 +44,7 @@ function ContactForm() {
         const payload = (await res.json().catch(() => null)) as {
           error?: string;
         } | null;
-        setError(payload?.error ?? "Transmission rejected.");
+        setError(payload?.error ?? t("contact.form.errRejected"));
         setState("idle");
         return;
       }
@@ -65,60 +67,60 @@ function ContactForm() {
             ✦
           </span>
           <h3 className="font-display text-3xl font-semibold uppercase tracking-wide text-yellow">
-            Signal Received
+            {t("contact.form.sentTitle")}
           </h3>
           <p className="max-w-sm font-mono text-xs uppercase tracking-[0.3em] text-fog">
-            transmission logged. expect a reply within 48h.
+            {t("contact.form.sentText")}
           </p>
           <button
             type="button"
             onClick={() => setState("idle")}
             className="mt-4 border border-cream/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-cream transition-colors hover:border-yellow hover:text-yellow"
           >
-            send another signal
+            {t("contact.form.again")}
           </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate>
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-            Transmit a message
+            {t("contact.form.title")}
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="flex flex-col gap-1.5 font-mono text-[11px] uppercase tracking-widest text-fog">
-              name {red}
+              {t("contact.form.name")} {red}
               <input
                 name="name"
                 autoComplete="name"
-                placeholder="Jane Doe"
+                placeholder={t("contact.form.placeholderName")}
                 className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
               />
             </label>
             <label className="flex flex-col gap-1.5 font-mono text-[11px] uppercase tracking-widest text-fog">
-              email {red}
+              {t("contact.form.email")} {red}
               <input
                 type="email"
                 name="email"
                 autoComplete="email"
-                placeholder="jane@example.com"
+                placeholder={t("contact.form.placeholderEmail")}
                 className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
               />
             </label>
           </div>
           <label className="mt-4 flex flex-col gap-1.5 font-mono text-[11px] uppercase tracking-widest text-fog">
-            subject
+            {t("contact.form.subject")}
             <input
               name="subject"
               autoComplete="off"
-              placeholder="re: a case worth opening"
+              placeholder={t("contact.form.placeholderSubject")}
               className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
             />
           </label>
           <label className="mt-4 flex flex-col gap-1.5 font-mono text-[11px] uppercase tracking-widest text-fog">
-            message {red}
+            {t("contact.form.message")} {red}
             <textarea
               name="message"
               rows={4}
-              placeholder="What are you building?"
+              placeholder={t("contact.form.placeholderMessage")}
               className="resize-none rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
             />
           </label>
@@ -136,7 +138,7 @@ function ContactForm() {
             transition={{ type: "spring", stiffness: 380, damping: 24 }}
             className="mt-6 inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight disabled:opacity-60"
           >
-            {state === "sending" ? "transmitting…" : "send signal"} →
+            {state === "sending" ? t("contact.form.sending") : t("contact.form.send")} →
           </motion.button>
         </form>
       )}
@@ -146,6 +148,7 @@ function ContactForm() {
 
 export function ContactSignal() {
   const sectionRef = useReveals<HTMLElement>();
+  const { t } = useI18n();
 
   return (
     <section
@@ -167,9 +170,9 @@ export function ContactSignal() {
         <SceneHeader
           id="contact-title"
           chapter={11}
-          label="rooftop radio room"
-          title="Contact Signal"
-          caption="The city&apos;s switchboard is open. Dial a channel or transmit a message directly."
+          label={t("contact.label")}
+          title={t("contact.title")}
+          caption={t("contact.caption")}
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
@@ -179,7 +182,7 @@ export function ContactSignal() {
               className="comic-panel bg-midnight/70 p-6 transition-colors hover:border-yellow/50"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                primary frequency
+                {t("contact.primaryFrequency")}
               </p>
               <p className="mt-2 break-all font-mono text-lg text-cream sm:text-xl">
                 {socials.email}

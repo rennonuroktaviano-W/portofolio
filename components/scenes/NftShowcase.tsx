@@ -6,6 +6,7 @@ import { SceneHeader } from "@/components/ui/SceneHeader";
 import { ArtworkCover } from "@/components/nft/ArtworkCover";
 import { NFTLightbox } from "@/components/nft/NFTLightbox";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function NftShowcase() {
   const sectionRef = useReveals<HTMLElement>();
@@ -14,6 +15,7 @@ export function NftShowcase() {
   const flowPinRef = useRef<HTMLDivElement | null>(null);
   const flowTrackRef = useRef<HTMLOListElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t, lookup } = useI18n();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const pieces = nftCollection.artworks;
@@ -77,9 +79,9 @@ export function NftShowcase() {
         <SceneHeader
           id="nft-title"
           chapter={7}
-          label={nftCollection.label}
-          title={nftCollection.title}
-          caption={nftCollection.caption}
+          label={t("nft.label")}
+          title={t("nft.title")}
+          caption={t("nft.caption")}
         />
       </div>
 
@@ -87,17 +89,17 @@ export function NftShowcase() {
         <div className="scene-inner">
           <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">
-              selected outputs
+              {t("nft.outputs")}
             </p>
             <p className="font-mono text-[10px] uppercase tracking-widest text-fog">
-              the frames run sideways on wide screens
+              {t("nft.framesHint")}
             </p>
           </div>
         </div>
 
         <ul
           ref={framesTrackRef}
-          aria-label="Selected NFT outputs"
+          aria-label={t("nft.outputs")}
           className="flex flex-col gap-4 px-5 sm:px-8 lg:w-max lg:flex-row lg:items-stretch lg:gap-6 lg:px-10 lg:will-change-transform"
         >
           {pieces.map((artwork, i) => (
@@ -105,18 +107,18 @@ export function NftShowcase() {
               <button
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                aria-label={`Open artwork ${artwork.title} in the viewer`}
+                aria-label={t("lightbox.openViewer", { title: artwork.title })}
                 className="group relative block h-full w-full overflow-hidden border border-gold/40 bg-midnight/70 text-left transition-colors duration-300 hover:border-yellow focus-visible:border-yellow"
               >
                 <span className="absolute left-4 top-4 z-10 border border-gold/60 bg-midnight/80 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-gold">
-                  fig {String(i + 1).padStart(2, "0")} / 03
+                  {t("nft.fig", { n: String(i + 1).padStart(2, "0"), total: pieces.length })}
                 </span>
                 <span className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-midnight/95 to-transparent p-4 pt-14">
                   <span className="block font-display text-xl font-semibold uppercase tracking-wide text-cream">
                     {artwork.title}
                   </span>
                   <span className="mt-1 block font-mono text-[10px] uppercase tracking-widest text-gold">
-                    {artwork.character} · {artwork.tags.join(" · ")}
+                    {artwork.character} · {(lookup(`nft.artwork.${artwork.id}.tags`) as string[] | undefined)?.join(" · ")}
                   </span>
                 </span>
                 <span className="block w-full transition-transform duration-500 group-hover:scale-[1.03]">
@@ -135,10 +137,10 @@ export function NftShowcase() {
           >
             <div>
               <p className="font-display text-5xl font-semibold text-outline">
-                end of the run
+                {t("nft.endRunTitle")}
               </p>
               <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
-                three frames — keep scrolling to see how they were made
+                {t("nft.endRunText")}
               </p>
             </div>
           </li>
@@ -149,17 +151,17 @@ export function NftShowcase() {
         <div className="scene-inner">
           <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">
-              creative workflow
+              {t("nft.workflow")}
             </p>
             <p className="font-mono text-[10px] uppercase tracking-widest text-fog">
-              five steps — the workflow runs sideways on wide screens
+              {t("nft.workflowHint")}
             </p>
           </div>
         </div>
 
         <ol
           ref={flowTrackRef}
-          aria-label="Creative workflow steps"
+          aria-label={t("nft.workflow")}
           className="flex flex-col gap-4 px-5 sm:px-8 lg:w-max lg:flex-row lg:items-stretch lg:gap-6 lg:px-10 lg:will-change-transform"
         >
           {nftCollection.process.map((step) => (
@@ -169,10 +171,10 @@ export function NftShowcase() {
                   {step.step}
                 </span>
                 <h4 className="mt-3 font-display text-lg font-semibold uppercase tracking-wide text-cream">
-                  {step.title}
+                  {t(`nft.process.${step.step}.title`)}
                 </h4>
                 <p className="mt-2 text-xs leading-relaxed text-fog">
-                  {step.short}
+                  {t(`nft.process.${step.step}.short`)}
                 </p>
               </div>
             </li>
@@ -184,10 +186,10 @@ export function NftShowcase() {
           >
             <div>
               <p className="font-display text-5xl font-semibold text-outline">
-                end of the flow
+                {t("nft.endFlowTitle")}
               </p>
               <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
-                from concept to collectible — in five steps
+                {t("nft.endFlowText")}
               </p>
             </div>
           </li>

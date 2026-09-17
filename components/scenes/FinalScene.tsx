@@ -1,14 +1,16 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import { site } from "@/data/site";
 import { Skyline } from "@/components/ui/Skyline";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n/provider";
 
 export function FinalScene() {
   const sectionRef = useReveals<HTMLElement>();
   const skyRef = useRef<HTMLDivElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const { t } = useI18n();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -74,18 +76,17 @@ export function FinalScene() {
         className="scene-inner relative z-20 flex min-h-svh flex-col items-center justify-end pb-40 pt-24 text-center"
       >
         <p className="font-mono text-xs uppercase tracking-[0.4em] text-gold">
-          closing caption
+          {t("final.closing")}
         </p>
         <h2
           id="final-title"
           className="mt-4 max-w-2xl font-display text-3xl font-semibold uppercase leading-none tracking-tight text-cream sm:text-5xl"
         >
-          The city dims its lights.
-          <span className="block text-outline-gold">The work keeps going.</span>
+          {t("final.title1")}
+          <span className="block text-outline-gold">{t("final.title2")}</span>
         </h2>
         <p className="mt-5 max-w-md text-sm leading-relaxed text-fog">
-          Every scene on this page is a real build, a real lesson, or a real
-          scar. Thanks for walking the streets.
+          {t("final.para")}
         </p>
 
         <a
@@ -95,28 +96,31 @@ export function FinalScene() {
           <span aria-hidden="true" className="transition-transform group-hover:-translate-x-1">
             ⟲
           </span>
-          Return to the beginning
+          {t("final.returnLabel")}
         </a>
 
         <dl
-          aria-label="Site credits"
+          aria-label={t("final.credits.aria")}
           className="mt-16 grid max-w-md grid-cols-3 gap-4 font-mono text-[9px] uppercase tracking-widest text-fog/70"
         >
           <div>
-            <dt>built in</dt>
+            <dt>{t("final.credits.builtIn")}</dt>
             <dd className="mt-1 text-cream">{site.city}</dd>
           </div>
           <div>
-            <dt>designed</dt>
-            <dd className="mt-1 text-cream">the rain</dd>
+            <dt>{t("final.credits.designed")}</dt>
+            <dd className="mt-1 text-cream">{t("final.credits.designedValue")}</dd>
           </div>
           <div>
-            <dt>powered by</dt>
+            <dt>{t("final.credits.poweredBy")}</dt>
             <dd className="mt-1 text-cream">Next.js</dd>
           </div>
         </dl>
         <p className="mt-8 font-mono text-[9px] uppercase tracking-widest text-fog/50">
-          © {new Date().getFullYear()} {site.name} — no capes were used.
+          {t("final.footer", {
+            year: String(new Date().getFullYear()),
+            name: site.name,
+          })}
         </p>
       </div>
     </section>

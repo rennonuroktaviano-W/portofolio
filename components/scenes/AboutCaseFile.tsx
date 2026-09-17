@@ -3,17 +3,39 @@
 import { profile } from "@/data/profile";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
-
-const meta = [
-  { label: "STATUS", value: profile.status, tone: "text-neon" },
-  { label: "LOCATION", value: profile.location, tone: "text-cream" },
-  { label: "CURRENT FOCUS", value: profile.currentFocus, tone: "text-cream" },
-  { label: "EDUCATION", value: profile.education, tone: "text-cream" },
-  { label: "CASE NUMBER", value: profile.caseNumber, tone: "text-gold" },
-] as const;
+import { useI18n } from "@/lib/i18n/provider";
 
 export function AboutCaseFile() {
   const sectionRef = useReveals<HTMLElement>();
+  const { t } = useI18n();
+
+  const meta: { label: string; value: string; tone: string }[] = [
+    {
+      label: t("about.meta.status"),
+      value: t("profile.status"),
+      tone: "text-neon",
+    },
+    {
+      label: t("about.meta.location"),
+      value: t("profile.location"),
+      tone: "text-cream",
+    },
+    {
+      label: t("about.meta.currentFocus"),
+      value: t("profile.currentFocus"),
+      tone: "text-cream",
+    },
+    {
+      label: t("about.meta.education"),
+      value: t("profile.education"),
+      tone: "text-cream",
+    },
+    {
+      label: t("about.meta.caseNumber"),
+      value: t("profile.caseNumber"),
+      tone: "text-gold",
+    },
+  ];
 
   return (
     <section
@@ -31,18 +53,18 @@ export function AboutCaseFile() {
         <SceneHeader
           id="about-title"
           chapter={3}
-          label="intelligence dossier"
-          title="Case File"
-          caption="Declassified notes on the development subject. Handle with curiosity."
+          label={t("about.label")}
+          title={t("about.title")}
+          caption={t("about.caption")}
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div className="comic-panel paper-sheet relative p-6 sm:p-8" data-reveal>
             <div className="mb-5 flex items-center justify-between">
               <h3 className="font-display text-2xl font-semibold uppercase text-cream">
-                Subject Profile
+                {t("about.subjectProfile")}
               </h3>
-              <span className="stamp">Case Open</span>
+              <span className="stamp">{t("about.caseOpen")}</span>
             </div>
             <dl className="divide-y divide-cream/10">
               {meta.map((row) => (
@@ -60,19 +82,19 @@ export function AboutCaseFile() {
               ))}
             </dl>
             <p className="mt-6 border-t border-cream/10 pt-4 font-mono text-[10px] uppercase tracking-widest text-fog">
-              file photo attached —{" "}
-              <span className="text-gold">evidence grade B</span>
+              {t("about.filePhoto")}{" "}
+              <span className="text-gold">{t("about.evidenceGradeB")}</span>
             </p>
           </div>
 
           <div className="flex flex-col gap-6">
             <div className="comic-panel relative p-6 sm:p-8" data-reveal>
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-                Personal statement
+                {t("about.personalStatement")}
               </p>
               <div className="space-y-4 text-sm leading-relaxed text-cream/85 sm:text-base">
-                {profile.bio.map((paragraph) => (
-                  <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+                {profile.bio.map((paragraph, i) => (
+                  <p key={i}>{t(`profile.bio.${i}`)}</p>
                 ))}
               </div>
             </div>
@@ -80,15 +102,15 @@ export function AboutCaseFile() {
             <div className="comic-panel relative flex flex-col justify-between gap-6 p-6 sm:flex-row sm:p-8" data-reveal>
               <div>
                 <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-gold">
-                  Current interests
+                  {t("about.currentInterests")}
                 </p>
                 <ul className="flex flex-wrap gap-2">
-                  {profile.interests.map((item) => (
+                  {profile.interests.map((item, i) => (
                     <li
                       key={item}
                       className="border border-cream/25 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-fog"
                     >
-                      {item}
+                      {t(`profile.interests.${i}`)}
                     </li>
                   ))}
                 </ul>
@@ -103,10 +125,10 @@ export function AboutCaseFile() {
                 “
               </p>
               <p className="mt-3 text-base italic leading-relaxed text-cream/90">
-                {profile.philosophy}
+                {t("profile.philosophy")}
               </p>
               <footer className="mt-4 font-mono text-[11px] uppercase tracking-widest text-gold">
-                — personal developer doctrine
+                {t("about.doctrine")}
               </footer>
             </blockquote>
           </div>

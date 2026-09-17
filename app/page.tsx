@@ -11,6 +11,8 @@ import { GitActivitySignal } from "@/components/scenes/GitActivitySignal";
 import { ContactSignal } from "@/components/scenes/ContactSignal";
 import { FinalScene } from "@/components/scenes/FinalScene";
 import { SceneIndicator } from "@/components/ui/SceneIndicator";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { SkipLink } from "@/components/ui/SkipLink";
 import { GrainOverlay } from "@/components/effects/GrainOverlay";
 import { RainLayer } from "@/components/effects/RainLayer";
 import { FogLayer } from "@/components/effects/FogLayer";
@@ -23,12 +25,7 @@ import {
 export default function Home() {
   return (
     <>
-      <a
-        href="#scene-identity"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:bg-yellow focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest focus:text-midnight"
-      >
-        Skip to content
-      </a>
+      <SkipLink />
 
       <main id="main" className="relative">
         <HeroCityScene />
@@ -46,6 +43,7 @@ export default function Home() {
       </main>
 
       <SceneIndicator />
+      <LanguageSwitcher />
       <RainLayer />
       <FogLayer />
       <CursorSpotlight />
