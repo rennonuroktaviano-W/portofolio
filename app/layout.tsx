@@ -3,6 +3,28 @@ import { Oswald, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { site } from "@/data/site";
+import { profile } from "@/data/profile";
+import { socials } from "@/data/socials";
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: profile.developerTitle,
+  image: `${site.url}/images/projects/kodestreet/cover.svg`,
+  knowsAbout: [...site.keywords],
+  sameAs: socials.links.map((l) => l.url),
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.brand,
+  url: site.url,
+  description: site.metaDescription,
+  inLanguage: "en",
+};
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -67,7 +89,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${oswald.variable} ${manrope.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <noscript>
+          <p className="fixed bottom-4 right-4 z-[90] border border-gold/40 bg-midnight/90 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-gold">
+            no-js mode: this city rains in silence
+          </p>
+        </noscript>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
+      </body>
     </html>
   );
 }
