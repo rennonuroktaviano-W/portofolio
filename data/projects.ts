@@ -45,7 +45,7 @@ export const projects: Project[] = [
     year: "2025",
     status: "LIVE",
     links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
-    gallery: [{ src: null, alt: "CASEBREAK dashboard preview" }],
+    gallery: [{ src: "/images/projects/casebreak/cover.svg", alt: "CASEBREAK dashboard preview" }],
   },
   {
     id: "kode-ledger",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     links: [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
     ],
-    gallery: [{ src: null, alt: "KodeLedger API docs preview" }],
+    gallery: [{ src: "/images/projects/kodeledger/cover.svg", alt: "KodeLedger API docs preview" }],
   },
   {
     id: "kode-street",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
       { label: "github", url: "https://github.com/rennonuroktaviano-W/portofolio" },
       { label: "live", url: "https://rennonuroktaviano.dev" },
     ],
-    gallery: [{ src: null, alt: "KodeStreet cinematic hero preview" }],
+    gallery: [{ src: "/images/projects/kodestreet/cover.svg", alt: "KodeStreet cinematic hero preview" }],
   },
   {
     id: "signaldesk",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     year: "2024",
     status: "ARCHIVED",
     links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
-    gallery: [{ src: null, alt: "SignalDesk unified inbox preview" }],
+    gallery: [{ src: "/images/projects/signaldesk/cover.svg", alt: "SignalDesk unified inbox preview" }],
   },
   {
     id: "retromart",
@@ -160,7 +160,7 @@ export const projects: Project[] = [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
       { label: "live", url: "https://rennonuroktaviano.dev" },
     ],
-    gallery: [{ src: null, alt: "Retromart storefront preview" }],
+    gallery: [{ src: "/images/projects/retromart/cover.svg", alt: "Retromart storefront preview" }],
   },
   {
     id: "weathermono",
@@ -189,6 +189,6 @@ export const projects: Project[] = [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
       { label: "live", url: "https://rennonuroktaviano.dev" },
     ],
-    gallery: [{ src: null, alt: "WeatherMono offline forecast preview" }],
+    gallery: [{ src: "/images/projects/weathermono/cover.svg", alt: "WeatherMono offline forecast preview" }],
   },
 ];

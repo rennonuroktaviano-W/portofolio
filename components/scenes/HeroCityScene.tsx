@@ -119,7 +119,10 @@ export function HeroCityScene() {
 
         <div className="city-stage absolute inset-0 will-change-transform">
           <div className="absolute inset-0 flex items-end justify-center pb-[12vh]">
-            <p className="select-none whitespace-nowrap font-mono text-[clamp(0.7rem,1.6vw,1.3rem)] uppercase tracking-[0.55em] text-yellow/70">
+            <p
+              data-comic-target
+              className="select-none whitespace-nowrap font-mono text-[clamp(0.7rem,1.6vw,1.3rem)] uppercase tracking-[0.55em] text-yellow/70"
+            >
               {site.city}
             </p>
           </div>

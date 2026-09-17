@@ -11,6 +11,13 @@ import { ContactSignal } from "@/components/scenes/ContactSignal";
 import { FinalScene } from "@/components/scenes/FinalScene";
 import { SceneIndicator } from "@/components/ui/SceneIndicator";
 import { GrainOverlay } from "@/components/effects/GrainOverlay";
+import { RainLayer } from "@/components/effects/RainLayer";
+import { FogLayer } from "@/components/effects/FogLayer";
+import { EasterEgg } from "@/components/effects/EasterEgg";
+import {
+  AmbientAudioControl,
+  CursorSpotlight,
+} from "@/components/audio/AmbientAudioControl";
 
 export default function Home() {
   return (
@@ -37,6 +44,11 @@ export default function Home() {
       </main>
 
       <SceneIndicator />
+      <RainLayer />
+      <FogLayer />
+      <CursorSpotlight />
+      <AmbientAudioControl />
+      <EasterEgg />
       <GrainOverlay />
     </>
   );

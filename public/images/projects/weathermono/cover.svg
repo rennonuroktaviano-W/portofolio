@@ -1,0 +1,36 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img">
+  <defs>
+    <linearGradient id="bgweathermono" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141821"/>
+      <stop offset="0.55" stop-color="#0a0c10"/>
+      <stop offset="1" stop-color="#0c0e14"/>
+    </linearGradient>
+    <pattern id="gridweathermono" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#1c2230" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glowweathermono" cx="0.5" cy="0.38" r="0.72">
+      <stop offset="0" stop-color="#e6b84a" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#e6b84a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bgweathermono)"/>
+  <rect width="960" height="540" fill="url(#gridweathermono)" opacity="0.55"/>
+  <rect width="960" height="540" fill="url(#glowweathermono)"/>
+  <g stroke="#9aa4b8" stroke-width="1.2" opacity="0.14">
+    <line x1="64" y1="452" x2="40" y2="422"/><line x1="188" y1="486" x2="164" y2="456"/>
+    <line x1="742" y1="470" x2="718" y2="440"/><line x1="856" y1="498" x2="832" y2="468"/>
+    <line x1="120" y1="96" x2="96" y2="66"/><line x1="884" y1="120" x2="860" y2="90"/>
+  </g>
+  <rect x="0" y="330" width="960" height="2" fill="#c89b3c" opacity="0.5"/>
+  <text x="48" y="58" font-family="Courier New,monospace" font-size="15" fill="#a5a7aa">FILE 06/06 /// KODECITY ARCHIVES /// 2023</text>
+  <text x="480" y="238" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-size="76" font-weight="900" letter-spacing="6" fill="#ddd2b5">WEATHERMONO</text>
+  <text x="480" y="284" text-anchor="middle" font-family="Courier New,monospace" font-size="19" letter-spacing="9" fill="#c89b3c">TERMINAL WEATHER</text>
+  <g transform="rotate(-10 760 428)" opacity="0.85">
+    <rect x="680" y="398" width="160" height="60" fill="none" stroke="#8e1b1b" stroke-width="4"/>
+    <text x="760" y="436" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="26" font-weight="900" fill="#8e1b1b" letter-spacing="4">CONFIDENTIAL</text>
+  </g>
+  <g fill="#ddd2b5" opacity="0.9">
+    <rect x="48" y="400" width="5" height="56"/><rect x="58" y="408" width="3" height="40"/>
+    <rect x="65" y="396" width="7" height="64"/><rect x="77" y="410" width="4" height="38"/>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { projects, type Project } from "@/data/projects";
 import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
@@ -7,28 +8,43 @@ import { useReveals } from "@/lib/motion";
 const featured: Project[] = [projects[0]!, projects[2]!];
 
 function VisualPlaceholder({ project }: { project: Project }) {
+  const cover = project.gallery[0]?.src;
+
   return (
     <div
       aria-hidden="true"
       className="comic-panel relative aspect-video overflow-hidden bg-[linear-gradient(160deg,#141821,#08090b_55%,#0c0e13)]"
     >
       <div className="absolute inset-0 halftone opacity-30" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-gold">
-            case visual
-          </p>
-          <span className="mt-3 block font-display text-4xl font-semibold uppercase text-outline sm:text-6xl">
-            {project.title}
-          </span>
+      {cover ? (
+        <Image
+          src={cover}
+          alt={project.gallery[0]?.alt ?? project.title}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-gold">
+              case visual
+            </p>
+            <span className="mt-3 block font-display text-4xl font-semibold uppercase text-outline sm:text-6xl">
+              {project.title}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
       {project.links.some((l) => l.label === "live") ? (
         <span className="absolute left-4 top-4 flex items-center gap-2 rounded-sm bg-neon/20 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-400">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-neon" />
           LIVE SIGNAL
         </span>
       ) : null}
+      <span className="absolute bottom-3 right-3 rounded-sm bg-midnight/70 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
+        art: case cover
+      </span>
     </div>
   );
 }
