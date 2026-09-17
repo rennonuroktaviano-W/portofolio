@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KODECITY — 80s Neo-Noir Interactive Portfolio
 
-## Getting Started
+A cinematic, single-page portfolio built like a rainy metropolis of interfaces. Scroll-driven storytelling with a comic-panel aesthetic: grain, fog, rain, CRT flicker, a live retro terminal, and a procedural city ambience — all told in original type, tone, and art.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, Turbopack) + TypeScript
+- Tailwind CSS v4
+- GSAP + ScrollTrigger (scroll storytelling, pinning, parallax)
+- Web Canvas (rain, ripples) + Web Audio API (procedural ambience)
+- Framer Motion (installed for micro-interactions)
+
+## Get started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # eslint (flat config)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> This version of Next.js is newer than most training data. Before editing Next-specific code, read the bundled docs under `node_modules/next/dist/docs/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Experience
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **11 scroll scenes**, no navbar/footer: Enter the City → Cinematic Hero → Identity Reveal → About → Tech Arsenal → Project Archive (horizontal on desktop) → Case Files → Experience Timeline → Developer Lab (interactive terminal) → Contact Signal → Final Night.
+- **Atmosphere**: CSS grain/fog/halftone/vignette, canvas rain with click ripples, cursor spotlight on fine-pointer devices.
+- **Procedural audio**: encrypted-by-default toggle (session-persisted), Web Audio rain + city rumble; great with the `crt` secret.
+- **Interaction**: keyboard scene nav (↑/↓/PgUp/PgDn/Home/End), terminal commands `help`, `about`, `skills`, `projects`, `contact`, `clear` (+ Tab autocomplete, ↑ history).
+- **Easter eggs**: type `crt` anywhere; tap the KODECITY sign in the hero.
+- **Accessibility**: `prefers-reduced-motion` honored end-to-end, labelled scenes, skip link, visible focus rings.
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/            layout, page composition, metadata, manifest, robots, sitemap, /api/contact
+components/
+  scenes/       11 scene components
+  ui/           skyline, indicators, headers
+  terminal/     RetroTerminal
+  effects/      rain, fog, grain, easter eggs
+  audio/        procedural ambience + cursor spotlight
+data/           typed content layer (site, profile, skills, projects, experience, socials)
+lib/            scene definitions + GSAP motion helpers
+public/
+  images/projects/<slug>/cover.svg   original case-cover art
+  og/cover.svg                        social share banner
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Feedback loop
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Content lives entirely in `data/`. Edit it to make the city yours; the scenes render whatever you type.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy on Vercel with a single `git push` — the site is fully static plus one lightweight contact handler.

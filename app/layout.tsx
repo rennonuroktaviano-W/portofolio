@@ -40,6 +40,13 @@ export const metadata: Metadata = {
     description: site.metaDescription,
     siteName: site.brand,
     locale: "id_ID",
+    images: [{ url: "/og/cover.svg", width: 1200, height: 630, alt: site.brand }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.brand} — ${site.role}`,
+    description: site.metaDescription,
+    images: ["/og/cover.svg"],
   },
   robots: {
     index: true,

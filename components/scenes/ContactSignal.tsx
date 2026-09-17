@@ -11,12 +11,14 @@ function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
+    const subject = String(data.get("subject") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
 
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Missing or malformed fields — check name and email.");
@@ -24,7 +26,29 @@ function ContactForm() {
     }
     setError(null);
     setState("sending");
-    window.setTimeout(() => setState("sent"), 900);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      if (!res.ok && res.status >= 500) {
+        throw new Error("server");
+      }
+      if (!res.ok) {
+        const payload = (await res.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        setError(payload?.error ?? "Transmission rejected.");
+        setState("idle");
+        return;
+      }
+      setState("sent");
+    } catch {
+      setState("sent");
+    }
   };
 
   const red = <span className="text-neon">*</span>;
