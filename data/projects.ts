@@ -1,3 +1,5 @@
+import { site } from "@/data/site";
+
 export type ProjectLink = { label: "github" | "live" | "article"; url: string };
 export type GalleryItem = { src: string | null; alt: string };
 
@@ -102,7 +104,7 @@ export const projects: Project[] = [
     status: "LIVE",
     links: [
       { label: "github", url: "https://github.com/rennonuroktaviano-W/portofolio" },
-      { label: "live", url: "https://rennonuroktaviano.dev" },
+      { label: "live", url: site.url },
     ],
     gallery: [{ src: "/images/projects/kodestreet/cover.svg", alt: "KodeStreet cinematic hero preview" }],
   },
@@ -158,7 +160,7 @@ export const projects: Project[] = [
     status: "LIVE",
     links: [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
-      { label: "live", url: "https://rennonuroktaviano.dev" },
+      { label: "live", url: site.url },
     ],
     gallery: [{ src: "/images/projects/retromart/cover.svg", alt: "Retromart storefront preview" }],
   },
@@ -187,7 +189,7 @@ export const projects: Project[] = [
     status: "LIVE",
     links: [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
-      { label: "live", url: "https://rennonuroktaviano.dev" },
+      { label: "live", url: site.url },
     ],
     gallery: [{ src: "/images/projects/weathermono/cover.svg", alt: "WeatherMono offline forecast preview" }],
   },

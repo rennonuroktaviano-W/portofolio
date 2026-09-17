@@ -7,7 +7,7 @@ export const site = {
   city: "KODECITY",
   cityLine: "a rainy metropolis of interfaces & ideas",
   established: 2024,
-  url: "https://rennonuroktaviano.dev",
+  url: "https://portofolio-rennonuroktaviano-w.vercel.app",
   metaDescription:
     "Cinematic neo-noir developer portfolio of Renno Nuroktaviano — full-stack developer building resilient web experiences in a rainy fictional metropolis.",
   keywords: [

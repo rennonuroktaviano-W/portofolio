@@ -123,7 +123,7 @@ function runCommand(raw: string): Line[] {
     case "exit":
       return [
         { text: "Good night. The city door is behind the credits.", kind: "dim" },
-        { text: "scene:final", kind: "jump" },
+        { text: "scene:scene-final", kind: "jump" },
       ];
     case "":
       return [{ text: "", kind: "bare" }];
@@ -164,17 +164,11 @@ export function RetroTerminal() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let i = 0;
-    const timers: number[] = [];
-    const push = (delay: number) =>
-      timers.push(
-        window.setTimeout(() => {
-          setLines((prev) => [...prev, banners[i]!]);
-          i += 1;
-          if (i < banners.length) push(520 + i * 160);
-        }, delay)
-      );
-    push(260);
+    const timers = banners.map((line, idx) =>
+      window.setTimeout(() => {
+        setLines((prev) => [...prev, line]);
+      }, 260 + idx * 520)
+    );
     return () => timers.forEach((t) => window.clearTimeout(t));
   }, []);
 
@@ -208,7 +202,7 @@ export function RetroTerminal() {
       setLines((prev) => [
         ...prev,
         { text: `${site.city.toLowerCase()}@guest:~$ ${value}`, kind: "cmd" },
-        ...output.filter((l) => l.text !== "__CLEAR__"),
+        ...output.filter((l) => l && l.text !== "__CLEAR__"),
       ]);
       if (jump) {
         document
@@ -247,26 +241,29 @@ export function RetroTerminal() {
           scrollbarWidth: "thin",
         }}
       >
-        {lines.map((line, i) => (
-          <p
-            key={i}
-            className={
-              line.kind === "cmd"
-                ? "text-yellow"
-                : line.kind === "err"
-                  ? "text-neon"
-                  : line.kind === "ok"
-                    ? "text-[#8fcb7f]"
-                    : line.kind === "dim"
-                    ? "opacity-60"
-                    : line.kind === "jump"
-                      ? "opacity-50 text-gold"
-                      : ""
-            }
-          >
-            {line.text === "" ? "\u00A0" : line.text}
-          </p>
-        ))}
+        {lines.map((line, i) => {
+          if (!line) return null;
+          return (
+            <p
+              key={i}
+              className={
+                line.kind === "cmd"
+                  ? "text-yellow"
+                  : line.kind === "err"
+                    ? "text-neon"
+                    : line.kind === "ok"
+                      ? "text-[#8fcb7f]"
+                      : line.kind === "dim"
+                        ? "opacity-60"
+                        : line.kind === "jump"
+                          ? "opacity-50 text-gold"
+                          : ""
+              }
+            >
+              {line.text === "" ? "\u00A0" : line.text}
+            </p>
+          );
+        })}
         <form
           className="mt-1 flex items-center gap-2"
           role="search"
