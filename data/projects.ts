@@ -79,62 +79,6 @@ export const projects: Project[] = [
     gallery: [{ src: "/images/projects/kodeledger/cover.svg", alt: "KodeLedger API docs preview" }],
   },
   {
-    id: "kode-street",
-    slug: "kode-street",
-    title: "KODESTREET",
-    oneLiner:
-      "This portfolio — an interactive motion-comic built with Next.js, TypeScript, and cinematic scroll storytelling.",
-    problem:
-      "A portfolio should feel like a place, not a PDF. Generic card grids fail to communicate craft or personality.",
-    solution:
-      "I built a single-page cinematic experience: CSS/canvas atmosphere layers, GSAP ScrollTrigger storytelling, and a terminal scene that actually talks back.",
-    role: "Designer + Developer",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
-    features: [
-      "Scroll-driven scene transitions",
-      "Preference-aware motion",
-      "Interactive retro terminal",
-      "Fully typed content data layer",
-    ],
-    challenge:
-      "Keeping atmosphere heavy without wrecking Core Web Vitals meant drawing rain, fog, and grain with CSS + a single lightweight canvas.",
-    outcome:
-      "A portfolio that loads fast, reads clearly without JavaScript, and leaves visitors feeling like they walked through a city.",
-    year: "2026",
-    status: "LIVE",
-    links: [
-      { label: "github", url: "https://github.com/rennonuroktaviano-W/portofolio" },
-      { label: "live", url: site.url },
-    ],
-    gallery: [{ src: "/images/projects/kodestreet/cover.svg", alt: "KodeStreet cinematic hero preview" }],
-  },
-  {
-    id: "signaldesk",
-    slug: "signaldesk",
-    title: "SIGNALDESK",
-    oneLiner:
-      "A real-time support ticketing desk for a small product team drowning in message threads.",
-    problem:
-      "Support came through four chat channels at once; issues fell through the cracks and nobody owned a resolution.",
-    solution:
-      "I built a React + Vite front-end over a thin Laravel API: unified inbox, assignment rules, and a live pulse of open tickets.",
-    role: "Frontend Developer",
-    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Laravel API"],
-    features: [
-      "Unified inbox across support sources",
-      "Auto-assignment by team availability",
-      "Live ticket pulse via server-sent events",
-    ],
-    challenge:
-      "Reconciling message ordering from multiple sources — I implemented a client-side event log with deduplication and replay.",
-    outcome:
-      "Median first-response time dropped from ~4 hours to under 40 minutes during business hours.",
-    year: "2024",
-    status: "ARCHIVED",
-    links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
-    gallery: [{ src: "/images/projects/signaldesk/cover.svg", alt: "SignalDesk unified inbox preview" }],
-  },
-  {
     id: "retromart",
     slug: "retromart",
     title: "RETROMART",

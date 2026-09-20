@@ -2,12 +2,9 @@ import { HeroCityScene } from "@/components/scenes/HeroCityScene";
 import { IdentityReveal } from "@/components/scenes/IdentityReveal";
 import { AboutCaseFile } from "@/components/scenes/AboutCaseFile";
 import { TechArsenal } from "@/components/scenes/TechArsenal";
-import { ProjectArchive } from "@/components/scenes/ProjectArchive";
 import { ProjectShowcase } from "@/components/scenes/ProjectShowcase";
 import { NftShowcase } from "@/components/scenes/NftShowcase";
 import { ExperienceTrack } from "@/components/scenes/ExperienceTrack";
-import { DeveloperLab } from "@/components/scenes/DeveloperLab";
-import { GitActivitySignal } from "@/components/scenes/GitActivitySignal";
 import { ContactSignal } from "@/components/scenes/ContactSignal";
 import { FinalScene } from "@/components/scenes/FinalScene";
 import { SceneIndicator } from "@/components/ui/SceneIndicator";
@@ -32,12 +29,9 @@ export default function Home() {
         <IdentityReveal />
         <AboutCaseFile />
         <TechArsenal />
-        <ProjectArchive />
         <ProjectShowcase />
         <NftShowcase />
         <ExperienceTrack />
-        <DeveloperLab />
-        <GitActivitySignal />
         <ContactSignal />
         <FinalScene />
       </main>

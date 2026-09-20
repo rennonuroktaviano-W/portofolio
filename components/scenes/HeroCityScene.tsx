@@ -177,7 +177,7 @@ export function HeroCityScene() {
             className="inline-flex"
           >
             <a
-              href="#scene-archive"
+              href="#scene-showcase"
               className="group inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
             >
               {t("hero.enterArchive")}

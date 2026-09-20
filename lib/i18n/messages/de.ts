@@ -13,7 +13,7 @@ export const de: Messages = {
     cityLine: "{city} · eine regnerische Metropole der Interfaces",
     tagline: "Ich baue Websysteme, die auch nach Mitternacht weiterarbeiten.",
     role: "Full-Stack-Entwickler",
-    enterArchive: "ARCHIV BETRETEN",
+    enterArchive: "DATEIEN ÖFFNEN",
     readOn: "Weiterlesen —",
   },
   scenes: {
@@ -21,12 +21,9 @@ export const de: Messages = {
     "scene-identity": { title: "Identitätsoffenbarung", label: "wer" },
     "scene-about": { title: "Akte", label: "über" },
     "scene-arsenal": { title: "Tech-Arsenal", label: "fähigkeiten" },
-    "scene-archive": { title: "Projektarchiv", label: "arbeiten" },
     "scene-showcase": { title: "Ausgewählte Cinematics", label: "akten" },
     "scene-nft": { title: "Kreativstudio", label: "collectibles" },
     "scene-experience": { title: "Nachtzug", label: "route" },
-    "scene-lab": { title: "Dev-Labor", label: "labor" },
-    "scene-git": { title: "Aktivitätssignal", label: "signale" },
     "scene-contact": { title: "Kontaktsignal", label: "signal" },
     "scene-final": { title: "Die Nacht Fällt", label: "ende" },
   },
@@ -132,16 +129,6 @@ export const de: Messages = {
       top: "Bester Kaliber",
     },
   },
-  archive: {
-    label: "der Tresor · Aktenordner",
-    title: "Projektarchiv",
-    caption:
-      "Das Archiv im Keller. Zieh eine Mappe — jeder Fall unten wurde wirklich veröffentlicht.",
-    hint: "der Tresor läuft auf breiten Bildschirmen seitwärts — weiter scrollen zum Umblättern",
-    openCase: "Fall öffnen",
-    endTitle: "Ende des Tresors",
-    endText: "tiefere Dossiers warten weiter unten in den Cinematics",
-  },
   status: {
     live: "LIVE",
     archived: "ARCHIVIERT",
@@ -202,45 +189,6 @@ export const de: Messages = {
         outcome:
           "Null verlorene Rechnungen im ersten Nutzungsquartal, und Erinnerungen holten rund eine Woche unbezahlter Arbeit zurück.",
       },
-      kodestreet: {
-        title: "KODESTREET",
-        oneLiner:
-          "Dieses Portfolio — ein interaktiver Motion-Comic mit Next.js, TypeScript und cineastischem Scroll-Storytelling.",
-        problem:
-          "Ein Portfolio sollte sich wie ein Ort anfühlen, nicht wie ein PDF. Generische Karten-Grids vermitteln weder Können noch Persönlichkeit.",
-        solution:
-          "Ich baute ein einseitiges cineastisches Erlebnis: CSS/Canvas-Atmosphärenschichten, GSAP-ScrollTrigger-Storytelling und eine Terminal-Szene, die wirklich antwortet.",
-        role: "Designer + Entwickler",
-        features: [
-          "Scroll-getriebene Szenenübergänge",
-          "Präferenzbewusste Bewegung",
-          "Interaktives Retro-Terminal",
-          "Vollständig typisierte Inhaltsdatenschicht",
-        ],
-        challenge:
-          "Die Atmosphäre dicht zu halten, ohne die Core Web Vitals zu ruinieren, bedeutete: Regen, Nebel und Körnung mit CSS und einem einzigen leichten Canvas zeichnen.",
-        outcome:
-          "Ein Portfolio, das schnell lädt, ohne JavaScript klar lesbar ist und Besuchern das Gefühl gibt, durch eine Stadt gelaufen zu sein.",
-      },
-      signaldesk: {
-        title: "SIGNALDESK",
-        oneLiner:
-          "Ein Echtzeit-Support-Ticketing-Desk für ein kleines Produktteam, das in Nachrichtenthreads ertrinkt.",
-        problem:
-          "Support kam gleichzeitig über vier Chat-Kanäle; Probleme fielen durch die Raster und niemand übernahm eine Lösung.",
-        solution:
-          "Ich baute ein React + Vite-Frontend auf eine schlanke Laravel-API: vereinheitlichtes Postfach, Zuordnungsregeln und einen Live-Puls offener Tickets.",
-        role: "Frontend-Entwickler",
-        features: [
-          "Vereinheitlichtes Postfach über Support-Quellen",
-          "Automatische Zuordnung nach Teamverfügbarkeit",
-          "Live-Ticket-Puls via Server-Sent Events",
-        ],
-        challenge:
-          "Die Nachrichtenreihenfolge aus mehreren Quellen abzugleichen — ich implementierte ein clientseitiges Ereignisprotokoll mit Deduplizierung und Replay.",
-        outcome:
-          "Die mediane Erstantwortzeit fiel von ~4 Stunden auf unter 40 Minuten während der Geschäftszeiten.",
-      },
       retromart: {
         title: "RETROMART",
         oneLiner:
@@ -281,17 +229,6 @@ export const de: Messages = {
           "Eine 10-kB-Kern-App, die auch ohne Netzwerk funktioniert — ein kleines Denkmal der Zurückhaltung.",
       },
     },
-  },
-  git: {
-    label: "Monitorraum · optionaler Feed",
-    title: "Aktivitätssignal",
-    caption:
-      "Fast-Live-Pulse vom Versionskontrollturm. Statische Stempel — bei jedem Deployment aktualisiert.",
-    signal: "signal",
-    commitsSteady: "Commits: stabil",
-    openRepository: "Repository öffnen",
-    footer:
-      "Feeds sind von Design statisch — das Archiv wartet nie auf eine Drittanbieter-API.",
   },
   nft: {
     label: "der kreative Flügel · vom Konzept zum Sammlerstück",
@@ -420,61 +357,6 @@ export const de: Messages = {
         tags: ["Next.js", "TypeScript", "Tailwind"],
       },
     },
-  },
-  lab: {
-    label: "die Werkstatt",
-    title: "Dev-Labor",
-    caption:
-      "Eine funktionierende CRT, restauriert und sicher. Tippe einen Befehl — nichts verlässt diesen Raum.",
-    memoTitle: "Werkstatt-Notiz",
-    noteOne:
-      "Das Terminal ist rein dekorativ — Befehle berühren nie eine echte Shell.",
-    noteTwo: "Probiere <help>, <skills> oder <projects>.",
-    noteThree: "Tipp: Drücke <Tab>, um einen Befehl zu vervollständigen.",
-  },
-  terminal: {
-    ariaLog: "Interaktives Retro-Terminal",
-    ariaInput: "Terminal-Eingabe",
-    typeCmd: "Befehl eingeben",
-    tabStatus: "TAB autocomplete · ↑ Verlauf",
-    safeMode: "Sicherheitsmodus — keine echte Shell",
-    crtLabel: "crt://gast@kodecity",
-    bannerTitle: "KODECITY TERMINAL v1.1.0 — EINGESCHRÄNKTER ZUGANG",
-    bannerUplink: "Verbindung hergestellt. Regen registriert.",
-    bannerHelp: "Tippe 'help', um verfügbare Befehle zu sehen.",
-    prompt: "{city}@gast:~$ {value}",
-    help: {
-      available: "verfügbare Kanäle:",
-      help: "  help      — dieses Manifest neu drucken",
-      about: "  about     — Entwickler-Dossier",
-      skills: "  skills    — die Arsenalliste",
-      projects: "  projects  — ausgelieferte Fallordner",
-      scenes: "  scenes    — Karte der Stadtblöcke",
-      visit: "  visit <n> — zu einer Szene springen (z. B. visit 4)",
-      contact: "  contact   — Kanal zum Subjekt öffnen",
-      exit: "  exit      — durch die letzte Szene gehen",
-      clear: "  clear     — Bildschirm löschen",
-      hintTab: "tipp: TAB drücken zum Autovervollständigen.",
-    },
-    about: {
-      name: "NAME",
-      role: "ROLLE",
-      status: "STATUS",
-      location: "STANDORT",
-      focus: "FOKUS",
-    },
-    projectsNote: "Vollständige Dossiers leben weiter oben im Projektarchiv.",
-    contactNote: "Öffne einen Kanal über das Kontaktsignal weiter unten.",
-    scenesHead: "Stadtblöcke (Norden → Süden):",
-    scenesNote: "nutze 'visit <n>', um direkt zu einem zu springen.",
-    exitLine: "Gute Nacht. Die Stadttür liegt hinter den Credits.",
-    unknownBlock: "! unbekannter Block. probiere 'scenes' für eine Karte.",
-    usageVisit: "nutzung: visit <scene-id | index>",
-    unknownCmd: "! unbekannter Befehl: '{cmd}'",
-    tryHelp: "Probiere 'help'.",
-    wiped: "KODECITY TERMINAL v1.1.0 — Bildschirm geleert",
-    routingTo: "Weiterleitung zu {target}…",
-    whoami: "{user}@{city} — ein Entwickler, der aufmerksam ist.",
   },
   contact: {
     label: "Funkraum auf dem Dach",

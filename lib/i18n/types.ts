@@ -3,12 +3,9 @@ export type SceneKey =
   | "scene-identity"
   | "scene-about"
   | "scene-arsenal"
-  | "scene-archive"
   | "scene-showcase"
   | "scene-nft"
   | "scene-experience"
-  | "scene-lab"
-  | "scene-git"
   | "scene-contact"
   | "scene-final";
 
@@ -89,15 +86,6 @@ export type Messages = {
       top: string;
     };
   };
-  archive: {
-    label: string;
-    title: string;
-    caption: string;
-    hint: string;
-    openCase: string;
-    endTitle: string;
-    endText: string;
-  };
   status: {
     live: string;
     archived: string;
@@ -118,15 +106,6 @@ export type Messages = {
     sourceCode: string;
     liveDemo: string;
     projects: Record<string, ProjectMessages>;
-  };
-  git: {
-    label: string;
-    title: string;
-    caption: string;
-    signal: string;
-    commitsSteady: string;
-    openRepository: string;
-    footer: string;
   };
   nft: {
     label: string;
@@ -171,59 +150,6 @@ export type Messages = {
       string,
       { title: string; org: string; description: string; tags: string[] }
     >;
-  };
-  lab: {
-    label: string;
-    title: string;
-    caption: string;
-    memoTitle: string;
-    noteOne: string;
-    noteTwo: string;
-    noteThree: string;
-  };
-  terminal: {
-    ariaLog: string;
-    ariaInput: string;
-    typeCmd: string;
-    tabStatus: string;
-    safeMode: string;
-    crtLabel: string;
-    bannerTitle: string;
-    bannerUplink: string;
-    bannerHelp: string;
-    prompt: string;
-    help: {
-      available: string;
-      help: string;
-      about: string;
-      skills: string;
-      projects: string;
-      scenes: string;
-      visit: string;
-      contact: string;
-      exit: string;
-      clear: string;
-      hintTab: string;
-    };
-    about: {
-      name: string;
-      role: string;
-      status: string;
-      location: string;
-      focus: string;
-    };
-    projectsNote: string;
-    contactNote: string;
-    scenesHead: string;
-    scenesNote: string;
-    exitLine: string;
-    unknownBlock: string;
-    usageVisit: string;
-    unknownCmd: string;
-    tryHelp: string;
-    wiped: string;
-    routingTo: string;
-    whoami: string;
   };
   contact: {
     label: string;

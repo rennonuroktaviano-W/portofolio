@@ -13,7 +13,7 @@ export const fr: Messages = {
     cityLine: "{city} · une métropole d'interfaces sous la pluie",
     tagline: "Je construis des systèmes web qui continuent de tourner après minuit.",
     role: "Développeur Full-Stack",
-    enterArchive: "ENTRER DANS L'ARCHIVE",
+    enterArchive: "OUVRIR LES FICHIERS",
     readOn: "Continuer —",
   },
   scenes: {
@@ -21,12 +21,9 @@ export const fr: Messages = {
     "scene-identity": { title: "Révélation d'Identité", label: "qui" },
     "scene-about": { title: "Dossier", label: "à propos" },
     "scene-arsenal": { title: "Arsenal Technique", label: "compétences" },
-    "scene-archive": { title: "Archive de Projets", label: "travaux" },
     "scene-showcase": { title: "Cinématiques à la Une", label: "fiches" },
     "scene-nft": { title: "Studio Créatif", label: "collectibles" },
     "scene-experience": { title: "Train de Nuit", label: "parcours" },
-    "scene-lab": { title: "Lab Développeur", label: "labo" },
-    "scene-git": { title: "Signal d'Activité", label: "signaux" },
     "scene-contact": { title: "Signal de Contact", label: "signal" },
     "scene-final": { title: "La Nuit Tombe", label: "fin" },
   },
@@ -132,16 +129,6 @@ export const fr: Messages = {
       top: "Meilleur Calibre",
     },
   },
-  archive: {
-    label: "la voûte · dossiers d'affaires",
-    title: "Archive de Projets",
-    caption:
-      "L'archive du sous-sol. Tirez une chemise — chaque affaire ci-dessous a vraiment été livrée.",
-    hint: "la voûte file sur les côtés sur écrans larges — continuez à défiler pour tourner les chemises",
-    openCase: "ouvrir l'affaire",
-    endTitle: "fin de la voûte",
-    endText: "de plus profonds dossiers vivent dans les cinématiques ci-dessous",
-  },
   status: {
     live: "EN LIGNE",
     archived: "ARCHIVÉ",
@@ -202,45 +189,6 @@ export const fr: Messages = {
         outcome:
           "Zéro facture perdue au premier trimestre d'utilisation, et les rappels ont récupéré environ une semaine de travail impayé.",
       },
-      kodestreet: {
-        title: "KODESTREET",
-        oneLiner:
-          "Ce portfolio — un motion-comic interactif construit avec Next.js, TypeScript et une narration cinématographique au défilement.",
-        problem:
-          "Un portfolio doit ressembler à un lieu, pas à un PDF. Les grilles de cartes génériques ne communiquent ni le savoir-faire ni la personnalité.",
-        solution:
-          "J'ai construit une expérience cinématographique sur une seule page : couches d'atmosphère CSS/canvas, narration GSAP ScrollTrigger et un terminal interactif qui répond vraiment.",
-        role: "Designer + Développeur",
-        features: [
-          "Transitions de scènes pilotées par le défilement",
-          "Mouvement sensible aux préférences",
-          "Terminal rétro interactif",
-          "Couche de données de contenu entièrement typée",
-        ],
-        challenge:
-          "Garder une atmosphère dense sans écraser les Core Web Vitals signifiait dessiner pluie, brouillard et grain avec du CSS et un seul canvas léger.",
-        outcome:
-          "Un portfolio qui charge vite, se lit clairement sans JavaScript et donne aux visiteurs l'impression d'avoir traversé une ville.",
-      },
-      signaldesk: {
-        title: "SIGNALDESK",
-        oneLiner:
-          "Un desk de tickets de support temps réel pour une petite équipe produit noyée sous les fils de messages.",
-        problem:
-          "Le support arrivait par quatre canaux de chat à la fois ; les problèmes passaient entre les mailles et personne ne détenait la résolution.",
-        solution:
-          "J'ai construit un front-end React + Vite sur une API Laravel légère : boîte de réception unifiée, règles d'affectation et un pouls en direct des tickets ouverts.",
-        role: "Développeur Frontend",
-        features: [
-          "Boîte de réception unifiée entre les sources de support",
-          "Affectation automatique selon la disponibilité de l'équipe",
-          "Pouls des tickets en direct via server-sent events",
-        ],
-        challenge:
-          "Concilier l'ordre des messages depuis plusieurs sources — j'ai implémenté un journal d'événements côté client avec déduplication et relecture.",
-        outcome:
-          "Le délai médian de première réponse est passé d'environ 4 heures à moins de 40 minutes en heures ouvrables.",
-      },
       retromart: {
         title: "RETROMART",
         oneLiner:
@@ -281,17 +229,6 @@ export const fr: Messages = {
           "Une application cœur de 10 kB qui fonctionne encore quand le réseau s'éteint — un petit monument à la retenue.",
       },
     },
-  },
-  git: {
-    label: "salle des moniteurs · flux optionnel",
-    title: "Signal d'Activité",
-    caption:
-      "Pulsations quasi en direct depuis la tour de contrôle de versions. Timbres statiques — actualisés à chaque déploiement.",
-    signal: "signal",
-    commitsSteady: "commits : réguliers",
-    openRepository: "ouvrir le dépôt",
-    footer:
-      "les flux sont statiques par conception — l'archive n'attend jamais une API tierce.",
   },
   nft: {
     label: "l'aile créative · du concept au collectionnable",
@@ -420,61 +357,6 @@ export const fr: Messages = {
         tags: ["Next.js", "TypeScript", "Tailwind"],
       },
     },
-  },
-  lab: {
-    label: "l'atelier",
-    title: "Lab Développeur",
-    caption:
-      "Un CRT en état de marche, restauré et sécurisé. Tapez une commande — rien ne sort de ce local.",
-    memoTitle: "Note d'atelier",
-    noteOne:
-      "Le terminal est décoratif — les commandes ne touchent jamais un vrai shell.",
-    noteTwo: "Essayez <help>, <skills> ou <projects>.",
-    noteThree: "À noter : appuyez sur <Tab> pour autocompléter une commande.",
-  },
-  terminal: {
-    ariaLog: "Terminal rétro interactif",
-    ariaInput: "Entrée du terminal",
-    typeCmd: "Tapez une commande",
-    tabStatus: "TAB autocomplète · ↑ historique",
-    safeMode: "mode sécurisé — pas de vrai shell",
-    crtLabel: "crt://invité@kodecity",
-    bannerTitle: "TERMINAL KODECITY v1.1.0 — ACCÈS RESTREINT",
-    bannerUplink: "Liaison établie. Pluie enregistrée.",
-    bannerHelp: "Tapez 'help' pour voir les commandes disponibles.",
-    prompt: "{city}@invité:~$ {value}",
-    help: {
-      available: "canaux disponibles :",
-      help: "  help      — réimprime ce manifeste",
-      about: "  about     — dossier du développeur",
-      skills: "  skills    — la liste de l'arsenal",
-      projects: "  projects  — dossiers d'affaires livrées",
-      scenes: "  scenes    — carte des blocs de la ville",
-      visit: "  visit <n> — sauter vers une scène (ex. visit 4)",
-      contact: "  contact   — ouvrir un canal vers le sujet",
-      exit: "  exit      — sortir par la scène finale",
-      clear: "  clear     — effacer l'écran",
-      hintTab: "astuce : appuyez sur TAB pour autocompléter.",
-    },
-    about: {
-      name: "NOM",
-      role: "RÔLE",
-      status: "STATUT",
-      location: "LOCALISATION",
-      focus: "FOCUS",
-    },
-    projectsNote: "Les dossiers complets vivent dans l'Archive de Projets ci-dessus.",
-    contactNote: "Ouvrez un canal via le Signal de Contact ci-dessous.",
-    scenesHead: "blocs de la ville (nord → sud) :",
-    scenesNote: "utilisez 'visit <n>' pour sauter directement sur un bloc.",
-    exitLine: "Bonne nuit. La porte de la ville se trouve derrière les crédits.",
-    unknownBlock: "! bloc inconnu. essayez 'scenes' pour une carte.",
-    usageVisit: "usage : visit <scene-id | index>",
-    unknownCmd: "! commande inconnue : '{cmd}'",
-    tryHelp: "Essayez 'help'.",
-    wiped: "TERMINAL KODECITY v1.1.0 — écran effacé",
-    routingTo: "Acheminement vers {target}…",
-    whoami: "{user}@{city} — un développeur qui prête attention.",
   },
   contact: {
     label: "salle radio du toit",

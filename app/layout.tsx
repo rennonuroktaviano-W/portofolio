@@ -14,7 +14,7 @@ const personLd = {
   name: site.name,
   url: site.url,
   jobTitle: profile.developerTitle,
-  image: `${site.url}/images/projects/kodestreet/cover.svg`,
+  image: `${site.url}/og/cover.svg`,
   knowsAbout: [...site.keywords],
   sameAs: socials.links.map((l) => l.url),
 };

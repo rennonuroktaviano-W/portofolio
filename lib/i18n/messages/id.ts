@@ -13,7 +13,7 @@ export const id: Messages = {
     cityLine: "{city} · metropolis antarmuka yang sedang hujan",
     tagline: "Membangun sistem web yang tetap bekerja setelah tengah malam.",
     role: "Full-Stack Developer",
-    enterArchive: "MASUK ARSIP",
+    enterArchive: "BUKA BERKAS",
     readOn: "Lanjut —",
   },
   scenes: {
@@ -21,12 +21,9 @@ export const id: Messages = {
     "scene-identity": { title: "Identitas Terungkap", label: "siapa" },
     "scene-about": { title: "Berkas Kasus", label: "tentang" },
     "scene-arsenal": { title: "Gudang Senjata", label: "skill" },
-    "scene-archive": { title: "Arsip Proyek", label: "karya" },
     "scene-showcase": { title: "Sinematik Unggulan", label: "berkas" },
     "scene-nft": { title: "Studio Kreatif", label: "collectibles" },
     "scene-experience": { title: "Kereta Malam", label: "rute" },
-    "scene-lab": { title: "Lab Developer", label: "lab" },
-    "scene-git": { title: "Sinyal Aktivitas", label: "sinyal" },
     "scene-contact": { title: "Sinyal Kontak", label: "kontak" },
     "scene-final": { title: "Malam Turun", label: "akhir" },
   },
@@ -132,16 +129,6 @@ export const id: Messages = {
       top: "Kaliber Terbaik",
     },
   },
-  archive: {
-    label: "ruang brankas · map kasus",
-    title: "Arsip Proyek",
-    caption:
-      "Arsip ruang bawah tanah. Tarik satu map — setiap kasus di bawah benar-benar dirilis.",
-    hint: "brankas berjalan menyamping di layar lebar — terus gulir untuk membalik map",
-    openCase: "buka kasus",
-    endTitle: "ujung brankas",
-    endText: "dossier lebih dalam ada di sinematik berikut",
-  },
   status: {
     live: "LIVE",
     archived: "ARSIP",
@@ -202,45 +189,6 @@ export const id: Messages = {
         outcome:
           "Nol invoice hilang di kuartal pertama pemakaian, dan pengingat memulihkan sekitar seminggu pekerjaan yang belum dibayar.",
       },
-      kodestreet: {
-        title: "KODESTREET",
-        oneLiner:
-          "Portofolio ini — motion-comic interaktif dengan Next.js, TypeScript, dan storytelling scroll sinematik.",
-        problem:
-          "Portofolio harus terasa seperti tempat, bukan PDF. Grid kartu generik gagal mengkomunikasikan keahlian atau kepribadian.",
-        solution:
-          "Saya membangun pengalaman sinematik satu halaman: lapisan atmosfer CSS/canvas, storytelling GSAP ScrollTrigger, dan terminal interaktif yang benar-benar merespons.",
-        role: "Desainer + Developer",
-        features: [
-          "Transisi babak berbasis scroll",
-          "Motion yang menghargai preferensi",
-          "Terminal retro interaktif",
-          "Lapisan data konten fully typed",
-        ],
-        challenge:
-          "Menjaga atmosfer tetap pekat tanpa merusak Core Web Vitals berarti menggambar hujan, kabut, dan grain dengan CSS + satu canvas ringan.",
-        outcome:
-          "Portofolio yang cepat dimuat, terbaca jelas tanpa JavaScript, dan membuat pengunjung merasa berjalan melewati sebuah kota.",
-      },
-      signaldesk: {
-        title: "SIGNALDESK",
-        oneLiner:
-          "Meja tiket dukungan real-time untuk tim produk kecil yang tenggelam dalam utas pesan.",
-        problem:
-          "Dukungan datang dari empat kanal chat sekaligus; masalah lolos dari celah dan tak seorang pun memegang solusinya.",
-        solution:
-          "Saya membangun front-end React + Vite di atas API Laravel yang tipis: kotak masuk terpadu, aturan penugasan, dan denyut langsung tiket terbuka.",
-        role: "Frontend Developer",
-        features: [
-          "Kotak masuk terpadu lintas sumber dukungan",
-          "Penugasan otomatis berdasarkan ketersediaan tim",
-          "Denyut tiket langsung via server-sent events",
-        ],
-        challenge:
-          "Menyatukan urutan pesan dari berbagai sumber — saya menerapkan event log sisi klien dengan deduplikasi dan replay.",
-        outcome:
-          "Median waktu respons pertama turun dari ~4 jam menjadi di bawah 40 menit pada jam kerja.",
-      },
       retromart: {
         title: "RETROMART",
         oneLiner:
@@ -281,17 +229,6 @@ export const id: Messages = {
           "Aplikasi inti 10 kB yang masih berfungsi saat jaringan mati — monumen kecil untuk kesederhanaan.",
       },
     },
-  },
-  git: {
-    label: "ruang monitor · umpan opsional",
-    title: "Sinyal Aktivitas",
-    caption:
-      "Denyut semi-nyata dari menara version control. Stempel statis — disegarkan pada setiap deploy.",
-    signal: "sinyal",
-    commitsSteady: "commit: stabil",
-    openRepository: "buka repositori",
-    footer:
-      "umpan statis secara desain — arsip tak pernah menunggu API pihak ketiga.",
   },
   nft: {
     label: "sayap kreatif · dari konsep ke koleksi",
@@ -420,61 +357,6 @@ export const id: Messages = {
         tags: ["Next.js", "TypeScript", "Tailwind"],
       },
     },
-  },
-  lab: {
-    label: "bengkel kerja",
-    title: "Lab Developer",
-    caption:
-      "CRT berfungsi, dipulihkan, dan aman. Ketik perintah — tak ada yang keluar dari ruangan ini.",
-    memoTitle: "Memo bengkel",
-    noteOne:
-      "Terminal ini presentasional — perintah tak pernah menyentuh shell sungguhan.",
-    noteTwo: "Coba <help>, <skills>, atau <projects>.",
-    noteThree: "Sorotan: tekan <Tab> untuk autocomplete sebuah perintah.",
-  },
-  terminal: {
-    ariaLog: "Terminal retro interaktif",
-    ariaInput: "Input terminal",
-    typeCmd: "Ketik sebuah perintah",
-    tabStatus: "TAB autocomplete · ↑ riwayat",
-    safeMode: "mode aman — tanpa shell sungguhan",
-    crtLabel: "crt://guest@kodecity",
-    bannerTitle: "KODECITY TERMINAL v1.1.0 — AKSES TERBATAS",
-    bannerUplink: "Uplink terjalin. Hujan terdeteksi.",
-    bannerHelp: "Ketik 'help' untuk melihat perintah yang tersedia.",
-    prompt: "{city}@guest:~$ {value}",
-    help: {
-      available: "kanal yang tersedia:",
-      help: "  help      — cetak ulang manifesto ini",
-      about: "  about     — dossier developer",
-      skills: "  skills    — daftar gudang senjata",
-      projects: "  projects  — folder kasus yang dirilis",
-      scenes: "  scenes    — peta blok kota",
-      visit: "  visit <n> — lompat ke babak (mis. visit 4)",
-      contact: "  contact   — buka kanal ke subjek",
-      exit: "  exit      — keluar lewat babak akhir",
-      clear: "  clear     — bersihkan layar",
-      hintTab: "tips: tekan TAB untuk autocomplete.",
-    },
-    about: {
-      name: "NAMA",
-      role: "PERAN",
-      status: "STATUS",
-      location: "LOKASI",
-      focus: "FOKUS",
-    },
-    projectsNote: "Dossier lengkap ada di Arsip Proyek di atas.",
-    contactNote: "Buka kanal lewat Sinyal Kontak di bawah.",
-    scenesHead: "blok kota (utara → selatan):",
-    scenesNote: "pakai 'visit <n>' untuk langsung melompat ke satu.",
-    exitLine: "Selamat malam. Pintu kota ada di balik kredit.",
-    unknownBlock: "! blok tak dikenal. coba 'scenes' untuk peta.",
-    usageVisit: "pemakaian: visit <scene-id | index>",
-    unknownCmd: "! perintah tak dikenal: '{cmd}'",
-    tryHelp: "Coba 'help'.",
-    wiped: "KODECITY TERMINAL v1.1.0 — layar dibersihkan",
-    routingTo: "Mengarahkan ke {target}…",
-    whoami: "{user}@{city} — developer yang memperhatikan detail.",
   },
   contact: {
     label: "ruang radio di atap",

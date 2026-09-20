@@ -6,7 +6,10 @@ import { SceneHeader } from "@/components/ui/SceneHeader";
 import { useReveals } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
 
-const featured: Project[] = [projects[0]!, projects[2]!];
+const featured: Project[] = [
+  projects.find((p) => p.id === "kode-ledger")!,
+  projects.find((p) => p.id === "retromart")!,
+];
 
 function VisualPlaceholder({ project }: { project: Project }) {
   const cover = project.gallery[0]?.src;
@@ -66,7 +69,7 @@ export function ProjectShowcase() {
       <div className="scene-inner">
         <SceneHeader
           id="showcase-title"
-          chapter={6}
+          chapter={5}
           label={t("showcase.label")}
           title={t("showcase.title")}
           caption={t("showcase.caption")}

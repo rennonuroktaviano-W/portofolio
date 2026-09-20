@@ -13,7 +13,7 @@ export const en: Messages = {
     cityLine: "{city} · a rainy metropolis of interfaces",
     tagline: "Building web systems that keep working after midnight.",
     role: "Full-Stack Developer",
-    enterArchive: "ENTER THE ARCHIVE",
+    enterArchive: "OPEN THE FILES",
     readOn: "Read on —",
   },
   scenes: {
@@ -21,12 +21,9 @@ export const en: Messages = {
     "scene-identity": { title: "Identity Reveal", label: "who" },
     "scene-about": { title: "Case File", label: "about" },
     "scene-arsenal": { title: "Tech Arsenal", label: "skills" },
-    "scene-archive": { title: "Project Archive", label: "work" },
     "scene-showcase": { title: "Featured Cinematics", label: "files" },
     "scene-nft": { title: "Creative Studio", label: "collectibles" },
     "scene-experience": { title: "Night Train", label: "route" },
-    "scene-lab": { title: "Developer Lab", label: "lab" },
-    "scene-git": { title: "Activity Signal", label: "signals" },
     "scene-contact": { title: "Contact Signal", label: "signal" },
     "scene-final": { title: "Night Falls", label: "end" },
   },
@@ -132,16 +129,6 @@ export const en: Messages = {
       top: "Top Caliber",
     },
   },
-  archive: {
-    label: "the vault · case folders",
-    title: "Project Archive",
-    caption:
-      "The basement archive. Pull a folder — every case below shipped for real.",
-    hint: "the vault runs sideways on wide screens — keep scrolling to flip folders",
-    openCase: "open case",
-    endTitle: "end of the vault",
-    endText: "deeper dossiers live in the cinematics below",
-  },
   status: {
     live: "LIVE",
     archived: "ARCHIVED",
@@ -202,45 +189,6 @@ export const en: Messages = {
         outcome:
           "Zero lost invoices in the first quarter of use, and reminders recovered roughly a week of unpaid work.",
       },
-      kodestreet: {
-        title: "KODESTREET",
-        oneLiner:
-          "This portfolio — an interactive motion-comic built with Next.js, TypeScript, and cinematic scroll storytelling.",
-        problem:
-          "A portfolio should feel like a place, not a PDF. Generic card grids fail to communicate craft or personality.",
-        solution:
-          "I built a single-page cinematic experience: CSS/canvas atmosphere layers, GSAP ScrollTrigger storytelling, and a terminal scene that actually talks back.",
-        role: "Designer + Developer",
-        features: [
-          "Scroll-driven scene transitions",
-          "Preference-aware motion",
-          "Interactive retro terminal",
-          "Fully typed content data layer",
-        ],
-        challenge:
-          "Keeping atmosphere heavy without wrecking Core Web Vitals meant drawing rain, fog, and grain with CSS + a single lightweight canvas.",
-        outcome:
-          "A portfolio that loads fast, reads clearly without JavaScript, and leaves visitors feeling like they walked through a city.",
-      },
-      signaldesk: {
-        title: "SIGNALDESK",
-        oneLiner:
-          "A real-time support ticketing desk for a small product team drowning in message threads.",
-        problem:
-          "Support came through four chat channels at once; issues fell through the cracks and nobody owned a resolution.",
-        solution:
-          "I built a React + Vite front-end over a thin Laravel API: unified inbox, assignment rules, and a live pulse of open tickets.",
-        role: "Frontend Developer",
-        features: [
-          "Unified inbox across support sources",
-          "Auto-assignment by team availability",
-          "Live ticket pulse via server-sent events",
-        ],
-        challenge:
-          "Reconciling message ordering from multiple sources — I implemented a client-side event log with deduplication and replay.",
-        outcome:
-          "Median first-response time dropped from ~4 hours to under 40 minutes during business hours.",
-      },
       retromart: {
         title: "RETROMART",
         oneLiner:
@@ -281,17 +229,6 @@ export const en: Messages = {
           "A 10 kB core app that still works when the network doesn't — a small monument to restraint.",
       },
     },
-  },
-  git: {
-    label: "monitor room · optional feed",
-    title: "Activity Signal",
-    caption:
-      "Live-ish pulses from the version control tower. Static stamps — refreshed on every deploy.",
-    signal: "signal",
-    commitsSteady: "commits: steady",
-    openRepository: "open repository",
-    footer:
-      "feeds are static by design — the archive never waits on a third-party API.",
   },
   nft: {
     label: "the creative wing · concept to collectible",
@@ -420,60 +357,6 @@ export const en: Messages = {
         tags: ["Next.js", "TypeScript", "Tailwind"],
       },
     },
-  },
-  lab: {
-    label: "the workshop",
-    title: "Developer Lab",
-    caption:
-      "A working CRT, restored and safe. Type a command — nothing leaves this room.",
-    memoTitle: "Workshop memo",
-    noteOne: "The terminal is presentational — commands never touch a real shell.",
-    noteTwo: "Try <help>, <skills>, or <projects>.",
-    noteThree: "Highlight: press <Tab> to autocomplete a command.",
-  },
-  terminal: {
-    ariaLog: "Interactive retro terminal",
-    ariaInput: "Terminal input",
-    typeCmd: "Type a command",
-    tabStatus: "TAB autocomplete · ↑ history",
-    safeMode: "safe mode — no real shell",
-    crtLabel: "crt://guest@kodecity",
-    bannerTitle: "KODECITY TERMINAL v1.1.0 — RESTRICTED ACCESS",
-    bannerUplink: "Uplink established. Rain registered.",
-    bannerHelp: "Type 'help' to see available commands.",
-    prompt: "{city}@guest:~$ {value}",
-    help: {
-      available: "available channels:",
-      help: "  help      — reprint this manifesto",
-      about: "  about     — developer dossier",
-      skills: "  skills    — the arsenal list",
-      projects: "  projects  — shipped case folders",
-      scenes: "  scenes    — map of the city blocks",
-      visit: "  visit <n> — jump to a scene (e.g. visit 4)",
-      contact: "  contact   — open a channel to the subject",
-      exit: "  exit      — leave through the final scene",
-      clear: "  clear     — wipe the screen",
-      hintTab: "hint: hit TAB to autocomplete.",
-    },
-    about: {
-      name: "NAME",
-      role: "ROLE",
-      status: "STATUS",
-      location: "LOCATION",
-      focus: "FOCUS",
-    },
-    projectsNote: "Full dossiers live in the Project Archive above.",
-    contactNote: "Open channel via the Contact Signal below.",
-    scenesHead: "city blocks (north → south):",
-    scenesNote: "use 'visit <n>' to jump straight to one.",
-    exitLine: "Good night. The city door is behind the credits.",
-    unknownBlock: "! unknown block. try 'scenes' for a map.",
-    usageVisit: "usage: visit <scene-id | index>",
-    unknownCmd: "! unknown command: '{cmd}'",
-    tryHelp: "Try 'help'.",
-    wiped: "KODECITY TERMINAL v1.1.0 — screen wiped",
-    routingTo: "Routing to {target}…",
-    whoami: "{user}@{city} — a developer who pays attention.",
   },
   contact: {
     label: "rooftop radio room",
