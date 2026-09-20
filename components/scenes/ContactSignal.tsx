@@ -60,7 +60,7 @@ function ContactForm() {
     <div
       className="comic-panel paper-sheet relative overflow-hidden p-6 sm:p-8"
       data-reveal
-      data-reveal-delay={140}
+      data-reveal-delay={0.15}
     >
       <span
         aria-hidden="true"
@@ -247,7 +247,7 @@ export function ContactSignal() {
             <div
               className="comic-panel bg-midnight/70 p-6 sm:p-7"
               data-reveal
-              data-reveal-delay={80}
+              data-reveal-delay={0.1}
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold">
                 {t("contact.socialsLabel")}
