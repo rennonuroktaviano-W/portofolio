@@ -78,7 +78,7 @@ export function NftShowcase() {
       <div className="scene-inner">
         <SceneHeader
           id="nft-title"
-          chapter={6}
+          chapter={5}
           label={t("nft.label")}
           title={t("nft.title")}
           caption={t("nft.caption")}

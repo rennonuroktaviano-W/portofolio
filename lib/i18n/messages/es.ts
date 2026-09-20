@@ -21,7 +21,6 @@ export const es: Messages = {
     "scene-identity": { title: "Revelación de Identidad", label: "quién" },
     "scene-about": { title: "Expediente", label: "sobre" },
     "scene-arsenal": { title: "Arsenal Técnico", label: "habilidades" },
-    "scene-showcase": { title: "Cinematografía Destacada", label: "archivos" },
     "scene-nft": { title: "Estudio Creativo", label: "coleccionables" },
     "scene-experience": { title: "Tren Nocturno", label: "ruta" },
     "scene-contact": { title: "Señal de Contacto", label: "señal" },
@@ -134,102 +133,6 @@ export const es: Messages = {
     archived: "ARCHIVADO",
     inProgress: "EN PROGRESO",
   },
-  showcase: {
-    label: "cinematografías destacadas",
-    title: "Expedientes — Análisis a Fondo",
-    caption: "Dos casos abiertos de par en par: el problema, la construcción y lo publicado.",
-    evidenceFile: "archivo de evidencia {n} — {year}",
-    problem: "El Problema",
-    solution: "La Solución",
-    momentItHurt: "El Momento Doliente",
-    aftermath: "Las Consecuencias",
-    caseVisual: "visual del caso",
-    artCaseCover: "arte: portada del caso",
-    liveSignal: "SEÑAL EN VIVO",
-    sourceCode: "código fuente",
-    liveDemo: "demo en vivo",
-    projects: {
-      casebreak: {
-        title: "CASEBREAK",
-        oneLiner:
-          "Una plataforma de gestión de casos que convirtió un rastro de papel en una sala de evidencias buscable.",
-        problem:
-          "Una agencia local seguía los casos de sus clientes en hojas de cálculo y carpetas impresas. Registros duplicados, plazos incumplidos y nada buscable.",
-        solution:
-          "Diseñé un back office de Laravel + MySQL con acceso basado en roles, tableros de estado, alertas de plazos y una bóveda de documentos con búsqueda de texto completo.",
-        role: "Desarrollador Full-Stack",
-        features: [
-          "Dashboards basados en roles para agentes y administradores",
-          "Tableros de estado de casos estilo Kanban",
-          "Correos programados de recordatorio de plazos",
-          "Búsqueda y etiquetado de documentos a texto completo",
-        ],
-        challenge:
-          "Migrar 4 años de registros heredados desordenados sin perder datos fue la batalla real — construí un importador por pasos con validación en seco.",
-        outcome:
-          "El tiempo de búsqueda pasó de minutos a segundos y el equipo cerró un atraso de más de 200 casos obsoletos en dos meses.",
-      },
-      "kode-ledger": {
-        title: "KODELEDGER",
-        oneLiner:
-          "Una API mínima de contabilidad por partida doble para un pipeline de facturación de un negocio secundario.",
-        problem:
-          "La facturación freelance se perdía en las apps de chat; no había un registro fiable de lo facturado, pagado o vencido.",
-        solution:
-          "Construí un servicio de Node.js + PostgreSQL que expone una REST API tipada con creación de facturas idempotente, generación de PDF y recordatorios de pago.",
-        role: "Desarrollador Backend",
-        features: [
-          "Endpoints de facturas y pagos idempotentes",
-          "Generación automática de facturas en PDF",
-          "Trabajos de recordatorio de pagos vencidos",
-          "Registro de auditoría para cada mutación",
-        ],
-        challenge:
-          "Acertar con la matemática del dinero bajo concurrencia — añadí bloqueo a nivel de fila y un trabajo de reconciliación para mantener los libros exactos.",
-        outcome:
-          "Cero facturas perdidas en el primer trimestre de uso, y los recordatorios recuperaron alrededor de una semana de trabajo impagado.",
-      },
-      retromart: {
-        title: "RETROMART",
-        oneLiner:
-          "Una tienda e-commerce en Laravel con temática de tecnología vintage — carritos, pagos y un administrador retro.",
-        problem:
-          "Un revendedor de tecnología vintage necesitaba una tienda que se sintiera como su catálogo: lúdica, creíble y rápida en el móvil.",
-        solution:
-          "Entregué una tienda Laravel completa con variantes de producto, motor de promociones, integración de pasarela de pagos y un panel de administración del inventario.",
-        role: "Desarrollador Full-Stack",
-        features: [
-          "Carrito, checkout y pasarela de pagos",
-          "Códigos de promoción con reglas de combinación",
-          "Gestión de inventario y alertas de stock bajo",
-          "Dashboard de informes para administración",
-        ],
-        challenge:
-          "Lograr seguridad transaccional entre estados de stock, descuento y pago requirió colas cuidadosas y creación de pedidos idempotente.",
-        outcome:
-          "Lanzó y procesó cientos de pedidos en la primera temporada sin un solo cargo duplicado.",
-      },
-      weathermono: {
-        title: "WEATHERMONO",
-        oneLiner:
-          "Una PWA del clima diminuta y capaz de funcionar sin conexión con estética monospace — clima, pero con sabor a terminal.",
-        problem:
-          "Quería una app del clima que respetara al lector: sin rastreadores, sin relleno, datos visibles de un vistazo en teléfonos lentos.",
-        solution:
-          "Una PWA construida con TypeScript vanilla que almacena en caché los pronósticos, funciona sin conexión y renderiza un mapa de pronóstico en rejilla monospace.",
-        role: "Desarrollador en Solitario",
-        features: [
-          "Caché de pronósticos sin conexión",
-          "Cuadrícula meteorológica tipográfica monospace",
-          "Cero anuncios y cero analíticas",
-        ],
-        challenge:
-          "Reducir el bundle a menos de 12 kB mientras se renderizaba un mapa meteorológico real en el cliente.",
-        outcome:
-          "Una app principal de 10 kB que sigue funcionando cuando la red no — un pequeño monumento a la contención.",
-      },
-    },
-  },
   nft: {
     label: "el ala creativa · del concepto al coleccionable",
     title: "Colección NFT Asistida por IA",
@@ -299,6 +202,7 @@ export const es: Messages = {
     prevShort: "anterior",
     nextShort: "siguiente",
     aiLabel: "obra de arte digital asistida por IA",
+    caseVisual: "visual del caso",
   },
   experience: {
     label: "el tren nocturno · registro de ruta",

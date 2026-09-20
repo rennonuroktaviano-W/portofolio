@@ -79,36 +79,6 @@ export const projects: Project[] = [
     gallery: [{ src: "/images/projects/kodeledger/cover.svg", alt: "KodeLedger API docs preview" }],
   },
   {
-    id: "retromart",
-    slug: "retromart",
-    title: "RETROMART",
-    oneLiner:
-      "A Laravel e-commerce storefront themed around vintage tech — carts, payments, and a retro admin.",
-    problem:
-      "A vintage-tech reseller needed a store that felt like its catalog: playful, credible, and fast on mobile.",
-    solution:
-      "I delivered a full Laravel storefront with product variants, promo engine, payment gateway integration, and an admin panel for inventory.",
-    role: "Full-Stack Developer",
-    stack: ["Laravel", "MySQL", "Livewire", "Tailwind CSS"],
-    features: [
-      "Cart, checkout & payment gateway",
-      "Promo codes with stacking rules",
-      "Inventory management & low-stock alerts",
-      "Admin reporting dashboard",
-    ],
-    challenge:
-      "Nailing transaction safety across stock, discount, and payment states required careful queueing and idempotent order creation.",
-    outcome:
-      "Launched and processed hundreds of orders in the first season without a single double-charge.",
-    year: "2023",
-    status: "LIVE",
-    links: [
-      { label: "github", url: "https://github.com/rennonuroktaviano-W" },
-      { label: "live", url: site.url },
-    ],
-    gallery: [{ src: "/images/projects/retromart/cover.svg", alt: "Retromart storefront preview" }],
-  },
-  {
     id: "weathermono",
     slug: "weathermono",
     title: "WEATHERMONO",

@@ -21,7 +21,6 @@ export const de: Messages = {
     "scene-identity": { title: "Identitätsoffenbarung", label: "wer" },
     "scene-about": { title: "Akte", label: "über" },
     "scene-arsenal": { title: "Tech-Arsenal", label: "fähigkeiten" },
-    "scene-showcase": { title: "Ausgewählte Cinematics", label: "akten" },
     "scene-nft": { title: "Kreativstudio", label: "collectibles" },
     "scene-experience": { title: "Nachtzug", label: "route" },
     "scene-contact": { title: "Kontaktsignal", label: "signal" },
@@ -134,102 +133,6 @@ export const de: Messages = {
     archived: "ARCHIVIERT",
     inProgress: "IN ARBEIT",
   },
-  showcase: {
-    label: "ausgewählte Cinematics",
-    title: "Akten — Tiefenanalyse",
-    caption: "Zwei Fälle weit geöffnet: das Problem, der Bau und was veröffentlicht wurde.",
-    evidenceFile: "Beweisstück {n} — {year}",
-    problem: "Das Problem",
-    solution: "Die Lösung",
-    momentItHurt: "Der Schmerzhafte Moment",
-    aftermath: "Die Folgen",
-    caseVisual: "Fallvisual",
-    artCaseCover: "kunst: Aktencover",
-    liveSignal: "LIVE-SIGNAL",
-    sourceCode: "Quellcode",
-    liveDemo: "Live-Demo",
-    projects: {
-      casebreak: {
-        title: "CASEBREAK",
-        oneLiner:
-          "Eine Fallmanagement-Plattform, die einen Papierstapel in einen durchsuchbaren Beweisraum verwandelte.",
-        problem:
-          "Eine lokale Behörde verwaltete Klientenfälle in Tabellen und ausgedruckten Ordnern. Doppelte Datensätze, verpasste Fristen und nichts war durchsuchbar.",
-        solution:
-          "Ich entwarf ein Laravel + MySQL-Backoffice mit rollenbasierter Zugriffskontrolle, Statusboards, Fristwarnungen und einer Dokumenten-Vault mit Volltextsuche.",
-        role: "Full-Stack-Entwickler",
-        features: [
-          "Rollenbasierte Dashboards für Beamte & Admins",
-          "Kanban-artige Statusboards für Fälle",
-          "Automatische Frist-Erinnerungsmails",
-          "Volltextsuche & Tagging für Dokumente",
-        ],
-        challenge:
-          "4 Jahre chaotischer Altdaten ohne Datenverlust zu migrieren war der eigentliche Kampf — ich baute einen schrittweisen Import mit Trockenlauf-Validierung.",
-        outcome:
-          "Die Suchzeit sank von Minuten auf Sekunden und das Team räumte in zwei Monaten einen Rückstau von über 200 veralteten Fällen ab.",
-      },
-      "kode-ledger": {
-        title: "KODELEDGER",
-        oneLiner:
-          "Eine minimalistische Doppelte-Buchführung-API für eine Nebenprojekt-Rechnungs-Pipeline.",
-        problem:
-          "Freelancer-Rechnungen gingen in Chat-Apps verloren; es gab keine zuverlässige Aufzeichnung, was in Rechnung gestellt, bezahlt oder überfällig war.",
-        solution:
-          "Ich baute einen Node.js + PostgreSQL-Dienst mit typisierter REST-API, idempotenter Rechnungserstellung, PDF-Generierung und Zahlungserinnerungen.",
-        role: "Backend-Entwickler",
-        features: [
-          "Idempotente Rechnungs- & Zahlungsendpunkte",
-          "Automatische PDF-Rechnungserstellung",
-          "Worker für Zahlungserinnerungen",
-          "Audit-Log für jede Änderung",
-        ],
-        challenge:
-          "Die Geldmathematik unter Nebenläufigkeit korrekt zu halten — ich ergänzte Row-Level-Locking und einen Abgleich-Job für exakte Bücher.",
-        outcome:
-          "Null verlorene Rechnungen im ersten Nutzungsquartal, und Erinnerungen holten rund eine Woche unbezahlter Arbeit zurück.",
-      },
-      retromart: {
-        title: "RETROMART",
-        oneLiner:
-          "Ein Laravel-E-Commerce-Shop zum Thema Vintage-Tech — Warenkörbe, Zahlungen und ein Retro-Admin.",
-        problem:
-          "Ein Vintage-Tech-Händler brauchte einen Shop, der sich wie sein Katalog anfühlt: verspielt, glaubwürdig und schnell auf dem Handy.",
-        solution:
-          "Ich lieferte einen vollständigen Laravel-Shop mit Produktvarianten, Promo-Engine, Payment-Gateway-Integration und Admin-Panel fürs Inventar.",
-        role: "Full-Stack-Entwickler",
-        features: [
-          "Warenkorb, Checkout & Payment-Gateway",
-          "Promo-Codes mit Stapelregeln",
-          "Inventarverwaltung & Niedrigbestand-Alerts",
-          "Admin-Reporting-Dashboard",
-        ],
-        challenge:
-          "Transaktionssicherheit über Bestand, Rabatt und Zahlungsstatus zu gewinnen, erforderte sorgfältiges Queueing und idempotente Bestellerstellung.",
-        outcome:
-          "Gestartet und in der ersten Saison hunderte Bestellungen verarbeitet — ohne eine einzige Doppelbuchung.",
-      },
-      weathermono: {
-        title: "WEATHERMONO",
-        oneLiner:
-          "Eine winzige, offline-fähige Wetter-PWA in Monospace-Ästhetik — Wetter, aber terminal-style.",
-        problem:
-          "Ich wollte eine Wetter-App, die den Leser respektiert: keine Tracker, kein Ballast, schnell erfasste Daten auf langsamen Handys.",
-        solution:
-          "Eine PWA in Vanilla-TypeScript, die Vorhersagen cached, offline funktioniert und eine datierte Monospace-Vorhersagekarte rendert.",
-        role: "Solo-Entwickler",
-        features: [
-          "Offline-Vorhersage-Cache",
-          "Monospace-Wetterraster",
-          "Null Werbung & null Analytics",
-        ],
-        challenge:
-          "Das Bundle unter 12 kB zu drücken, während eine echte Wetterkarte clientseitig gerendert wird.",
-        outcome:
-          "Eine 10-kB-Kern-App, die auch ohne Netzwerk funktioniert — ein kleines Denkmal der Zurückhaltung.",
-      },
-    },
-  },
   nft: {
     label: "der kreative Flügel · vom Konzept zum Sammlerstück",
     title: "KI-gestützte NFT-Kollektion",
@@ -299,6 +202,7 @@ export const de: Messages = {
     prevShort: "zurück",
     nextShort: "weiter",
     aiLabel: "KI-gestütztes digitales Kunstwerk",
+    caseVisual: "Fallvisual",
   },
   experience: {
     label: "der Nachtzug · Routenlog",

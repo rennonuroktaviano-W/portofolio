@@ -31,7 +31,7 @@ export function ArtworkCover({ artwork, sizes, priority }: ArtworkCoverProps) {
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
           <div className="absolute inset-0 halftone opacity-30" />
           <p className="relative font-mono text-[10px] uppercase tracking-[0.4em] text-gold">
-            {t("showcase.caseVisual")}
+            {t("lightbox.caseVisual")}
           </p>
           <span className="relative px-4 font-display text-xl font-semibold uppercase tracking-wide text-outline sm:text-2xl">
             {artwork.title}

@@ -3,7 +3,6 @@ export type SceneKey =
   | "scene-identity"
   | "scene-about"
   | "scene-arsenal"
-  | "scene-showcase"
   | "scene-nft"
   | "scene-experience"
   | "scene-contact"
@@ -91,22 +90,6 @@ export type Messages = {
     archived: string;
     inProgress: string;
   };
-  showcase: {
-    label: string;
-    title: string;
-    caption: string;
-    evidenceFile: string;
-    problem: string;
-    solution: string;
-    momentItHurt: string;
-    aftermath: string;
-    caseVisual: string;
-    artCaseCover: string;
-    liveSignal: string;
-    sourceCode: string;
-    liveDemo: string;
-    projects: Record<string, ProjectMessages>;
-  };
   nft: {
     label: string;
     title: string;
@@ -133,6 +116,7 @@ export type Messages = {
     prevShort: string;
     nextShort: string;
     aiLabel: string;
+    caseVisual: string;
   };
   experience: {
     label: string;
@@ -208,15 +192,4 @@ export type Messages = {
     ambienceOn: string;
     ambienceOff: string;
   };
-};
-
-export type ProjectMessages = {
-  title: string;
-  oneLiner: string;
-  problem: string;
-  solution: string;
-  role: string;
-  features: string[];
-  challenge: string;
-  outcome: string;
 };

@@ -21,7 +21,6 @@ export const id: Messages = {
     "scene-identity": { title: "Identitas Terungkap", label: "siapa" },
     "scene-about": { title: "Berkas Kasus", label: "tentang" },
     "scene-arsenal": { title: "Gudang Senjata", label: "skill" },
-    "scene-showcase": { title: "Sinematik Unggulan", label: "berkas" },
     "scene-nft": { title: "Studio Kreatif", label: "collectibles" },
     "scene-experience": { title: "Kereta Malam", label: "rute" },
     "scene-contact": { title: "Sinyal Kontak", label: "kontak" },
@@ -134,102 +133,6 @@ export const id: Messages = {
     archived: "ARSIP",
     inProgress: "SEDANG DIBANGUN",
   },
-  showcase: {
-    label: "sinematik unggulan",
-    title: "Berkas Kasus — Penelusuran",
-    caption: "Dua kasus dibedah: masalahnya, pembangunannya, dan yang dirilis.",
-    evidenceFile: "berkas bukti {n} — {year}",
-    problem: "Masalahnya",
-    solution: "Solusinya",
-    momentItHurt: "Saat yang Menyakitkan",
-    aftermath: "Akibatnya",
-    caseVisual: "visual kasus",
-    artCaseCover: "seni: sampul kasus",
-    liveSignal: "SINYAL LIVE",
-    sourceCode: "kode sumber",
-    liveDemo: "demo langsung",
-    projects: {
-      casebreak: {
-        title: "CASEBREAK",
-        oneLiner:
-          "Platform manajemen kasus yang mengubah tumpukan kertas menjadi ruang bukti yang bisa dicari.",
-        problem:
-          "Sebuah lembaga lokal melacak kasus klien lewat spreadsheet dan folder cetak. Data ganda, tenggat terlewat, dan tak ada yang bisa dicari.",
-        solution:
-          "Saya merancang back office Laravel + MySQL dengan akses berbasis peran, papan status kasus, pengingat tenggat, dan brankas dokumen dengan pencarian full-text.",
-        role: "Full-Stack Developer",
-        features: [
-          "Dashboard berbasis peran untuk petugas & admin",
-          "Papan status kasus ala Kanban",
-          "Email pengingat tenggat terjadwal",
-          "Pencarian & pelabelan dokumen full-text",
-        ],
-        challenge:
-          "Migrasi 4 tahun data warisan yang berantakan tanpa kehilangan data adalah pertarungan sesungguhnya — saya membangun importer bertahap dengan validasi dry-run.",
-        outcome:
-          "Waktu pencarian turun dari menit ke detik dan tim menyelesaikan antrean 200+ kasus basi dalam dua bulan.",
-      },
-      "kode-ledger": {
-        title: "KODELEDGER",
-        oneLiner:
-          "API pembukuan double-entry minimal untuk pipeline invoicing bisnis sampingan.",
-        problem:
-          "Invoicing freelance tenggelam di aplikasi chat; tak ada catatan andal tentang apa yang ditagih, dibayar, atau menunggak.",
-        solution:
-          "Saya membangun layanan Node.js + PostgreSQL yang mengekspos REST API typed dengan pembuatan invoice idempoten, PDF, dan pengingat pembayaran.",
-        role: "Backend Developer",
-        features: [
-          "Endpoint invoice & pembayaran idempoten",
-          "Generasi PDF invoice otomatis",
-          "Worker pengingat pembayaran telat",
-          "Audit log untuk setiap perubahan",
-        ],
-        challenge:
-          "Menjaga akurasi uang di bawah konkurensi — saya menambah row-level locking dan job rekonstruksi agar pembukuan tetap presisi.",
-        outcome:
-          "Nol invoice hilang di kuartal pertama pemakaian, dan pengingat memulihkan sekitar seminggu pekerjaan yang belum dibayar.",
-      },
-      retromart: {
-        title: "RETROMART",
-        oneLiner:
-          "Toko e-commerce Laravel bertema teknologi vintage — keranjang, pembayaran, dan admin retro.",
-        problem:
-          "Reseller teknologi vintage butuh toko yang terasa seperti katalognya: ceria, kredibel, dan cepat di ponsel.",
-        solution:
-          "Saya mengirimkan storefront Laravel lengkap dengan varian produk, mesin promo, integrasi payment gateway, dan panel admin untuk inventori.",
-        role: "Full-Stack Developer",
-        features: [
-          "Keranjang, checkout & payment gateway",
-          "Kode promo dengan aturan penumpukan",
-          "Manajemen inventori & alert stok menipis",
-          "Dashboard laporan admin",
-        ],
-        challenge:
-          "Mengamankan transaksi di antara status stok, diskon, dan pembayaran membutuhkan antrean yang hati-hati dan pembuatan order idempoten.",
-        outcome:
-          "Dirilis dan memproses ratusan order di musim pertama tanpa satu pun double-charge.",
-      },
-      weathermono: {
-        title: "WEATHERMONO",
-        oneLiner:
-          "PWA cuaca kecil yang bisa offline dalam estetika monospace — cuaca, tapi bergaya terminal.",
-        problem:
-          "Saya ingin aplikasi cuaca yang menghormati pembaca: tanpa tracker, tanpa basa-basi, data cepat terlihat di ponsel lambat.",
-        solution:
-          "PWA dengan vanilla TypeScript yang men-cache prakiraan, berfungsi offline, dan merender peta prakiraan grid monospace bertanggal.",
-        role: "Solo Developer",
-        features: [
-          "Cache prakiraan offline",
-          "Grid cuaca monospace",
-          "Nol iklan & nol analytics",
-        ],
-        challenge:
-          "Mengecilkan bundle di bawah 12 kB sambil tetap merender peta cuaca sungguhan di sisi klien.",
-        outcome:
-          "Aplikasi inti 10 kB yang masih berfungsi saat jaringan mati — monumen kecil untuk kesederhanaan.",
-      },
-    },
-  },
   nft: {
     label: "sayap kreatif · dari konsep ke koleksi",
     title: "Koleksi NFT Berbantuan AI",
@@ -299,6 +202,7 @@ export const id: Messages = {
     prevShort: "maju",
     nextShort: "lanjut",
     aiLabel: "karya seni digital berbantuan AI",
+    caseVisual: "visual kasus",
   },
   experience: {
     label: "kereta malam · catatan rute",

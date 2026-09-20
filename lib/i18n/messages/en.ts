@@ -21,7 +21,6 @@ export const en: Messages = {
     "scene-identity": { title: "Identity Reveal", label: "who" },
     "scene-about": { title: "Case File", label: "about" },
     "scene-arsenal": { title: "Tech Arsenal", label: "skills" },
-    "scene-showcase": { title: "Featured Cinematics", label: "files" },
     "scene-nft": { title: "Creative Studio", label: "collectibles" },
     "scene-experience": { title: "Night Train", label: "route" },
     "scene-contact": { title: "Contact Signal", label: "signal" },
@@ -134,102 +133,6 @@ export const en: Messages = {
     archived: "ARCHIVED",
     inProgress: "IN PROGRESS",
   },
-  showcase: {
-    label: "featured cinematics",
-    title: "Case Files — Deep Dive",
-    caption: "Two cases opened wide: the problem, the build, and what shipped.",
-    evidenceFile: "evidence file {n} — {year}",
-    problem: "The Problem",
-    solution: "The Solution",
-    momentItHurt: "The Moment It Hurt",
-    aftermath: "The Aftermath",
-    caseVisual: "case visual",
-    artCaseCover: "art: case cover",
-    liveSignal: "LIVE SIGNAL",
-    sourceCode: "source code",
-    liveDemo: "live demo",
-    projects: {
-      casebreak: {
-        title: "CASEBREAK",
-        oneLiner:
-          "A case-management platform that turned a paper trail into a searchable evidence room.",
-        problem:
-          "A local agency tracked client cases in spreadsheets and printed folders. Records were duplicated, deadlines missed, and nothing was searchable.",
-        solution:
-          "I designed a Laravel + MySQL back office with role-based access, case status boards, deadline alerts, and a document vault with full-text search.",
-        role: "Full-Stack Developer",
-        features: [
-          "Role-based dashboards for officers & admins",
-          "Kanban-style case status boards",
-          "Scheduled deadline reminder emails",
-          "Full-text document search & tagging",
-        ],
-        challenge:
-          "Migrating 4 years of messy legacy records without losing data was the real fight — I built a stepwise importer with dry-run validation.",
-        outcome:
-          "Search time dropped from minutes to seconds and the team closed out a backlog of 200+ stale cases within two months.",
-      },
-      "kode-ledger": {
-        title: "KODELEDGER",
-        oneLiner:
-          "A minimal double-entry bookkeeping API for a side-business invoicing pipeline.",
-        problem:
-          "Freelance invoicing was lost in chat apps; there was no reliable record of what was billed, paid, or overdue.",
-        solution:
-          "I built a Node.js + PostgreSQL service exposing a typed REST API with idempotent invoice creation, PDF generation, and payment reminders.",
-        role: "Backend Developer",
-        features: [
-          "Idempotent invoice & payment endpoints",
-          "Automated PDF invoice generation",
-          "Overdue-payment reminder workers",
-          "Audit log for every mutation",
-        ],
-        challenge:
-          "Getting money math right under concurrency — I added row-level locking and a reconciliation job to keep the books exact.",
-        outcome:
-          "Zero lost invoices in the first quarter of use, and reminders recovered roughly a week of unpaid work.",
-      },
-      retromart: {
-        title: "RETROMART",
-        oneLiner:
-          "A Laravel e-commerce storefront themed around vintage tech — carts, payments, and a retro admin.",
-        problem:
-          "A vintage-tech reseller needed a store that felt like its catalog: playful, credible, and fast on mobile.",
-        solution:
-          "I delivered a full Laravel storefront with product variants, promo engine, payment gateway integration, and an admin panel for inventory.",
-        role: "Full-Stack Developer",
-        features: [
-          "Cart, checkout & payment gateway",
-          "Promo codes with stacking rules",
-          "Inventory management & low-stock alerts",
-          "Admin reporting dashboard",
-        ],
-        challenge:
-          "Nailing transaction safety across stock, discount, and payment states required careful queueing and idempotent order creation.",
-        outcome:
-          "Launched and processed hundreds of orders in the first season without a single double-charge.",
-      },
-      weathermono: {
-        title: "WEATHERMONO",
-        oneLiner:
-          "A tiny, offline-capable weather PWA in a monospace aesthetic — weather, but terminal-flavored.",
-        problem:
-          "I wanted a weather app that respected the reader: no trackers, no fluff, quick glanceable data on slow phones.",
-        solution:
-          "A PWA built with vanilla TypeScript that caches forecasts, works offline, and renders a dated mono-grid forecast map.",
-        role: "Solo Developer",
-        features: [
-          "Offline forecast caching",
-          "Monospace typeset weather grid",
-          "Zero advertising & zero analytics",
-        ],
-        challenge:
-          "Shrinking the bundle under 12 kB while keeping a real weather map rendered client-side.",
-        outcome:
-          "A 10 kB core app that still works when the network doesn't — a small monument to restraint.",
-      },
-    },
-  },
   nft: {
     label: "the creative wing · concept to collectible",
     title: "AI-Assisted NFT Collection",
@@ -299,6 +202,7 @@ export const en: Messages = {
     prevShort: "prev",
     nextShort: "next",
     aiLabel: "ai-assisted digital artwork",
+    caseVisual: "case visual",
   },
   experience: {
     label: "the night train · route log",

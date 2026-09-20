@@ -52,7 +52,7 @@ export function ExperienceTrack() {
       <div className="scene-inner">
         <SceneHeader
           id="experience-title"
-          chapter={7}
+          chapter={6}
           label={t("experience.label")}
           title={t("experience.title")}
           caption={t("experience.caption")}
