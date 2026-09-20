@@ -15,7 +15,6 @@ export const de: Messages = {
     role: "Full-Stack-Entwickler",
     enterArchive: "ARCHIV BETRETEN",
     readOn: "Weiterlesen —",
-    scrollToDescend: "scrollen zum Absteigen",
   },
   scenes: {
     "scene-hero": { title: "Die Stadt Erwacht", label: "intro" },
@@ -88,7 +87,7 @@ export const de: Messages = {
     title: "Tech-Arsenal",
     caption:
       "Die Werkzeuge an der Beweiswand. Jedes Stück hier hat echte Produktionsarbeit gesehen.",
-    hint: "Gerät überfahren oder antippen für Notizen zum Einsatz",
+    hint: "synaptische karte — jeder cluster ist produktionserprobt",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -124,6 +123,13 @@ export const de: Messages = {
         "Preview-Deployments, Edge Functions und Analytics für Next.js-Anwendungen.",
       "deployment.Linux / cPanel servers":
         "Nginx-Reverse-Proxy, PHP-FPM, Prozessmanagement und sicheres Server-Hardening.",
+    },
+    overview: {
+      title: "Arsenal-Übersicht",
+      loaded: "Geladen",
+      loadedValue: "{count}/{total}",
+      avg: "Durchschnittsfähigkeit",
+      top: "Bester Kaliber",
     },
   },
   archive: {

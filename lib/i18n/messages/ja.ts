@@ -15,7 +15,6 @@ export const ja: Messages = {
     role: "フルスタック開発者",
     enterArchive: "アーカイブに入る",
     readOn: "続きを読む —",
-    scrollToDescend: "スクロールして降りる",
   },
   scenes: {
     "scene-hero": { title: "目覚める街", label: "序章" },
@@ -88,7 +87,7 @@ export const ja: Messages = {
     title: "テック兵器庫",
     caption:
       "証拠の壁に並ぶ道具たち。ここにあるすべてが本番運用の現場を見てきたものだ。",
-    hint: "カーソルを合わせるかタップして導入メモを表示",
+    hint: "シナプスマップ — どのクラスターも本番投入済み",
     category: {
       frontend: "フロントエンド",
       backend: "バックエンド",
@@ -124,6 +123,13 @@ export const ja: Messages = {
         "Next.jsアプリ向けのプレビューデプロイ、エッジ関数、アナリティクス。",
       "deployment.Linux / cPanel servers":
         "Nginxリバースプロキシ、PHP-FPM、プロセス管理、堅牢なサーバーセキュリティ。",
+    },
+    overview: {
+      title: "兵器庫の概要",
+      loaded: "装填済み",
+      loadedValue: "{count}/{total}",
+      avg: "平均性能",
+      top: "最強カリバー",
     },
   },
   archive: {

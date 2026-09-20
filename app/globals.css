@@ -210,6 +210,130 @@
   animation: lanyard-sway 5.4s ease-in-out infinite;
 }
 
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(9px);
+    opacity: 0;
+  }
+}
+
+.scroll-dot {
+  animation: scroll-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes brain-node {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.7);
+    opacity: 1;
+  }
+}
+
+.brain-node {
+  animation: brain-node 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes scan-band {
+  0% {
+    top: 10%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 86%;
+    opacity: 0;
+  }
+}
+
+.brain-scanband {
+  animation: scan-band 5s linear infinite;
+}
+
+@keyframes scan-beam {
+  0% {
+    left: 16%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    left: 84%;
+    opacity: 0;
+  }
+}
+
+.brain-scanbeam {
+  animation: scan-beam 6.5s linear infinite;
+}
+
+@keyframes scan-ping {
+  0% {
+    transform: scale(0.25);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.brain-ping {
+  animation: scan-ping 3s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes scan-step {
+  0% {
+    background: rgba(230, 184, 74, 0);
+    opacity: 0.55;
+  }
+  45% {
+    opacity: 0.55;
+  }
+  50% {
+    background: rgba(230, 184, 74, 0.14);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    background: rgba(230, 184, 74, 0);
+    opacity: 0.55;
+  }
+}
+
+.brain-scanhit {
+  animation: scan-step 5s linear infinite;
+}
+
 @keyframes comic-burst {
   0% {
     transform: scale(0.35) rotate(-8deg);

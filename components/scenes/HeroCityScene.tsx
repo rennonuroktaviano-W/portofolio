@@ -202,9 +202,19 @@ export function HeroCityScene() {
         data-scroll-cue
         className="absolute inset-x-0 bottom-6 z-30 flex justify-center"
       >
-        <div className="border border-cream/20 bg-midnight/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] text-fog">
-          {t("hero.scrollToDescend")}
-        </div>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-5 w-5 text-fog transition-colors hover:text-cream"
+          stroke="currentColor"
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        >
+          <path d="M12 2a6 6 0 0 1 6 6v8a6 6 0 0 1-12 0V8a6 6 0 0 1 6-6Z" />
+          <circle className="scroll-dot" cx="12" cy="8" r="1.2" fill="currentColor" stroke="none" />
+        </svg>
       </div>
     </section>
   );

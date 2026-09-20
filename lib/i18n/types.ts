@@ -27,7 +27,6 @@ export type Messages = {
     role: string;
     enterArchive: string;
     readOn: string;
-    scrollToDescend: string;
   };
   scenes: Record<SceneKey, { title: string; label: string }>;
   identity: {
@@ -82,6 +81,13 @@ export type Messages = {
       deployment: string;
     };
     skill: Record<string, string>;
+    overview: {
+      title: string;
+      loaded: string;
+      loadedValue: string;
+      avg: string;
+      top: string;
+    };
   };
   archive: {
     label: string;

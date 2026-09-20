@@ -15,7 +15,6 @@ export const en: Messages = {
     role: "Full-Stack Developer",
     enterArchive: "ENTER THE ARCHIVE",
     readOn: "Read on —",
-    scrollToDescend: "scroll to descend",
   },
   scenes: {
     "scene-hero": { title: "The City Awakens", label: "intro" },
@@ -88,7 +87,7 @@ export const en: Messages = {
     title: "Tech Arsenal",
     caption:
       "The tools on the evidence wall. Every piece here has seen real production work.",
-    hint: "hover or tap a device for deployment notes",
+    hint: "synaptic map — every cluster has shipped in production",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -124,6 +123,13 @@ export const en: Messages = {
         "Preview deployments, edge functions, and analytics for Next.js applications.",
       "deployment.Linux / cPanel servers":
         "Nginx reverse proxy, PHP-FPM, process management, and secure server hardening.",
+    },
+    overview: {
+      title: "Arsenal Overview",
+      loaded: "Loaded",
+      loadedValue: "{count}/{total}",
+      avg: "Average Capability",
+      top: "Top Caliber",
     },
   },
   archive: {

@@ -15,7 +15,6 @@ export const id: Messages = {
     role: "Full-Stack Developer",
     enterArchive: "MASUK ARSIP",
     readOn: "Lanjut —",
-    scrollToDescend: "gulir untuk turun",
   },
   scenes: {
     "scene-hero": { title: "Kota Terbangun", label: "pembuka" },
@@ -88,7 +87,7 @@ export const id: Messages = {
     title: "Gudang Senjata",
     caption:
       "Perkakas di dinding bukti. Setiap alat di sini pernah bekerja di produksi sungguhan.",
-    hint: "arahkan atau sentuh perangkat untuk melihat catatan produksi",
+    hint: "peta sinaps — tiap rumpun pernah tayang di produksi",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -124,6 +123,13 @@ export const id: Messages = {
         "Preview deployment, edge functions, dan analytics untuk aplikasi Next.js.",
       "deployment.Linux / cPanel servers":
         "Nginx reverse proxy, PHP-FPM, manajemen proses, dan pengamanan server.",
+    },
+    overview: {
+      title: "Tinjauan Persenjataan",
+      loaded: "Terpasang",
+      loadedValue: "{count}/{total}",
+      avg: "Kapasitas Rata-rata",
+      top: "Kaliber Terbaik",
     },
   },
   archive: {

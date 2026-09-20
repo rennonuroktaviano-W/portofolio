@@ -15,7 +15,6 @@ export const es: Messages = {
     role: "Desarrollador Full-Stack",
     enterArchive: "ENTRAR AL ARCHIVO",
     readOn: "Sigue leyendo —",
-    scrollToDescend: "desliza para bajar",
   },
   scenes: {
     "scene-hero": { title: "La Ciudad Despierta", label: "intro" },
@@ -88,7 +87,7 @@ export const es: Messages = {
     title: "Arsenal Técnico",
     caption:
       "Las herramientas del muro de evidencias. Cada pieza aquí ha visto trabajo real en producción.",
-    hint: "pasa el cursor o toca un dispositivo para ver notas de despliegue",
+    hint: "mapa sináptico — cada clúster ha estado en producción",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -124,6 +123,13 @@ export const es: Messages = {
         "Despliegues de vista previa, edge functions y analíticas para aplicaciones Next.js.",
       "deployment.Linux / cPanel servers":
         "Proxy inverso Nginx, PHP-FPM, gestión de procesos y endurecimiento seguro del servidor.",
+    },
+    overview: {
+      title: "Resumen del Arsenal",
+      loaded: "Cargado",
+      loadedValue: "{count}/{total}",
+      avg: "Capacidad Promedio",
+      top: "Mejor Calibre",
     },
   },
   archive: {
