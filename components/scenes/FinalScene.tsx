@@ -61,10 +61,6 @@ export function FinalScene() {
       style={{ minHeight: "100svh" }}
     >
       <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_top,#08090b_0%,#111827_60%,#0a0c12_100%)]"
-      />
-      <div
         ref={skyRef}
         className="absolute inset-0 will-change-transform"
         aria-hidden="true"

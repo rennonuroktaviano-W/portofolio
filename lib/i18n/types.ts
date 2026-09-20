@@ -139,7 +139,9 @@ export type Messages = {
     label: string;
     title: string;
     caption: string;
-    primaryFrequency: string;
+    emailLabel: string;
+    socialsLabel: string;
+    response: string;
     form: {
       title: string;
       name: string;

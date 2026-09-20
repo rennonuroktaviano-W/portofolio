@@ -68,10 +68,6 @@ export function NftShowcase() {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,#08090b,#0e1118_45%,#08090b)]"
-      />
-      <div
-        aria-hidden="true"
         className="absolute inset-x-0 top-10 mx-auto h-1 w-40 bg-[repeating-linear-gradient(90deg,transparent_0_12px,var(--color-gold)_12px_24px)] opacity-30"
       />
 

@@ -109,10 +109,6 @@ export function HeroCityScene() {
       <div className="absolute inset-0 overflow-hidden">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(to_top,#08090b_0%,#111827_46%,#0b0d14_100%)]"
-        />
-        <div
-          aria-hidden="true"
           className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(230,184,74,0.10),transparent_70%)]"
         />
         <div

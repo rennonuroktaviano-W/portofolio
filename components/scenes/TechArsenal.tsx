@@ -15,10 +15,6 @@ export function TechArsenal() {
       className="scene"
       style={{ padding: "10svh 0" }}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,#08090b,#111827_35%,#08090b)] opacity-60"
-      />
       <div className="scene-inner">
         <SceneHeader
           id="arsenal-title"

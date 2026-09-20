@@ -94,7 +94,7 @@ export const nftCollection: {
       id: "hrln-rain",
       title: "Rain Version",
       character: "HRLN",
-      image: "/nft/nft-01.webp",
+      image: "/nft/nft-01.svg",
       description:
         "Outfit variation under the city's signature downpour — generated, then cleaned up by hand.",
       tags: ["Outfit", "Rain"],
@@ -103,7 +103,7 @@ export const nftCollection: {
       id: "hrln-midnight",
       title: "Midnight Shift",
       character: "HRLN",
-      image: "/nft/nft-02.webp",
+      image: "/nft/nft-02.svg",
       description:
         "A lighting and palette study — the same silhouette pushed into the late-night blue.",
       tags: ["Lighting", "Night"],
@@ -112,7 +112,7 @@ export const nftCollection: {
       id: "hrln-look",
       title: "Accessory Pass",
       character: "HRLN",
-      image: "/nft/nft-03.webp",
+      image: "/nft/nft-03.svg",
       description:
         "Accessory variation defining the character's everyday loadout across the collection.",
       tags: ["Accessories", "Variant"],

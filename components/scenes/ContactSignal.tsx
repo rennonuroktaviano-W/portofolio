@@ -57,19 +57,29 @@ function ContactForm() {
   const red = <span className="text-neon">*</span>;
 
   return (
-    <div className="comic-panel paper-sheet p-6 sm:p-8" data-reveal data-reveal-delay={140}>
+    <div
+      className="comic-panel paper-sheet relative overflow-hidden p-6 sm:p-8"
+      data-reveal
+      data-reveal-delay={140}
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,var(--color-gold)_0_24px,transparent_24px,transparent_32px,var(--color-gold)_32px_56px,transparent_56px)] opacity-60"
+      />
       {state === "sent" ? (
         <div className="flex flex-col items-center gap-4 py-12 text-center">
-          <span
-            aria-hidden="true"
-            className="flex h-14 w-14 items-center justify-center rounded-full border border-yellow/60 text-2xl text-yellow"
-          >
-            ✦
+          <span aria-hidden="true" className="relative flex h-14 w-14 items-center justify-center">
+            <span className="receive-blink absolute inset-0 rounded-full border border-yellow/50" />
+            <span
+              className="receive-blink absolute inset-0 rounded-full border border-yellow/25"
+              style={{ animationDelay: "0.4s" }}
+            />
+            <span className="relative text-2xl text-yellow">✦</span>
           </span>
           <h3 className="font-display text-3xl font-semibold uppercase tracking-wide text-yellow">
             {t("contact.form.sentTitle")}
           </h3>
-          <p className="max-w-sm font-mono text-xs uppercase tracking-[0.3em] text-fog">
+          <p className="max-w-sm font-sans text-sm leading-relaxed text-fog">
             {t("contact.form.sentText")}
           </p>
           <button
@@ -82,8 +92,9 @@ function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate>
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.3em] text-gold">
+          <p className="mb-6 flex items-center justify-between font-mono text-xs uppercase tracking-[0.3em] text-gold">
             {t("contact.form.title")}
+            <span aria-hidden="true" className="h-1 w-1 rotate-45 bg-yellow" />
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="flex flex-col gap-1.5 font-mono text-[11px] uppercase tracking-widest text-fog">
@@ -136,9 +147,19 @@ function ContactForm() {
             disabled={state === "sending"}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 380, damping: 24 }}
-            className="mt-6 inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight disabled:opacity-60"
+            className="mt-6 inline-flex w-full items-center justify-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight hover:shadow-[0_0_28px_-6px_rgba(230,184,74,0.65)] disabled:opacity-60 sm:w-auto"
           >
-            {state === "sending" ? t("contact.form.sending") : t("contact.form.send")} →
+            {state === "sending" ? (
+              <>
+                <span aria-hidden="true" className="receive-blink inline-block h-2 w-2 rounded-full bg-yellow" />
+                {t("contact.form.sending")}
+              </>
+            ) : (
+              <>
+                {t("contact.form.send")}
+                <span aria-hidden="true">→</span>
+              </>
+            )}
           </motion.button>
         </form>
       )}
@@ -155,17 +176,18 @@ export function ContactSignal() {
       ref={sectionRef}
       id="scene-contact"
       aria-labelledby="contact-title"
-      className="scene"
+      className="scene overflow-hidden"
       style={{ padding: "10svh 0" }}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,#08090b,#0f1117_45%,#08090b)]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-10 mx-auto h-1 w-40 bg-[repeating-linear-gradient(90deg,transparent_0_12px,var(--color-neon)_12px_24px)] opacity-40"
-      />
+        className="pointer-events-none absolute inset-x-0 top-1/2 hidden -translate-y-1/2 select-none lg:block"
+      >
+        <p className="text-center font-display text-[clamp(6rem,16vw,15rem)] font-semibold uppercase leading-none tracking-tight text-outline-gold opacity-[0.14]">
+          hello
+        </p>
+      </div>
+
       <div className="scene-inner">
         <SceneHeader
           id="contact-title"
@@ -175,44 +197,97 @@ export function ContactSignal() {
           caption={t("contact.caption")}
         />
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-          <div className="flex flex-col gap-6" data-reveal>
-            <a
-              href={socials.emailHref}
-              className="comic-panel bg-midnight/70 p-6 transition-colors hover:border-yellow/50"
-            >
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                {t("contact.primaryFrequency")}
-              </p>
-              <p className="mt-2 break-all font-mono text-lg text-cream sm:text-xl">
-                {socials.email}
-              </p>
-            </a>
+        <div
+          aria-hidden="true"
+          className="relative mx-auto mb-10 mt-10 flex max-w-3xl items-center gap-3"
+          data-reveal
+        >
+          <span className="h-[3px] w-[3px] shrink-0 rotate-45 bg-yellow/80" />
+          <span className="h-px flex-1 bg-[linear-gradient(90deg,transparent,color-mix(in_srgb,var(--color-gold)_45%,transparent),transparent)]" />
+          <span className="receive-blink h-2 w-2 shrink-0 rounded-full bg-gold" />
+          <span className="h-px flex-1 bg-[linear-gradient(90deg,transparent,color-mix(in_srgb,var(--color-gold)_45%,transparent),transparent)]" />
+          <span className="h-[3px] w-[3px] shrink-0 rotate-45 bg-yellow/80" />
+        </div>
 
-            <ul className="grid gap-4">
-              {socials.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="comic-panel flex items-center justify-between gap-4 bg-midnight/70 p-5 transition-colors hover:border-yellow/50"
-                  >
-                    <span>
-                      <span className="block font-display text-lg font-semibold uppercase tracking-wide text-cream">
-                        {link.label}
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+          <div className="flex flex-col gap-8" data-reveal>
+            <div className="comic-panel group relative overflow-hidden bg-midnight/70 p-6 transition-shadow hover:shadow-[0_0_32px_-10px_rgba(230,184,74,0.35)] sm:p-7">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[3px] bg-[linear-gradient(90deg,var(--color-yellow),var(--color-gold)_55%,transparent)]"
+              />
+              <span aria-hidden="true" className="absolute left-2 top-2 h-3 w-3 border-l-2 border-t-2 border-yellow/70" />
+              <span aria-hidden="true" className="absolute right-2 top-2 h-3 w-3 border-r-2 border-t-2 border-yellow/70" />
+              <span aria-hidden="true" className="absolute bottom-2 left-2 h-3 w-3 border-b-2 border-l-2 border-yellow/70" />
+              <span aria-hidden="true" className="absolute bottom-2 right-2 h-3 w-3 border-b-2 border-r-2 border-yellow/70" />
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold">
+                  {t("contact.emailLabel")}
+                </p>
+                <span aria-hidden="true" className="receive-blink h-2 w-2 rounded-full bg-yellow" />
+              </div>
+              <a href={socials.emailHref} className="relative mt-4 block">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent,rgba(230,184,74,0.09),transparent)] transition-transform duration-700 group-hover:translate-x-full"
+                />
+                <span className="relative block break-all font-mono text-lg leading-relaxed text-cream transition-colors group-hover:text-yellow sm:text-[22px]">
+                  {socials.email}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="relative mt-3 block h-px w-full bg-[repeating-linear-gradient(90deg,color-mix(in_srgb,var(--color-yellow)_45%,transparent)_0_8px,transparent_8px_16px)]"
+                />
+              </a>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-fog">
+                {t("contact.response")}
+              </p>
+            </div>
+
+            <div
+              className="comic-panel bg-midnight/70 p-6 sm:p-7"
+              data-reveal
+              data-reveal-delay={80}
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold">
+                {t("contact.socialsLabel")}
+              </p>
+              <ul className="mt-4 divide-y divide-cream/10">
+                {socials.links.map((link, i) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center gap-4 py-4"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-0 top-1/2 h-0 w-0.5 -translate-y-1/2 bg-yellow transition-all duration-300 group-hover:h-8"
+                      />
+                      <span aria-hidden="true" className="font-mono text-[10px] text-fog/60">
+                        {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="block font-mono text-[11px] text-fog">
-                        {link.handle}
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-display text-base font-semibold uppercase tracking-wide text-cream transition-colors group-hover:text-yellow">
+                          {link.label}
+                        </span>
+                        <span className="block truncate font-mono text-[11px] text-fog">
+                          {link.handle}
+                        </span>
                       </span>
-                    </span>
-                    <span aria-hidden="true" className="text-yellow">
-                      ↗
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+                      <span
+                        aria-hidden="true"
+                        className="opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+                        style={{ color: "var(--color-yellow)" }}
+                      >
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <ContactForm />

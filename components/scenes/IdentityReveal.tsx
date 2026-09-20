@@ -73,10 +73,6 @@ export function IdentityReveal() {
       style={{ minHeight: "110svh" }}
     >
       <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,#08090b,#111318_70%,#08090b)]"
-      />
-      <div
         ref={stageRef}
         className="scene-inner grid h-svh items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]"
       >

@@ -45,10 +45,6 @@ export function AboutCaseFile() {
       className="scene"
       style={{ padding: "10svh 0" }}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(139,27,27,0.10),transparent_55%)]"
-      />
       <div className="scene-inner">
         <SceneHeader
           id="about-title"

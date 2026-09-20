@@ -377,6 +377,20 @@
   animation: crt-flash 0.8s steps(4) forwards;
 }
 
+@keyframes receive-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.receive-blink {
+  animation: receive-blink 1.6s ease-in-out infinite;
+}
+
 .fog-layer {
   animation: fog-drift 34s ease-in-out infinite alternate;
 }

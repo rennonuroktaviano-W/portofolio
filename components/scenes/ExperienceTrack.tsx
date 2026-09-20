@@ -45,10 +45,6 @@ export function ExperienceTrack() {
       className="scene"
       style={{ padding: "10svh 0" }}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,#08090b,#0d0f16_40%,#08090b)]"
-      />
       <div className="scene-inner">
         <SceneHeader
           id="experience-title"

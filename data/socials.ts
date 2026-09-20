@@ -27,5 +27,10 @@ export const socials: {
       handle: "@rennonuroktaviano",
       url: "https://x.com/rennonuroktaviano",
     },
+    {
+      label: "Telegram",
+      handle: "@username",
+      url: "https://t.me/username",
+    },
   ],
 };
