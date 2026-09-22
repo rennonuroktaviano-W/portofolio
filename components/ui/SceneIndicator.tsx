@@ -91,7 +91,7 @@ export function SceneIndicator() {
   return (
     <nav
       aria-label={t("sceneIndicator.label")}
-      className={`fixed right-3 top-1/2 z-50 -translate-y-1/2 flex-col items-center gap-2 print:hidden sm:right-5 ${
+      className={`fixed right-2 top-1/2 z-50 -translate-y-1/2 flex-col items-center gap-2 print:hidden sm:right-5 ${
         mountedAfterHero ? "flex" : "hidden"
       } transition-opacity duration-500 ${idle ? "opacity-30" : "opacity-100"}`}
     >
@@ -111,7 +111,7 @@ export function SceneIndicator() {
               title: sceneTitle(scene),
             })}
             title={`${scene.chapter} · ${sceneTitle(scene)}`}
-            className="group relative flex h-6 w-5 items-center justify-center"
+            className="group relative flex h-6 w-4 items-center justify-center sm:w-5"
           >
             <span
               className={`block rounded-full transition-all duration-300 ${
@@ -121,9 +121,7 @@ export function SceneIndicator() {
               }`}
             />
             <span
-              className={`pointer-events-none absolute right-5 whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-cream opacity-0 transition-opacity group-hover:opacity-100 ${
-                isActive ? "!opacity-100" : ""
-              }`}
+              className="pointer-events-none absolute right-5 hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-cream opacity-0 transition-opacity pointer-fine:block pointer-fine:group-hover:opacity-100"
             >
               {String(scene.chapter).padStart(2, "0")} — {sceneTitle(scene)}
             </span>

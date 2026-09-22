@@ -65,7 +65,7 @@ export function EasterEgg() {
           style={{ left: burst.x, top: burst.y }}
         >
           <span
-            className="comic-burst block -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-display text-4xl font-black uppercase text-blood sm:text-6xl"
+            className="comic-burst block -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-display text-3xl font-black uppercase text-blood sm:text-6xl"
             style={{ textShadow: "3px 3px 0 rgba(230,184,74,0.9)" }}
           >
             {burst.label}

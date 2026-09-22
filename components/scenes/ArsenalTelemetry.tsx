@@ -180,7 +180,7 @@ export function ArsenalTelemetry() {
           <dt className="font-mono text-[10px] uppercase tracking-widest text-fog">
             {t("arsenal.overview.top")}
           </dt>
-          <dd className="font-mono text-sm text-yellow">
+          <dd className="min-w-0 truncate font-mono text-sm text-yellow">
             {topSkill.name.toUpperCase()} · {topSkill.level}
           </dd>
         </div>

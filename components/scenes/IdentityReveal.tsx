@@ -33,7 +33,7 @@ export function IdentityReveal() {
               start: "top top",
               end: "+=110%",
               scrub: 1,
-              pin: stage,
+              pin: isCompact ? false : stage,
               anticipatePin: 1,
             },
           });

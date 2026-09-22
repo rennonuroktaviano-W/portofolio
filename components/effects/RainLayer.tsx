@@ -14,7 +14,13 @@ type Drop = {
 
 type Ripple = { x: number; y: number; r: number; alpha: number };
 
-export function RainLayer({ className }: { className?: string }) {
+export function RainLayer({
+  className,
+  startImmediately = false,
+}: {
+  className?: string;
+  startImmediately?: boolean;
+}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -30,12 +36,11 @@ export function RainLayer({ className }: { className?: string }) {
 
     let raf = 0;
     let running = true;
+    let reduceNow = false;
     let drops: Drop[] = [];
     const ripples: Ripple[] = [];
     let width = window.innerWidth;
     let height = window.innerHeight;
-
-    const density = width < 768 ? 60 : width < 1440 ? 180 : 280;
 
     const makeDrop = (layer: "back" | "front"): Drop =>
       layer === "back"
@@ -58,9 +63,10 @@ export function RainLayer({ className }: { className?: string }) {
             layer,
           };
 
-    const resize = () => {
+    const rescale = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      const density = width < 768 ? 60 : width < 1440 ? 180 : 280;
       const backCount = Math.round(density * 0.55);
       drops = [
         ...Array.from({ length: backCount }, () => makeDrop("back")),
@@ -122,14 +128,30 @@ export function RainLayer({ className }: { className?: string }) {
       ripples.push({ x: e.clientX, y: e.clientY, r: 2, alpha: 1 });
     };
 
-    resize();
-    last = performance.now();
-    raf = requestAnimationFrame(loop);
+    const onVis = () => {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(raf);
+      } else if (!reduceNow) {
+        running = true;
+        last = performance.now();
+        raf = requestAnimationFrame(loop);
+      }
+    };
 
-    window.addEventListener("resize", resize);
-    window.addEventListener("pointerdown", onPointer, { passive: true });
+    let resizeTimer = 0;
+    const onResize = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        rescale();
+      }, 200);
+    };
+
     const reduceWatch = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onReduce = (e: MediaQueryListEvent) => {
+      reduceNow = e.matches;
       if (e.matches) {
         running = false;
         cancelAnimationFrame(raf);
@@ -140,16 +162,45 @@ export function RainLayer({ className }: { className?: string }) {
         raf = requestAnimationFrame(loop);
       }
     };
-    reduceWatch.addEventListener("change", onReduce);
+
+    let clean = () => {};
+    let cleanExtra = () => {};
+
+    const run = () => {
+      rescale();
+      last = performance.now();
+      raf = requestAnimationFrame(loop);
+      window.addEventListener("resize", onResize);
+      window.addEventListener("pointerdown", onPointer, { passive: true });
+      document.addEventListener("visibilitychange", onVis);
+      reduceWatch.addEventListener("change", onReduce);
+      clean = () => {
+        running = false;
+        cancelAnimationFrame(raf);
+        window.clearTimeout(resizeTimer);
+        window.removeEventListener("resize", onResize);
+        window.removeEventListener("pointerdown", onPointer);
+        document.removeEventListener("visibilitychange", onVis);
+        reduceWatch.removeEventListener("change", onReduce);
+      };
+    };
+
+    if (
+      startImmediately ||
+      document.documentElement.dataset.loaded === "1"
+    ) {
+      run();
+    } else {
+      const onLoaded = () => run();
+      window.addEventListener("loading:done", onLoaded, { once: true });
+      cleanExtra = () => window.removeEventListener("loading:done", onLoaded);
+    }
 
     return () => {
-      running = false;
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("pointerdown", onPointer);
-      reduceWatch.removeEventListener("change", onReduce);
+      clean();
+      cleanExtra();
     };
-  }, []);
+  }, [startImmediately]);
 
   return (
     <canvas

@@ -137,7 +137,7 @@ export function BrainIndex() {
         </span>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[560px]">
+      <div className="relative mx-auto w-full max-w-[560px] origin-center scale-[0.82] sm:scale-100">
         <svg
           aria-hidden="true"
           viewBox="0 0 640 640"
@@ -311,16 +311,16 @@ export function BrainIndex() {
                 animationDelay: scanDelay(cy),
               }}
             >
-              <div className="flex items-center gap-2 rounded-sm border border-cream/20 bg-midnight/85 px-2 py-1 backdrop-blur-sm">
+              <div className="flex items-center gap-1.5 rounded-sm border border-cream/20 bg-midnight/85 px-1.5 py-1 backdrop-blur-sm sm:gap-2 sm:px-2">
                 <span
                   aria-hidden="true"
                   className="h-1.5 w-1.5 shrink-0 rounded-full bg-yellow shadow-[0_0_8px_1px_rgba(230,184,74,0.8)]"
                 />
                 <div className="leading-tight">
-                  <p className="whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.18em] text-yellow">
+                  <p className="whitespace-nowrap font-mono text-[8px] uppercase tracking-[0.18em] text-yellow sm:text-[9px]">
                     {code}
                   </p>
-                  <p className="mt-0.5 whitespace-nowrap font-mono text-[8px] text-fog">
+                  <p className="mt-0.5 whitespace-nowrap font-mono text-[7px] text-fog sm:text-[8px]">
                     {clusterSkills(cluster.id)}
                   </p>
                 </div>

@@ -223,10 +223,21 @@ export function LightningLayer() {
       }, 680);
     };
 
-    let timeout: number;
-    const schedule = () => {
+    let timeout = 0;
+    let loaded = document.documentElement.dataset.loaded === "1";
+    let visible = !document.hidden;
+    let stormOn = false;
+    let scheduling = false;
+
+    const canStrike = () => loaded && visible && stormOn;
+
+    const maybeStart = () => {
+      if (!mountedRef.current || !canStrike() || scheduling) return;
+      scheduling = true;
+      const base = window.innerWidth < 768 ? 3800 : 2500;
       timeout = window.setTimeout(() => {
-        if (!mountedRef.current) return;
+        scheduling = false;
+        if (!mountedRef.current || !canStrike()) return;
         const x = 10 + Math.random() * 80;
         strike(x);
         if (Math.random() < 0.35) {
@@ -241,14 +252,54 @@ export function LightningLayer() {
             450 + Math.random() * 200
           );
         }
-        schedule();
-      }, 2500 + Math.random() * 3000);
+        maybeStart();
+      }, base + Math.random() * 3000);
     };
 
-    schedule();
+    const pause = () => {
+      scheduling = false;
+      window.clearTimeout(timeout);
+    };
+
+    const onLoaded = () => {
+      loaded = true;
+      maybeStart();
+    };
+    if (!loaded) {
+      window.addEventListener("loading:done", onLoaded, { once: true });
+    }
+
+    const onVis = () => {
+      const now = !document.hidden;
+      if (visible === now) return;
+      visible = now;
+      if (!visible) pause();
+      else maybeStart();
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const prev = stormOn;
+        stormOn = entries.some((e) => e.isIntersecting);
+        if (prev && !stormOn) pause();
+        else if (!prev && stormOn) maybeStart();
+      },
+      { threshold: 0.05 }
+    );
+    const hero = document.getElementById("scene-hero");
+    const fin = document.getElementById("scene-final");
+    if (hero) io.observe(hero);
+    if (fin) io.observe(fin);
+
+    document.addEventListener("visibilitychange", onVis);
+    maybeStart();
+
     return () => {
       mountedRef.current = false;
       window.clearTimeout(timeout);
+      window.removeEventListener("loading:done", onLoaded);
+      document.removeEventListener("visibilitychange", onVis);
+      io.disconnect();
     };
   }, []);
 

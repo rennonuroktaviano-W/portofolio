@@ -61,7 +61,7 @@ export function AboutCaseFile() {
               {meta.map((row) => (
                 <div
                   key={row.label}
-                  className="grid grid-cols-[8.5rem_1fr] gap-4 py-3"
+                  className="grid gap-1 py-3 sm:grid-cols-[8.5rem_1fr] sm:gap-4"
                 >
                   <dt className="font-mono text-[10px] uppercase tracking-widest text-fog">
                     {row.label}

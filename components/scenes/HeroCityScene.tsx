@@ -158,7 +158,7 @@ export function HeroCityScene() {
         className="scene-inner relative z-20 flex min-h-svh flex-col items-center justify-end pb-28 text-center will-change-transform sm:justify-center sm:pb-0"
       >
         <p
-          className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-gold"
+          className="mb-4 max-w-[90vw] truncate font-mono text-xs uppercase tracking-[0.3em] text-gold sm:tracking-[0.4em]"
           data-hero-item
         >
           {t("hero.cityLine", { city: site.city })}

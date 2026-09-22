@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { RainLayer } from "@/components/effects/RainLayer";
 import { Searchlight } from "@/components/effects/Searchlight";
@@ -8,7 +8,13 @@ import { Vignette } from "@/components/effects/Vignette";
 import { gsap, ScrollTrigger } from "@/lib/motion";
 import { site } from "@/data/site";
 
-export function LoadingScreenMarkup() {
+const CAPTIONS = [
+  "NEXT.JS + TYPESCRIPT",
+  "REACT · LARAVEL",
+  "AI-ASSISTED ENGINEERING",
+];
+
+function LoadingScreenMarkup() {
   const words = site.brand.split(" ");
 
   return (
@@ -39,7 +45,7 @@ export function LoadingScreenMarkup() {
 
         <div
           aria-hidden="true"
-          className="fog-layer absolute -left-1/4 bottom-[4%] h-40 w-[170vw] rounded-full opacity-50 blur-3xl"
+          className="fog-layer absolute -left-1/4 bottom-[4%] h-40 w-[170vw] rounded-full opacity-50 blur-xl md:blur-3xl"
           style={{
             background:
               "linear-gradient(90deg, transparent, rgba(140,150,165,0.2) 40%, rgba(140,150,165,0.28) 50%, rgba(140,150,165,0.14) 62%, transparent)",
@@ -47,7 +53,10 @@ export function LoadingScreenMarkup() {
           }}
         />
 
-        <RainLayer className="pointer-events-none absolute inset-0 z-[5] h-full w-full opacity-100" />
+        <RainLayer
+          startImmediately
+          className="pointer-events-none absolute inset-0 z-[5] h-full w-full opacity-100"
+        />
 
         <div
           data-loading-scan
@@ -58,7 +67,7 @@ export function LoadingScreenMarkup() {
         <Vignette />
       </div>
 
-      <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 pb-2 text-center">
+      <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 py-24 text-center">
         <div className="flex flex-col items-center">
           <p
             data-loading-kicker
@@ -81,7 +90,7 @@ export function LoadingScreenMarkup() {
           </div>
         </div>
 
-        <div className="absolute bottom-[6.5svh] left-1/2 w-64 -translate-x-1/2 text-center sm:w-80">
+        <div className="mt-8 w-56 text-center sm:w-72">
           <p
             data-loading-label
             className="font-mono text-[10px] uppercase tracking-[0.4em] text-fog/60"
@@ -112,13 +121,9 @@ export function LoadingScreenMarkup() {
   );
 }
 
-const CAPTIONS = [
-  "NEXT.JS + TYPESCRIPT",
-  "REACT · LARAVEL",
-  "AI-ASSISTED ENGINEERING",
-];
+export function LoadingScreen() {
+  const [done, setDone] = useState(false);
 
-export function LoadingScreenEffect() {
   useEffect(() => {
     const overlay = document.querySelector<HTMLElement>("[data-loading-screen]");
     const root = document.documentElement;
@@ -134,10 +139,11 @@ export function LoadingScreenEffect() {
       if (settled) return;
       settled = true;
       root.style.overflow = "";
+      root.dataset.loaded = "1";
       window.dispatchEvent(new CustomEvent("loading:done"));
       overlay?.classList.add("is-done");
       later(() => ScrollTrigger.refresh(), 450);
-      later(() => overlay?.classList.add("is-hidden"), 1050);
+      later(() => setDone(true), 950);
     };
 
     const flashStrike = (x: number) => {
@@ -205,7 +211,11 @@ export function LoadingScreenEffect() {
         .to(words, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.34 }, 1.2)
         .to(
           title,
-          { textShadow: "0 0 44px rgba(230,184,74,0.62)", duration: 2.4, ease: "sine.inOut" },
+          {
+            textShadow: "0 0 44px rgba(230,184,74,0.62)",
+            duration: 2.4,
+            ease: "sine.inOut",
+          },
           1.7
         )
         .add(() => setCaption(0), 2.7)
@@ -222,11 +232,7 @@ export function LoadingScreenEffect() {
         .add(() => flashStrike(62 + Math.random() * 22), 4.35)
         .to(label, { autoAlpha: 1, duration: 0.4 }, 2.55)
         .to(pct, { autoAlpha: 1, duration: 0.4 }, 2.55)
-        .to(
-          line,
-          { scaleX: 1, duration: 4.35, ease: "none" },
-          2.55
-        )
+        .to(line, { scaleX: 1, duration: 4.35, ease: "none" }, 2.55)
         .to(
           counter,
           {
@@ -260,5 +266,7 @@ export function LoadingScreenEffect() {
     };
   }, []);
 
-  return null;
+  if (done) return null;
+
+  return <LoadingScreenMarkup />;
 }
