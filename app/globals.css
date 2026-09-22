@@ -502,19 +502,50 @@
   animation: loading-pulse 2.2s ease-out infinite;
 }
 
-[data-loading-screen] [data-loading-char],
-[data-loading-screen] [data-loading-line],
-[data-loading-screen] [data-loading-bar],
+@keyframes cinema-scan {
+  0% {
+    top: 6%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: 92%;
+    opacity: 0;
+  }
+}
+
+.cinema-scan {
+  opacity: 0;
+}
+
+.cinema-scan-run {
+  animation: cinema-scan 1.5s linear forwards;
+}
+
+[data-loading-screen] [data-loading-word],
+[data-loading-screen] [data-loading-kicker],
+[data-loading-screen] [data-loading-caption],
+[data-loading-screen] [data-loading-thread],
+[data-loading-screen] [data-loading-label],
 [data-loading-screen] [data-loading-sky] {
   opacity: 0;
 }
 
-[data-loading-screen] [data-loading-pct] {
-  opacity: 0.55;
-}
-
 [data-loading-screen] [data-loading-signal] {
   opacity: 0;
+}
+
+[data-loading-screen] [data-loading-bar-t] {
+  transform: translateY(-101%);
+}
+
+[data-loading-screen] [data-loading-bar-b] {
+  transform: translateY(101%);
 }
 
 [data-loading-screen] {
@@ -544,7 +575,9 @@
   .searchlight-flicker,
   .lanyard-sway,
   .loading-title,
-  .loading-pulse {
+  .loading-pulse,
+  .cinema-scan,
+  .cinema-scan-run {
     animation: none !important;
   }
 

@@ -9,7 +9,7 @@ import { gsap, ScrollTrigger } from "@/lib/motion";
 import { site } from "@/data/site";
 
 export function LoadingScreenMarkup() {
-  const chars = Array.from(site.brand);
+  const words = site.brand.split(" ");
 
   return (
     <div
@@ -20,6 +20,15 @@ export function LoadingScreenMarkup() {
       className="fixed inset-0 z-[95] overflow-hidden bg-midnight"
     >
       <span className="sr-only">Loading portfolio…</span>
+
+      <div
+        data-loading-bar-t
+        className="absolute inset-x-0 top-0 z-[60] h-[13svh] bg-black will-change-transform"
+      />
+      <div
+        data-loading-bar-b
+        className="absolute inset-x-0 bottom-0 z-[60] h-[13svh] bg-black will-change-transform"
+      />
 
       <div className="absolute inset-0">
         <div data-loading-sky className="absolute inset-0 will-change-transform">
@@ -39,59 +48,63 @@ export function LoadingScreenMarkup() {
         />
 
         <RainLayer className="pointer-events-none absolute inset-0 z-[5] h-full w-full opacity-100" />
+
+        <div
+          data-loading-scan
+          className="cinema-scan pointer-events-none absolute inset-x-0 z-[30] hidden h-px bg-[linear-gradient(90deg,transparent,rgba(230,184,74,0.85),transparent)]"
+        />
+
         <Searchlight />
         <Vignette />
       </div>
 
-      <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 pb-10 text-center">
+      <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 pb-2 text-center">
         <div
           data-loading-signal
-          className="pointer-events-none absolute left-1/2 top-[9%] -translate-x-1/2"
+          className="pointer-events-none absolute left-1/2 top-[16%] -translate-x-1/2"
         >
-          <div className="relative flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
+          <div className="relative flex h-24 w-24 items-center justify-center sm:h-32 sm:w-32">
             <div className="loading-pulse absolute inset-0 rounded-full border border-gold/50" />
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(230,184,74,0.28),rgba(230,184,74,0.06)_60%,transparent_74%)] blur-md" />
-            <span className="relative font-mono text-lg font-bold tracking-[0.2em] text-yellow sm:text-xl">
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(230,184,74,0.3),rgba(230,184,74,0.07)_60%,transparent_74%)] blur-md" />
+            <span className="relative font-mono text-xl font-bold tracking-[0.2em] text-yellow sm:text-2xl">
               RN
             </span>
           </div>
         </div>
 
-        <div
-          role="presentation"
-          className="min-h-[1.4em] font-mono text-[11px] uppercase tracking-[0.35em] text-gold/80 sm:text-xs"
-        >
-          <span data-loading-line className="block" />
+        <div className="flex flex-col items-center">
+          <p
+            data-loading-kicker
+            className="mb-3 font-mono text-[10px] uppercase tracking-[0.45em] text-gold/80 sm:text-xs"
+          >
+            A FULL-STACK PORTFOLIO
+          </p>
+          <h2
+            data-loading-title
+            className="loading-title flex flex-col items-center font-display text-[clamp(1.9rem,7vw,4.8rem)] font-semibold uppercase leading-[0.95] tracking-[0.04em] text-cream"
+          >
+            {words.map((w, i) => (
+              <span key={i} data-loading-word className="block">
+                {w}
+              </span>
+            ))}
+          </h2>
+          <div className="mt-4 h-5 font-mono text-[10px] uppercase tracking-[0.35em] text-gold/70 sm:text-xs">
+            <span data-loading-caption className="block" />
+          </div>
         </div>
 
-        <h2
-          data-loading-title
-          className="loading-title mt-3 font-display text-[clamp(1.7rem,6.5vw,4.4rem)] font-semibold uppercase leading-[0.95] tracking-[0.06em] text-cream"
-          style={{ textShadow: "0 0 24px rgba(230,184,74,0.35)" }}
-        >
-          {chars.map((c, i) => (
-            <span key={i} data-loading-char className="inline-block">
-              {c === " " ? "\u00A0" : c}
-            </span>
-          ))}
-        </h2>
-
-        <div className="mt-7 w-56 sm:w-80">
-          <div className="h-px w-full bg-gold/25">
-            <div
-              data-loading-bar
-              className="h-px origin-left bg-yellow will-change-transform"
-            />
-          </div>
-          <div className="mt-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.3em] text-fog/70">
-            <span>system boot</span>
-            <span>
-              <span data-loading-pct className="text-gold">
-                0
-              </span>
-              &#37;
-            </span>
-          </div>
+        <div className="absolute bottom-[6.5svh] left-1/2 -translate-x-1/2 text-center">
+          <div
+            data-loading-thread
+            className="h-px w-56 origin-left bg-yellow/90 sm:w-72"
+          />
+          <p
+            data-loading-label
+            className="mt-3 font-mono text-[10px] uppercase tracking-[0.4em] text-fog/60"
+          >
+            Establishing shot — 0:07
+          </p>
         </div>
       </div>
 
@@ -104,12 +117,11 @@ export function LoadingScreenMarkup() {
   );
 }
 
-const LINES = [
-  "// ACCESSING CITYSCAPE",
-  "// SYNCING SYSTEMS",
-  "// CALIBRATING BEACON",
+const CAPTIONS = [
+  "NEXT.JS + TYPESCRIPT",
+  "REACT · LARAVEL",
+  "AI-ASSISTED ENGINEERING",
 ];
-const FINAL = "ENTERING RENNO NUR OKTAVIANO";
 
 export function LoadingScreenEffect() {
   useEffect(() => {
@@ -161,65 +173,64 @@ export function LoadingScreenEffect() {
     } else if (!overlay) {
       later(finish, 50);
     } else {
+      const barT = overlay.querySelector("[data-loading-bar-t]");
+      const barB = overlay.querySelector("[data-loading-bar-b]");
       const sky = overlay.querySelector("[data-loading-sky]");
-      const chars = overlay.querySelectorAll("[data-loading-char]");
-      const line = overlay.querySelector("[data-loading-line]");
-      const bar = overlay.querySelector("[data-loading-bar]");
-      const pct = overlay.querySelector("[data-loading-pct]");
+      const kicker = overlay.querySelector("[data-loading-kicker]");
+      const words = overlay.querySelectorAll("[data-loading-word]");
+      const title = overlay.querySelector("[data-loading-title]");
+      const caption = overlay.querySelector("[data-loading-caption]");
+      const scan = overlay.querySelector("[data-loading-scan]");
       const signal = overlay.querySelector("[data-loading-signal]");
+      const thread = overlay.querySelector("[data-loading-thread]");
+      const label = overlay.querySelector("[data-loading-label]");
 
-      gsap.set(sky, { yPercent: 70, autoAlpha: 0 });
-      gsap.set(chars, { y: 26, autoAlpha: 0 });
-      gsap.set(bar, { scaleX: 0 });
-      gsap.set(line, { autoAlpha: 0 });
+      gsap.set(barT, { yPercent: -105 });
+      gsap.set(barB, { yPercent: 105 });
+      gsap.set(sky, { yPercent: 70, autoAlpha: 0, scale: 1 });
+      gsap.set(kicker, { autoAlpha: 0, y: 10 });
+      gsap.set(words, { y: 26, autoAlpha: 0 });
+      gsap.set(title, { textShadow: "0 0 0px rgba(230,184,74,0)" });
+      gsap.set(caption, { autoAlpha: 0 });
       gsap.set(signal, { autoAlpha: 0, scale: 0.7 });
+      gsap.set(thread, { scaleX: 0 });
+      gsap.set(label, { autoAlpha: 0 });
 
-      const counter = { v: 0 };
+      const setCaption = (i: number) => {
+        if (caption) caption.textContent = CAPTIONS[i]!;
+      };
+
       tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.to(sky, { yPercent: 0, autoAlpha: 1, duration: 1.15 }, 0.05)
+      tl.to(barT, { yPercent: 0, duration: 0.8 }, 0.12)
+        .to(barB, { yPercent: 0, duration: 0.8 }, 0.12)
+        .to(sky, { yPercent: 0, autoAlpha: 1, duration: 1.3 }, 0.15)
         .add(() => flashStrike(14 + Math.random() * 22), 0.5)
-        .to(chars, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05 }, 1.1)
+        .to(kicker, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.9)
+        .to(words, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.34 }, 1.2)
+        .to(
+          title,
+          { textShadow: "0 0 44px rgba(230,184,74,0.62)", duration: 2.4, ease: "sine.inOut" },
+          1.7
+        )
+        .add(() => setCaption(0), 2.7)
+        .to(caption, { autoAlpha: 1, duration: 0.35 }, 2.75)
+        .add(() => setCaption(1), 3.4)
+        .add(() => setCaption(2), 4.1)
+        .to(sky, { scale: 1.18, duration: 1.8, ease: "power1.inOut" }, 3.5)
         .add(() => {
-          if (line) line.textContent = LINES[0]!;
-        }, 1.5)
-        .to(line, { autoAlpha: 1, duration: 0.12 }, 1.52)
-        .add(() => {
-          if (line) line.textContent = LINES[1]!;
-        }, 1.78)
-        .add(() => {
-          if (line) line.textContent = LINES[2]!;
-        }, 2.04)
-        .add(() => {
-          if (line) {
-            line.textContent = FINAL;
-            line.classList.remove("text-gold/80");
-            line.classList.add("text-gold");
+          if (scan) {
+            scan.classList.remove("hidden");
+            scan.classList.add("cinema-scan-run");
           }
-        }, 2.3)
-        .to(
-          bar,
-          { scaleX: 1, duration: 1.15, ease: "power2.inOut" },
-          1.9
-        )
-        .to(
-          counter,
-          {
-            v: 100,
-            duration: 1.15,
-            ease: "power2.inOut",
-            onUpdate: () => {
-              if (pct)
-                pct.textContent = String(
-                  Math.min(100, Math.max(0, Math.round(counter.v)))
-                );
-            },
-          },
-          1.9
-        )
-        .add(() => flashStrike(68 + Math.random() * 22), 2.6)
-        .to(signal, { autoAlpha: 1, scale: 1, duration: 0.7 }, 2.55)
-        .add(() => flashStrike(38 + Math.random() * 16), 3.1)
-        .add(() => finish(), 3.18);
+        }, 4.2)
+        .add(() => flashStrike(62 + Math.random() * 22), 4.35)
+        .to(signal, { autoAlpha: 1, scale: 1, duration: 0.9 }, 5.05)
+        .to(thread, { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 5.55)
+        .to(label, { autoAlpha: 1, duration: 0.4 }, 5.75)
+        .add(() => flashStrike(34 + Math.random() * 18), 6.2)
+        .to(title, { opacity: 0.62, duration: 0.07, yoyo: true, repeat: 4 }, 6.6)
+        .add(() => flashStrike(50), 6.92)
+        .add(() => finish(), 7.0);
     }
 
     window.addEventListener("pointerdown", onSkip, { once: true, passive: true });
