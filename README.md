@@ -1,13 +1,13 @@
 # KODECITY — 80s Neo-Noir Interactive Portfolio
 
-A cinematic, single-page portfolio built like a rainy metropolis of interfaces. Scroll-driven storytelling with a comic-panel aesthetic: grain, fog, rain, CRT flicker, a live retro terminal, and a procedural city ambience — all told in original type, tone, and art.
+A cinematic, single-page portfolio built like a rainy metropolis of interfaces. Scroll-driven storytelling with a comic-panel aesthetic: grain, fog, rain, CRT flicker, a live retro terminal — all told in original type, tone, and art.
 
 ## Stack
 
 - Next.js 16 (App Router, Turbopack) + TypeScript
 - Tailwind CSS v4
 - GSAP + ScrollTrigger (scroll storytelling, pinning, parallax)
-- Web Canvas (rain, ripples) + Web Audio API (procedural ambience)
+- Web Canvas (rain, ripples)
 - Framer Motion (installed for micro-interactions)
 
 ## Get started
@@ -23,10 +23,9 @@ npm run lint     # eslint (flat config)
 
 ## Experience
 
-- **11 scroll scenes**, no navbar/footer: Enter the City → Cinematic Hero → Identity Reveal → About → Tech Arsenal → Project Archive (horizontal on desktop) → Case Files → Experience Timeline → Developer Lab (interactive terminal) → Contact Signal → Final Night.
+- **8 scroll scenes**, no navbar/footer: Hero → Identity Reveal → Case File → Tech Arsenal → NFT Studio → Experience Timeline → Contact → Final Night.
 - **Atmosphere**: CSS grain/fog/halftone/vignette, canvas rain with click ripples, cursor spotlight on fine-pointer devices.
-- **Procedural audio**: encrypted-by-default toggle (session-persisted), Web Audio rain + city rumble; great with the `crt` secret.
-- **Interaction**: keyboard scene nav (↑/↓/PgUp/PgDn/Home/End), terminal commands `help`, `about`, `skills`, `projects`, `contact`, `clear` (+ Tab autocomplete, ↑ history).
+- **Interaction**: keyboard scene nav (↑/↓/PgUp/PgDn/Home/End), 6-language UI (en/id/es/fr/de/ja).
 - **Easter eggs**: type `crt` anywhere; tap the KODECITY sign in the hero.
 - **Accessibility**: `prefers-reduced-motion` honored end-to-end, labelled scenes, skip link, visible focus rings.
 
@@ -35,11 +34,10 @@ npm run lint     # eslint (flat config)
 ```
 app/            layout, page composition, metadata, manifest, robots, sitemap, /api/contact
 components/
-  scenes/       11 scene components
-  ui/           skyline, indicators, headers
-  terminal/     RetroTerminal
-  effects/      rain, fog, grain, easter eggs
-  audio/        procedural ambience + cursor spotlight
+  scenes/       8 scene components
+  ui/           headers, indicators, language switcher
+  nft/          lightbox + artwork cover
+  effects/      rain, fog, grain, skyline, cursor spotlight, easter eggs
 data/           typed content layer (site, profile, skills, projects, experience, socials)
 lib/            scene definitions + GSAP motion helpers
 public/

@@ -45,7 +45,6 @@ export const ja: Messages = {
     currentFocus: "フルスタックWeb開発とインタラクティブ体験",
     location: "インドネシア · UTC+7",
     status: "プロジェクト受付中",
-    education: "情報工学 — 仮の学校名",
     interests: [
       "映画的なUI",
       "タイポグラフィ",
@@ -56,7 +55,7 @@ export const ja: Messages = {
     ],
     philosophy:
       "良いソフトウェアは真夜中の明るい通りのようなもの。静かで、予測可能で、あなたを行かねばならない場所へ静かに運んでくれる。",
-    caseNumber: "FILE NO. RN-001",
+    caseNumber: "ファイルNo. RN-001",
   },
   about: {
     label: "諜報ファイル",
@@ -74,7 +73,6 @@ export const ja: Messages = {
       status: "ステータス",
       location: "所在地",
       currentFocus: "現在の焦点",
-      education: "学歴",
       caseNumber: "事件番号",
     },
   },
@@ -175,20 +173,20 @@ export const ja: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "街おなじみの土砂降りの下での衣装バリエーション — 生成後、手作業で清掃。",
-        tags: ["衣装", "雨"],
+          "ストリートウェアに着想を得た衣装の研究 — いつもの低い光の下で、くっきりしたレイヤーと大胆なブランディング。",
+        tags: ["衣装", "ストリートウェア"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "照明とパレットの研究 — 同じシルエットを深夜の青へと押し込む。",
-        tags: ["照明", "夜"],
+          "同じシルエットのよりダークな解釈 — グラフィックレイヤーと陰鬱なパレット。",
+        tags: ["衣装", "ダーク"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "コレクション全体を通してキャラクターの毎日の装備を定義するアクセサリーバリエーション。",
-        tags: ["アクセサリー", "バリアント"],
+          "空白の素体 — どの衣装レイヤーを重ねる前のまっさらな状態。コレクションのためのポーズ。",
+        tags: ["ベース", "モデル"],
       },
     },
   },
@@ -210,7 +208,6 @@ export const ja: Messages = {
     caption:
       "この10年が辿った経路 — 各停車駅は何かを学んだ場所だ。",
     type: {
-      education: "教育",
       internship: "インターン",
       freelance: "フリーランス",
       personal: "個人",
@@ -225,16 +222,9 @@ export const ja: Messages = {
           "基礎を学んだ — HTML、CSS、JavaScript、そして小さなプロジェクトを完成させる規律。",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "情報工学の学生",
-        org: "仮の学校名",
-        description:
-          "アルゴリズム、データベース、ソフトウェア工学の実践を、自主的なWeb開発と並行して学んだ。",
-        tags: ["アルゴリズム", "データベース"],
-      },
       internship: {
         title: "バックエンドインターン",
-        org: "仮の会社名",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "RESTサービスと社内ツールを構築し、コードレビューを学び、実際のユーザーへ実際の機能をリリースした。",
         tags: ["PHP", "MySQL", "REST"],
@@ -268,7 +258,7 @@ export const ja: Messages = {
     caption: "プロジェクト、機会、あるいは軽い挨拶まで。メッセージをどうぞ。",
     emailLabel: "メール",
     socialsLabel: "SNS",
-    response: "返信は通常1〜2営業日以内です。",
+    response: "返信は下のチャンネルが最速です。",
     form: {
       title: "メッセージを送る",
       name: "名前",
@@ -282,10 +272,11 @@ export const ja: Messages = {
       sending: "送信中…",
       send: "メッセージを送信",
       sentTitle: "送信完了",
-      sentText: "メッセージを送信しました。追って返信します。",
+      sentText: "メッセージを受け取りました — 連絡ありがとう。",
       again: "別のメッセージを送る",
       errFields: "入力漏れまたは形式エラー — 名前とメールを確認。",
       errRejected: "送信が拒否されました。後でもう一度。",
+      errServer: "送信に失敗 — もう一度試すか、上のチャンネルを使ってください。",
     },
   },
   final: {
@@ -297,9 +288,9 @@ export const ja: Messages = {
     returnLabel: "最初に戻る",
     credits: {
       aria: "サイトクレジット",
-      builtIn: "構築地",
+      builtIn: "制作地",
       designed: "デザイン",
-      poweredBy: "パワードバイ",
+      poweredBy: "技術提供",
       designedValue: "雨",
     },
     footer: "© {year} {name} — マントは使われていない。",
@@ -317,11 +308,5 @@ export const ja: Messages = {
     body:
       "このブロックの描画で問題が発生。下のサーキットブレーカーを試せ — データは失われない。",
     action: "ブロックを再起動",
-  },
-  audio: {
-    enable: "環境音を有効にする",
-    disable: "環境音を無効にする",
-    ambienceOn: "環境音：オン",
-    ambienceOff: "環境音：オフ",
   },
 };

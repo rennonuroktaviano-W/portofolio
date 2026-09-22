@@ -50,7 +50,8 @@ function ContactForm() {
       }
       setState("sent");
     } catch {
-      setState("sent");
+      setError(t("contact.form.errServer"));
+      setState("idle");
     }
   };
 

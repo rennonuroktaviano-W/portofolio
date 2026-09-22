@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     {
       ok: true,
       id: crypto.randomUUID(),
-      note: "Transmission acknowledged. A reply will follow within 48h.",
+      note: "Transmission acknowledged.",
     },
     { status: 201 }
   );

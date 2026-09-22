@@ -39,7 +39,6 @@ export type Messages = {
     currentFocus: string;
     location: string;
     status: string;
-    education: string;
     interests: string[];
     philosophy: string;
     caseNumber: string;
@@ -59,7 +58,6 @@ export type Messages = {
       status: string;
       location: string;
       currentFocus: string;
-      education: string;
       caseNumber: string;
     };
   };
@@ -123,7 +121,6 @@ export type Messages = {
     title: string;
     caption: string;
     type: {
-      education: string;
       internship: string;
       freelance: string;
       personal: string;
@@ -159,6 +156,7 @@ export type Messages = {
       again: string;
       errFields: string;
       errRejected: string;
+      errServer: string;
     };
   };
   final: {
@@ -187,11 +185,5 @@ export type Messages = {
     title: string;
     body: string;
     action: string;
-  };
-  audio: {
-    enable: string;
-    disable: string;
-    ambienceOn: string;
-    ambienceOff: string;
   };
 };

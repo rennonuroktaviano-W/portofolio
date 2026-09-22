@@ -3,7 +3,6 @@
 @theme inline {
   --color-midnight: #08090b;
   --color-charcoal: #111318;
-  --color-navy: #111827;
   --color-yellow: #e6b84a;
   --color-gold: #c89b3c;
   --color-blood: #8e1b1b;
@@ -49,7 +48,6 @@
 @layer components {
   .scene {
     @apply relative w-full;
-    position: relative;
     z-index: 0;
   }
 
@@ -101,10 +99,6 @@
     text-shadow: 0 0 18px color-mix(in srgb, var(--color-yellow) 60%, transparent);
   }
 
-  .text-glow-red {
-    text-shadow: 0 0 18px color-mix(in srgb, var(--color-neon) 60%, transparent);
-  }
-
   .vignette {
     background: radial-gradient(
       ellipse at center,
@@ -127,19 +121,6 @@
     background-repeat: repeat;
     mix-blend-mode: overlay;
     opacity: 0.07;
-  }
-
-  .film-burn {
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(0, 0, 0, 0.12),
-      transparent
-    );
-  }
-
-  .cursor-hide {
-    cursor: none;
   }
 }
 
@@ -391,6 +372,26 @@
   animation: receive-blink 1.6s ease-in-out infinite;
 }
 
+@keyframes final-flicker {
+  0%,
+  91%,
+  94%,
+  98%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.35;
+  }
+  96% {
+    opacity: 0.6;
+  }
+}
+
+.final-flicker {
+  animation: final-flicker 7s ease-in-out infinite;
+}
+
 .fog-layer {
   animation: fog-drift 34s ease-in-out infinite alternate;
 }
@@ -428,8 +429,7 @@
   .fog-layer,
   canvas,
   .crt-overlay,
-  .vignette,
-  .scene-indicator {
+  .vignette {
     display: none !important;
   }
 

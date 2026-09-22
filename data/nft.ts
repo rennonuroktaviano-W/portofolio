@@ -91,31 +91,31 @@ export const nftCollection: {
   character: "HRLN",
   artworks: [
     {
-      id: "hrln-rain",
-      title: "Rain Version",
+      id: "ms-central-cee",
+      title: "Central Cee",
       character: "HRLN",
-      image: "/nft/nft-01.svg",
+      image: "/nft/ms-central-cee.png",
       description:
-        "Outfit variation under the city's signature downpour — generated, then cleaned up by hand.",
-      tags: ["Outfit", "Rain"],
+        "A streetwear-inspired outfit study — sharp layers and bold branding under the usual low light.",
+      tags: ["Outfit", "Streetwear"],
     },
     {
-      id: "hrln-midnight",
-      title: "Midnight Shift",
+      id: "ms-travis-scott",
+      title: "Travis Scott",
       character: "HRLN",
-      image: "/nft/nft-02.svg",
+      image: "/nft/ms-travis-scott.png",
       description:
-        "A lighting and palette study — the same silhouette pushed into the late-night blue.",
-      tags: ["Lighting", "Night"],
+        "A darker, tour-merch take on the same silhouette — graphic layers and a moody palette.",
+      tags: ["Outfit", "Dark"],
     },
     {
-      id: "hrln-look",
-      title: "Accessory Pass",
+      id: "ms-body",
+      title: "Body Base",
       character: "HRLN",
-      image: "/nft/nft-03.svg",
+      image: "/nft/ms-body.png",
       description:
-        "Accessory variation defining the character's everyday loadout across the collection.",
-      tags: ["Accessories", "Variant"],
+        "The blank base body — a clean slate before any outfit pass; posing for the collection.",
+      tags: ["Base", "Model"],
     },
   ],
 };

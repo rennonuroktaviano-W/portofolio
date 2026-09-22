@@ -13,10 +13,7 @@ import { GrainOverlay } from "@/components/effects/GrainOverlay";
 import { RainLayer } from "@/components/effects/RainLayer";
 import { FogLayer } from "@/components/effects/FogLayer";
 import { EasterEgg } from "@/components/effects/EasterEgg";
-import {
-  AmbientAudioControl,
-  CursorSpotlight,
-} from "@/components/audio/AmbientAudioControl";
+import { CursorSpotlight } from "@/components/effects/CursorSpotlight";
 
 export default function Home() {
   return (
@@ -47,7 +44,6 @@ export default function Home() {
       <RainLayer />
       <FogLayer />
       <CursorSpotlight />
-      <AmbientAudioControl />
       <EasterEgg />
       <GrainOverlay />
     </>

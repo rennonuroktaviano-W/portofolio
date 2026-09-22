@@ -15,6 +15,3 @@ export const sceneDefinitions: SceneDefinition[] = [
   { id: "scene-contact", chapter: 7, title: "Contact Signal", label: "signal" },
   { id: "scene-final", chapter: 8, title: "Night Falls", label: "end" },
 ];
-
-export const sceneById = (id: string) =>
-  sceneDefinitions.find((s) => s.id === id);

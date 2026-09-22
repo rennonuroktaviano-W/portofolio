@@ -21,7 +21,7 @@ export const fr: Messages = {
     "scene-identity": { title: "Révélation d'Identité", label: "qui" },
     "scene-about": { title: "Dossier", label: "à propos" },
     "scene-arsenal": { title: "Arsenal Technique", label: "compétences" },
-    "scene-nft": { title: "Studio Créatif", label: "collectibles" },
+    "scene-nft": { title: "Studio Créatif", label: "objets de collection" },
     "scene-experience": { title: "Train de Nuit", label: "parcours" },
     "scene-contact": { title: "Signal de Contact", label: "signal" },
     "scene-final": { title: "La Nuit Tombe", label: "fin" },
@@ -45,7 +45,6 @@ export const fr: Messages = {
     currentFocus: "Développement web full-stack & expériences interactives",
     location: "Indonésie · UTC+7",
     status: "OUVERT AUX PROJETS",
-    education: "Informatique — institution d'exemple",
     interests: [
       "UI cinématique",
       "Typographie",
@@ -74,7 +73,6 @@ export const fr: Messages = {
       status: "STATUT",
       location: "LOCALISATION",
       currentFocus: "FOCUS ACTUEL",
-      education: "FORMATION",
       caseNumber: "N° DE DOSSIER",
     },
   },
@@ -175,20 +173,20 @@ export const fr: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "Variation de tenue sous l'averse signature de la ville — générée, puis nettoyée à la main.",
-        tags: ["Tenue", "Pluie"],
+          "Étude de tenue inspirée du streetwear — couches affirmées et branding audacieux sous la faible lumière habituelle.",
+        tags: ["Tenue", "Streetwear"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "Une étude d'éclairage et de palette — la même silhouette poussée dans le bleu de la nuit.",
-        tags: ["Éclairage", "Nuit"],
+          "Une version plus sombre de la même silhouette — couches graphiques et palette morose.",
+        tags: ["Tenue", "Sombre"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "Variation d'accessoires définissant l'équipement quotidien du personnage dans toute la collection.",
-        tags: ["Accessoires", "Variante"],
+          "Le corps de base vierge — une page blanche avant chaque couche de tenue; en pose pour la collection.",
+        tags: ["Base", "Modèle"],
       },
     },
   },
@@ -210,7 +208,6 @@ export const fr: Messages = {
     caption:
       "L'itinéraire emprunté par cette décennie — chaque arrêt une station où quelque chose a été appris.",
     type: {
-      education: "formation",
       internship: "stage",
       freelance: "freelance",
       personal: "personnel",
@@ -225,16 +222,9 @@ export const fr: Messages = {
           "J'ai appris les fondamentaux — HTML, CSS, JavaScript et la discipline de terminer de petits projets.",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "Étudiant en informatique",
-        org: "Institution d'exemple",
-        description:
-          "Base formelle en algorithmes, bases de données et pratiques du génie logiciel en parallèle du développement web autodidacte.",
-        tags: ["Algorithmes", "Bases de données"],
-      },
       internship: {
         title: "Stage backend",
-        org: "Entreprise d'exemple",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "J'ai construit des services REST et des outils internes, appris la revue de code et livré de vraies fonctionnalités à de vrais utilisateurs.",
         tags: ["PHP", "MySQL", "REST"],
@@ -269,7 +259,7 @@ export const fr: Messages = {
       "Un projet, une opportunité ou juste dire bonjour ? Envoyez un message ou choisissez votre canal préféré.",
     emailLabel: "email",
     socialsLabel: "réseaux",
-    response: "Réponse généralement sous 1 à 2 jours ouvrés.",
+    response: "Réponse la plus rapide sur les canaux ci-dessous.",
     form: {
       title: "Envoyez un message direct",
       name: "nom",
@@ -283,10 +273,11 @@ export const fr: Messages = {
       sending: "envoi…",
       send: "envoyer le message",
       sentTitle: "Message Envoyé",
-      sentText: "Votre message a été envoyé — je reviens vers vous rapidement.",
+      sentText: "Message reçu — merci de m'avoir contacté.",
       again: "envoyer un autre message",
       errFields: "Champs manquants ou invalides — vérifiez le nom et l'email.",
       errRejected: "Message rejeté. Réessayez plus tard.",
+      errServer: "Échec de la transmission — réessayez ou utilisez les canaux ci-dessus.",
     },
   },
   final: {
@@ -318,11 +309,5 @@ export const fr: Messages = {
     body:
       "Quelque chose a échoué en rendant ce bloc. Essayez le disjoncteur ci-dessous — aucune donnée n'est perdue.",
     action: "relancer le bloc",
-  },
-  audio: {
-    enable: "Activer le son d'ambiance",
-    disable: "Désactiver le son d'ambiance",
-    ambienceOn: "ambiance : activée",
-    ambienceOff: "ambiance : coupée",
   },
 };

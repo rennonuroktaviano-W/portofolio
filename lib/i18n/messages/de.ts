@@ -21,7 +21,7 @@ export const de: Messages = {
     "scene-identity": { title: "Identitätsoffenbarung", label: "wer" },
     "scene-about": { title: "Akte", label: "über" },
     "scene-arsenal": { title: "Tech-Arsenal", label: "fähigkeiten" },
-    "scene-nft": { title: "Kreativstudio", label: "collectibles" },
+    "scene-nft": { title: "Kreativstudio", label: "Sammelstücke" },
     "scene-experience": { title: "Nachtzug", label: "route" },
     "scene-contact": { title: "Kontaktsignal", label: "signal" },
     "scene-final": { title: "Die Nacht Fällt", label: "ende" },
@@ -45,7 +45,6 @@ export const de: Messages = {
     currentFocus: "Full-Stack-Webentwicklung & interaktive Erlebnisse",
     location: "Indonesien · UTC+7",
     status: "OFFEN FÜR PROJEKTE",
-    education: "Informatik — Beispiel-Institution",
     interests: [
       "Cineastische UI",
       "Typografie",
@@ -74,7 +73,6 @@ export const de: Messages = {
       status: "STATUS",
       location: "STANDORT",
       currentFocus: "AKTUELLER FOKUS",
-      education: "AUSBILDUNG",
       caseNumber: "AKTENNUMMER",
     },
   },
@@ -83,7 +81,7 @@ export const de: Messages = {
     title: "Tech-Arsenal",
     caption:
       "Die Werkzeuge an der Beweiswand. Jedes Stück hier hat echte Produktionsarbeit gesehen.",
-    hint: "synaptische karte — jeder cluster ist produktionserprobt",
+    hint: "Synaptische Karte — jeder Cluster ist produktionserprobt",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -175,20 +173,20 @@ export const de: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "Outfit-Variation unter dem typischen Wolkenbruch der Stadt — generiert, dann von Hand bereinigt.",
-        tags: ["Outfit", "Regen"],
+          "Studie eines von Streetwear inspirierten Outfits — klare Schichten und mutiges Branding im gewohnten schwachen Licht.",
+        tags: ["Outfit", "Streetwear"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "Eine Licht- und Palettenstudie — dieselbe Silhouette ins nächtliche Blau getrieben.",
-        tags: ["Licht", "Nacht"],
+          "Eine dunklere Interpretation derselben Silhouette — grafische Schichten und eine düstere Palette.",
+        tags: ["Outfit", "Dunkel"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "Accessoire-Variation, die die Alltags-Ausrüstung des Charakters in der ganzen Kollektion definiert.",
-        tags: ["Accessoires", "Variante"],
+          "Der leere Grundkörper — eine weiße Fläche vor jedem Outfit-Layer; posierend für die Kollektion.",
+        tags: ["Basis", "Modell"],
       },
     },
   },
@@ -210,7 +208,6 @@ export const de: Messages = {
     caption:
       "Die Route, die dieses Jahrzehnt nahm — jede Station ein Halt, wo etwas gelernt wurde.",
     type: {
-      education: "ausbildung",
       internship: "praktikum",
       freelance: "freelance",
       personal: "persönlich",
@@ -225,16 +222,9 @@ export const de: Messages = {
           "Grundlagen gelernt — HTML, CSS, JavaScript und die Disziplin, kleine Projekte fertigzustellen.",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "Informatikstudent",
-        org: "Beispiel-Institution",
-        description:
-          "Formale Basis in Algorithmen, Datenbanken und Software-Engineering-Praktiken neben selbstgesteuerter Webentwicklung.",
-        tags: ["Algorithmen", "Datenbanken"],
-      },
       internship: {
         title: "Backend-Praktikum",
-        org: "Beispiel-Firma",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "REST-Dienste und interne Tools gebaut, Code-Reviews gelernt und echte Funktionen an echte Nutzer ausgeliefert.",
         tags: ["PHP", "MySQL", "REST"],
@@ -269,7 +259,7 @@ export const de: Messages = {
       "Ein Projekt, eine Gelegenheit oder einfach Hallo sagen? Schreib mir oder wähle deinen Lieblingskanal.",
     emailLabel: "email",
     socialsLabel: "soziale Netzwerke",
-    response: "Antwort in der Regel innerhalb von 1–2 Werktagen.",
+    response: "Am schnellsten antworte ich über die Kanäle unten.",
     form: {
       title: "Nachricht direkt senden",
       name: "name",
@@ -283,10 +273,11 @@ export const de: Messages = {
       sending: "sende…",
       send: "Nachricht senden",
       sentTitle: "Nachricht Gesendet",
-      sentText: "Deine Nachricht wurde gesendet — ich melde mich bald.",
+      sentText: "Nachricht empfangen — danke für deine Kontaktaufnahme.",
       again: "weitere Nachricht senden",
       errFields: "Fehlende oder fehlerhafte Felder — Name und E-Mail prüfen.",
       errRejected: "Nachricht abgelehnt. Versuch es später erneut.",
+      errServer: "Übertragung fehlgeschlagen — versuch es erneut oder nutze die Kanäle oben.",
     },
   },
   final: {
@@ -318,11 +309,5 @@ export const de: Messages = {
     body:
       "Beim Rendern dieses Blocks ist etwas schiefgelaufen. Versuch den Schutzschalter unten — keine Daten gehen verloren.",
     action: "Block neu starten",
-  },
-  audio: {
-    enable: "Ambient-Sound aktivieren",
-    disable: "Ambient-Sound deaktivieren",
-    ambienceOn: "ambience: an",
-    ambienceOff: "ambience: aus",
   },
 };

@@ -42,10 +42,9 @@ export const es: Messages = {
       "Cada producto que publico empieza con una pregunta: ¿cómo hacemos que algo útil se sienta sin esfuerzo? Diseño y construyo experiencias web de principio a fin — desde el esquema de base de datos hasta la interfaz responsiva — y me importan el rendimiento, la accesibilidad y los detalles silenciosos que los usuarios sienten pero nunca ven.",
       "Cuando la pantalla se apaga suelo estar esbozando interfaces, leyendo sobre sistemas distribuidos o buscando la rampa tipográfica perfecta. Trato el código como un oficio: deliberado, documentado y nunca publicado a medias.",
     ],
-    currentFocus: "Desarrollo web full-stack y experiencias interactivas",
+currentFocus: "Desarrollo web full-stack y experiencias interactivas",
     location: "Indonesia · UTC+7",
-    status: "DISPONIBLE PARA PROYECTOS",
-    education: "Informática — institución de ejemplo",
+    status: "ABIERTO A PROYECTOS",
     interests: [
       "UI cinematográfica",
       "Tipografía",
@@ -74,7 +73,6 @@ export const es: Messages = {
       status: "ESTADO",
       location: "UBICACIÓN",
       currentFocus: "ENFOQUE ACTUAL",
-      education: "EDUCACIÓN",
       caseNumber: "N.º DE CASO",
     },
   },
@@ -175,20 +173,20 @@ export const es: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "Variación de atuendo bajo el aguacero característico de la ciudad — generada y luego limpiada a mano.",
-        tags: ["Atuendo", "Lluvia"],
+          "Estudio de atuendo inspirado en streetwear — capas marcadas y branding audaz bajo la escasa luz habitual.",
+        tags: ["Atuendo", "Streetwear"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "Un estudio de iluminación y paleta — la misma silueta empujada hacia el azul de altas horas.",
-        tags: ["Iluminación", "Noche"],
+          "Una versión más oscura de la misma silueta — capas gráficas y paleta melancólica.",
+        tags: ["Atuendo", "Oscuro"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "Variación de accesorios que define el equipo cotidiano del personaje en toda la colección.",
-        tags: ["Accesorios", "Variante"],
+          "El cuerpo base en blanco — una pizarra limpia antes de cada capa de atuendo; posando para la colección.",
+        tags: ["Base", "Modelo"],
       },
     },
   },
@@ -210,7 +208,6 @@ export const es: Messages = {
     caption:
       "La ruta que tomó esta década — cada parada es una estación donde algo se aprendió.",
     type: {
-      education: "educación",
       internship: "prácticas",
       freelance: "freelance",
       personal: "personal",
@@ -225,16 +222,9 @@ export const es: Messages = {
           "Aprendí los fundamentos — HTML, CSS, JavaScript y la disciplina de terminar pequeños proyectos.",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "Estudiante de Informática",
-        org: "Institución de ejemplo",
-        description:
-          "Base formal en algoritmos, bases de datos y prácticas de ingeniería de software junto al desarrollo web autodidacta.",
-        tags: ["Algoritmos", "Base de datos"],
-      },
       internship: {
         title: "Prácticas de backend",
-        org: "Empresa de ejemplo",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "Construí servicios REST y herramientas internas, aprendí revisión de código y publiqué funciones reales para usuarios reales.",
         tags: ["PHP", "MySQL", "REST"],
@@ -269,7 +259,7 @@ export const es: Messages = {
       "¿Un proyecto, una oportunidad o solo saludar? Escríbeme o elige tu canal favorito.",
     emailLabel: "email",
     socialsLabel: "redes sociales",
-    response: "Suelo responder en 1–2 días laborables.",
+    response: "La respuesta más rápida está en los canales de abajo.",
     form: {
       title: "Envía un mensaje directo",
       name: "nombre",
@@ -283,10 +273,11 @@ export const es: Messages = {
       sending: "enviando…",
       send: "enviar mensaje",
       sentTitle: "Mensaje Enviado",
-      sentText: "Tu mensaje fue enviado — te responderé pronto.",
+      sentText: "Mensaje recibido — gracias por escribir.",
       again: "enviar otro mensaje",
       errFields: "Campos vacíos o erróneos — revisa el nombre y el email.",
       errRejected: "Mensaje rechazado. Inténtalo de nuevo.",
+      errServer: "Fallo de transmisión — inténtalo de nuevo o usa los canales de arriba.",
     },
   },
   final: {
@@ -318,11 +309,5 @@ export const es: Messages = {
     body:
       "Algo falló al renderizar este bloque. Prueba el disyuntor de abajo — no se pierde ningún dato.",
     action: "reiniciar el bloque",
-  },
-  audio: {
-    enable: "Activar sonido ambiental",
-    disable: "Desactivar sonido ambiental",
-    ambienceOn: "ambiente: activado",
-    ambienceOff: "ambiente: desactivado",
   },
 };

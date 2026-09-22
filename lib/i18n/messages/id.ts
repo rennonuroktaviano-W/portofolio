@@ -21,7 +21,7 @@ export const id: Messages = {
     "scene-identity": { title: "Identitas Terungkap", label: "siapa" },
     "scene-about": { title: "Berkas Kasus", label: "tentang" },
     "scene-arsenal": { title: "Gudang Senjata", label: "skill" },
-    "scene-nft": { title: "Studio Kreatif", label: "collectibles" },
+    "scene-nft": { title: "Studio Kreatif", label: "koleksi" },
     "scene-experience": { title: "Kereta Malam", label: "rute" },
     "scene-contact": { title: "Sinyal Kontak", label: "kontak" },
     "scene-final": { title: "Malam Turun", label: "akhir" },
@@ -45,7 +45,6 @@ export const id: Messages = {
     currentFocus: "Pengembangan web full-stack & pengalaman interaktif",
     location: "Indonesia · UTC+7",
     status: "TERBUKA UNTUK PROYEK",
-    education: "Informatika — institusi placeholder",
     interests: [
       "UI Sinematik",
       "Tipografi",
@@ -56,7 +55,7 @@ export const id: Messages = {
     ],
     philosophy:
       "Perangkat lunak yang baik itu seperti jalan yang terang benderang di tengah malam: tenang, bisa diprediksi, dan diam-diam mengantarmu ke tujuan.",
-    caseNumber: "FILE NO. RN-001",
+    caseNumber: "BERKAS NO. RN-001",
   },
   about: {
     label: "dossier intelijen",
@@ -74,7 +73,6 @@ export const id: Messages = {
       status: "STATUS",
       location: "LOKASI",
       currentFocus: "FOKUS SAAT INI",
-      education: "PENDIDIKAN",
       caseNumber: "NO. KASUS",
     },
   },
@@ -175,20 +173,20 @@ export const id: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "Variasi outfit di bawah hujan deras khas kota — digenerasi, lalu dibersihkan dengan tangan.",
-        tags: ["Outfit", "Hujan"],
+          "Studi outfit bergaya streetwear — lapisan tegas dan branding berani di bawah cahaya redup khas kota.",
+        tags: ["Outfit", "Streetwear"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "Studi pencahayaan dan palet — siluet yang sama didorong ke dalam biru larut malam.",
-        tags: ["Pencahayaan", "Malam"],
+          "Interpretasi lebih gelap dari siluet yang sama — lapisan grafis dan palet yang murung.",
+        tags: ["Outfit", "Gelap"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "Variasi aksesori yang mendefinisikan perlengkapan harian sang karakter di seluruh koleksi.",
-        tags: ["Aksesori", "Varian"],
+          "Tubuh dasar yang polos — kanvas bersih sebelum setiap lapis outfit; berpose untuk koleksi ini.",
+        tags: ["Dasar", "Model"],
       },
     },
   },
@@ -199,7 +197,7 @@ export const id: Messages = {
     close: "Tutup penampil karya",
     prev: "Karya sebelumnya",
     next: "Karya berikutnya",
-    prevShort: "maju",
+    prevShort: "mundur",
     nextShort: "lanjut",
     aiLabel: "karya seni digital berbantuan AI",
     caseVisual: "visual kasus",
@@ -210,7 +208,6 @@ export const id: Messages = {
     caption:
       "Rute yang dilalui dekade ini — setiap pemberhentian adalah stasiun tempat sesuatu dipelajari.",
     type: {
-      education: "pendidikan",
       internship: "magang",
       freelance: "freelance",
       personal: "personal",
@@ -225,16 +222,9 @@ export const id: Messages = {
           "Belajar fondasi — HTML, CSS, JavaScript, dan disiplin menyelesaikan proyek kecil.",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "Mahasiswa Informatika",
-        org: "Institusi placeholder",
-        description:
-          "Landsasan formal dalam algoritma, basis data, dan praktik rekayasa perangkat lunak beriringan pengembangan web otodidak.",
-        tags: ["Algoritma", "Database"],
-      },
       internship: {
         title: "Magang Backend",
-        org: "Perusahaan placeholder",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "Membangun layanan REST dan alat internal, belajar code review, dan merilis fitur nyata untuk pengguna nyata.",
         tags: ["PHP", "MySQL", "REST"],
@@ -243,7 +233,7 @@ export const id: Messages = {
         title: "Bangunan mandiri",
         org: "Freelance & proyek sampingan",
         description:
-          "Mengirimkan pekerjaan produk full-stack untuk bisnis kecil — inventori, invoicing, dan kehadiran web.",
+          "Mengirimkan pekerjaan produk full-stack untuk bisnis kecil — inventori, pembukuan, dan kehadiran web.",
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
@@ -269,7 +259,7 @@ export const id: Messages = {
       "Punya proyek, peluang, atau sekadar mau menyapa? Kirim pesan di bawah, atau pilih kanal favoritmu.",
     emailLabel: "email",
     socialsLabel: "media sosial",
-    response: "Balasan biasanya dalam 1–2 hari kerja.",
+    response: "Balasan paling cepat melalui kanal di bawah.",
     form: {
       title: "Kirim pesan langsung",
       name: "nama",
@@ -283,10 +273,11 @@ export const id: Messages = {
       sending: "mengirim…",
       send: "kirim pesan",
       sentTitle: "Pesan Terkirim",
-      sentText: "Pesan tercatat — balasan menyusul dalam 1–2 hari kerja.",
+      sentText: "Pesan diterima — terima kasih sudah menghubungi.",
       again: "kirim pesan lagi",
       errFields: "Kolom kosong atau tidak valid — periksa nama dan email.",
       errRejected: "Pesan ditolak. Coba lagi nanti.",
+      errServer: "Transmisi gagal — coba lagi atau gunakan kanal di atas.",
     },
   },
   final: {
@@ -318,11 +309,5 @@ export const id: Messages = {
     body:
       "Terjadi kesalahan saat merender blok ini. Coba pemutus sirkuit di bawah — tidak ada data yang hilang.",
     action: "mulai ulang blok",
-  },
-  audio: {
-    enable: "Nyalakan suara suasana",
-    disable: "Matikan suara suasana",
-    ambienceOn: "suasana: nyala",
-    ambienceOff: "suasana: mati",
   },
 };

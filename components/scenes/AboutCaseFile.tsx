@@ -26,11 +26,6 @@ export function AboutCaseFile() {
       tone: "text-cream",
     },
     {
-      label: t("about.meta.education"),
-      value: t("profile.education"),
-      tone: "text-cream",
-    },
-    {
       label: t("about.meta.caseNumber"),
       value: t("profile.caseNumber"),
       tone: "text-gold",

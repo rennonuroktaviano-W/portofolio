@@ -113,7 +113,7 @@ function scanDelay(cy: number): string {
 }
 
 function shortName(name: string): string {
-  return name.replace(" / ", " · ").replace(" & ", " & ");
+  return name.replace(" / ", " · ");
 }
 
 export function BrainIndex() {

@@ -8,6 +8,21 @@ import { NFTLightbox } from "@/components/nft/NFTLightbox";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
 
+function EndPanel({ title, text }: { title: string; text: string }) {
+  return (
+    <li aria-hidden="true" className="flex shrink-0 items-center px-6 lg:w-72">
+      <div>
+        <p className="font-display text-5xl font-semibold text-outline">
+          {title}
+        </p>
+        <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
+          {text}
+        </p>
+      </div>
+    </li>
+  );
+}
+
 export function NftShowcase() {
   const sectionRef = useReveals<HTMLElement>();
   const framesPinRef = useRef<HTMLDivElement | null>(null);
@@ -127,19 +142,10 @@ export function NftShowcase() {
             </li>
           ))}
 
-          <li
-            aria-hidden="true"
-            className="flex shrink-0 items-center px-6 lg:w-72"
-          >
-            <div>
-              <p className="font-display text-5xl font-semibold text-outline">
-                {t("nft.endRunTitle")}
-              </p>
-              <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
-                {t("nft.endRunText")}
-              </p>
-            </div>
-          </li>
+          <EndPanel
+            title={t("nft.endRunTitle")}
+            text={t("nft.endRunText")}
+          />
         </ul>
       </div>
 
@@ -176,19 +182,10 @@ export function NftShowcase() {
             </li>
           ))}
 
-          <li
-            aria-hidden="true"
-            className="flex shrink-0 items-center px-6 lg:w-72"
-          >
-            <div>
-              <p className="font-display text-5xl font-semibold text-outline">
-                {t("nft.endFlowTitle")}
-              </p>
-              <p className="mt-3 max-w-[16rem] font-mono text-[11px] uppercase tracking-widest text-fog">
-                {t("nft.endFlowText")}
-              </p>
-            </div>
-          </li>
+          <EndPanel
+            title={t("nft.endFlowTitle")}
+            text={t("nft.endFlowText")}
+          />
         </ol>
       </div>
 

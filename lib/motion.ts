@@ -70,7 +70,3 @@ export function useReveals<T extends HTMLElement>() {
 
   return ref;
 }
-
-export function refreshScrollTriggers() {
-  ScrollTrigger.refresh();
-}

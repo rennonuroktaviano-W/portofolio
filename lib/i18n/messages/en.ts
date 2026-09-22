@@ -45,7 +45,6 @@ export const en: Messages = {
     currentFocus: "Full-stack web development & interactive experiences",
     location: "Indonesia · UTC+7",
     status: "OPEN FOR PROJECTS",
-    education: "Informatics — placeholder institution",
     interests: [
       "Cinematic UI",
       "Typography",
@@ -74,7 +73,6 @@ export const en: Messages = {
       status: "STATUS",
       location: "LOCATION",
       currentFocus: "CURRENT FOCUS",
-      education: "EDUCATION",
       caseNumber: "CASE NUMBER",
     },
   },
@@ -175,20 +173,20 @@ export const en: Messages = {
       },
     },
     artwork: {
-      "hrln-rain": {
+      "ms-central-cee": {
         description:
-          "Outfit variation under the city's signature downpour — generated, then cleaned up by hand.",
-        tags: ["Outfit", "Rain"],
+          "A streetwear-inspired outfit study — sharp layers and bold branding under the usual low light.",
+        tags: ["Outfit", "Streetwear"],
       },
-      "hrln-midnight": {
+      "ms-travis-scott": {
         description:
-          "A lighting and palette study — the same silhouette pushed into the late-night blue.",
-        tags: ["Lighting", "Night"],
+          "A darker, tour-merch take on the same silhouette — graphic layers and a moody palette.",
+        tags: ["Outfit", "Dark"],
       },
-      "hrln-look": {
+      "ms-body": {
         description:
-          "Accessory variation defining the character's everyday loadout across the collection.",
-        tags: ["Accessories", "Variant"],
+          "The blank base body — a clean slate before any outfit pass; posing for the collection.",
+        tags: ["Base", "Model"],
       },
     },
   },
@@ -210,7 +208,6 @@ export const en: Messages = {
     caption:
       "The route this decade took — every stop a station where something learned.",
     type: {
-      education: "education",
       internship: "internship",
       freelance: "freelance",
       personal: "personal",
@@ -225,16 +222,9 @@ export const en: Messages = {
           "Learned the fundamentals — HTML, CSS, JavaScript, and the discipline of finishing small projects.",
         tags: ["HTML", "CSS", "JavaScript"],
       },
-      education: {
-        title: "Informatics student",
-        org: "Placeholder institution",
-        description:
-          "Formal grounding in algorithms, databases, and software engineering practices alongside self-driven web development.",
-        tags: ["Algorithms", "Databases"],
-      },
       internship: {
         title: "Backend internship",
-        org: "Placeholder company",
+        org: "PT. Deswa Invisco Multitama",
         description:
           "Built REST services and internal tools, learned code review, and shipped real features to real users.",
         tags: ["PHP", "MySQL", "REST"],
@@ -269,7 +259,7 @@ export const en: Messages = {
       "Have a project, an opportunity, or just want to say hi? Send a message below, or pick your favourite channel.",
     emailLabel: "email",
     socialsLabel: "socials",
-    response: "Replies usually within 1–2 business days.",
+    response: "Fastest reply is on the channels below.",
     form: {
       title: "Send a direct message",
       name: "name",
@@ -283,10 +273,11 @@ export const en: Messages = {
       sending: "sending…",
       send: "send message",
       sentTitle: "Message Sent",
-      sentText: "Your message was sent — I'll get back to you shortly.",
+      sentText: "Message received — thanks for reaching out.",
       again: "send another message",
       errFields: "Missing or malformed fields — check name and email.",
       errRejected: "Message rejected. Try again later.",
+      errServer: "Transmission failed — try again or use the channels above.",
     },
   },
   final: {
@@ -318,11 +309,5 @@ export const en: Messages = {
     body:
       "Something went wrong rendering this block. Try the circuit breaker below — no data is lost.",
     action: "restart the block",
-  },
-  audio: {
-    enable: "Enable ambient sound",
-    disable: "Disable ambient sound",
-    ambienceOn: "ambience: on",
-    ambienceOff: "ambience: off",
   },
 };

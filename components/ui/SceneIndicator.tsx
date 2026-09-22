@@ -91,7 +91,7 @@ export function SceneIndicator() {
   return (
     <nav
       aria-label={t("sceneIndicator.label")}
-      className={`fixed right-3 top-1/2 z-50 -translate-y-1/2 flex-col items-center gap-2 sm:right-5 ${
+      className={`fixed right-3 top-1/2 z-50 -translate-y-1/2 flex-col items-center gap-2 print:hidden sm:right-5 ${
         mountedAfterHero ? "flex" : "hidden"
       } transition-opacity duration-500 ${idle ? "opacity-30" : "opacity-100"}`}
     >

@@ -7,11 +7,11 @@ import {
   useMotionValueEvent,
   useSpring,
 } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/motion";
+import { BatGrapple } from "@/components/effects/BatGrapple";
 
 const clamp = (v: number, min: number, max: number) =>
   Math.min(max, Math.max(min, v));
-import { usePrefersReducedMotion } from "@/lib/motion";
-import { BatGrapple } from "@/components/effects/BatGrapple";
 
 const HOOK_WRAP_Y = -30;
 const SVG_TOP = -56;

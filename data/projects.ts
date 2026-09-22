@@ -1,5 +1,3 @@
-import { site } from "@/data/site";
-
 export type ProjectLink = { label: "github" | "live" | "article"; url: string };
 export type GalleryItem = { src: string | null; alt: string };
 
@@ -101,10 +99,7 @@ export const projects: Project[] = [
       "A 10 kB core app that still works when the network doesn't — a small monument to restraint.",
     year: "2023",
     status: "LIVE",
-    links: [
-      { label: "github", url: "https://github.com/rennonuroktaviano-W" },
-      { label: "live", url: site.url },
-    ],
+    links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
     gallery: [{ src: "/images/projects/weathermono/cover.svg", alt: "WeatherMono offline forecast preview" }],
   },
 ];

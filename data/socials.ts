@@ -20,17 +20,12 @@ export const socials: {
     {
       label: "LinkedIn",
       handle: "Renno Nur Oktaviano",
-      url: "https://www.linkedin.com/in/rennonuroktaviano",
+      url: "https://www.linkedin.com/in/renno-nur-oktaviano-869675380",
     },
     {
       label: "Twitter / X",
-      handle: "@rennonuroktaviano",
-      url: "https://x.com/rennonuroktaviano",
+      handle: "@rennuroktavW",
+      url: "https://x.com/rennuroktavW",
     },
-    {
-      label: "Telegram",
-      handle: "@username",
-      url: "https://t.me/username",
-    },
-  ],
+    ],
 };

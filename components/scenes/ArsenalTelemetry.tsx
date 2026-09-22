@@ -68,11 +68,11 @@ export function ArsenalTelemetry() {
         className="mx-auto w-full max-w-[280px] text-yellow"
       >
         <defs>
-            <linearGradient id="arsenal-fill" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="var(--color-yellow)" />
-              <stop offset="100%" stopColor="var(--color-blood)" />
-            </linearGradient>
-          </defs>
+          <linearGradient id="arsenal-fill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="var(--color-yellow)" />
+            <stop offset="100%" stopColor="var(--color-blood)" />
+          </linearGradient>
+        </defs>
 
           {[25, 50, 75, 100].map((level) => (
             <polygon
