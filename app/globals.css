@@ -530,13 +530,10 @@
 [data-loading-screen] [data-loading-word],
 [data-loading-screen] [data-loading-kicker],
 [data-loading-screen] [data-loading-caption],
-[data-loading-screen] [data-loading-thread],
 [data-loading-screen] [data-loading-label],
+[data-loading-screen] [data-loading-line],
+[data-loading-screen] [data-loading-pct],
 [data-loading-screen] [data-loading-sky] {
-  opacity: 0;
-}
-
-[data-loading-screen] [data-loading-signal] {
   opacity: 0;
 }
 

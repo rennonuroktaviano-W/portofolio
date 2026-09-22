@@ -59,19 +59,6 @@ export function LoadingScreenMarkup() {
       </div>
 
       <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 pb-2 text-center">
-        <div
-          data-loading-signal
-          className="pointer-events-none absolute left-1/2 top-[16%] -translate-x-1/2"
-        >
-          <div className="relative flex h-24 w-24 items-center justify-center sm:h-32 sm:w-32">
-            <div className="loading-pulse absolute inset-0 rounded-full border border-gold/50" />
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(230,184,74,0.3),rgba(230,184,74,0.07)_60%,transparent_74%)] blur-md" />
-            <span className="relative font-mono text-xl font-bold tracking-[0.2em] text-yellow sm:text-2xl">
-              RN
-            </span>
-          </div>
-        </div>
-
         <div className="flex flex-col items-center">
           <p
             data-loading-kicker
@@ -94,16 +81,24 @@ export function LoadingScreenMarkup() {
           </div>
         </div>
 
-        <div className="absolute bottom-[6.5svh] left-1/2 -translate-x-1/2 text-center">
-          <div
-            data-loading-thread
-            className="h-px w-56 origin-left bg-yellow/90 sm:w-72"
-          />
+        <div className="absolute bottom-[6.5svh] left-1/2 w-64 -translate-x-1/2 text-center sm:w-80">
           <p
             data-loading-label
-            className="mt-3 font-mono text-[10px] uppercase tracking-[0.4em] text-fog/60"
+            className="font-mono text-[10px] uppercase tracking-[0.4em] text-fog/60"
           >
-            Establishing shot — 0:07
+            Loading · Gotham
+          </p>
+          <div className="mt-2 h-px w-full bg-gold/25">
+            <div
+              data-loading-line
+              className="h-px origin-left bg-yellow will-change-transform"
+            />
+          </div>
+          <p className="mt-2 font-mono text-lg leading-none text-cream">
+            <span data-loading-pct className="text-yellow">
+              0
+            </span>
+            <span className="text-xs text-fog/50">&#37;</span>
           </p>
         </div>
       </div>
@@ -181,9 +176,9 @@ export function LoadingScreenEffect() {
       const title = overlay.querySelector("[data-loading-title]");
       const caption = overlay.querySelector("[data-loading-caption]");
       const scan = overlay.querySelector("[data-loading-scan]");
-      const signal = overlay.querySelector("[data-loading-signal]");
-      const thread = overlay.querySelector("[data-loading-thread]");
       const label = overlay.querySelector("[data-loading-label]");
+      const line = overlay.querySelector("[data-loading-line]");
+      const pct = overlay.querySelector("[data-loading-pct]");
 
       gsap.set(barT, { yPercent: -105 });
       gsap.set(barB, { yPercent: 105 });
@@ -192,9 +187,10 @@ export function LoadingScreenEffect() {
       gsap.set(words, { y: 26, autoAlpha: 0 });
       gsap.set(title, { textShadow: "0 0 0px rgba(230,184,74,0)" });
       gsap.set(caption, { autoAlpha: 0 });
-      gsap.set(signal, { autoAlpha: 0, scale: 0.7 });
-      gsap.set(thread, { scaleX: 0 });
       gsap.set(label, { autoAlpha: 0 });
+      gsap.set(line, { scaleX: 0 });
+
+      const counter = { v: 0 };
 
       const setCaption = (i: number) => {
         if (caption) caption.textContent = CAPTIONS[i]!;
@@ -224,9 +220,27 @@ export function LoadingScreenEffect() {
           }
         }, 4.2)
         .add(() => flashStrike(62 + Math.random() * 22), 4.35)
-        .to(signal, { autoAlpha: 1, scale: 1, duration: 0.9 }, 5.05)
-        .to(thread, { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 5.55)
-        .to(label, { autoAlpha: 1, duration: 0.4 }, 5.75)
+        .to(label, { autoAlpha: 1, duration: 0.4 }, 2.55)
+        .to(
+          line,
+          { scaleX: 1, duration: 4.35, ease: "none" },
+          2.55
+        )
+        .to(
+          counter,
+          {
+            v: 100,
+            duration: 4.35,
+            ease: "none",
+            onUpdate: () => {
+              if (pct)
+                pct.textContent = String(
+                  Math.max(0, Math.min(100, Math.round(counter.v)))
+                );
+            },
+          },
+          2.55
+        )
         .add(() => flashStrike(34 + Math.random() * 18), 6.2)
         .to(title, { opacity: 0.62, duration: 0.07, yoyo: true, repeat: 4 }, 6.6)
         .add(() => flashStrike(50), 6.92)
