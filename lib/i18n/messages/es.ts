@@ -132,24 +132,24 @@ identity: {
     inProgress: "EN PROGRESO",
   },
   nft: {
-    label: "el ala creativa · del concepto al coleccionable",
-    title: "Colección NFT Asistida por IA",
+    label: "experimentos creativos · visuales asistidos por IA",
+    title: "Estudios Visuales Asistidos por IA",
     caption:
-      "Un ala de estudio experimental — diseño de personajes y coleccionables digitales explorados mediante generación de imágenes asistida por IA. Un ejercicio de aprendizaje sobre cómo las herramientas generativas forman parte de un flujo creativo humano, no toda la historia.",
+      "Un espacio para experimentos visuales — diseños de personajes y atuendos explorados mediante generación de imágenes asistida por IA. Un estudio práctico sobre cómo las herramientas generativas amplían un flujo creativo humano.",
     outputs: "resultados seleccionados",
     framesHint: "los marcos corren en horizontal en pantallas anchas",
     fig: "fig {n} / {total}",
-    endRunTitle: "final de la serie",
-    endRunText: "tres marcos — sigue deslizando para ver cómo se hicieron",
+    endRunTitle: "final de este set",
+    endRunText: "tres piezas — sigue deslizando para ver cómo se hicieron",
     workflow: "flujo creativo",
     workflowHint: "cinco pasos — el flujo corre en horizontal en pantallas anchas",
     endFlowTitle: "final del flujo",
-    endFlowText: "del concepto al coleccionable — en cinco pasos",
+    endFlowText: "del concepto al arte final — en cinco pasos",
     process: {
       "01": {
         title: "Concepto",
         short:
-          "Diseñar la identidad del personaje — silueta, ambiente y la calle ficticia a la que pertenece.",
+          "Definir el sujeto, el ambiente y la dirección visual que quiero explorar.",
       },
       "02": {
         title: "Generación",
@@ -159,7 +159,7 @@ identity: {
       "03": {
         title: "Iteración",
         short:
-          "Empujando atuendos, accesorios, iluminación y fondos — una identidad, muchas variaciones.",
+          "Empujando atuendos, accesorios, iluminación y fondos — un sujeto, muchas variaciones.",
       },
       "04": {
         title: "Refinamiento",
@@ -175,7 +175,7 @@ identity: {
     artwork: {
       "ms-central-cee": {
         description:
-          "Estudio de atuendo inspirado en streetwear — capas marcadas y branding audaz bajo la escasa luz habitual.",
+          "Estudio de atuendo inspirado en streetwear — capas marcadas y branding audaz bajo una iluminación ambiental.",
         tags: ["Atuendo", "Streetwear"],
       },
       "ms-travis-scott": {

@@ -132,24 +132,24 @@ export const de: Messages = {
     inProgress: "IN ARBEIT",
   },
   nft: {
-    label: "der kreative Flügel · vom Konzept zum Sammlerstück",
-    title: "KI-gestützte NFT-Kollektion",
+    label: "kreative experimente · ki-gestützte visuals",
+    title: "KI-gestützte visuelle Studien",
     caption:
-      "Ein experimenteller Studio-Flügel — Charakterdesign und digitale Sammlerstücke, erforscht durch KI-gestützte Bildgenerierung. Eine Learningsübung, wie generative Tools Teil eines menschlichen Kreativ-Workflows werden — nicht die ganze Geschichte.",
+      "Ein Raum für visuelle Experimente — Charakter- und Outfit-Designs, erforscht durch KI-gestützte Bildgenerierung. Eine praktische Studie, wie generative Tools einen menschlichen Kreativ-Workflow erweitern.",
     outputs: "ausgewählte Resultate",
     framesHint: "die Frames laufen auf breiten Bildschirmen seitwärts",
     fig: "Abb {n} / {total}",
-    endRunTitle: "Ende der Serie",
-    endRunText: "drei Frames — weiter scrollen, um zu sehen, wie sie entstanden",
+    endRunTitle: "Ende dieses Sets",
+    endRunText: "drei Stücke — weiter scrollen, um zu sehen, wie sie entstanden",
     workflow: "kreativer Workflow",
     workflowHint: "fünf Schritte — der Workflow läuft auf breiten Bildschirmen seitwärts",
     endFlowTitle: "Ende des Workflows",
-    endFlowText: "vom Konzept zum Sammlerstück — in fünf Schritten",
+    endFlowText: "vom Konzept zum Artwork — in fünf Schritten",
     process: {
       "01": {
         title: "Konzept",
         short:
-          "Die Identität des Charakters entwerfen — Silhouette, Stimmung und die fiktive Straße, zu der er gehört.",
+          "Subjekt, Stimmung und die visuelle Richtung definieren, die ich erkunden möchte.",
       },
       "02": {
         title: "Generierung",
@@ -159,7 +159,7 @@ export const de: Messages = {
       "03": {
         title: "Iteration",
         short:
-          "Outfits, Accessoires, Licht und Hintergründe vorantreiben — eine Identität, viele Variationen.",
+          "Outfits, Accessoires, Licht und Hintergründe vorantreiben — ein Subjekt, viele Variationen.",
       },
       "04": {
         title: "Verfeinerung",
@@ -175,7 +175,7 @@ export const de: Messages = {
     artwork: {
       "ms-central-cee": {
         description:
-          "Studie eines von Streetwear inspirierten Outfits — klare Schichten und mutiges Branding im gewohnten schwachen Licht.",
+          "Studie eines von Streetwear inspirierten Outfits — klare Schichten und mutiges Branding unter stimmungsvollem Licht.",
         tags: ["Outfit", "Streetwear"],
       },
       "ms-travis-scott": {

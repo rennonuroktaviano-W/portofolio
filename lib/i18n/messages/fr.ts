@@ -132,24 +132,24 @@ export const fr: Messages = {
     inProgress: "EN COURS",
   },
   nft: {
-    label: "l'aile créative · du concept au collectionnable",
-    title: "Collection NFT Assistée par IA",
+    label: "expérimentations créatives · visuels assistés par IA",
+    title: "Études Visuelles Assistées par IA",
     caption:
-      "Une aile de studio expérimentale — conception de personnages et collectibles numériques explorés via la génération d'images assistée par IA. Un exercice d'apprentissage sur la façon dont les outils génératifs s'intègrent à un flux de travail créatif humain, sans en être toute l'histoire.",
+      "Un espace d'expérimentations visuelles — designs de personnages et de tenues explorés via la génération d'images assistée par IA. Une étude pratique de la façon dont les outils génératifs prolongent un flux de travail créatif humain.",
     outputs: "sorties sélectionnées",
     framesHint: "les cadres filent sur les côtés sur écrans larges",
     fig: "fig {n} / {total}",
-    endRunTitle: "fin de la série",
-    endRunText: "trois cadres — continuez à défiler pour voir comment ils ont été faits",
+    endRunTitle: "fin de cette série",
+    endRunText: "trois pièces — continuez à défiler pour voir comment elles ont été faites",
     workflow: "flux de travail créatif",
     workflowHint: "cinq étapes — le flux file sur les côtés sur écrans larges",
     endFlowTitle: "fin du flux",
-    endFlowText: "du concept au collectionnable — en cinq étapes",
+    endFlowText: "du concept à l'œuvre — en cinq étapes",
     process: {
       "01": {
         title: "Concept",
         short:
-          "Concevoir l'identité du personnage — silhouette, ambiance et la rue fictive à laquelle il appartient.",
+          "Définir le sujet, l'ambiance et la direction visuelle à explorer.",
       },
       "02": {
         title: "Génération",
@@ -159,7 +159,7 @@ export const fr: Messages = {
       "03": {
         title: "Itération",
         short:
-          "Pousser tenues, accessoires, éclairages et fonds — une identité, de nombreuses variations.",
+          "Pousser tenues, accessoires, éclairages et fonds — un sujet, de nombreuses variations.",
       },
       "04": {
         title: "Affinage",
@@ -175,7 +175,7 @@ export const fr: Messages = {
     artwork: {
       "ms-central-cee": {
         description:
-          "Étude de tenue inspirée du streetwear — couches affirmées et branding audacieux sous la faible lumière habituelle.",
+          "Étude de tenue inspirée du streetwear — couches affirmées et branding audacieux sous une lumière tamisée.",
         tags: ["Tenue", "Streetwear"],
       },
       "ms-travis-scott": {

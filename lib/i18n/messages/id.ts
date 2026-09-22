@@ -132,24 +132,24 @@ export const id: Messages = {
     inProgress: "SEDANG DIBANGUN",
   },
   nft: {
-    label: "sayap kreatif · dari konsep ke koleksi",
-    title: "Koleksi NFT Berbantuan AI",
+    label: "eksperimen kreatif · visual berbantuan AI",
+    title: "Studi Visual Berbantuan AI",
     caption:
-      "Sayap studio eksperimental — desain karakter dan kolektibel digital dieksplorasi lewat generasi gambar berbantuan AI. Latihan belajar bagaimana alat generatif menjadi bagian dari alur kerja kreatif manusia, bukan keseluruhannya.",
+      "Ruang untuk eksperimen visual — desain karakter dan outfit yang dieksplorasi lewat pembuatan gambar berbantuan AI. Studi praktis tentang bagaimana alat generatif memperluas alur kerja kreatif manusia.",
     outputs: "output terpilih",
     framesHint: "kerangka berjalan menyamping di layar lebar",
     fig: "gbr {n} / {total}",
-    endRunTitle: "akhir rangkaian",
-    endRunText: "tiga kerangka — terus gulir untuk melihat bagaimana dibuatnya",
+    endRunTitle: "akhir set ini",
+    endRunText: "tiga karya — lanjut scroll untuk melihat proses pembuatannya",
     workflow: "alur kerja kreatif",
     workflowHint: "lima langkah — alur kerja berjalan menyamping di layar lebar",
     endFlowTitle: "akhir alur",
-    endFlowText: "dari konsep ke koleksi — dalam lima langkah",
+    endFlowText: "dari konsep hingga karya jadi — dalam lima langkah",
     process: {
       "01": {
         title: "Konsep",
         short:
-          "Merancang identitas karakter — siluet, suasana, dan jalan fiksi tempat ia tinggal.",
+          "Menentukan subjek, suasana, dan arah visual yang ingin dieksplorasi.",
       },
       "02": {
         title: "Generasi",
@@ -159,7 +159,7 @@ export const id: Messages = {
       "03": {
         title: "Iterasi",
         short:
-          "Mendorong outfit, aksesori, pencahayaan, dan latar — satu identitas, banyak variasi.",
+          "Mendorong outfit, aksesori, pencahayaan, dan latar — satu subjek, banyak variasi.",
       },
       "04": {
         title: "Penyempurnaan",
@@ -175,7 +175,7 @@ export const id: Messages = {
     artwork: {
       "ms-central-cee": {
         description:
-          "Studi outfit bergaya streetwear — lapisan tegas dan branding berani di bawah cahaya redup khas kota.",
+          "Studi outfit bergaya streetwear — lapisan tegas dan branding berani di bawah pencahayaan moody.",
         tags: ["Outfit", "Streetwear"],
       },
       "ms-travis-scott": {

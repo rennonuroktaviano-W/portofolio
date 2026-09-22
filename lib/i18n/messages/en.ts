@@ -132,34 +132,34 @@ export const en: Messages = {
     inProgress: "IN PROGRESS",
   },
   nft: {
-    label: "the creative wing · concept to collectible",
-    title: "AI-Assisted NFT Collection",
+    label: "creative experiments · ai-assisted visuals",
+    title: "AI-Assisted Visual Studies",
     caption:
-      "An experimental studio wing — character design and digital collectibles explored through AI-assisted image generation. A learning exercise in how generative tools become part of a human creative workflow, not the whole story.",
+      "A space for visual experiments — character and outfit designs explored through AI-assisted image generation. A practical study in how generative tools extend a human creative workflow.",
     outputs: "selected outputs",
     framesHint: "the frames run sideways on wide screens",
     fig: "fig {n} / {total}",
-    endRunTitle: "end of the run",
-    endRunText: "three frames — keep scrolling to see how they were made",
+    endRunTitle: "end of this set",
+    endRunText: "three pieces — keep scrolling to see how they were made",
     workflow: "creative workflow",
     workflowHint: "five steps — the workflow runs sideways on wide screens",
     endFlowTitle: "end of the flow",
-    endFlowText: "from concept to collectible — in five steps",
+    endFlowText: "from concept to artwork — in five steps",
     process: {
       "01": {
         title: "Concept",
         short:
-          "Designing the character identity — silhouette, mood, and the fictional street it belongs to.",
+          "Defining the subject, the mood, and the visual direction I want to explore.",
       },
       "02": {
         title: "Generation",
         short:
-          "Prompt experiments across ChatGPT, Gemini, DeepSeek, and Claude to discover visual directions.",
+          "Prompt experiments across ChatGPT, Gemini, DeepSeek, and Claude to uncover visual directions.",
       },
       "03": {
         title: "Iteration",
         short:
-          "Pushing outfits, accessories, lighting, and backgrounds — one identity, many variations.",
+          "Pushing outfits, accessories, lighting, and backgrounds — one subject, many variations.",
       },
       "04": {
         title: "Refinement",
@@ -175,7 +175,7 @@ export const en: Messages = {
     artwork: {
       "ms-central-cee": {
         description:
-          "A streetwear-inspired outfit study — sharp layers and bold branding under the usual low light.",
+          "A streetwear-inspired outfit study — sharp layers and bold branding under moody lighting.",
         tags: ["Outfit", "Streetwear"],
       },
       "ms-travis-scott": {
