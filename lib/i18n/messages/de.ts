@@ -284,13 +284,12 @@ export const de: Messages = {
     title2: "deinen Besuch in meinem Portfolio.",
     para:
       "Diese Website ist aus Neugier, Code und KI-gestützter Entwicklung entstanden — jede Szene hier ist ein echter Bau, eine echte Lektion oder ein echtes Produkt. Wenn dich etwas angesprochen hat, bauen wir gemeinsam etwas.",
-    returnLabel: "Zurück zum Anfang",
     credits: {
       aria: "Site-Credits",
       builtIn: "gebaut mit",
       designed: "designt",
       poweredBy: "angetrieben von",
-      designedValue: "im Dunkeln",
+      designedValue: "KI-gestützt",
     },
     footer: "© {year} {name} — gebaut aus Neugier, Code & KI.",
   },

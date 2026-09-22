@@ -284,13 +284,12 @@ export const fr: Messages = {
     title2: "visité mon portfolio.",
     para:
       "Ce site est construit avec curiosité, code et développement assisté par IA — chaque scène ici est une construction réelle, une leçon réelle ou un produit réel. Si quelque chose a retenu votre attention, construisons quelque chose ensemble.",
-    returnLabel: "Revenir au début",
     credits: {
       aria: "Crédits du site",
       builtIn: "construit avec",
       designed: "conçu",
       poweredBy: "propulsé par",
-      designedValue: "dans l'obscurité",
+      designedValue: "assisté par IA",
     },
     footer: "© {year} {name} — construit avec curiosité, code & IA.",
   },

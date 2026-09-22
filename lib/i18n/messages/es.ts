@@ -284,13 +284,12 @@ identity: {
     title2: "visitar mi portfolio.",
     para:
       "Este sitio está construido con curiosidad, código y desarrollo asistido por IA — cada escena aquí es una construcción real, una lección real o un producto real. Si algo te llamó la atención, construyamos algo juntos.",
-    returnLabel: "Volver al principio",
     credits: {
       aria: "Créditos del sitio",
       builtIn: "construido con",
       designed: "diseñado",
       poweredBy: "impulsado por",
-      designedValue: "en la oscuridad",
+      designedValue: "asistido por IA",
     },
     footer: "© {year} {name} — construido con curiosidad, código e IA.",
   },

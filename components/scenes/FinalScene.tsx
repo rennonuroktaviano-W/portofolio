@@ -186,21 +186,10 @@ export function FinalScene() {
           {t("final.para")}
         </p>
 
-        <a
-          data-final-meta
-          href="#scene-hero"
-          className="group mt-10 inline-flex items-center gap-3 border border-cream/30 bg-midnight/60 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-cream transition-colors hover:border-yellow hover:text-yellow"
-        >
-          <span aria-hidden="true" className="transition-transform group-hover:-translate-x-1">
-            ⟲
-          </span>
-          {t("final.returnLabel")}
-        </a>
-
         <dl
           data-final-meta
           aria-label={t("final.credits.aria")}
-          className="mt-16 grid max-w-md grid-cols-3 gap-4 font-mono text-[9px] uppercase tracking-widest text-fog/70"
+          className="mt-16 flex max-w-md flex-wrap items-start justify-center gap-x-8 gap-y-3 text-center font-mono text-[9px] uppercase tracking-widest text-fog/70"
         >
           <div>
             <dt>{t("final.credits.builtIn")}</dt>

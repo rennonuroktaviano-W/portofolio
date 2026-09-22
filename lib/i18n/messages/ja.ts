@@ -283,13 +283,12 @@ export const ja: Messages = {
     title2: "ありがとうございました。",
     para:
       "このサイトは好奇心、コード、そしてAI支援の開発で作られています — ここにあるすべてのシーンは本当の構築、本当の教訓、本当のプロダクトです。何か心に留まるものがあれば、一緒に作りましょう。",
-    returnLabel: "最初に戻る",
     credits: {
       aria: "サイトクレジット",
       builtIn: "使用技術",
       designed: "デザイン",
       poweredBy: "技術提供",
-      designedValue: "暗闇の中で",
+      designedValue: "AI支援",
     },
     footer: "© {year} {name} — 好奇心、コード、AIで構築。",
   },

@@ -284,13 +284,12 @@ export const id: Messages = {
     title2: "sudah melihat portfolio saya.",
     para:
       "Website ini dibangun dengan rasa ingin tahu, kode, dan bantuan AI-assisted development — setiap bagian di sini adalah bangunan nyata, pelajaran nyata, atau produk nyata. Kalau ada yang menarik perhatianmu, mari berkolaborasi membangun sesuatu.",
-    returnLabel: "Kembali ke awal",
     credits: {
       aria: "Kredit situs",
       builtIn: "dibangun dengan",
       designed: "dirancang",
       poweredBy: "didukung oleh",
-      designedValue: "dalam gelap",
+      designedValue: "berbantuan AI",
     },
     footer: "© {year} {name} — dibangun dengan rasa ingin tahu, kode & AI.",
   },

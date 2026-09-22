@@ -162,7 +162,6 @@ export type Messages = {
     title1: string;
     title2: string;
     para: string;
-    returnLabel: string;
     credits: {
       aria: string;
       builtIn: string;
