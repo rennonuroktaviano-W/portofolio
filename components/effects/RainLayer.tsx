@@ -14,7 +14,7 @@ type Drop = {
 
 type Ripple = { x: number; y: number; r: number; alpha: number };
 
-export function RainLayer() {
+export function RainLayer({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -155,7 +155,9 @@ export function RainLayer() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-20 h-full w-full opacity-90"
+      className={
+        className ?? "pointer-events-none fixed inset-0 z-20 h-full w-full opacity-90"
+      }
     />
   );
 }

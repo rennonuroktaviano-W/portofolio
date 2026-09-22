@@ -16,9 +16,12 @@ export function HeroCityScene() {
     const section = sectionRef.current;
     if (!section || reduced) return;
 
+    let intro: gsap.core.Timeline | undefined;
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.2 });
-      tl.from("[data-hero-item]", {
+      intro = gsap.timeline({ paused: true });
+      intro
+        .from("[data-hero-item]", {
           y: 34,
           autoAlpha: 0,
           stagger: 0.14,
@@ -94,7 +97,18 @@ export function HeroCityScene() {
       });
     }, section);
 
-    return () => ctx.revert();
+    const ready = () => {
+      if (intro) intro.play();
+    };
+    const onLoadingDone = () => ready();
+    const fallback = window.setTimeout(ready, 1600);
+    window.addEventListener("loading:done", onLoadingDone);
+
+    return () => {
+      window.clearTimeout(fallback);
+      window.removeEventListener("loading:done", onLoadingDone);
+      ctx.revert();
+    };
   }, [reduced]);
 
   return (

@@ -454,6 +454,83 @@
   animation: flicker 6s steps(2) infinite;
 }
 
+/* ---- Loading screen ---- */
+
+@keyframes loading-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.82;
+  }
+  94% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.9;
+  }
+  98% {
+    opacity: 1;
+  }
+}
+
+@keyframes loading-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.loading-title {
+  animation: loading-flicker 3.2s steps(2) infinite;
+}
+
+.loading-pulse {
+  transform-origin: center;
+  animation: loading-pulse 2.2s ease-out infinite;
+}
+
+[data-loading-screen] [data-loading-char],
+[data-loading-screen] [data-loading-line],
+[data-loading-screen] [data-loading-bar],
+[data-loading-screen] [data-loading-sky] {
+  opacity: 0;
+}
+
+[data-loading-screen] [data-loading-pct] {
+  opacity: 0.55;
+}
+
+[data-loading-screen] [data-loading-signal] {
+  opacity: 0;
+}
+
+[data-loading-screen] {
+  will-change: transform;
+}
+
+[data-loading-screen].is-done {
+  transform: translateY(-101%);
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.18, 1);
+  pointer-events: none;
+}
+
+[data-loading-screen].is-hidden {
+  visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -465,7 +542,9 @@
   .crt-overlay,
   .searchlight-beam,
   .searchlight-flicker,
-  .lanyard-sway {
+  .lanyard-sway,
+  .loading-title,
+  .loading-pulse {
     animation: none !important;
   }
 
@@ -483,7 +562,8 @@
   .fog-layer,
   canvas,
   .crt-overlay,
-  .vignette {
+  .vignette,
+  [data-loading-screen] {
     display: none !important;
   }
 

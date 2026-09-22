@@ -15,6 +15,10 @@ import { LightningLayer } from "@/components/effects/LightningLayer";
 import { FogLayer } from "@/components/effects/FogLayer";
 import { EasterEgg } from "@/components/effects/EasterEgg";
 import { CursorSpotlight } from "@/components/effects/CursorSpotlight";
+import {
+  LoadingScreenMarkup,
+  LoadingScreenEffect,
+} from "@/components/effects/LoadingScreen";
 
 export default function Home() {
   return (
@@ -48,6 +52,8 @@ export default function Home() {
       <CursorSpotlight />
       <EasterEgg />
       <GrainOverlay />
+      <LoadingScreenMarkup />
+      <LoadingScreenEffect />
     </>
   );
 }
