@@ -253,10 +253,10 @@ export const de: Messages = {
     },
   },
   contact: {
-    label: "wo du mich erreichst",
-    title: "In Kontakt treten",
+    label: "kontakt aufnehmen",
+    title: "Lass uns bauen.",
     caption:
-      "Ein Projekt, eine Gelegenheit oder einfach Hallo sagen? Schreib mir oder wähle deinen Lieblingskanal.",
+      "Hast du eine Idee, ein Projekt oder Lust, über Entwicklung zu sprechen? Schreib mir oder nutze deinen Lieblingskanal.",
     emailLabel: "email",
     socialsLabel: "soziale Netzwerke",
     response: "Am schnellsten antworte ich über die Kanäle unten.",
@@ -281,33 +281,33 @@ export const de: Messages = {
     },
   },
   final: {
-    closing: "Schlussunterschrift",
-    title1: "Die Stadt dimmt ihre Lichter.",
-    title2: "Die Arbeit geht weiter.",
+    closing: "Abschluss",
+    title1: "Danke für",
+    title2: "deinen Besuch in meinem Portfolio.",
     para:
-      "Jede Szene auf dieser Seite ist ein echter Bau, eine echte Lektion oder eine echte Narbe. Danke, dass du die Straßen gelaufen bist.",
+      "Diese Website ist aus Neugier, Code und KI-gestützter Entwicklung entstanden — jede Szene hier ist ein echter Bau, eine echte Lektion oder ein echtes Produkt. Wenn dich etwas angesprochen hat, bauen wir gemeinsam etwas.",
     returnLabel: "Zurück zum Anfang",
     credits: {
       aria: "Site-Credits",
-      builtIn: "gebaut in",
-      designed: "designt von",
+      builtIn: "gebaut mit",
+      designed: "designt",
       poweredBy: "angetrieben von",
-      designedValue: "der Regen",
+      designedValue: "im Dunkeln",
     },
-    footer: "© {year} {name} — es wurden keine Umhänge verwendet.",
+    footer: "© {year} {name} — gebaut aus Neugier, Code & KI.",
   },
   notFound: {
-    kicker: "Sackgasse — im Regen verloren",
-    title: "Diese Straße existiert nicht.",
+    kicker: "404 — diese Seite existiert nicht",
+    title: "Seite nicht gefunden.",
     body:
-      "Die Adresse, die du eingegeben hast, führt in {city} ins Nichts. Kehr zurück zum Platz, bevor der Nebel zuschlägt.",
-    back: "zurück zum Platz",
+      "Die Seite, die du suchst, ist nicht hier — vielleicht wurde sie verschoben, oder sie hat nie existiert. Zurück zum Anfang und das Portfolio erkunden.",
+    back: "Zurück zum Anfang",
   },
   errorPage: {
-    kicker: "Übertragungsfehler — rt-404",
-    title: "Das Netz der Stadt ist gestolpert.",
+    kicker: "etwas ist schiefgelaufen",
+    title: "Unerwarteter Fehler.",
     body:
-      "Beim Rendern dieses Blocks ist etwas schiefgelaufen. Versuch den Schutzschalter unten — keine Daten gehen verloren.",
-    action: "Block neu starten",
+      "Beim Rendern dieser Seite ist ein Fehler aufgetreten. Versuch unten neu zu laden — nichts geht verloren.",
+    action: "Seite neu laden",
   },
 };

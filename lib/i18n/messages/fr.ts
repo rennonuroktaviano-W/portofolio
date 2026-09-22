@@ -253,10 +253,10 @@ export const fr: Messages = {
     },
   },
   contact: {
-    label: "où me joindre",
-    title: "Contactez-moi",
+    label: "contactez-moi",
+    title: "Construisons.",
     caption:
-      "Un projet, une opportunité ou juste dire bonjour ? Envoyez un message ou choisissez votre canal préféré.",
+      "Vous avez une idée, un projet ou envie de parler développement ? Envoyez-moi un message ou passez par votre canal préféré.",
     emailLabel: "email",
     socialsLabel: "réseaux",
     response: "Réponse la plus rapide sur les canaux ci-dessous.",
@@ -281,33 +281,33 @@ export const fr: Messages = {
     },
   },
   final: {
-    closing: "légende de clôture",
-    title1: "La ville éteint ses lumières.",
-    title2: "Le travail continue.",
+    closing: "clôture",
+    title1: "Merci d'avoir",
+    title2: "visité mon portfolio.",
     para:
-      "Chaque scène de cette page est une vraie construction, une vraie leçon ou une vraie cicatrice. Merci d'avoir arpenté les rues.",
+      "Ce site est construit avec curiosité, code et développement assisté par IA — chaque scène ici est une construction réelle, une leçon réelle ou un produit réel. Si quelque chose a retenu votre attention, construisons quelque chose ensemble.",
     returnLabel: "Revenir au début",
     credits: {
       aria: "Crédits du site",
-      builtIn: "construit dans",
-      designed: "conçu par",
+      builtIn: "construit avec",
+      designed: "conçu",
       poweredBy: "propulsé par",
-      designedValue: "la pluie",
+      designedValue: "dans l'obscurité",
     },
-    footer: "© {year} {name} — aucune cape n'a été utilisée.",
+    footer: "© {year} {name} — construit avec curiosité, code & IA.",
   },
   notFound: {
-    kicker: "impasse — perdu dans la pluie",
-    title: "Cette rue n'existe pas.",
+    kicker: "404 — cette page n'existe pas",
+    title: "Page introuvable.",
     body:
-      "L'adresse que vous avez composée ne mène nulle part dans {city}. Revenez à la place avant que le brouillard ne se referme.",
-    back: "revenir à la place",
+      "La page que vous cherchez n'est pas ici — elle a peut-être bougé, ou n'a peut-être jamais existé. Revenez au début et explorez le portfolio.",
+    back: "Revenir au début",
   },
   errorPage: {
-    kicker: "erreur de transmission — rt-404",
-    title: "Le réseau de la ville a trébuché.",
+    kicker: "quelque chose a échoué",
+    title: "Erreur inattendue.",
     body:
-      "Quelque chose a échoué en rendant ce bloc. Essayez le disjoncteur ci-dessous — aucune donnée n'est perdue.",
-    action: "relancer le bloc",
+      "Une erreur s'est produite lors du rendu de cette page. Essayez de recharger ci-dessous — rien n'est perdu.",
+    action: "Recharger la page",
   },
 };

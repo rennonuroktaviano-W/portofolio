@@ -253,10 +253,10 @@ export const id: Messages = {
     },
   },
   contact: {
-    label: "titik temu",
-    title: "Hubungi Saya",
+    label: "hubungi saya",
+    title: "Mari Bangun.",
     caption:
-      "Punya proyek, peluang, atau sekadar mau menyapa? Kirim pesan di bawah, atau pilih kanal favoritmu.",
+      "Punya ide, proyek, atau mau ngobrol soal development? Kirim pesan di bawah, atau hubungi lewat kanal favoritmu.",
     emailLabel: "email",
     socialsLabel: "media sosial",
     response: "Balasan paling cepat melalui kanal di bawah.",
@@ -281,33 +281,33 @@ export const id: Messages = {
     },
   },
   final: {
-    closing: "keterangan penutup",
-    title1: "Kota meredupkan lampunya.",
-    title2: "Pekerjaan terus berjalan.",
+    closing: "penutup",
+    title1: "Terima kasih",
+    title2: "sudah melihat portfolio saya.",
     para:
-      "Setiap babak di halaman ini adalah bangunan nyata, pelajaran nyata, atau luka nyata. Terima kasih telah menyusuri jalanan.",
+      "Website ini dibangun dengan rasa ingin tahu, kode, dan bantuan AI-assisted development — setiap bagian di sini adalah bangunan nyata, pelajaran nyata, atau produk nyata. Kalau ada yang menarik perhatianmu, mari berkolaborasi membangun sesuatu.",
     returnLabel: "Kembali ke awal",
     credits: {
       aria: "Kredit situs",
-      builtIn: "dibangun di",
-      designed: "dirancang oleh",
+      builtIn: "dibangun dengan",
+      designed: "dirancang",
       poweredBy: "didukung oleh",
-      designedValue: "sang hujan",
+      designedValue: "dalam gelap",
     },
-    footer: "© {year} {name} — tak ada jubah yang digunakan.",
+    footer: "© {year} {name} — dibangun dengan rasa ingin tahu, kode & AI.",
   },
   notFound: {
-    kicker: "jalan buntu — tersesat di tengah hujan",
-    title: "Jalan ini tidak ada.",
+    kicker: "404 — halaman ini tidak ada",
+    title: "Halaman tidak ditemukan.",
     body:
-      "Alamat yang Anda ketik tidak mengarah ke mana pun di {city}. Kembalilah ke alun-alun sebelum kabut menutup.",
-    back: "kembali ke alun-alun",
+      "Halaman yang Anda cari tidak ada di sini — mungkin sudah dipindah, atau memang tidak pernah ada. Kembalilah ke awal dan jelajahi portfolio.",
+    back: "Kembali ke awal",
   },
   errorPage: {
-    kicker: "kesalahan transmisi — rt-404",
-    title: "Grid kota tersendat.",
+    kicker: "terjadi kesalahan",
+    title: "Kesalahan tak terduga.",
     body:
-      "Terjadi kesalahan saat merender blok ini. Coba pemutus sirkuit di bawah — tidak ada data yang hilang.",
-    action: "mulai ulang blok",
+      "Terjadi kesalahan saat merender halaman ini. Coba muat ulang di bawah — tidak ada yang hilang.",
+    action: "Muat ulang halaman",
   },
 };

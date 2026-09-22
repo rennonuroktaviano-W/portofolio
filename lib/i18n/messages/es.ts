@@ -253,10 +253,10 @@ identity: {
     },
   },
   contact: {
-    label: "dónde encontrarme",
-    title: "Contáctame",
+    label: "contáctame",
+    title: "Construyamos.",
     caption:
-      "¿Un proyecto, una oportunidad o solo saludar? Escríbeme o elige tu canal favorito.",
+      "¿Tienes una idea, un proyecto o quieres hablar de desarrollo? Envíame un mensaje o usa tu canal favorito.",
     emailLabel: "email",
     socialsLabel: "redes sociales",
     response: "La respuesta más rápida está en los canales de abajo.",
@@ -281,33 +281,33 @@ identity: {
     },
   },
   final: {
-    closing: "leyenda de cierre",
-    title1: "La ciudad apaga sus luces.",
-    title2: "El trabajo continúa.",
+    closing: "cierre",
+    title1: "Gracias por",
+    title2: "visitar mi portfolio.",
     para:
-      "Cada escena de esta página es una construcción real, una lección real o una cicatriz real. Gracias por recorrer las calles.",
+      "Este sitio está construido con curiosidad, código y desarrollo asistido por IA — cada escena aquí es una construcción real, una lección real o un producto real. Si algo te llamó la atención, construyamos algo juntos.",
     returnLabel: "Volver al principio",
     credits: {
       aria: "Créditos del sitio",
-      builtIn: "construido en",
-      designed: "diseñado por",
+      builtIn: "construido con",
+      designed: "diseñado",
       poweredBy: "impulsado por",
-      designedValue: "la lluvia",
+      designedValue: "en la oscuridad",
     },
-    footer: "© {year} {name} — no se usaron capas.",
+    footer: "© {year} {name} — construido con curiosidad, código e IA.",
   },
   notFound: {
-    kicker: "callejón sin salida — perdido en la lluvia",
-    title: "Esta calle no existe.",
+    kicker: "404 — esta página no existe",
+    title: "Página no encontrada.",
     body:
-      "La dirección que marcaste no lleva a ninguna parte en {city}. Vuelve a la plaza antes de que la niebla te atrape.",
-    back: "volver a la plaza",
+      "La página que buscas no está aquí — quizá se movió, o quizá nunca existió. Vuelve al inicio y explora el portfolio.",
+    back: "Volver al inicio",
   },
   errorPage: {
-    kicker: "error de transmisión — rt-404",
-    title: "La red de la ciudad tropezó.",
+    kicker: "algo salió mal",
+    title: "Error inesperado.",
     body:
-      "Algo falló al renderizar este bloque. Prueba el disyuntor de abajo — no se pierde ningún dato.",
-    action: "reiniciar el bloque",
+      "Ocurrió un error al renderizar esta página. Prueba a recargar abajo — no se pierde nada.",
+    action: "Recargar página",
   },
 };

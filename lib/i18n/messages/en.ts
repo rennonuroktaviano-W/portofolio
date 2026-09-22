@@ -253,10 +253,10 @@ export const en: Messages = {
     },
   },
   contact: {
-    label: "where to reach me",
-    title: "Get In Touch",
+    label: "get in touch",
+    title: "Let's Build.",
     caption:
-      "Have a project, an opportunity, or just want to say hi? Send a message below, or pick your favourite channel.",
+      "Have an idea, a project, or want to talk development? Send a message below, or reach out through your favourite channel.",
     emailLabel: "email",
     socialsLabel: "socials",
     response: "Fastest reply is on the channels below.",
@@ -281,33 +281,33 @@ export const en: Messages = {
     },
   },
   final: {
-    closing: "closing caption",
-    title1: "The city dims its lights.",
-    title2: "The work keeps going.",
+    closing: "closing",
+    title1: "Thanks for",
+    title2: "visiting my portfolio.",
     para:
-      "Every scene on this page is a real build, a real lesson, or a real scar. Thanks for walking the streets.",
-    returnLabel: "Return to the beginning",
+      "This site is built with curiosity, code, and AI-assisted development — every scene here is a real build, a real lesson, or a real product. If something caught your eye, let's build something together.",
+    returnLabel: "Back to the top",
     credits: {
       aria: "Site credits",
-      builtIn: "built in",
+      builtIn: "built with",
       designed: "designed",
       poweredBy: "powered by",
-      designedValue: "the rain",
+      designedValue: "in the dark",
     },
-    footer: "© {year} {name} — no capes were used.",
+    footer: "© {year} {name} — built with curiosity, code & AI.",
   },
   notFound: {
-    kicker: "dead end — lost in the rain",
-    title: "This street doesn't exist.",
+    kicker: "404 — this page doesn't exist",
+    title: "Page not found.",
     body:
-      "The address you punched in leads nowhere in {city}. Head back to the plaza before the fog closes in.",
-    back: "back to the plaza",
+      "The page you're looking for isn't here — maybe it moved, or maybe it never existed. Head back to the start and explore the portfolio.",
+    back: "Back to the start",
   },
   errorPage: {
-    kicker: "transmission error — rt-404",
-    title: "The city's grid stumbled.",
+    kicker: "something went wrong",
+    title: "Unexpected error.",
     body:
-      "Something went wrong rendering this block. Try the circuit breaker below — no data is lost.",
-    action: "restart the block",
+      "An error happened while rendering this page. Try reloading below — nothing is lost.",
+    action: "Reload page",
   },
 };
