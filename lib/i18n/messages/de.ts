@@ -203,10 +203,10 @@ export const de: Messages = {
     caseVisual: "Fallvisual",
   },
   experience: {
-    label: "der Nachtzug · Routenlog",
-    title: "Erfahrungs-Timeline",
+    label: "entwicklungsweg · arbeitsprotokoll",
+    title: "Entwicklungsweg",
     caption:
-      "Die Route, die dieses Jahrzehnt nahm — jede Station ein Halt, wo etwas gelernt wurde.",
+      "Mein Weg des Aufbauens — von autodidaktischen Grundlagen und einem Backend-Praktikum bis zu Freelance-Arbeit und Systemen in Produktion.",
     type: {
       internship: "praktikum",
       freelance: "freelance",
@@ -216,7 +216,7 @@ export const de: Messages = {
     },
     items: {
       "learning-foundations": {
-        title: "Der Aufstieg beginnt",
+        title: "Die Grundlagen lernen",
         org: "Autodidaktischer Weg",
         description:
           "Grundlagen gelernt — HTML, CSS, JavaScript und die Disziplin, kleine Projekte fertigzustellen.",
@@ -230,17 +230,17 @@ export const de: Messages = {
         tags: ["PHP", "MySQL", "REST"],
       },
       freelance: {
-        title: "Unabhängige Bauten",
+        title: "Unabhängige Projekte",
         org: "Freelance & Nebenprojekte",
         description:
           "Full-Stack-Produktarbeit für kleine Unternehmen ausgeliefert — Inventar, Rechnungswesen und Web-Präsenz.",
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "Der Sprung in Produktion",
+        title: "In die Produktion",
         org: "Produktions-Meilenstein",
         description:
-          "Erste Systeme mit echtem Verkehr in Produktion: Zahlungen, Falldaten und kundenorientierte Dashboards.",
+          "Erste Systeme mit echtem Verkehr in Produktion: Zahlungen, Geschäftsdaten und kundenorientierte Dashboards.",
         tags: ["Produktion", "Zahlungen", "DevOps"],
       },
       present: {

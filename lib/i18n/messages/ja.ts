@@ -203,10 +203,10 @@ export const ja: Messages = {
     caseVisual: "事件ビジュアル",
   },
   experience: {
-    label: "夜行列車 · 経路記録",
-    title: "経験のタイムライン",
+    label: "開発の軌跡 · 仕事の記録",
+    title: "開発の軌跡",
     caption:
-      "この10年が辿った経路 — 各停車駅は何かを学んだ場所だ。",
+      "独学の基礎とバックエンドインターンから、フリーランスの仕事と本番稼働のシステムまで——私の開発の道のり。",
     type: {
       internship: "インターン",
       freelance: "フリーランス",
@@ -216,8 +216,8 @@ export const ja: Messages = {
     },
     items: {
       "learning-foundations": {
-        title: "登り始め",
-        org: "独学ルート",
+        title: "基礎を学ぶ",
+        org: "独学の道",
         description:
           "基礎を学んだ — HTML、CSS、JavaScript、そして小さなプロジェクトを完成させる規律。",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -237,10 +237,10 @@ export const ja: Messages = {
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "本番への到達",
+        title: "本番へ",
         org: "本番のマイルストーン",
         description:
-          "本番で実トラフィックをさばく最初のシステム：決済、事件データ、顧客向けダッシュボード。",
+          "本番で実トラフィックをさばく最初のシステム：決済、ビジネスデータ、顧客向けダッシュボード。",
         tags: ["本番", "決済", "DevOps"],
       },
       present: {

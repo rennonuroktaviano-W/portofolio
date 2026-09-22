@@ -203,10 +203,10 @@ export const en: Messages = {
     caseVisual: "case visual",
   },
   experience: {
-    label: "the night train · route log",
-    title: "Experience Timeline",
+    label: "development journey · work log",
+    title: "Development Journey",
     caption:
-      "The route this decade took — every stop a station where something learned.",
+      "My journey in building — from self-taught foundations and a backend internship to freelance work and systems running in production.",
     type: {
       internship: "internship",
       freelance: "freelance",
@@ -216,8 +216,8 @@ export const en: Messages = {
     },
     items: {
       "learning-foundations": {
-        title: "Started the climb",
-        org: "Self-taught route",
+        title: "Learning the foundations",
+        org: "Self-taught path",
         description:
           "Learned the fundamentals — HTML, CSS, JavaScript, and the discipline of finishing small projects.",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -237,10 +237,10 @@ export const en: Messages = {
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "Crossed into production",
+        title: "Into production",
         org: "Production milestone",
         description:
-          "First systems handling real traffic in production: payments, case data, and customer-facing dashboards.",
+          "First systems handling real production traffic — payments, business data, and customer-facing dashboards.",
         tags: ["Production", "Payments", "DevOps"],
       },
       present: {

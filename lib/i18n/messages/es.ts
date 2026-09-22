@@ -203,10 +203,10 @@ identity: {
     caseVisual: "visual del caso",
   },
   experience: {
-    label: "el tren nocturno · registro de ruta",
-    title: "Línea de Tiempo de Experiencia",
+    label: "camino como desarrollador · registro de trabajo",
+    title: "Camino de Desarrollo",
     caption:
-      "La ruta que tomó esta década — cada parada es una estación donde algo se aprendió.",
+      "Mi trayectoria construyendo — desde los fundamentos autodidactas y unas prácticas de backend hasta el trabajo freelance y sistemas en producción.",
     type: {
       internship: "prácticas",
       freelance: "freelance",
@@ -216,8 +216,8 @@ identity: {
     },
     items: {
       "learning-foundations": {
-        title: "Empezar el ascenso",
-        org: "Ruta autodidacta",
+        title: "Aprendiendo los fundamentos",
+        org: "Camino autodidacta",
         description:
           "Aprendí los fundamentos — HTML, CSS, JavaScript y la disciplina de terminar pequeños proyectos.",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -237,10 +237,10 @@ identity: {
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "Cruce a producción",
+        title: "Hacia producción",
         org: "Hito de producción",
         description:
-          "Primeros sistemas con tráfico real en producción: pagos, datos de casos y dashboards orientados al cliente.",
+          "Primeros sistemas con tráfico real en producción: pagos, datos de negocio y paneles orientados al cliente.",
         tags: ["Producción", "Pagos", "DevOps"],
       },
       present: {

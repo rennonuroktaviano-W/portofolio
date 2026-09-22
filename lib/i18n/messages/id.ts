@@ -203,10 +203,10 @@ export const id: Messages = {
     caseVisual: "visual kasus",
   },
   experience: {
-    label: "kereta malam · catatan rute",
-    title: "Linimasa Pengalaman",
+    label: "perjalanan development · catatan kerja",
+    title: "Perjalanan Development",
     caption:
-      "Rute yang dilalui dekade ini — setiap pemberhentian adalah stasiun tempat sesuatu dipelajari.",
+      "Perjalanan saya dalam membangun — dari fondasi otodidak dan magang backend, sampai proyek freelance dan sistem yang berjalan di produksi.",
     type: {
       internship: "magang",
       freelance: "freelance",
@@ -216,8 +216,8 @@ export const id: Messages = {
     },
     items: {
       "learning-foundations": {
-        title: "Mulai mendaki",
-        org: "Rute otodidak",
+        title: "Belajar fondasi",
+        org: "Jalur otodidak",
         description:
           "Belajar fondasi — HTML, CSS, JavaScript, dan disiplin menyelesaikan proyek kecil.",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -230,17 +230,17 @@ export const id: Messages = {
         tags: ["PHP", "MySQL", "REST"],
       },
       freelance: {
-        title: "Bangunan mandiri",
+        title: "Proyek mandiri",
         org: "Freelance & proyek sampingan",
         description:
           "Mengirimkan pekerjaan produk full-stack untuk bisnis kecil — inventori, pembukuan, dan kehadiran web.",
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "Tembus produksi",
+        title: "Menuju produksi",
         org: "Tonggak produksi",
         description:
-          "Sistem pertama yang menangani lalu lintas sungguhan di produksi: pembayaran, data kasus, dan dashboard yang menghadap pelanggan.",
+          "Sistem pertama yang menangani lalu lintas produksi sungguhan — pembayaran, data bisnis, dan dashboard yang menghadap pelanggan.",
         tags: ["Produksi", "Pembayaran", "DevOps"],
       },
       present: {

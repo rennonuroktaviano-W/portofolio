@@ -203,10 +203,10 @@ export const fr: Messages = {
     caseVisual: "visuel de l'affaire",
   },
   experience: {
-    label: "le train de nuit · journal de route",
-    title: "Chronologie d'Expérience",
+    label: "parcours de développeur · journal de travail",
+    title: "Parcours de Développeur",
     caption:
-      "L'itinéraire emprunté par cette décennie — chaque arrêt une station où quelque chose a été appris.",
+      "Mon parcours de création — des fondamentaux autodidactes et un stage backend jusqu'au travail freelance et aux systèmes en production.",
     type: {
       internship: "stage",
       freelance: "freelance",
@@ -216,7 +216,7 @@ export const fr: Messages = {
     },
     items: {
       "learning-foundations": {
-        title: "Début de l'ascension",
+        title: "Apprentissage des fondamentaux",
         org: "Parcours autodidacte",
         description:
           "J'ai appris les fondamentaux — HTML, CSS, JavaScript et la discipline de terminer de petits projets.",
@@ -237,10 +237,10 @@ export const fr: Messages = {
         tags: ["Laravel", "Node.js", "SQL"],
       },
       achievement: {
-        title: "Entrée en production",
+        title: "Vers la production",
         org: "Jalon de production",
         description:
-          "Premiers systèmes gérant un trafic réel en production : paiements, données d'affaires et tableaux de bord face client.",
+          "Premiers systèmes gérant un trafic réel en production : paiements, données métier et tableaux de bord face client.",
         tags: ["Production", "Paiements", "DevOps"],
       },
       present: {
