@@ -77,11 +77,11 @@ export const en: Messages = {
     },
   },
   arsenal: {
-    label: "equipment locker",
-    title: "Tech Arsenal",
+    label: "skill stack",
+    title: "Tech Stack",
     caption:
-      "The tools on the evidence wall. Every piece here has seen real production work.",
-    hint: "synaptic map — every cluster has shipped in production",
+      "The technologies I use to design, build, and ship full-stack products.",
+    hint: "skill map — every tool here has shipped in real projects",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -92,38 +92,38 @@ export const en: Messages = {
     },
     skill: {
       "frontend.Next.js":
-        "App Router, server components, route handlers, image + font optimization, and mid-scale production deployments.",
+        "App Router, server components, API routes, image & font optimization, and production deployments.",
       "frontend.React":
-        "Composable component architectures, hooks, context, and performance-conscious re-render management.",
+        "Component architecture, hooks, state management, and performance-conscious rendering.",
       "frontend.TypeScript":
-        "Strict typing by default — typed data models, generics, and interfaces that make teams move faster.",
+        "Strict typing for data models, props, and team-friendly APIs.",
       "backend.Laravel / PHP":
-        "REST APIs, Eloquent modeling, authentication, and maintainable MVC applications shipped to production.",
+        "REST APIs, Eloquent models, authentication, and maintainable MVC applications.",
       "backend.Node.js":
-        "API services, background jobs, and tooling scripts with careful error handling and observability.",
+        "API services, background jobs, and tooling scripts with solid error handling.",
       "database.MySQL":
-        "Schema design, indexing strategy, and query optimization for read-heavy production workloads.",
+        "Schema design, indexing, and query optimization for production workloads.",
       "database.PostgreSQL":
-        "Relational modeling, JSON columns, and transactional integrity for data-sensitive features.",
+        "Relational modeling, JSON columns, and transactional integrity.",
       "styling.Tailwind CSS":
-        "Utility-first systems with design tokens, dark themes, and custom motion utilities.",
+        "Utility-first styling with design tokens and custom motion utilities.",
       "styling.Framer Motion / GSAP":
-        "Scroll-driven storytelling, micro-interactions, and choreographed interface motion.",
+        "Scroll-driven UI, micro-interactions, and choreographed interface motion.",
       "tooling.Git & GitHub":
-        "Clean branch workflows, conventional commits, code review, and CI pipelines.",
+        "Clean branch workflows, code review, and CI pipelines.",
       "tooling.Docker":
         "Reproducible local environments and simple service orchestration.",
       "deployment.Vercel":
-        "Preview deployments, edge functions, and analytics for Next.js applications.",
+        "Preview deployments and built-in analytics for Next.js applications.",
       "deployment.Linux / cPanel servers":
-        "Nginx reverse proxy, PHP-FPM, process management, and secure server hardening.",
+        "Nginx, PHP-FPM, process management, and secure server hardening.",
     },
     overview: {
-      title: "Arsenal Overview",
+      title: "Skill Overview",
       loaded: "Loaded",
       loadedValue: "{count}/{total}",
-      avg: "Average Capability",
-      top: "Top Caliber",
+      avg: "Average Level",
+      top: "Top Skill",
     },
   },
   status: {

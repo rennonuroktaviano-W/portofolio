@@ -77,11 +77,11 @@ identity: {
     },
   },
   arsenal: {
-    label: "taquilla de equipo",
-    title: "Arsenal Técnico",
+    label: "stack de habilidades",
+    title: "Tech Stack",
     caption:
-      "Las herramientas del muro de evidencias. Cada pieza aquí ha visto trabajo real en producción.",
-    hint: "mapa sináptico — cada clúster ha estado en producción",
+      "Las tecnologías que uso para diseñar, construir y publicar productos full-stack.",
+    hint: "mapa de habilidades — cada herramienta aquí se ha usado en proyectos reales",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -92,38 +92,38 @@ identity: {
     },
     skill: {
       "frontend.Next.js":
-        "App Router, server components, route handlers, optimización de imágenes y fuentes, y despliegues de producción a media escala.",
+        "App Router, server components, API routes, optimización de imágenes y fuentes, y despliegues de producción.",
       "frontend.React":
-        "Arquitecturas de componentes componibles, hooks, contexto y gestión de re-renderizaciones consciente del rendimiento.",
+        "Arquitectura de componentes, hooks, gestión de estado y renderizado consciente del rendimiento.",
       "frontend.TypeScript":
-        "Tipado estricto por defecto — modelos de datos tipados, genéricos e interfaces que aceleran a los equipos.",
+        "Tipado estricto para modelos de datos, props y APIs fáciles para el equipo.",
       "backend.Laravel / PHP":
-        "APIs REST, modelado con Eloquent, autenticación y aplicaciones MVC mantenibles listas para producción.",
+        "APIs REST, modelos Eloquent, autenticación y aplicaciones MVC mantenibles.",
       "backend.Node.js":
-        "Servicios API, trabajos en segundo plano y scripts de herramientas con manejo cuidadoso de errores y observabilidad.",
+        "Servicios API, trabajos en segundo plano y scripts con un buen manejo de errores.",
       "database.MySQL":
-        "Diseño de esquemas, estrategia de indexación y optimización de consultas para cargas de producción con lectura intensiva.",
+        "Diseño de esquemas, indexación y optimización de consultas para cargas de producción.",
       "database.PostgreSQL":
-        "Modelado relacional, columnas JSON e integridad transaccional para funciones sensibles a los datos.",
+        "Modelado relacional, columnas JSON e integridad transaccional.",
       "styling.Tailwind CSS":
-        "Sistemas utility-first con design tokens, temas oscuros y utilidades de movimiento personalizadas.",
+        "Estilos utility-first con design tokens y utilidades de movimiento personalizadas.",
       "styling.Framer Motion / GSAP":
-        "Storytelling impulsado por scroll, micro-interacciones y movimiento de interfaz coreografiado.",
+        "Interfaces guiadas por scroll, micro-interacciones y movimiento coreografiado.",
       "tooling.Git & GitHub":
-        "Flujos de ramas limpios, conventional commits, revisión de código y pipelines de CI.",
+        "Flujos de ramas limpios, revisión de código y pipelines de CI.",
       "tooling.Docker":
-        "Entornos locales reproducibles y orquestación de servicios sencilla.",
+        "Entornos locales reproducibles y orquestación simple de servicios.",
       "deployment.Vercel":
-        "Despliegues de vista previa, edge functions y analíticas para aplicaciones Next.js.",
+        "Despliegues de vista previa y analíticas integradas para apps de Next.js.",
       "deployment.Linux / cPanel servers":
-        "Proxy inverso Nginx, PHP-FPM, gestión de procesos y endurecimiento seguro del servidor.",
+        "Nginx, PHP-FPM, gestión de procesos y endurecimiento seguro del servidor.",
     },
     overview: {
-      title: "Resumen del Arsenal",
+      title: "Resumen de Habilidades",
       loaded: "Cargado",
       loadedValue: "{count}/{total}",
-      avg: "Capacidad Promedio",
-      top: "Mejor Calibre",
+      avg: "Nivel Promedio",
+      top: "Mejor Habilidad",
     },
   },
   status: {

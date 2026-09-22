@@ -77,11 +77,11 @@ export const de: Messages = {
     },
   },
   arsenal: {
-    label: "Ausrüstungsspind",
-    title: "Tech-Arsenal",
+    label: "Skill-Stack",
+    title: "Tech Stack",
     caption:
-      "Die Werkzeuge an der Beweiswand. Jedes Stück hier hat echte Produktionsarbeit gesehen.",
-    hint: "Synaptische Karte — jeder Cluster ist produktionserprobt",
+      "Die Technologien, mit denen ich Full-Stack-Produkte entwerfe, baue und ausliefere.",
+    hint: "Skill-Map — jedes Tool hier ist in echten Projekten im Einsatz gewesen",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -92,38 +92,38 @@ export const de: Messages = {
     },
     skill: {
       "frontend.Next.js":
-        "App Router, Server Components, Route Handlers, Bild- und Font-Optimierung sowie Mid-Scale-Produktions-Deployments.",
+        "App Router, Server Components, API-Routen, Bild- und Font-Optimierung sowie Produktions-Deployments.",
       "frontend.React":
-        "Komponierbare Komponentenarchitekturen, Hooks, Context und leistungsbewusstes Re-Render-Management.",
+        "Komponentenarchitektur, Hooks, State-Management und leistungsbewusstes Rendering.",
       "frontend.TypeScript":
-        "Strenges Typing als Standard — typisierte Datenmodelle, Generics und Interfaces, die Teams schneller machen.",
+        "Strenges Typing für Datenmodelle, Props und teamfreundliche APIs.",
       "backend.Laravel / PHP":
-        "REST-APIs, Eloquent-Modellierung, Authentifizierung und wartbare MVC-Anwendungen in Produktion.",
+        "REST-APIs, Eloquent-Modelle, Authentifizierung und wartbare MVC-Anwendungen.",
       "backend.Node.js":
-        "API-Dienste, Hintergrund-Jobs und Tooling-Skripte mit sorgfältigem Fehlerhandling und Observability.",
+        "API-Dienste, Hintergrund-Jobs und Tooling-Skripte mit solider Fehlerbehandlung.",
       "database.MySQL":
-        "Schemadesign, Indexierungsstrategie und Query-Optimierung für leseintensive Produktionslasten.",
+        "Schemadesign, Indexierung und Query-Optimierung für Produktionslasten.",
       "database.PostgreSQL":
-        "Relationale Modellierung, JSON-Spalten und transaktionale Integrität für datensensible Funktionen.",
+        "Relationale Modellierung, JSON-Spalten und transaktionale Integrität.",
       "styling.Tailwind CSS":
-        "Utility-first-Systeme mit Design-Tokens, dunklen Themes und eigenen Motion-Utilities.",
+        "Utility-first-Styling mit Design-Tokens und eigenen Motion-Utilities.",
       "styling.Framer Motion / GSAP":
-        "Scroll-getriebenes Storytelling, Mikrointeraktionen und choreografierte Interface-Bewegung.",
+        "Scroll-getriebene UI, Mikrointeraktionen und choreografierte Interface-Bewegung.",
       "tooling.Git & GitHub":
-        "Saubere Branch-Workflows, Conventional Commits, Code-Reviews und CI-Pipelines.",
+        "Saubere Branch-Workflows, Code-Reviews und CI-Pipelines.",
       "tooling.Docker":
         "Reproduzierbare lokale Umgebungen und einfache Service-Orchestrierung.",
       "deployment.Vercel":
-        "Preview-Deployments, Edge Functions und Analytics für Next.js-Anwendungen.",
+        "Preview-Deployments und integrierte Analytics für Next.js-Anwendungen.",
       "deployment.Linux / cPanel servers":
-        "Nginx-Reverse-Proxy, PHP-FPM, Prozessmanagement und sicheres Server-Hardening.",
+        "Nginx, PHP-FPM, Prozessmanagement und sicheres Server-Hardening.",
     },
     overview: {
-      title: "Arsenal-Übersicht",
+      title: "Skill-Übersicht",
       loaded: "Geladen",
       loadedValue: "{count}/{total}",
-      avg: "Durchschnittsfähigkeit",
-      top: "Bester Kaliber",
+      avg: "Durchschnittsniveau",
+      top: "Top-Skill",
     },
   },
   status: {

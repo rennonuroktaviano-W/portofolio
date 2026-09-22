@@ -130,10 +130,10 @@ export function BrainIndex() {
     <div className="comic-panel paper-sheet flex flex-col p-5 sm:p-6">
       <div className="mb-4 flex items-baseline justify-between border-b border-cream/15 pb-3">
         <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-yellow">
-          SYNAPTIC INDEX
+          SKILL INDEX
         </h3>
         <span className="font-mono text-[10px] uppercase tracking-widest text-fog">
-          03 / CORTEX
+          03 / SKILLS
         </span>
       </div>
 
@@ -330,14 +330,14 @@ export function BrainIndex() {
         })}
 
         <div className="pointer-events-none absolute inset-0 select-none font-mono text-[9px] uppercase tracking-widest text-fog/60">
-          <p className="absolute left-1 top-1">synapse · active</p>
+          <p className="absolute left-1 top-1">index · active</p>
           <p className="absolute right-1 top-1 text-yellow/70">
-            scan o4 / stable
+            scan 04 / stable
           </p>
           <p className="absolute bottom-1 left-1">
             nodes · {skillCategories.reduce((a, c) => a + c.items.length, 0)}
           </p>
-          <p className="absolute bottom-1 right-1">cortex / lobe map</p>
+          <p className="absolute bottom-1 right-1">skill map</p>
         </div>
       </div>
 

@@ -77,11 +77,11 @@ export const id: Messages = {
     },
   },
   arsenal: {
-    label: "lokasi peralatan",
-    title: "Gudang Senjata",
+    label: "skill stack",
+    title: "Tech Stack",
     caption:
-      "Perkakas di dinding bukti. Setiap alat di sini pernah bekerja di produksi sungguhan.",
-    hint: "peta sinaps — tiap rumpun pernah tayang di produksi",
+      "Teknologi yang saya gunakan untuk merancang, membangun, dan meluncurkan produk full-stack.",
+    hint: "skill map — setiap tool di sini pernah dipakai di proyek nyata",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -92,38 +92,38 @@ export const id: Messages = {
     },
     skill: {
       "frontend.Next.js":
-        "App Router, server components, route handlers, optimasi gambar + font, dan deployment produksi skala menengah.",
+        "App Router, server components, API routes, optimasi gambar & font, dan deployment produksi.",
       "frontend.React":
-        "Arsitektur komponen modular, hooks, context, dan pengelolaan re-render yang sadar performa.",
+        "Arsitektur komponen, hooks, state management, dan rendering yang sadar performa.",
       "frontend.TypeScript":
-        "Typing ketat secara bawaan — model data ber-type, generics, dan interface yang membuat tim bergerak lebih cepat.",
+        "Typing ketat untuk model data, props, dan API yang ramah tim.",
       "backend.Laravel / PHP":
-        "REST API, pemodelan Eloquent, autentikasi, dan aplikasi MVC yang mudah dipelihara dan siap produksi.",
+        "REST API, model Eloquent, autentikasi, dan aplikasi MVC yang mudah dipelihara.",
       "backend.Node.js":
-        "Layanan API, background jobs, dan skrip tooling dengan penanganan error serta observabilitas yang hati-hati.",
+        "Layanan API, background jobs, dan skrip tooling dengan penanganan error yang baik.",
       "database.MySQL":
-        "Desain skema, strategi index, dan optimasi query untuk beban produksi yang berat pada pembacaan.",
+        "Desain skema, indexing, dan optimasi query untuk beban produksi.",
       "database.PostgreSQL":
-        "Pemodelan relasional, kolom JSON, dan integritas transaksional untuk fitur sensitif data.",
+        "Pemodelan relasional, kolom JSON, dan integritas transaksional.",
       "styling.Tailwind CSS":
-        "Sistem utility-first dengan design token, tema gelap, dan utilitas motion kustom.",
+        "Styling utility-first dengan design tokens dan utilitas motion kustom.",
       "styling.Framer Motion / GSAP":
-        "Storytelling berbasis scroll, micro-interactions, dan gerakan antarmuka yang terkoreografi.",
+        "UI berbasis scroll, micro-interactions, dan motion yang terkoreografi.",
       "tooling.Git & GitHub":
-        "Workflow branch yang bersih, conventional commits, code review, dan pipeline CI.",
+        "Workflow branch yang rapi, code review, dan pipeline CI.",
       "tooling.Docker":
-        "Lingkungan lokal yang reproducible dan orkestrasi layanan sederhana.",
+        "Lingkungan lokal yang reprodusibel dan orkestrasi layanan sederhana.",
       "deployment.Vercel":
-        "Preview deployment, edge functions, dan analytics untuk aplikasi Next.js.",
+        "Preview deployment dan analytics bawaan untuk aplikasi Next.js.",
       "deployment.Linux / cPanel servers":
-        "Nginx reverse proxy, PHP-FPM, manajemen proses, dan pengamanan server.",
+        "Nginx, PHP-FPM, manajemen proses, dan hardening server.",
     },
     overview: {
-      title: "Tinjauan Persenjataan",
-      loaded: "Terpasang",
+      title: "Ringkasan Skill",
+      loaded: "Dimuat",
       loadedValue: "{count}/{total}",
-      avg: "Kapasitas Rata-rata",
-      top: "Kaliber Terbaik",
+      avg: "Rata-rata Level",
+      top: "Top Skill",
     },
   },
   status: {

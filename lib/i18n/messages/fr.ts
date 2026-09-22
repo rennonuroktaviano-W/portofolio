@@ -77,11 +77,11 @@ export const fr: Messages = {
     },
   },
   arsenal: {
-    label: "armoire à équipements",
-    title: "Arsenal Technique",
+    label: "stack de compétences",
+    title: "Tech Stack",
     caption:
-      "Les outils du mur de preuves. Chaque pièce ici a connu du vrai travail de production.",
-    hint: "carte synaptique — chaque cluster a tourné en production",
+      "Les technologies que j'utilise pour concevoir, construire et livrer des produits full-stack.",
+    hint: "carte des compétences — chaque outil ici a servi sur de vrais projets",
     category: {
       frontend: "Frontend",
       backend: "Backend",
@@ -92,38 +92,38 @@ export const fr: Messages = {
     },
     skill: {
       "frontend.Next.js":
-        "App Router, server components, route handlers, optimisation d'images et de polices, et déploiements de production à moyenne échelle.",
+        "App Router, server components, API routes, optimisation d'images et de polices, et déploiements de production.",
       "frontend.React":
-        "Architectures de composants composables, hooks, contexte et gestion des re-rendus soucieuse de la performance.",
+        "Architecture de composants, hooks, gestion d'état et rendu soucieux de la performance.",
       "frontend.TypeScript":
-        "Typage strict par défaut — modèles de données typés, génériques et interfaces qui accélèrent les équipes.",
+        "Typage strict pour les modèles de données, les props et des APIs faciles pour l'équipe.",
       "backend.Laravel / PHP":
-        "APIs REST, modélisation Eloquent, authentification et applications MVC maintenables mises en production.",
+        "APIs REST, modèles Eloquent, authentification et applications MVC maintenables.",
       "backend.Node.js":
-        "Services API, jobs d'arrière-plan et scripts d'outillage avec gestion soignée des erreurs et observabilité.",
+        "Services API, jobs d'arrière-plan et scripts d'outillage avec une gestion d'erreurs solide.",
       "database.MySQL":
-        "Conception de schémas, stratégie d'indexation et optimisation de requêtes pour des charges de production à forte lecture.",
+        "Conception de schémas, indexation et optimisation de requêtes pour des charges de production.",
       "database.PostgreSQL":
-        "Modélisation relationnelle, colonnes JSON et intégrité transactionnelle pour les fonctionnalités sensibles aux données.",
+        "Modélisation relationnelle, colonnes JSON et intégrité transactionnelle.",
       "styling.Tailwind CSS":
-        "Systèmes utility-first avec design tokens, thèmes sombres et utilitaires de mouvement personnalisés.",
+        "Styles utility-first avec design tokens et utilitaires de mouvement personnalisés.",
       "styling.Framer Motion / GSAP":
-        "Storytelling piloté par le défilement, micro-interactions et mouvements d'interface chorégraphiés.",
+        "Interfaces pilotées par le défilement, micro-interactions et mouvements chorégraphiés.",
       "tooling.Git & GitHub":
-        "Flux de branches propres, conventional commits, revue de code et pipelines CI.",
+        "Flux de branches propres, revue de code et pipelines CI.",
       "tooling.Docker":
         "Environnements locaux reproductibles et simple orchestration de services.",
       "deployment.Vercel":
-        "Déploiements de prévisualisation, edge functions et analytics pour les applications Next.js.",
+        "Déploiements de prévisualisation et analyses intégrées pour les applications Next.js.",
       "deployment.Linux / cPanel servers":
-        "Proxy inverse Nginx, PHP-FPM, gestion des processus et durcissement sécurisé du serveur.",
+        "Nginx, PHP-FPM, gestion des processus et durcissement sécurisé du serveur.",
     },
     overview: {
-      title: "Vue d'ensemble de l'armurerie",
+      title: "Aperçu des Compétences",
       loaded: "Chargé",
       loadedValue: "{count}/{total}",
-      avg: "Capacité Moyenne",
-      top: "Meilleur Calibre",
+      avg: "Niveau Moyen",
+      top: "Meilleure Compétence",
     },
   },
   status: {

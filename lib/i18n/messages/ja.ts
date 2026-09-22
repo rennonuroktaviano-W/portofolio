@@ -77,11 +77,11 @@ export const ja: Messages = {
     },
   },
   arsenal: {
-    label: "装備ロッカー",
-    title: "テック兵器庫",
+    label: "スキルスタック",
+    title: "Tech Stack",
     caption:
-      "証拠の壁に並ぶ道具たち。ここにあるすべてが本番運用の現場を見てきたものだ。",
-    hint: "シナプスマップ — どのクラスターも本番投入済み",
+      "フルスタックプロダクトの設計・開発・リリースに使っている技術たち。",
+    hint: "スキルマップ — ここにあるツールはすべて実案件で使いました",
     category: {
       frontend: "フロントエンド",
       backend: "バックエンド",
@@ -92,38 +92,38 @@ export const ja: Messages = {
     },
     skill: {
       "frontend.Next.js":
-        "App Router、Server Components、ルートハンドラ、画像・フォント最適化、中規模の本番デプロイ。",
+        "App Router、Server Components、APIルート、画像・フォント最適化、本番デプロイ。",
       "frontend.React":
-        "組み合わせ可能なコンポーネント設計、hooks、context、パフォーマンスを意識した再レンダリング管理。",
+        "コンポーネント設計、hooks、状態管理、パフォーマンスを意識した描画。",
       "frontend.TypeScript":
-        "標準で厳格な型付け — 型付きデータモデル、ジェネリクス、チームを速くするinterface。",
+        "データモデル・props・チームにやさしいAPIのための厳格な型付け。",
       "backend.Laravel / PHP":
-        "REST API、Eloquentモデリング、認証、保守性の高いMVCアプリを本番まで。",
+        "REST API、Eloquentモデル、認証、保守性の高いMVCアプリ。",
       "backend.Node.js":
-        "APIサービス、バックグラウンドジョブ、エラー処理と可観測性に配慮したツールスクリプト。",
+        "APIサービス、バックグラウンドジョブ、堅実なエラー処理を持つツールスクリプト。",
       "database.MySQL":
-        "読み込み中心の本番負荷に向けたスキーマ設計、インデックス戦略、クエリ最適化。",
+        "本番負荷のためのスキーマ設計、インデックス、クエリ最適化。",
       "database.PostgreSQL":
-        "リレーショナルモデリング、JSONカラム、データに敏感な機能のためのトランザクション整合性。",
+        "リレーショナルモデリング、JSONカラム、トランザクション整合性。",
       "styling.Tailwind CSS":
-        "デザイントークン、ダークテーマ、カスタムモーションを備えたutility-firstシステム。",
+        "デザイントークンとカスタムモーションを備えたutility-firstスタイリング。",
       "styling.Framer Motion / GSAP":
-        "スクロール連動のストーリーテリング、マイクロインタラクション、演出されたUIモーション。",
+        "スクロール連動のUI、マイクロインタラクション、演出されたモーション。",
       "tooling.Git & GitHub":
-        "クリーンなブランチ運用、Conventional Commits、コードレビュー、CIパイプライン。",
+        "きれいなブランチ運用、コードレビュー、CIパイプライン。",
       "tooling.Docker":
         "再現性のあるローカル環境とシンプルなサービスオーケストレーション。",
       "deployment.Vercel":
-        "Next.jsアプリ向けのプレビューデプロイ、エッジ関数、アナリティクス。",
+        "Next.jsアプリのプレビューデプロイと統合アナリティクス。",
       "deployment.Linux / cPanel servers":
-        "Nginxリバースプロキシ、PHP-FPM、プロセス管理、堅牢なサーバーセキュリティ。",
+        "Nginx、PHP-FPM、プロセス管理、堅牢なサーバーセキュリティ。",
     },
     overview: {
-      title: "兵器庫の概要",
-      loaded: "装填済み",
+      title: "スキル概要",
+      loaded: "読み込み済み",
       loadedValue: "{count}/{total}",
-      avg: "平均性能",
-      top: "最強カリバー",
+      avg: "平均レベル",
+      top: "得意分野",
     },
   },
   status: {
