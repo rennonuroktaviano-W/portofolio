@@ -65,20 +65,24 @@ export function FinalScene() {
       const tokens = gsap.utils.toArray<HTMLElement>(
         "[data-final-copy] .final-token"
       );
-      gsap.set(tokens, { yPercent: 115, opacity: 0, filter: "blur(6px)" });
-      gsap.to(tokens, {
-        yPercent: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        stagger: 0.045,
-        duration: 0.9,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 62%",
-          once: true,
-        },
-      });
+      gsap.fromTo(
+        tokens,
+        { yPercent: 115, opacity: 0, filter: "blur(6px)" },
+        {
+          yPercent: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.045,
+          duration: 0.9,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 62%",
+            once: true,
+            immediateRender: false,
+          },
+        }
+      );
 
       gsap.fromTo(
         "[data-final-divider]",
@@ -91,6 +95,7 @@ export function FinalScene() {
             trigger: section,
             start: "top 62%",
             once: true,
+            immediateRender: false,
           },
         }
       );
@@ -107,6 +112,7 @@ export function FinalScene() {
             trigger: section,
             start: "top 62%",
             once: true,
+            immediateRender: false,
           },
         }
       );
@@ -125,6 +131,7 @@ export function FinalScene() {
             trigger: section,
             start: "top 62%",
             once: true,
+            immediateRender: false,
           },
         }
       );
