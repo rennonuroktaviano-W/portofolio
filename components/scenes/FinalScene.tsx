@@ -181,32 +181,13 @@ export function FinalScene() {
         </h2>
         <p
           data-final-meta
-          className="mt-5 max-w-md text-sm leading-relaxed text-fog"
+          className="mt-6 max-w-md text-sm leading-relaxed text-fog"
         >
           {t("final.para")}
         </p>
-
-        <dl
-          data-final-meta
-          aria-label={t("final.credits.aria")}
-          className="mt-16 flex max-w-md flex-wrap items-start justify-center gap-x-8 gap-y-3 text-center font-mono text-[9px] uppercase tracking-widest text-fog/70"
-        >
-          <div>
-            <dt>{t("final.credits.builtIn")}</dt>
-            <dd className="mt-1 text-cream">{site.city}</dd>
-          </div>
-          <div>
-            <dt>{t("final.credits.designed")}</dt>
-            <dd className="mt-1 text-cream">{t("final.credits.designedValue")}</dd>
-          </div>
-          <div>
-            <dt>{t("final.credits.poweredBy")}</dt>
-            <dd className="mt-1 text-cream">Next.js</dd>
-          </div>
-        </dl>
         <p
           data-final-meta
-          className="mt-8 font-mono text-[9px] uppercase tracking-widest text-fog/50"
+          className="mt-12 font-mono text-[10px] uppercase tracking-widest text-fog/50"
         >
           {t("final.footer", {
             year: String(new Date().getFullYear()),

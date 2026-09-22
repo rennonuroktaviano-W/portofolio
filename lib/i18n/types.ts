@@ -162,13 +162,6 @@ export type Messages = {
     title1: string;
     title2: string;
     para: string;
-    credits: {
-      aria: string;
-      builtIn: string;
-      designed: string;
-      poweredBy: string;
-      designedValue: string;
-    };
     footer: string;
   };
   notFound: {

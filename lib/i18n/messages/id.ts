@@ -281,17 +281,10 @@ export const id: Messages = {
   final: {
     closing: "penutup",
     title1: "Terima kasih",
-    title2: "sudah berkunjung ke portfolio ini.",
+    title2: "sudah berkunjung.",
     para:
-      "Website ini dibangun dengan rasa ingin tahu, kode, dan bantuan AI-assisted development — setiap bagian di sini adalah bangunan nyata, pelajaran nyata, atau produk nyata. Kalau ada yang menarik perhatianmu, mari berkolaborasi membangun sesuatu.",
-    credits: {
-      aria: "Kredit situs",
-      builtIn: "dibangun dengan",
-      designed: "dirancang",
-      poweredBy: "didukung oleh",
-      designedValue: "berbantuan AI",
-    },
-    footer: "© {year} {name} — dibangun dengan rasa ingin tahu, kode & AI.",
+      "Situs ini dibangun dari proyek dan pelajaran nyata — kalau ada yang menarik perhatianmu, mari berkolaborasi.",
+    footer: "© {year} {name} — dibangun dengan Next.js + TypeScript · berbantuan AI",
   },
   notFound: {
     kicker: "404 — halaman ini tidak ada",

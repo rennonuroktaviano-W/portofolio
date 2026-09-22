@@ -282,15 +282,8 @@ export const ja: Messages = {
     title1: "ご覧いただき",
     title2: "ありがとうございました。",
     para:
-      "このサイトは好奇心、コード、そしてAI支援の開発で作られています — ここにあるすべてのシーンは本当の構築、本当の教訓、本当のプロダクトです。何か心に留まるものがあれば、一緒に作りましょう。",
-    credits: {
-      aria: "サイトクレジット",
-      builtIn: "使用技術",
-      designed: "デザイン",
-      poweredBy: "技術提供",
-      designedValue: "AI支援",
-    },
-    footer: "© {year} {name} — 好奇心、コード、AIで構築。",
+      "このサイトは実際のプロジェクトと教訓から作られています — 心に留まるものがあれば、一緒に作りましょう。",
+    footer: "© {year} {name} — Next.js + TypeScript で構築 · AI支援",
   },
   notFound: {
     kicker: "404 — このページは存在しません",

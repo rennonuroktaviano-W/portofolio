@@ -283,15 +283,8 @@ export const en: Messages = {
     title1: "Thanks for",
     title2: "visiting my portfolio.",
     para:
-      "This site is built with curiosity, code, and AI-assisted development — every scene here is a real build, a real lesson, or a real product. If something caught your eye, let's build something together.",
-    credits: {
-      aria: "Site credits",
-      builtIn: "built with",
-      designed: "designed",
-      poweredBy: "powered by",
-      designedValue: "AI-assisted",
-    },
-    footer: "© {year} {name} — built with curiosity, code & AI.",
+      "This site is built from real projects and lessons — if something caught your eye, let's build together.",
+    footer: "© {year} {name} — built with Next.js + TypeScript · AI-assisted",
   },
   notFound: {
     kicker: "404 — this page doesn't exist",

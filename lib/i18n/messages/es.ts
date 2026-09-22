@@ -283,15 +283,8 @@ identity: {
     title1: "Gracias por",
     title2: "visitar mi portfolio.",
     para:
-      "Este sitio está construido con curiosidad, código y desarrollo asistido por IA — cada escena aquí es una construcción real, una lección real o un producto real. Si algo te llamó la atención, construyamos algo juntos.",
-    credits: {
-      aria: "Créditos del sitio",
-      builtIn: "construido con",
-      designed: "diseñado",
-      poweredBy: "impulsado por",
-      designedValue: "asistido por IA",
-    },
-    footer: "© {year} {name} — construido con curiosidad, código e IA.",
+      "Este sitio está hecho de proyectos y lecciones reales — si algo te llamó la atención, construyamos algo juntos.",
+    footer: "© {year} {name} — construido con Next.js + TypeScript · asistido por IA",
   },
   notFound: {
     kicker: "404 — esta página no existe",
