@@ -9,6 +9,7 @@ type Drop = {
   speed: number;
   wind: number;
   opacity: number;
+  layer: "back" | "front";
 };
 
 type Ripple = { x: number; y: number; r: number; alpha: number };
@@ -34,41 +35,60 @@ export function RainLayer() {
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-    const density = width < 768 ? 45 : width < 1440 ? 130 : 190;
+    const density = width < 768 ? 60 : width < 1440 ? 180 : 280;
+
+    const makeDrop = (layer: "back" | "front"): Drop =>
+      layer === "back"
+        ? {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            len: 8 + Math.random() * 8,
+            speed: 300 + Math.random() * 220,
+            wind: -80 - Math.random() * 80,
+            opacity: 0.16 + Math.random() * 0.24,
+            layer,
+          }
+        : {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            len: 16 + Math.random() * 20,
+            speed: 420 + Math.random() * 340,
+            wind: -110 - Math.random() * 90,
+            opacity: 0.35 + Math.random() * 0.5,
+            layer,
+          };
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-      drops = Array.from({ length: density }, () => makeDrop());
+      const backCount = Math.round(density * 0.55);
+      drops = [
+        ...Array.from({ length: backCount }, () => makeDrop("back")),
+        ...Array.from({ length: density - backCount }, () => makeDrop("front")),
+      ];
     };
 
-    const makeDrop = (): Drop => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      len: 9 + Math.random() * 14,
-      speed: 320 + Math.random() * 320,
-      wind: -70 - Math.random() * 90,
-      opacity: 0.18 + Math.random() * 0.35,
-    });
+    const drawDrop = (d: Drop, dt: number) => {
+      d.x += d.wind * dt;
+      d.y += d.speed * dt;
+      if (d.y > height + 20 || d.x < -40) {
+        Object.assign(d, makeDrop(d.layer), { x: Math.random() * width });
+        return;
+      }
+      ctx.lineWidth = d.layer === "back" ? 0.75 : 1.4;
+      ctx.globalAlpha = d.opacity;
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x - d.wind * 0.045, d.y - d.len);
+      ctx.stroke();
+    };
 
     const draw = (dt: number) => {
       ctx.clearRect(0, 0, width, height);
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = "rgba(190,200,214,0.7)";
+      ctx.strokeStyle = "rgba(190,200,214,1)";
 
       for (let i = 0; i < drops.length; i++) {
-        const d = drops[i]!;
-        d.x += d.wind * dt;
-        d.y += d.speed * dt;
-        if (d.y > height + 20 || d.x < -20) {
-          drops[i] = makeDrop();
-          continue;
-        }
-        ctx.globalAlpha = d.opacity;
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x - d.wind * 0.045, d.y - d.len);
-        ctx.stroke();
+        drawDrop(drops[i]!, dt);
       }
 
       for (let i = ripples.length - 1; i >= 0; i--) {
@@ -80,6 +100,7 @@ export function RainLayer() {
           continue;
         }
         ctx.globalAlpha = Math.max(0, r.alpha) * 0.5;
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.ellipse(r.x, r.y, r.r, r.r * 0.35, 0, 0, Math.PI * 2);
         ctx.stroke();
@@ -134,7 +155,7 @@ export function RainLayer() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-20 h-full w-full opacity-70"
+      className="pointer-events-none fixed inset-0 z-20 h-full w-full opacity-90"
     />
   );
 }

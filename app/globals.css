@@ -392,6 +392,54 @@
   animation: final-flicker 7s ease-in-out infinite;
 }
 
+@keyframes lightning-flash {
+  0% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0.55;
+  }
+  26% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.lightning-flash {
+  animation: lightning-flash 0.65s ease-out forwards;
+}
+
+@keyframes lightning-bolt {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0.5;
+  }
+  74% {
+    opacity: 1;
+  }
+}
+
+.lightning-bolt {
+  animation: lightning-bolt 0.62s forwards;
+}
+
 .fog-layer {
   animation: fog-drift 34s ease-in-out infinite alternate;
 }

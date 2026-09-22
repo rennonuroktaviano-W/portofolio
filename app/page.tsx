@@ -11,6 +11,7 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { GrainOverlay } from "@/components/effects/GrainOverlay";
 import { RainLayer } from "@/components/effects/RainLayer";
+import { LightningLayer } from "@/components/effects/LightningLayer";
 import { FogLayer } from "@/components/effects/FogLayer";
 import { EasterEgg } from "@/components/effects/EasterEgg";
 import { CursorSpotlight } from "@/components/effects/CursorSpotlight";
@@ -42,6 +43,7 @@ export default function Home() {
       <SceneIndicator />
       <LanguageSwitcher />
       <RainLayer />
+      <LightningLayer />
       <FogLayer />
       <CursorSpotlight />
       <EasterEgg />
