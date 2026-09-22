@@ -28,24 +28,23 @@ export const id: Messages = {
     "scene-final": { title: "Penutup", label: "akhir" },
   },
   identity: {
-    intro: "babak 02 · perkenalan",
-    titleAsk: "Kota bertanya…",
-    titleWho: "siapa di balik lampu-lampu itu?",
-    devProfile: "PROFIL DEV",
+    intro: "intro · halo",
+    titleAsk: "Developer",
+    titleWho: "yang Membangun.",
+    devProfile: "Profil Dev",
   },
   profile: {
     developerTitle: "Full-Stack Developer",
-    positioning:
-      "Saya membangun sistem web yang andal agar lampu tetap menyala setelah tengah malam.",
+    positioning: "Coding · Building · Experimenting with AI",
     shortBio:
-      "Full-stack developer dengan selera pada arsitektur yang bersih, interaksi mikro sinematik, dan perangkat lunak yang bertahan dari lalu lintas dunia nyata.",
+      "Saya membangun website dan aplikasi full-stack — membawa sebuah ide dari sketsa pertama sampai produk jadi, dari antarmuka sampai database.",
     bio: [
-      "Setiap produk yang saya rilis dimulai dari satu pertanyaan: bagaimana membuat sesuatu yang berguna terasa mudah? Saya merancang dan membangun pengalaman web end-to-end — dari skema basis data hingga antarmuka responsif — dan saya sangat peduli pada performa, aksesibilitas, serta detail-detail kecil yang dirasakan pengguna tapi tak pernah terlihat.",
-      "Saat layar gelap, biasanya saya sedang membuat sketsa antarmuka, membaca tentang sistem terdistribusi, atau memburu ramp tipografi yang sempurna. Saya memperlakukan kode seperti kerajinan: disengaja, terdokumentasi, dan tak pernah dikirim setengah jadi.",
+      "Saya Renno Nur Oktaviano, seorang developer yang berfokus pada pengembangan website dan aplikasi full-stack. Saya menikmati proses membangun sesuatu dari nol — mulai dari memahami kebutuhan, merancang interface, menyusun sistem, mengembangkan fitur, sampai memastikan produk dapat digunakan dengan baik.",
+      "Dalam workflow sehari-hari, saya menggunakan AI coding agents sebagai development partner untuk membantu eksplorasi ide, implementasi, debugging, dan mempercepat iterasi.",
     ],
-    currentFocus: "Pengembangan web full-stack & pengalaman interaktif",
+    currentFocus: "Pengembangan full-stack & workflow berbantuan AI",
     location: "Indonesia · UTC+7",
-    status: "TERBUKA UNTUK PROYEK",
+    status: "Buka untuk kerja · Internship · Freelance · Kolaborasi",
     interests: [
       "UI Sinematik",
       "Tipografi",
@@ -55,8 +54,8 @@ export const id: Messages = {
       "Soundtrack jazz noir",
     ],
     philosophy:
-      "Perangkat lunak yang baik itu seperti jalan yang terang benderang di tengah malam: tenang, bisa diprediksi, dan diam-diam mengantarmu ke tujuan.",
-    caseNumber: "BERKAS NO. RN-001",
+      "AI membantu saya menulis dan mengeksplorasi kode lebih cepat. Tetapi memahami masalah, menentukan solusi, menguji hasil, dan memastikan sistem bekerja tetap menjadi bagian dari pekerjaan saya sebagai developer.",
+    caseNumber: "RN-001",
   },
   about: {
     label: "dossier intelijen",

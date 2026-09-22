@@ -28,24 +28,23 @@ export const de: Messages = {
     "scene-final": { title: "Schluss", label: "ende" },
   },
   identity: {
-    intro: "Szene 02 · Einführung",
-    titleAsk: "Also fragt die Stadt…",
-    titleWho: "wer steckt hinter den Lichtern?",
-    devProfile: "DEV-PROFIL",
+    intro: "intro · hallo",
+    titleAsk: "Entwickler",
+    titleWho: "Der Baut.",
+    devProfile: "Dev-Profil",
   },
   profile: {
     developerTitle: "Full-Stack-Entwickler",
-    positioning:
-      "Ich baue zuverlässige Websysteme, die nach Mitternacht das Licht anlassen.",
+    positioning: "Coding · Building · Experimenting with AI",
     shortBio:
-      "Full-Stack-Entwickler mit Geschmack für saubere Architektur, cineastische Mikrointeraktionen und Software, die echtem Datenverkehr standhält.",
+      "Ich baue Websites und Full-Stack-Anwendungen — von der ersten Skizze bis zum fertigen Produkt, von der Oberfläche bis zur Datenbank.",
     bio: [
-      "Jedes Produkt, das ich veröffentliche, beginnt mit einer Frage: Wie lassen sich nützliche Dinge mühelos anfühlen? Ich entwerfe und baue Web-Erlebnisse von Anfang bis Ende — vom Datenbankschema bis zur responsiven Oberfläche — und mir liegen Leistung, Barrierefreiheit und die leisen Details am Herzen, die Nutzer spüren, aber nie sehen.",
-      "Wenn der Bildschirm dunkel wird, skizziere ich meist Interfaces, lese über verteilte Systeme oder jage nach der perfekten Typografie-Rampe. Ich behandele Code wie Handwerk: bedacht, dokumentiert und nie halb poliert veröffentlicht.",
+      "Ich bin Renno Nur Oktaviano, ein Entwickler, der sich auf Full-Stack-Websites und -Anwendungen konzentriert. Ich baue gerne Dinge von Grund auf — Bedürfnisse verstehen, die Oberfläche gestalten, das System strukturieren, Funktionen entwickeln und sicherstellen, dass das Endprodukt wirklich funktioniert.",
+      "In meinem täglichen Workflow nutze ich KI-Coding-Agenten als Entwicklungspartner — für Ideenfindung, Implementierung, Debugging und schnellere Iteration.",
     ],
-    currentFocus: "Full-Stack-Webentwicklung & interaktive Erlebnisse",
+    currentFocus: "Full-Stack-Entwicklung & KI-gestützter Workflow",
     location: "Indonesien · UTC+7",
-    status: "OFFEN FÜR PROJEKTE",
+    status: "Offen für Arbeit · Praktikum · Freelance · Zusammenarbeit",
     interests: [
       "Cineastische UI",
       "Typografie",
@@ -55,8 +54,8 @@ export const de: Messages = {
       "Jazz-Noir-Soundtracks",
     ],
     philosophy:
-      "Gute Software ist wie eine gut beleuchtete Straße um Mitternacht: ruhig, vorhersehbar und bringt dich leise dorthin, wo du hin musst.",
-    caseNumber: "AKTE NR. RN-001",
+      "KI hilft mir, Code schneller zu schreiben und zu erkunden — aber das Problem verstehen, die Lösung wählen, Ergebnisse testen und sicherstellen, dass das System funktioniert, bleibt mein Job als Entwickler.",
+    caseNumber: "RN-001",
   },
   about: {
     label: "geheimdienstliche Akte",

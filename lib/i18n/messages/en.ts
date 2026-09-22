@@ -28,24 +28,23 @@ export const en: Messages = {
     "scene-final": { title: "Closing", label: "end" },
   },
   identity: {
-    intro: "scene 02 · introduction",
-    titleAsk: "So the city asks…",
-    titleWho: "who's behind the lights?",
-    devProfile: "DEV PROFILE",
+    intro: "intro · hello",
+    titleAsk: "Developer",
+    titleWho: "Who Builds.",
+    devProfile: "Dev Profile",
   },
   profile: {
     developerTitle: "Full-Stack Developer",
-    positioning:
-      "I build dependable web systems that keep the lights on after midnight.",
+    positioning: "Coding · Building · Experimenting with AI",
     shortBio:
-      "Full-stack developer with a taste for clean architecture, cinematic micro-interactions, and software that survives real-world traffic.",
+      "I build websites and full-stack applications — taking an idea from first sketch to a working product, from interface down to database.",
     bio: [
-      "Every product I ship starts as a question: how do we make something useful feel effortless? I design and build end-to-end web experiences — from database schema to responsive interface — and I care deeply about performance, accessibility, and the quiet details users feel but never see.",
-      "When the screen goes dark I'm usually sketching interfaces, reading about distributed systems, or hunting for the perfect type ramp. I treat code like craft: deliberate, documented, and never shipped half-polished.",
+      "I'm Renno Nur Oktaviano, a developer focused on building full-stack websites and applications. I enjoy building things from scratch — understanding the need, designing the interface, structuring the system, building the features, and making sure the end product actually works.",
+      "In my daily workflow I use AI coding agents as development partners — helping with idea exploration, implementation, debugging, and faster iteration.",
     ],
-    currentFocus: "Full-stack web development & interactive experiences",
+    currentFocus: "Full-stack development & AI-assisted workflow",
     location: "Indonesia · UTC+7",
-    status: "OPEN FOR PROJECTS",
+    status: "Open for work · Internship · Freelance · Collaboration",
     interests: [
       "Cinematic UI",
       "Typography",
@@ -55,8 +54,8 @@ export const en: Messages = {
       "Jazz noir soundtracks",
     ],
     philosophy:
-      "Good software is like a well-lit street at midnight: calm, predictable, and quietly getting you where you need to go.",
-    caseNumber: "FILE NO. RN-001",
+      "AI helps me write and explore code faster — but understanding the problem, deciding the solution, testing the result, and making sure the system works is still my job as a developer.",
+    caseNumber: "RN-001",
   },
   about: {
     label: "intelligence dossier",

@@ -28,24 +28,23 @@ export const fr: Messages = {
     "scene-final": { title: "Clôture", label: "fin" },
   },
   identity: {
-    intro: "scène 02 · introduction",
-    titleAsk: "Alors la ville demande…",
-    titleWho: "qui se cache derrière les lumières ?",
-    devProfile: "PROFIL DEV",
+    intro: "intro · bonjour",
+    titleAsk: "Développeur",
+    titleWho: "Qui Construit.",
+    devProfile: "Profil Dev",
   },
   profile: {
     developerTitle: "Développeur Full-Stack",
-    positioning:
-      "Je construis des systèmes web fiables qui maintiennent la lumière allumée après minuit.",
+    positioning: "Coding · Building · Experimenting with AI",
     shortBio:
-      "Développeur full-stack au goût pour l'architecture propre, les micro-interactions cinématiques et les logiciels qui survivent au trafic réel.",
+      "Je construis des sites et applications full-stack — en menant une idée du premier croquis au produit final, de l'interface à la base de données.",
     bio: [
-      "Chaque produit que je livre commence par une question : comment rendre quelque chose d'utile presque sans effort ? Je conçois et construis des expériences web de bout en bout — du schéma de base de données à l'interface responsive — et je me soucie profondément de la performance, de l'accessibilité et de ces détails silencieux que les utilisateurs ressentent sans jamais les voir.",
-      "Quand l'écran s'éteint, je croque des interfaces, je lis sur les systèmes distribués ou je chasse la rampe typographique parfaite. Je traite le code comme un artisanat : réfléchi, documenté, jamais livré à moitié poli.",
+      "Je suis Renno Nur Oktaviano, un développeur spécialisé dans les sites et applications full-stack. J'aime construire des choses de zéro — comprendre le besoin, concevoir l'interface, structurer le système, développer les fonctionnalités et m'assurer que le produit final fonctionne vraiment.",
+      "Au quotidien, j'utilise des agents IA comme partenaires de développement — ils m'aident à explorer des idées, à implémenter, à déboguer et à itérer plus vite.",
     ],
-    currentFocus: "Développement web full-stack & expériences interactives",
+    currentFocus: "Développement full-stack & workflow assisté par IA",
     location: "Indonésie · UTC+7",
-    status: "OUVERT AUX PROJETS",
+    status: "Ouvert au travail · Stages · Freelance · Collaboration",
     interests: [
       "UI cinématique",
       "Typographie",
@@ -55,8 +54,8 @@ export const fr: Messages = {
       "Bandes-son jazz noir",
     ],
     philosophy:
-      "Un bon logiciel est comme une rue bien éclairée à minuit : calme, prévisible, et qui vous mène discrètement là où vous devez aller.",
-    caseNumber: "DOSSIER N° RN-001",
+      "L'IA m'aide à écrire et explorer du code plus vite — mais comprendre le problème, choisir la solution, tester le résultat et garantir que le système fonctionne reste mon travail de développeur.",
+    caseNumber: "RN-001",
   },
   about: {
     label: "dossier de renseignements",
