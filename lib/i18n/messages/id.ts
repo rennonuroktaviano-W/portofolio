@@ -281,7 +281,7 @@ export const id: Messages = {
   final: {
     closing: "penutup",
     title1: "Terima kasih",
-    title2: "sudah melihat portfolio saya.",
+    title2: "sudah berkunjung ke portfolio ini.",
     para:
       "Website ini dibangun dengan rasa ingin tahu, kode, dan bantuan AI-assisted development — setiap bagian di sini adalah bangunan nyata, pelajaran nyata, atau produk nyata. Kalau ada yang menarik perhatianmu, mari berkolaborasi membangun sesuatu.",
     credits: {
