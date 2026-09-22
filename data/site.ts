@@ -3,10 +3,10 @@ export const site = {
   brand: "RENNO NUR OKTAVIANO",
   initials: "RN",
   role: "Full-Stack Developer",
-  city: "KODECITY",
+  city: "Next.js + TypeScript",
   url: "https://rennonuroktaviano.vercel.app",
   metaDescription:
-    "Cinematic neo-noir developer portfolio of Renno Nur Oktaviano — full-stack developer building resilient web experiences in a rainy fictional metropolis.",
+    "Portfolio of Renno Nur Oktaviano — full-stack web developer building websites and applications from interface to database with an AI-assisted development workflow.",
   keywords: [
     "Renno Nur Oktaviano",
     "full-stack developer",

@@ -103,7 +103,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <I18nProvider>{children}</I18nProvider>
         <noscript>
           <p className="fixed bottom-4 right-4 z-[90] border border-gold/40 bg-midnight/90 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-gold">
-            no-js mode: this city rains in silence
+            no-js mode: enable JavaScript for the full experience
           </p>
         </noscript>
         <script

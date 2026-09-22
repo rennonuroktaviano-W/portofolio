@@ -8,8 +8,8 @@ export type Profile = {
 export const profile: Profile = {
   developerTitle: "Full-Stack Developer",
   bio: [
-    "Every product I ship starts as a question: how do we make something useful feel effortless? I design and build end-to-end web experiences — from database schema to responsive interface — and I care deeply about performance, accessibility, and the quiet details users feel but never see.",
-    "When the screen goes dark I'm usually sketching interfaces, reading about distributed systems, or hunting for the perfect type ramp. I treat code like craft: deliberate, documented, and never shipped half-polished.",
+    "I'm Renno Nur Oktaviano, a developer focused on building full-stack websites and applications. I enjoy building things from scratch — understanding the need, designing the interface, structuring the system, building the features, and making sure the end product actually works.",
+    "In my daily workflow I use AI coding agents as development partners — helping with idea exploration, implementation, debugging, and faster iteration.",
   ],
   interests: [
     "Cinematic UI",
@@ -19,5 +19,5 @@ export const profile: Profile = {
     "Indie game design",
     "Jazz noir soundtracks",
   ],
-  caseNumber: "FILE NO. RN-001",
+  caseNumber: "RN-001",
 };
