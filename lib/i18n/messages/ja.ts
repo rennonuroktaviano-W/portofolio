@@ -14,8 +14,6 @@ export const ja: Messages = {
     tagline:
       "アイデア・ニーズ・課題を、実際に使えるデジタルプロダクトへ変えるウェブサイトとフルスタックアプリを開発しています。",
     role: "フルスタック開発者",
-    enterArchive: "制作実績を見る",
-    readOn: "私について",
   },
   scenes: {
     "scene-hero": { title: "ようこそ", label: "序章" },

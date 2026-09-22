@@ -21,8 +21,6 @@ export type Messages = {
     cityLine: string;
     tagline: string;
     role: string;
-    enterArchive: string;
-    readOn: string;
   };
   scenes: Record<SceneKey, { title: string; label: string }>;
   identity: {

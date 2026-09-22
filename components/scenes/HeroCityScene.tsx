@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { site } from "@/data/site";
 import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { Vignette } from "@/components/effects/Vignette";
@@ -165,34 +164,7 @@ export function HeroCityScene() {
           {t("hero.tagline")}
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6" data-hero-item>
-          <motion.div
-            whileHover={{ x: 8 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 380, damping: 24 }}
-            className="inline-flex"
-          >
-            <a
-              href="#scene-about"
-              className="group inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
-            >
-              {t("hero.enterArchive")}
-              <span
-                aria-hidden="true"
-                className="inline-block transition-transform group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </a>
-          </motion.div>
-          <a
-            href="#scene-identity"
-            className="font-mono text-xs uppercase tracking-[0.3em] text-fog transition-colors hover:text-cream"
-          >
-            {t("hero.readOn")}
-          </a>
         </div>
-      </div>
 
       <div
         data-scroll-cue

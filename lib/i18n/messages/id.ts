@@ -14,8 +14,6 @@ export const id: Messages = {
     tagline:
       "Membangun website dan aplikasi full-stack untuk mengubah ide, kebutuhan, dan masalah menjadi produk digital yang dapat digunakan.",
     role: "Full-Stack Developer",
-    enterArchive: "Lihat Karyaku",
-    readOn: "Tentang Saya",
   },
   scenes: {
     "scene-hero": { title: "Selamat Datang", label: "pembuka" },

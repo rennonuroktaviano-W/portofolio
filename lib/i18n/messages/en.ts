@@ -14,8 +14,6 @@ export const en: Messages = {
     tagline:
       "I build websites and full-stack applications — turning ideas, needs, and problems into products people can actually use.",
     role: "Full-Stack Developer",
-    enterArchive: "Explore My Work",
-    readOn: "About Me",
   },
   scenes: {
     "scene-hero": { title: "Welcome", label: "intro" },
