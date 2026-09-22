@@ -221,6 +221,7 @@ export function LoadingScreenEffect() {
         }, 4.2)
         .add(() => flashStrike(62 + Math.random() * 22), 4.35)
         .to(label, { autoAlpha: 1, duration: 0.4 }, 2.55)
+        .to(pct, { autoAlpha: 1, duration: 0.4 }, 2.55)
         .to(
           line,
           { scaleX: 1, duration: 4.35, ease: "none" },
