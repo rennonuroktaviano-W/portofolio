@@ -1,19 +1,14 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-type Strike = {
-  id: number;
-  x: number;
-  seed: number;
-};
+type StrikeDetail = { x: number; seed: number };
 
-type Bolt = {
-  core: string;
-  aura: string;
-  branch: string;
-};
+type BoltStrike = { id: number; x: number; seed: number };
+
+type Flash = { id: number; x: number };
+
+const STRIKE_EVENT = "lightning:strike";
 
 function mulberry32(a: number) {
   return function () {
@@ -29,7 +24,11 @@ function toPoints(pts: [number, number][]): string {
   return pts.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
 }
 
-function makeBolt(seed: number): Bolt {
+function makeBolt(seed: number): {
+  core: string;
+  aura: string;
+  branch: string;
+} {
   const rnd = mulberry32(seed);
   const segments = 5 + Math.floor(rnd() * 4);
   const core: [number, number][] = [[(rnd() - 0.5) * 40, 6]];
@@ -59,21 +58,16 @@ function makeBolt(seed: number): Bolt {
   return { core: toPoints(core), aura: toPoints(aura), branch };
 }
 
-function StrikeView({ strike }: { strike: Strike }) {
-  const bolt = useMemo(() => makeBolt(strike.seed), [strike.seed]);
+function SkylineBoltView({ x, seed }: { x: number; seed: number }) {
+  const bolt = useMemo(() => makeBolt(seed), [seed]);
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[35]">
-      <div
-        className="lightning-flash absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse 120% 90% at ${strike.x}% 0%, rgba(214,228,255,0.15), rgba(214,228,255,0.05) 45%, transparent 75%)`,
-        }}
-      />
-      <div
-        className="lightning-bolt absolute top-0"
-        style={{ left: `${strike.x}%`, transform: "translateX(-50%)" }}
-      >
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute top-0 z-0"
+      style={{ left: `${x}%`, transform: "translateX(-50%)" }}
+    >
+      <div className="lightning-bolt will-change-[opacity]">
         <svg
           width="140"
           height="560"
@@ -118,60 +112,104 @@ function StrikeView({ strike }: { strike: Strike }) {
   );
 }
 
-export function LightningLayer() {
-  const [strikes, setStrikes] = useState<Strike[]>([]);
+export function SkylineBolt() {
+  const [strikes, setStrikes] = useState<BoltStrike[]>([]);
   const idRef = useRef(0);
+  const mountedRef = useRef(true);
 
   useEffect(() => {
+    mountedRef.current = true;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let mounted = true;
-    let timeout: number;
+    const onStrike = (e: Event) => {
+      const { x, seed } = (e as CustomEvent<StrikeDetail>).detail;
+      const id = idRef.current++;
+      setStrikes((s) => [...s, { id, x, seed }]);
+      window.setTimeout(() => {
+        if (mountedRef.current) {
+          setStrikes((s) => s.filter((st) => st.id !== id));
+        }
+      }, 700);
+    };
 
+    window.addEventListener(STRIKE_EVENT, onStrike);
+    return () => {
+      mountedRef.current = false;
+      window.removeEventListener(STRIKE_EVENT, onStrike);
+    };
+  }, []);
+
+  return (
+    <>
+      {strikes.map((s) => (
+        <SkylineBoltView key={s.id} x={s.x} seed={s.seed} />
+      ))}
+    </>
+  );
+}
+
+export function LightningLayer() {
+  const [flashes, setFlashes] = useState<Flash[]>([]);
+  const idRef = useRef(0);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const strike = (x: number) => {
+      const id = idRef.current++;
+      window.dispatchEvent(
+        new CustomEvent<StrikeDetail>(STRIKE_EVENT, {
+          detail: { x, seed: Math.floor(Math.random() * 1e9) },
+        })
+      );
+      setFlashes((s) => [...s, { id, x }]);
+      window.setTimeout(() => {
+        if (mountedRef.current) {
+          setFlashes((s) => s.filter((f) => f.id !== id));
+        }
+      }, 650);
+    };
+
+    let timeout: number;
     const schedule = () => {
       timeout = window.setTimeout(() => {
-        if (!mounted) return;
+        if (!mountedRef.current) return;
         const x = 8 + Math.random() * 84;
-        const id = ++idRef.current;
-        setStrikes((s) => [
-          ...s,
-          { id, x, seed: Math.floor(Math.random() * 1e9) },
-        ]);
-
+        strike(x);
         if (Math.random() < 0.28) {
-          window.setTimeout(() => {
-            if (!mounted) return;
-            setStrikes((s) => [
-              ...s,
-              {
-                id: ++idRef.current,
-                x: Math.min(94, x + 6 + Math.random() * 16),
-                seed: Math.floor(Math.random() * 1e9),
-              },
-            ]);
-          }, 120 + Math.random() * 180);
+          window.setTimeout(
+            () => strike(Math.min(94, x + 6 + Math.random() * 16)),
+            120 + Math.random() * 180
+          );
         }
-
-        window.setTimeout(() => {
-          if (!mounted) return;
-          setStrikes((s) => s.filter((st) => st.id !== id));
-        }, 720);
-
         schedule();
       }, 4300 + Math.random() * 4200);
     };
 
     schedule();
     return () => {
-      mounted = false;
+      mountedRef.current = false;
       window.clearTimeout(timeout);
     };
   }, []);
 
   return (
     <>
-      {strikes.map((strike) => (
-        <StrikeView key={strike.id} strike={strike} />
+      {flashes.map((f) => (
+        <div
+          key={f.id}
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-[40]"
+        >
+          <div
+            className="lightning-flash absolute inset-0"
+            style={{
+              background: `radial-gradient(ellipse 120% 90% at ${f.x}% 0%, rgba(226,236,255,0.5), rgba(214,228,255,0.17) 45%, rgba(200,214,255,0.06) 70%, transparent 86%)`,
+            }}
+          />
+        </div>
       ))}
     </>
   );

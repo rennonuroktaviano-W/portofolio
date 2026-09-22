@@ -1,3 +1,5 @@
+import { SkylineBolt } from "@/components/effects/LightningLayer";
+
 const BACK = "#0b0e16";
 const FRONT = "#06070c";
 const LIT = "rgba(230,184,74,0.85)";
@@ -153,6 +155,7 @@ function FrontSkyline() {
 export function GothamSkyline() {
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+      <SkylineBolt />
       <div className="gotham-back absolute inset-0 opacity-70 will-change-transform">
         <BackSkyline />
       </div>
