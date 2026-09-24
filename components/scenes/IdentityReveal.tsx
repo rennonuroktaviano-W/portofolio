@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { profile } from "@/data/profile";
-import { site } from "@/data/site";
 import { Searchlight } from "@/components/effects/Searchlight";
 import { LanyardBadge } from "@/components/scenes/LanyardBadge";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
@@ -100,19 +100,23 @@ export function IdentityReveal() {
         <div className="relative mx-auto w-full max-w-sm" data-panel-right>
           <Searchlight />
           <LanyardBadge>
-            <div className="identity-window comic-panel paper-sheet relative z-10 aspect-[4/5] origin-center will-change-transform overflow-hidden">
+            <div className="identity-window comic-panel paper-sheet relative z-10 aspect-[4/5] origin-center will-change-transform overflow-hidden bg-[radial-gradient(circle_at_50%_35%,#1b1e26,#0d0f14_70%)]">
+              <Image
+                src={profile.photo}
+                alt={t("identity.devProfile")}
+                fill
+                priority
+                sizes="(min-width: 1024px) 25rem, 100vw"
+                className="object-cover"
+              />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_50%_35%,#1b1e26,#0d0f14_70%)]"
-              >
-                <span className="font-display text-[8rem] font-semibold text-outline-gold">
-                  {site.initials}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 halftone opacity-40"
-                />
-              </div>
+                className="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,9,11,0.78),rgba(8,9,11,0.1)_45%,rgba(8,9,11,0.22))]"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 halftone opacity-[0.12]"
+              />
               <div className="absolute inset-x-3 bottom-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-midnight">
                 <span className="bg-yellow px-2 py-0.5">{t("identity.devProfile")}</span>
                 <span className="bg-midnight px-2 py-0.5 text-cream">

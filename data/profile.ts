@@ -1,4 +1,5 @@
 export type Profile = {
+  photo: string;
   developerTitle: string;
   bio: string[];
   interests: string[];
@@ -6,6 +7,7 @@ export type Profile = {
 };
 
 export const profile: Profile = {
+  photo: "/images/dev/profile.png",
   developerTitle: "Full-Stack Developer",
   bio: [
     "I'm Renno Nur Oktaviano, a developer focused on building full-stack websites and applications. I enjoy building things from scratch — understanding the need, designing the interface, structuring the system, building the features, and making sure the end product actually works.",
