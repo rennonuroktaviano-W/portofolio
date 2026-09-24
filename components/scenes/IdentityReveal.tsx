@@ -117,7 +117,27 @@ export function IdentityReveal() {
                 aria-hidden="true"
                 className="absolute inset-0 halftone opacity-[0.12]"
               />
-              <div className="absolute inset-x-3 bottom-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-midnight">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-2 z-10 border border-cream/25"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-2 top-2 z-10 h-5 w-5 border-l-2 border-t-2 border-gold"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-2 top-2 z-10 h-5 w-5 border-r-2 border-t-2 border-gold"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-2 left-2 z-10 h-5 w-5 border-b-2 border-l-2 border-gold"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-2 right-2 z-10 h-5 w-5 border-b-2 border-r-2 border-gold"
+              />
+              <div className="absolute inset-x-3 bottom-3 z-20 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-midnight">
                 <span className="bg-yellow px-2 py-0.5">{t("identity.devProfile")}</span>
                 <span className="bg-midnight px-2 py-0.5 text-cream">
                   {profile.caseNumber}
