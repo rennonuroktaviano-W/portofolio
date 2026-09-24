@@ -20,6 +20,7 @@ export const en: Messages = {
     "scene-identity": { title: "Who I Am", label: "about" },
     "scene-about": { title: "Profile", label: "profile" },
     "scene-arsenal": { title: "Tech Stack", label: "skills" },
+    "scene-certificates": { title: "Certificates", label: "credentials" },
     "scene-nft": { title: "Creative Studio", label: "studio" },
     "scene-experience": { title: "Development Journey", label: "journey" },
     "scene-contact": { title: "Contact", label: "contact" },
@@ -122,6 +123,23 @@ export const en: Messages = {
       loadedValue: "{count}/{total}",
       avg: "Average Level",
       top: "Top Skill",
+    },
+  },
+  certificates: {
+    label: "credentials · verified training",
+    title: "Certificates",
+    caption:
+      "The validated training behind the stack — a growing archive of coursework I've completed and earned.",
+    issuer: "certified by",
+    verified: "verified",
+    open: "open certificate",
+    hint: "credentials vault — every certificate links to its original source",
+    items: {
+      "fcc-responsive-web-design": {
+        title: "Responsive Web Design",
+        description:
+          "Completed freeCodeCamp's Responsive Web Design curriculum — semantic HTML, CSS layout, accessibility, and building responsive projects from scratch.",
+      },
     },
   },
   status: {

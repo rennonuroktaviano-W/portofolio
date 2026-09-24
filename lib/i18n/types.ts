@@ -3,6 +3,7 @@ export type SceneKey =
   | "scene-identity"
   | "scene-about"
   | "scene-arsenal"
+  | "scene-certificates"
   | "scene-nft"
   | "scene-experience"
   | "scene-contact"
@@ -80,6 +81,16 @@ export type Messages = {
       avg: string;
       top: string;
     };
+  };
+  certificates: {
+    label: string;
+    title: string;
+    caption: string;
+    issuer: string;
+    verified: string;
+    open: string;
+    hint: string;
+    items: Record<string, { title: string; description: string }>;
   };
   status: {
     live: string;

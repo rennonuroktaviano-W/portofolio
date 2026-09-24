@@ -20,6 +20,7 @@ export const id: Messages = {
     "scene-identity": { title: "Siapa Saya", label: "tentang" },
     "scene-about": { title: "Profil", label: "profil" },
     "scene-arsenal": { title: "Tech Stack", label: "skill" },
+    "scene-certificates": { title: "Sertifikat", label: "kredensial" },
     "scene-nft": { title: "Studio Kreatif", label: "studio" },
     "scene-experience": { title: "Perjalanan Development", label: "perjalanan" },
     "scene-contact": { title: "Kontak", label: "kontak" },
@@ -122,6 +123,23 @@ export const id: Messages = {
       loadedValue: "{count}/{total}",
       avg: "Rata-rata Level",
       top: "Top Skill",
+    },
+  },
+  certificates: {
+    label: "kredensial · pelatihan terverifikasi",
+    title: "Sertifikat",
+    caption:
+      "Pelatihan terverifikasi di balik skill yang saya punya — arsip yang terus bertambah dari materi yang pernah saya selesaikan dan raih.",
+    issuer: "disahkan oleh",
+    verified: "terverifikasi",
+    open: "buka sertifikat",
+    hint: "brankas kredensial — setiap sertifikat tertaut ke sumber aslinya",
+    items: {
+      "fcc-responsive-web-design": {
+        title: "Responsive Web Design",
+        description:
+          "Menyelesaikan kurikulum Responsive Web Design dari freeCodeCamp — HTML semantik, layout CSS, aksesibilitas, dan membangun proyek responsif dari nol.",
+      },
     },
   },
   status: {

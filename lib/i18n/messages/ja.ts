@@ -20,6 +20,7 @@ export const ja: Messages = {
     "scene-identity": { title: "私について", label: "概要" },
     "scene-about": { title: "プロフィール", label: "プロフィール" },
     "scene-arsenal": { title: "技術スタック", label: "スキル" },
+    "scene-certificates": { title: "認定証", label: "資格" },
     "scene-nft": { title: "クリエイティブスタジオ", label: "スタジオ" },
     "scene-experience": { title: "開発の歩み", label: "歩み" },
     "scene-contact": { title: "お問い合わせ", label: "連絡" },
@@ -122,6 +123,23 @@ export const ja: Messages = {
       loadedValue: "{count}/{total}",
       avg: "平均レベル",
       top: "得意分野",
+    },
+  },
+  certificates: {
+    label: "資格 · 検証済みトレーニング",
+    title: "認定証",
+    caption:
+      "スキルの裏付けとなる検証済みの学習成果 — 完了・取得したコースの成長するアーカイブ。",
+    issuer: "発行元",
+    verified: "検証済み",
+    open: "認定証を開く",
+    hint: "資格アーカイブ — 各認定証は元のソースにリンクしています",
+    items: {
+      "fcc-responsive-web-design": {
+        title: "レスポンシブWebデザイン",
+        description:
+          "freeCodeCamp の Responsive Web Design カリキュラムを修了 — セマンティックHTML、CSSレイアウト、アクセシビリティ、ゼロからのレスポンシブプロジェクト構築。",
+      },
     },
   },
   status: {
