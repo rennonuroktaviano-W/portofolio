@@ -48,7 +48,7 @@ export function ExperienceTrack() {
       <div className="scene-inner">
         <SceneHeader
           id="experience-title"
-          chapter={6}
+          chapter={7}
           label={t("experience.label")}
           title={t("experience.title")}
           caption={t("experience.caption")}

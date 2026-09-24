@@ -192,7 +192,7 @@ export function ContactSignal() {
       <div className="scene-inner">
         <SceneHeader
           id="contact-title"
-          chapter={7}
+          chapter={8}
           label={t("contact.label")}
           title={t("contact.title")}
           caption={t("contact.caption")}
