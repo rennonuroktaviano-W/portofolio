@@ -22,6 +22,7 @@ function ContactForm() {
     const email = String(data.get("email") ?? "").trim();
     const subject = String(data.get("subject") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
+    const website = String(data.get("website") ?? "").trim();
 
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError(t("contact.form.errFields"));
@@ -34,7 +35,7 @@ function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({ name, email, subject, message, website }),
       });
 
       if (!res.ok && res.status >= 500) {
@@ -93,6 +94,19 @@ function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+          >
+            <label htmlFor="website">Website</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
           <p className="mb-6 flex items-center justify-between font-mono text-xs uppercase tracking-[0.3em] text-gold">
             {t("contact.form.title")}
             <span aria-hidden="true" className="h-1 w-1 rotate-45 bg-yellow" />
@@ -103,6 +117,8 @@ function ContactForm() {
               <input
                 name="name"
                 autoComplete="name"
+                minLength={2}
+                maxLength={160}
                 placeholder={t("contact.form.placeholderName")}
                 className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
               />
@@ -113,6 +129,7 @@ function ContactForm() {
                 type="email"
                 name="email"
                 autoComplete="email"
+                maxLength={254}
                 placeholder={t("contact.form.placeholderEmail")}
                 className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
               />
@@ -123,6 +140,7 @@ function ContactForm() {
             <input
               name="subject"
               autoComplete="off"
+              maxLength={400}
               placeholder={t("contact.form.placeholderSubject")}
               className="rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
             />
@@ -132,6 +150,8 @@ function ContactForm() {
             <textarea
               name="message"
               rows={4}
+              minLength={10}
+              maxLength={4000}
               placeholder={t("contact.form.placeholderMessage")}
               className="resize-none rounded-none border border-cream/30 bg-midnight px-3 py-2.5 font-sans normal-case tracking-normal text-cream placeholder:text-cream/30 focus:border-yellow focus:outline-none"
             />
