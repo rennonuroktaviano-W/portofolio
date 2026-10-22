@@ -1,5 +1,7 @@
 # KODECITY — 80s Neo-Noir Interactive Portfolio
 
+**Live site → https://rennonuroktaviano.vercel.app** · bio → https://rennonuroktaviano.vercel.app/about · case files → https://rennonuroktaviano.vercel.app/projects
+
 A cinematic, single-page portfolio built like a rainy metropolis of interfaces. Scroll-driven storytelling with a comic-panel aesthetic: grain, fog, rain, CRT flicker, a live retro terminal — all told in original type, tone, and art.
 
 ## Stack
@@ -21,6 +23,7 @@ npm run lint       # eslint (flat config)
 npm run typecheck  # tsc --noEmit
 npm run og         # regenerate the PNG social images from the SVG artwork
 npm run indexnow   # submit every sitemap URL to the IndexNow API
+npm run verify:file  # create the Search Console verification file (needs GOOGLE_SITE_VERIFICATION=<token>)
 ```
 
 > This version of Next.js is newer than most training data. Before editing Next-specific code, read the bundled docs under `node_modules/next/dist/docs/`.
@@ -65,6 +68,7 @@ public/
 scripts/
   generate-og-images.mjs  rasterises the SVG artwork to PNG via sharp
   indexnow.mjs            submits sitemap URLs to the IndexNow API
+  generate-verification.mjs  writes the Search Console verification file to public/
 .github/workflows/
   indexnow.yml            IndexNow submission on every push to main + daily cron
 ```
@@ -103,23 +107,37 @@ Content lives entirely in `data/`. Edit it to make the city yours; the scenes re
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | optional | Value of the Search Console HTML-tag verification token; rendered as `<meta name="google-site-verification">`. |
 | `CANONICAL_REDIRECT_ORIGIN` | optional | Extra host that permanently redirects to the canonical origin (useful while a custom domain is being migrated). Disabled when unset. |
 | `INDEXNOW_KEY` | optional | IndexNow API key; falls back to the key file in `public/`. |
+| `GOOGLE_SITE_VERIFICATION` | optional | Token used by `npm run verify:file` to generate the Search Console verification file. |
 
-### Search Console checklist
+### Search Console in five minutes
 
-1. Deploy with `NEXT_PUBLIC_SITE_URL` set to the final domain.
-2. Add the property in Search Console and paste the HTML-tag token into `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (or keep using DNS verification, which needs no code change).
-3. Submit `https://<domain>/sitemap.xml` — the sitemap lists the six localized homes, the six bio pages, `/projects`, and every case file (16 URLs).
-4. Use the URL Inspection tool on `/`, `/about` and one locale path to request indexing. Expect "URL is unknown to Google" on a brand-new property — that is the normal state before the first crawl.
-5. Watch Core Web Vitals (LCP/INP/CLS) in the Page Insights report; the loading screen is skipped on repeat visits, so the hero is the LCP element.
-6. Check "Links" once the site is crawled: the bio page should be reachable from the home page and from the Case Files navigation.
+The site is only discoverable once Google can reach it. Two things are needed: a way to tell Google the domain exists, and at least one external link pointing at it.
+
+1. Add a **URL-prefix** property for `https://rennonuroktaviano.vercel.app/`. (DNS verification is not available for `*.vercel.app` — Vercel owns that zone.)
+2. Verify it, either way:
+   - **HTML tag** — copy the token into the Vercel env var `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and redeploy. The root layout renders the meta tag.
+   - **File** — run `GOOGLE_SITE_VERIFICATION=<token> npm run verify:file` and commit the generated `public/google<token>.html`.
+3. Submit `https://rennonuroktaviano.vercel.app/sitemap.xml` (16 URLs).
+4. URL Inspection → **Request Indexing** for `/`, `/about` and one locale path.
+5. Repeat in Bing Webmaster Tools (import the GSC property, submit the same sitemap). IndexNow is already wired up, and Bing is the engine that actually consumes it.
+
+### Custom domain
+
+No code change is needed — only env vars and Vercel settings.
+
+1. Add the domain in Vercel (Project → Settings → Domains) and point the DNS record at Vercel.
+2. Set `NEXT_PUBLIC_SITE_URL` to the new origin, so canonical URLs, sitemap, robots and JSON-LD all point at it.
+3. Set `CANONICAL_REDIRECT_ORIGIN` to the same origin, so the old `vercel.app` host permanently redirects to it (home, locales, `/about`, `/projects`, `/sitemap.xml`, `/robots.txt`). The redirect is read at build time, so the variable has to be present when the project is built — on Vercel, changing an env var triggers a fresh deployment.
+4. Redeploy, then verify the old host returns `308` and the new host serves the canonical tags.
 
 ### Off-site checklist for name searches
 
 On-page signals are only half of it; the rest is what other sites say about the name.
 
-- GitHub profile: name in the display name, the profile README, and the repo descriptions.
-- LinkedIn: headline `Full-Stack Developer`, and the About section states the location (Indonesia) and the stack.
-- X / Twitter: the display name should read "Renno Nur Oktaviano" — currently the handle is `@rennuroktavW` while GitHub is `@rennonuroktaviano-W`; keeping the display name identical across both matters more than the handle.
+- GitHub profile: fix the display name (it was misspelled as `RennoNurOktavinao`), set the **Website** field to the live portfolio, and add a portfolio badge to the profile README. GitHub is the strongest crawl path for a new domain.
+- Repository READMEs: link the live site at the top of `portofolio` — a plain link from an already-indexed page is what triggers the first crawl.
+- LinkedIn: headline `Full-Stack Developer`, the About section states the location (Indonesia) and the stack, and the Featured/website field links the portfolio.
+- X / Twitter: the display name should read "Renno Nur Oktaviano" — currently the handle is `@rennuroktavW` while GitHub is `@rennonuroktaviano-W`; keeping the display name identical across both matters more than the handle. Put the portfolio URL in the bio.
 - Keep the handle consistent wherever possible, and make sure every profile links back to `https://rennonuroktaviano.vercel.app`.
 
 ## Feedback loop

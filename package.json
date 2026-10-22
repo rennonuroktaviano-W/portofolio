@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "og": "node scripts/generate-og-images.mjs",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "verify:file": "node scripts/generate-verification.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.4.0",

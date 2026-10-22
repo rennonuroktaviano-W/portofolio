@@ -53,6 +53,26 @@ const canonicalRedirects = canonicalOrigin
         destination: `${canonicalOrigin}/projects/:slug`,
         permanent: true,
       },
+      {
+        source: "/about",
+        destination: `${canonicalOrigin}/about`,
+        permanent: true,
+      },
+      {
+        source: "/:locale(id|es|fr|de|ja)/about",
+        destination: `${canonicalOrigin}/:locale/about`,
+        permanent: true,
+      },
+      {
+        source: "/sitemap.xml",
+        destination: `${canonicalOrigin}/sitemap.xml`,
+        permanent: true,
+      },
+      {
+        source: "/robots.txt",
+        destination: `${canonicalOrigin}/robots.txt`,
+        permanent: true,
+      },
     ]
   : [];
 
