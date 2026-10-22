@@ -173,6 +173,7 @@ export type Messages = {
     title1: string;
     title2: string;
     para: string;
+    caseFiles: string;
     footer: string;
   };
   notFound: {

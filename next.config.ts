@@ -4,7 +4,7 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; worker-src 'self' blob:; media-src 'self'; upgrade-insecure-requests",
+      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; worker-src 'self' blob:; media-src 'self'",
   },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
   { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
@@ -17,9 +17,44 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
-  { key: "X-Robots-Tag", value: "index, follow" },
   { key: "X-XSS-Protection", value: "0" },
 ];
+
+const apiHeaders = [
+  { key: "X-Robots-Tag", value: "noindex, nofollow" },
+  { key: "Cache-Control", value: "no-store" },
+];
+
+/**
+ * Optional canonical host. Set `CANONICAL_REDIRECT_ORIGIN` (for example
+ * `https://www.example.com`) once a custom domain is live and the public
+ * pages permanently redirect to it.
+ */
+const canonicalOrigin = process.env.CANONICAL_REDIRECT_ORIGIN?.trim().replace(
+  /\/+$/,
+  ""
+);
+
+const canonicalRedirects = canonicalOrigin
+  ? [
+      { source: "/", destination: `${canonicalOrigin}/`, permanent: true },
+      {
+        source: "/:locale(id|es|fr|de|ja)",
+        destination: `${canonicalOrigin}/:locale`,
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: `${canonicalOrigin}/projects`,
+        permanent: true,
+      },
+      {
+        source: "/projects/:slug",
+        destination: `${canonicalOrigin}/projects/:slug`,
+        permanent: true,
+      },
+    ]
+  : [];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -27,9 +62,23 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    optimizePackageImports: ["framer-motion", "lucide-react"],
   },
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      { source: "/api/:path*", headers: apiHeaders },
+    ];
+  },
+  async redirects() {
+    return [
+      // English lives at the root; /en is kept as a friendly alias.
+      { source: "/en", destination: "/", permanent: true },
+      ...canonicalRedirects,
+    ];
   },
 };
 

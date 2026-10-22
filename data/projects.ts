@@ -45,7 +45,12 @@ export const projects: Project[] = [
     year: "2025",
     status: "LIVE",
     links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
-    gallery: [{ src: "/images/projects/casebreak/cover.svg", alt: "CASEBREAK dashboard preview" }],
+    gallery: [
+      {
+        src: "/images/projects/casebreak/cover.svg",
+        alt: "CASEBREAK case management interface — file label and confidential stamp over a dark grid",
+      },
+    ],
   },
   {
     id: "kode-ledger",
@@ -74,7 +79,12 @@ export const projects: Project[] = [
     links: [
       { label: "github", url: "https://github.com/rennonuroktaviano-W" },
     ],
-    gallery: [{ src: "/images/projects/kodeledger/cover.svg", alt: "KodeLedger API docs preview" }],
+    gallery: [
+      {
+        src: "/images/projects/kodeledger/cover.svg",
+        alt: "KODELEDGER double-entry bookkeeping API — file label and confidential stamp over a dark grid",
+      },
+    ],
   },
   {
     id: "weathermono",
@@ -100,6 +110,11 @@ export const projects: Project[] = [
     year: "2023",
     status: "LIVE",
     links: [{ label: "github", url: "https://github.com/rennonuroktaviano-W" }],
-    gallery: [{ src: "/images/projects/weathermono/cover.svg", alt: "WeatherMono offline forecast preview" }],
+    gallery: [
+      {
+        src: "/images/projects/weathermono/cover.svg",
+        alt: "WEATHERMONO offline weather app — file label and confidential stamp over a dark grid",
+      },
+    ],
   },
 ];

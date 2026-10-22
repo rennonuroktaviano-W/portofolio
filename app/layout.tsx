@@ -3,29 +3,36 @@ import { Oswald, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { site } from "@/data/site";
+import { seoByLocale } from "@/data/seo";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
 import { I18nProvider } from "@/lib/i18n/provider";
 import { LOCALE_KEY, languages } from "@/lib/i18n/languages";
+import { homeAlternates } from "@/lib/seo";
 
 const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${site.url}/#person`,
   name: site.name,
   url: site.url,
   jobTitle: profile.developerTitle,
-  image: `${site.url}/og/cover.svg`,
+  image: `${site.url}/images/dev/profile.png`,
+  email: `mailto:${socials.email}`,
   knowsAbout: [...site.keywords],
+  knowsLanguage: languages.map((language) => language.code),
   sameAs: socials.links.map((l) => l.url),
 };
 
 const websiteLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${site.url}/#website`,
   name: site.brand,
   url: site.url,
   description: site.metaDescription,
   inLanguage: "en",
+  publisher: { "@id": `${site.url}/#person` },
 };
 
 const oswald = Oswald({
@@ -47,35 +54,64 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.brand} — ${site.role}`,
+    default: seoByLocale.en.title,
     template: `%s · ${site.brand}`,
   },
   description: site.metaDescription,
   keywords: [...site.keywords],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
+  publisher: site.name,
+  applicationName: site.brand,
+  category: "portfolio",
+  alternates: {
+    canonical: "/",
+    languages: homeAlternates(),
+  },
   openGraph: {
     type: "website",
     url: site.url,
-    title: `${site.brand} — ${site.role}`,
+    title: seoByLocale.en.title,
     description: site.metaDescription,
     siteName: site.brand,
-    locale: "id_ID",
-    images: [{ url: "/og/cover.svg", width: 1200, height: 630, alt: site.brand }],
+    locale: seoByLocale.en.ogLocale,
+    alternateLocale: languages
+      .filter((language) => language.code !== "en")
+      .map((language) => seoByLocale[language.code].ogLocale),
+    images: [
+      {
+        url: "/og/cover.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.brand} — ${site.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brand} — ${site.role}`,
+    title: seoByLocale.en.title,
     description: site.metaDescription,
-    images: ["/og/cover.svg"],
+    images: [{ url: "/og/cover.png", alt: `${site.brand} — ${site.role}` }],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  verification: googleVerification
+    ? { google: googleVerification }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -95,7 +131,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_KEY)});var codes=${JSON.stringify(languages.map((x) => x.code))};if(l&&codes.indexOf(l)>-1){document.documentElement.lang=l;}}catch(e){}`,
+            __html: `try{var codes=${JSON.stringify(languages.map((x) => x.code))};var seg=location.pathname.split("/").filter(Boolean)[0];var lang=codes.indexOf(seg)>-1?seg:null;if(!lang){var stored=localStorage.getItem(${JSON.stringify(LOCALE_KEY)});if(stored&&codes.indexOf(stored)>-1){lang=stored;}else{var nav=(navigator.language||"").split("-")[0];if(codes.indexOf(nav)>-1){lang=nav;}}}if(lang){document.documentElement.lang=lang;}}catch(e){}`,
           }}
         />
       </head>

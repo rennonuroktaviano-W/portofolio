@@ -30,7 +30,7 @@ identity: {
     intro: "intro · hola",
     titleAsk: "Desarrollador",
     titleWho: "Que Construye.",
-    devProfile: "Perfil Dev",
+    devProfile: "Retrato de Renno Nur Oktaviano, desarrollador full-stack",
   },
   profile: {
     developerTitle: "Desarrollador Full-Stack",
@@ -303,6 +303,7 @@ identity: {
     para:
       "Este sitio está hecho de proyectos y lecciones reales — si algo te llamó la atención, construyamos algo juntos.",
     footer: "© {year} {name} — construido con Next.js + TypeScript · asistido por IA",
+    caseFiles: "Expedientes",
   },
   notFound: {
     kicker: "404 — esta página no existe",

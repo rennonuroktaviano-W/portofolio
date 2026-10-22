@@ -14,6 +14,12 @@ const CAPTIONS = [
   "AI-ASSISTED ENGINEERING",
 ];
 
+/** Intro is only played once per browser session. */
+const INTRO_SEEN_KEY = "portfolio:intro-seen";
+
+/** Speed of the intro timeline — keeps the cold start short. */
+const INTRO_TIME_SCALE = 2.6;
+
 function LoadingScreenMarkup() {
   const words = site.brand.split(" ");
 
@@ -75,7 +81,7 @@ function LoadingScreenMarkup() {
           >
             A FULL-STACK PORTFOLIO
           </p>
-          <h2
+          <p
             data-loading-title
             className="loading-title flex flex-col items-center font-display text-[clamp(1.9rem,7vw,4.8rem)] font-semibold uppercase leading-[0.95] tracking-[0.04em] text-cream"
           >
@@ -84,7 +90,7 @@ function LoadingScreenMarkup() {
                 {w}
               </span>
             ))}
-          </h2>
+          </p>
           <div className="mt-4 h-5 font-mono text-[10px] uppercase tracking-[0.35em] text-gold/70 sm:text-xs">
             <span data-loading-caption className="block" />
           </div>
@@ -144,6 +150,11 @@ export function LoadingScreen() {
       overlay?.classList.add("is-done");
       later(() => ScrollTrigger.refresh(), 450);
       later(() => setDone(true), 950);
+      try {
+        window.sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+      } catch {
+        /* storage unavailable */
+      }
     };
 
     const flashStrike = (x: number) => {
@@ -168,6 +179,23 @@ export function LoadingScreen() {
       tl?.kill();
       finish();
     };
+
+    let seen = false;
+    try {
+      seen = window.sessionStorage.getItem(INTRO_SEEN_KEY) === "1";
+    } catch {
+      /* storage unavailable */
+    }
+
+    if (seen) {
+      // Returning visitor in the same session: skip the intro entirely.
+      root.style.overflow = "";
+      root.dataset.loaded = "1";
+      window.dispatchEvent(new CustomEvent("loading:done"));
+      later(() => setDone(true), 0);
+      later(() => ScrollTrigger.refresh(), 60);
+      return;
+    }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       later(finish, 250);
@@ -203,6 +231,7 @@ export function LoadingScreen() {
       };
 
       tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.timeScale(INTRO_TIME_SCALE);
       tl.to(barT, { yPercent: 0, duration: 0.8 }, 0.12)
         .to(barB, { yPercent: 0, duration: 0.8 }, 0.12)
         .to(sky, { yPercent: 0, autoAlpha: 1, duration: 1.3 }, 0.15)

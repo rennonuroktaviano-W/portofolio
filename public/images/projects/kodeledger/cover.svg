@@ -22,7 +22,7 @@
     <line x1="120" y1="96" x2="96" y2="66"/><line x1="884" y1="120" x2="860" y2="90"/>
   </g>
   <rect x="0" y="330" width="960" height="2" fill="#c89b3c" opacity="0.5"/>
-  <text x="48" y="58" font-family="Courier New,monospace" font-size="15" fill="#a5a7aa">FILE 02/06 /// KODECITY ARCHIVES /// 2025</text>
+  <text x="48" y="58" font-family="Courier New,monospace" font-size="15" fill="#a5a7aa">FILE 02/06 /// CASE FILES ARCHIVE /// 2025</text>
   <text x="480" y="238" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-size="76" font-weight="900" letter-spacing="6" fill="#ddd2b5">KODELEDGER</text>
   <text x="480" y="284" text-anchor="middle" font-family="Courier New,monospace" font-size="19" letter-spacing="9" fill="#c89b3c">DOUBLE-ENTRY API</text>
   <g transform="rotate(-10 760 428)" opacity="0.85">

@@ -97,15 +97,20 @@ export function HeroCityScene() {
       });
     }, section);
 
+    let started = false;
     const ready = () => {
-      if (intro) intro.play();
+      if (started) return;
+      started = true;
+      intro?.play();
     };
     const onLoadingDone = () => ready();
-    const fallback = window.setTimeout(ready, 1600);
+    // The hero paints as early as possible: the loading screen is an overlay
+    // on top of it, so waiting for "loading:done" only delays the LCP.
+    const start = window.setTimeout(ready, 120);
     window.addEventListener("loading:done", onLoadingDone);
 
     return () => {
-      window.clearTimeout(fallback);
+      window.clearTimeout(start);
       window.removeEventListener("loading:done", onLoadingDone);
       ctx.revert();
     };

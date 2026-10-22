@@ -30,7 +30,7 @@ export const fr: Messages = {
     intro: "intro · bonjour",
     titleAsk: "Développeur",
     titleWho: "Qui Construit.",
-    devProfile: "Profil Dev",
+    devProfile: "Portrait de Renno Nur Oktaviano, développeur full-stack",
   },
   profile: {
     developerTitle: "Développeur Full-Stack",
@@ -303,6 +303,7 @@ export const fr: Messages = {
     para:
       "Ce site est fait de projets et de leçons réels — si quelque chose a retenu votre attention, construisons ensemble.",
     footer: "© {year} {name} — construit avec Next.js + TypeScript · assisté par IA",
+    caseFiles: "Dossiers",
   },
   notFound: {
     kicker: "404 — cette page n'existe pas",

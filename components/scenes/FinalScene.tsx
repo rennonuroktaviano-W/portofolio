@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { site } from "@/data/site";
 import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
@@ -192,6 +193,13 @@ export function FinalScene() {
         >
           {t("final.para")}
         </p>
+        <Link
+          href="/projects"
+          data-final-meta
+          className="mt-8 inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
+        >
+          {t("final.caseFiles")} →
+        </Link>
         <p
           data-final-meta
           className="mt-12 font-mono text-[10px] uppercase tracking-widest text-fog/50"

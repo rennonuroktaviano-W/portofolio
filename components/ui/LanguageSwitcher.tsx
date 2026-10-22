@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Route } from "next";
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { useI18n } from "@/lib/i18n/provider";
-import { languages } from "@/lib/i18n/languages";
+import { languages, localeTarget } from "@/lib/i18n/languages";
 
 export function LanguageSwitcher() {
   const { locale, setLocale, t } = useI18n();
+  const pathname = usePathname() ?? "/";
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -56,12 +60,14 @@ export function LanguageSwitcher() {
         >
           {languages.map((lang) => {
             const active = lang.code === locale;
+            const href = localeTarget(pathname, lang.code).path;
             return (
               <li key={lang.code} role="none">
-                <button
-                  type="button"
+                <Link
+                  href={href as Route}
                   role="menuitemradio"
                   aria-checked={active}
+                  hrefLang={lang.code}
                   onClick={() => {
                     setLocale(lang.code);
                     setOpen(false);
@@ -72,7 +78,7 @@ export function LanguageSwitcher() {
                   {active ? (
                     <Check aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-yellow" />
                   ) : null}
-                </button>
+                </Link>
               </li>
             );
           })}

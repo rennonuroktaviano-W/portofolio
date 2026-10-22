@@ -20,7 +20,7 @@ export function ArtworkCover({ artwork, sizes, priority }: ArtworkCoverProps) {
       {!broken ? (
         <Image
           src={artwork.image}
-          alt={artwork.title}
+          alt={`${artwork.title} — ${artwork.description}`}
           fill
           sizes={sizes}
           priority={priority}

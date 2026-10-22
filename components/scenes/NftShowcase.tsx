@@ -172,9 +172,9 @@ export function NftShowcase() {
                 <span className="font-display text-4xl font-semibold leading-none text-outline-gold">
                   {step.step}
                 </span>
-                <h4 className="mt-3 font-display text-lg font-semibold uppercase tracking-wide text-cream">
+                <h3 className="mt-3 font-display text-lg font-semibold uppercase tracking-wide text-cream">
                   {t(`nft.process.${step.step}.title`)}
-                </h4>
+                </h3>
                 <p className="mt-2 text-xs leading-relaxed text-fog">
                   {t(`nft.process.${step.step}.short`)}
                 </p>

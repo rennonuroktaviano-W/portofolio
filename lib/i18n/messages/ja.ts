@@ -30,7 +30,7 @@ export const ja: Messages = {
     intro: "序章 · こんにちは",
     titleAsk: "開発者",
     titleWho: "作る人。",
-    devProfile: "開発者プロフィール",
+    devProfile: "フルスタック開発者 Renno Nur Oktaviano のポートレート",
   },
   profile: {
     developerTitle: "フルスタック開発者",
@@ -301,6 +301,7 @@ export const ja: Messages = {
     title2: "ありがとうございました。",
     para:
       "このサイトは実際のプロジェクトと教訓から作られています — 心に留まるものがあれば、一緒に作りましょう。",
+    caseFiles: "ケースファイル",
     footer: "© {year} {name} — Next.js + TypeScript で構築 · AI支援",
   },
   notFound: {

@@ -30,7 +30,7 @@ export const id: Messages = {
     intro: "intro · halo",
     titleAsk: "Developer",
     titleWho: "yang Membangun.",
-    devProfile: "Profil Dev",
+    devProfile: "Potret Renno Nur Oktaviano, full-stack developer",
   },
   profile: {
     developerTitle: "Full-Stack Developer",
@@ -303,6 +303,7 @@ export const id: Messages = {
     para:
       "Situs ini dibangun dari proyek dan pelajaran nyata — kalau ada yang menarik perhatianmu, mari berkolaborasi.",
     footer: "© {year} {name} — dibangun dengan Next.js + TypeScript · berbantuan AI",
+    caseFiles: "Berkas Kasus",
   },
   notFound: {
     kicker: "404 — halaman ini tidak ada",

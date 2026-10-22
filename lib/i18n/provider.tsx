@@ -19,6 +19,7 @@ import {
   isLocale,
   LOCALE_KEY,
   languages,
+  localeSegment,
   type Locale,
 } from "./languages";
 import type { Messages } from "./types";
@@ -81,31 +82,57 @@ function resolveInitial(): Locale {
   return "en";
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+type I18nProviderProps = {
+  children: ReactNode;
+  /**
+   * Locale owned by the current route. When present the URL is the source of
+   * truth, so the stored preference never overrides it.
+   */
+  initialLocale?: Locale;
+};
 
-  useEffect(() => {
-    const resolved = resolveInitial();
-    const timer = window.setTimeout(() => {
-      setLocaleState(resolved);
-      document.documentElement.lang = resolved;
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, []);
+export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
+  const [preferred, setPreferred] = useState<Locale>(initialLocale ?? "en");
 
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
+  // The route always wins over the stored preference, so a language switch
+  // re-renders with the new locale without remounting the scene tree.
+  const locale = initialLocale ?? preferred;
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    try {
-      window.localStorage.setItem(LOCALE_KEY, next);
-    } catch {
-      /* storage unavailable */
+  const commitLocale = useCallback((next: Locale, persist: boolean) => {
+    if (persist) {
+      try {
+        window.localStorage.setItem(LOCALE_KEY, next);
+      } catch {
+        /* storage unavailable */
+      }
     }
     document.documentElement.lang = next;
   }, []);
+
+  useEffect(() => {
+    if (!initialLocale) return;
+    // The route owns the language: remember it and sync the document.
+    commitLocale(initialLocale, true);
+  }, [initialLocale, commitLocale]);
+
+  useEffect(() => {
+    if (initialLocale) return;
+    if (localeSegment(window.location.pathname)) return;
+    const resolved = resolveInitial();
+    const timer = window.setTimeout(() => {
+      setPreferred(resolved);
+      commitLocale(resolved, false);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [initialLocale, commitLocale]);
+
+  const setLocale = useCallback(
+    (next: Locale) => {
+      setPreferred(next);
+      commitLocale(next, true);
+    },
+    [commitLocale]
+  );
 
   const t = useCallback(
     (path: string, vars?: Vars) => {

@@ -98,14 +98,9 @@ export function SceneIndicator() {
       {sceneDefinitions.map((scene) => {
         const isActive = scene.id === activeId;
         return (
-          <button
+          <a
             key={scene.id}
-            type="button"
-            onClick={() =>
-              document
-                .getElementById(scene.id)
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            href={`#${scene.id}`}
             aria-label={t("sceneIndicator.goTo", {
               chapter: scene.chapter,
               title: sceneTitle(scene),
@@ -125,7 +120,7 @@ export function SceneIndicator() {
             >
               {String(scene.chapter).padStart(2, "0")} — {sceneTitle(scene)}
             </span>
-          </button>
+          </a>
         );
       })}
     </nav>
