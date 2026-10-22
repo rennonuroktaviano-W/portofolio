@@ -2,17 +2,23 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Route } from "next";
 import { profile } from "@/data/profile";
 import { Searchlight } from "@/components/effects/Searchlight";
 import { LanyardBadge } from "@/components/scenes/LanyardBadge";
 import { gsap, usePrefersReducedMotion } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
+import { aboutPathFor } from "@/lib/i18n/languages";
 
 export function IdentityReveal() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const reduced = usePrefersReducedMotion();
   const { t } = useI18n();
+  const pathname = usePathname() ?? "/";
+  const aboutHref = aboutPathFor(pathname);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -95,6 +101,12 @@ export function IdentityReveal() {
           <p className="mt-4 max-w-md border-l-2 border-yellow/50 pl-4 font-mono text-sm text-cream/80">
             {t("profile.positioning")}
           </p>
+          <Link
+            href={aboutHref as Route}
+            className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.3em] text-yellow transition-colors hover:text-cream"
+          >
+            {t("aboutPage.fullBio")} →
+          </Link>
         </div>
 
         <div className="relative mx-auto w-full max-w-sm" data-panel-right>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
-import { localeHomePath } from "@/lib/seo";
+import { aboutPath, localeHomePath } from "@/lib/seo";
 import { languages } from "@/lib/i18n/languages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "weekly" as const,
     priority: language.code === "en" ? 1 : 0.8,
+  }));
+
+  const aboutPages = languages.map((language) => ({
+    url: `${site.url}${aboutPath(language.code)}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: language.code === "en" ? 0.9 : 0.7,
   }));
 
   const projectPages = [
@@ -29,5 +36,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...localizedHomes, ...projectPages];
+  return [...localizedHomes, ...aboutPages, ...projectPages];
 }

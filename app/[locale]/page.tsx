@@ -2,16 +2,10 @@ import type { Metadata } from "next";
 import { PortfolioHome } from "@/components/PortfolioHome";
 import { seoByLocale } from "@/data/seo";
 import { site } from "@/data/site";
-import { homeAlternates, localeHomePath, localizedLocales } from "@/lib/seo";
+import { homeAlternates, localeHomePath } from "@/lib/seo";
 import { isLocale, type Locale } from "@/lib/i18n/languages";
 
 type LocaleParams = Promise<{ locale?: string }>;
-
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return localizedLocales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({
   params,

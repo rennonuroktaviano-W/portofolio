@@ -48,3 +48,46 @@ export const seoByLocale: Record<Locale, LocaleSeo> = {
     ogLocale: "ja_JP",
   },
 };
+
+/**
+ * Per-locale metadata for the bio page. The full name leads every title so
+ * the page can compete for brand-name queries.
+ */
+export const aboutSeoByLocale: Record<Locale, LocaleSeo> = {
+  en: {
+    title: "About Renno Nur Oktaviano — Full-Stack Developer from Indonesia",
+    description:
+      "Renno Nur Oktaviano is a full-stack developer from Indonesia building production websites and web applications with Next.js, TypeScript, Laravel and Node.js. Bio, stack, journey and contact.",
+    ogLocale: "en_US",
+  },
+  id: {
+    title: "Tentang Renno Nur Oktaviano — Full-Stack Developer dari Indonesia",
+    description:
+      "Renno Nur Oktaviano adalah full-stack developer dari Indonesia yang membangun website dan aplikasi web produksi dengan Next.js, TypeScript, Laravel, dan Node.js. Biodata, teknologi, perjalanan, dan kontak.",
+    ogLocale: "id_ID",
+  },
+  es: {
+    title: "Sobre Renno Nur Oktaviano — Desarrollador Full-Stack de Indonesia",
+    description:
+      "Renno Nur Oktaviano es un desarrollador full-stack de Indonesia que crea sitios y aplicaciones web en producción con Next.js, TypeScript, Laravel y Node.js. Biografía, stack, trayectoria y contacto.",
+    ogLocale: "es_ES",
+  },
+  fr: {
+    title: "À propos de Renno Nur Oktaviano — Développeur Full-Stack d'Indonésie",
+    description:
+      "Renno Nur Oktaviano est un développeur full-stack basé en Indonésie, qui conçoit des sites et applications web en production avec Next.js, TypeScript, Laravel et Node.js. Biographie, stack, parcours et contact.",
+    ogLocale: "fr_FR",
+  },
+  de: {
+    title: "Über Renno Nur Oktaviano — Full-Stack-Entwickler aus Indonesien",
+    description:
+      "Renno Nur Oktaviano ist ein Full-Stack-Entwickler aus Indonesien und baut Websites und Produktionsanwendungen mit Next.js, TypeScript, Laravel und Node.js. Biografie, Stack, Werdegang und Kontakt.",
+    ogLocale: "de_DE",
+  },
+  ja: {
+    title: "Renno Nur Oktaviano について — インドネシアのフルスタック開発者",
+    description:
+      "Renno Nur Oktaviano はインドネシアのフルスタック開発者で、Next.js・TypeScript・Laravel・Node.js を使って実用的なウェブサイトとアプリケーションを開発しています。プロフィール、技術スタック、経歴、連絡先。",
+    ogLocale: "ja_JP",
+  },
+};

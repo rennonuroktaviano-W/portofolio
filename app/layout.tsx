@@ -6,22 +6,40 @@ import { site } from "@/data/site";
 import { seoByLocale } from "@/data/seo";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
+import { certificates } from "@/data/certificates";
 import { I18nProvider } from "@/lib/i18n/provider";
 import { LOCALE_KEY, languages } from "@/lib/i18n/languages";
 import { homeAlternates } from "@/lib/seo";
+import { translate } from "@/lib/i18n/dictionary";
 
 const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${site.url}/#person`,
   name: site.name,
+  alternateName: ["Renno", "Renno N. Oktaviano"],
   url: site.url,
   jobTitle: profile.developerTitle,
+  description: site.metaDescription,
   image: `${site.url}/images/dev/profile.png`,
   email: `mailto:${socials.email}`,
+  identifier: socials.links.find((link) => link.label === "GitHub")?.url,
+  homeLocation: {
+    "@type": "Country",
+    name: "Indonesia",
+  },
   knowsAbout: [...site.keywords],
   knowsLanguage: languages.map((language) => language.code),
   sameAs: socials.links.map((l) => l.url),
+  hasCredential: certificates.map((certificate) => ({
+    "@type": "EducationalOccupationalCredential",
+    name: translate("en", `certificates.items.${certificate.id}.title`),
+    credentialCategory: "certificate",
+    recognizedBy: {
+      "@type": "Organization",
+      name: certificate.issuer,
+    },
+  })),
 };
 
 const websiteLd = {

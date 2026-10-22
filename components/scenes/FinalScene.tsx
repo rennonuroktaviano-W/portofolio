@@ -2,10 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Route } from "next";
 import { site } from "@/data/site";
 import { GothamSkyline } from "@/components/effects/GothamSkyline";
 import { gsap, usePrefersReducedMotion, useReveals } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n/provider";
+import { aboutPathFor } from "@/lib/i18n/languages";
 
 type Token = { text: string; space: boolean };
 
@@ -40,6 +43,8 @@ export function FinalScene() {
   const skyRef = useRef<HTMLDivElement | null>(null);
   const reduced = usePrefersReducedMotion();
   const { t } = useI18n();
+  const pathname = usePathname() ?? "/";
+  const aboutHref = aboutPathFor(pathname);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -199,6 +204,13 @@ export function FinalScene() {
           className="mt-8 inline-flex items-center gap-3 border border-yellow/60 bg-yellow/10 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.3em] text-yellow transition-colors hover:bg-yellow hover:text-midnight"
         >
           {t("final.caseFiles")} →
+        </Link>
+        <Link
+          href={aboutHref as Route}
+          data-final-meta
+          className="mt-4 font-mono text-[11px] uppercase tracking-[0.3em] text-cream/80 transition-colors hover:text-yellow"
+        >
+          {t("aboutPage.fullBio")} →
         </Link>
         <p
           data-final-meta

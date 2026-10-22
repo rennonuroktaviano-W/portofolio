@@ -53,5 +53,15 @@ export function localeTarget(pathname: string, code: Locale): LocaleTarget {
     return { path: code === "en" ? "/" : `/${code}`, localized: true };
   }
 
+  if (segments.length === 1 && segments[0] === "about") {
+    return { path: code === "en" ? "/about" : `/${code}/about`, localized: true };
+  }
+
   return { path: pathname, localized: false };
+}
+
+/** Path of the bio page for the locale that owns the current pathname. */
+export function aboutPathFor(pathname: string): string {
+  const segment = localeSegment(pathname);
+  return segment ? `/${segment}/about` : "/about";
 }

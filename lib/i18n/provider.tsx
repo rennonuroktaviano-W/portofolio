@@ -9,12 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { en } from "./messages/en";
-import { id } from "./messages/id";
-import { es } from "./messages/es";
-import { fr } from "./messages/fr";
-import { de } from "./messages/de";
-import { ja } from "./messages/ja";
+import { lookupValue, translate, type Vars } from "./dictionary";
 import {
   isLocale,
   LOCALE_KEY,
@@ -22,11 +17,6 @@ import {
   localeSegment,
   type Locale,
 } from "./languages";
-import type { Messages } from "./types";
-
-const dictionaries: Record<Locale, Messages> = { en, id, es, fr, de, ja };
-
-type Vars = Record<string, string | number>;
 
 type I18nContextValue = {
   locale: Locale;
@@ -37,33 +27,6 @@ type I18nContextValue = {
 };
 
 const I18nContext = createContext<I18nContextValue | null>(null);
-
-function readValue(messages: Messages, path: string): unknown {
-  let node: unknown = messages;
-  const segments = path.split(".");
-  for (let i = 0; i < segments.length; i++) {
-    if (node === null || node === undefined || typeof node !== "object") {
-      return undefined;
-    }
-    const record = node as Record<string, unknown>;
-    const dottedRest = segments.slice(i).join(".");
-    if (record[dottedRest] !== undefined) return record[dottedRest];
-    const key = segments[i];
-    if (key in record) {
-      node = record[key];
-    } else {
-      return undefined;
-    }
-  }
-  return node;
-}
-
-function interpolate(text: string, vars?: Vars): string {
-  if (!vars) return text;
-  return text.replace(/\{(\w+)\}/g, (match, key: string) =>
-    key in vars ? String(vars[key]) : match
-  );
-}
 
 function resolveInitial(): Locale {
   if (typeof window === "undefined") return "en";
@@ -135,28 +98,12 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
   );
 
   const t = useCallback(
-    (path: string, vars?: Vars) => {
-      const messages = dictionaries[locale];
-      const found = readValue(messages, path);
-      if (typeof found === "string") {
-        return interpolate(found, vars);
-      }
-      const fallback = readValue(en, path);
-      return interpolate(typeof fallback === "string" ? fallback : path, vars);
-    },
+    (path: string, vars?: Vars) => translate(locale, path, vars),
     [locale]
   );
 
   const lookup = useCallback(
-    (path: string): string | string[] | undefined => {
-      const found = readValue(dictionaries[locale], path);
-      if (typeof found === "string" || Array.isArray(found)) return found;
-      const fallback = readValue(en, path);
-      if (typeof fallback === "string" || Array.isArray(fallback)) {
-        return fallback;
-      }
-      return undefined;
-    },
+    (path: string): string | string[] | undefined => lookupValue(locale, path),
     [locale]
   );
 

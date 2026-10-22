@@ -60,6 +60,29 @@ export type Messages = {
       caseNumber: string;
     };
   };
+  aboutPage: {
+    label: string;
+    title: string;
+    role: string;
+    lead: string;
+    story: string;
+    focus: string;
+    stack: string;
+    stackHint: string;
+    journey: string;
+    credentials: string;
+    contact: string;
+    statusLabel: string;
+    locationLabel: string;
+    focusLabel: string;
+    emailLabel: string;
+    socialsLabel: string;
+    interestsLabel: string;
+    philosophyLabel: string;
+    ctaProjects: string;
+    ctaHome: string;
+    fullBio: string;
+  };
   arsenal: {
     label: string;
     title: string;

@@ -19,6 +19,12 @@ export function ProjectNav() {
             Case Files
           </Link>
           <Link
+            href="/about"
+            className="font-mono text-[10px] uppercase tracking-[0.3em] text-fog transition-colors hover:text-yellow"
+          >
+            About
+          </Link>
+          <Link
             href="/"
             className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold transition-colors hover:text-yellow"
           >
