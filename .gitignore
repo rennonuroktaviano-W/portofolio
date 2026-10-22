@@ -36,6 +36,7 @@ yarn-error.log*
 # local tooling secrets
 .gsc-credentials.json
 .gsc-token.json
+.github-token.txt
 
 # vercel
 .vercel

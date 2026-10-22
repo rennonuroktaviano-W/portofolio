@@ -15,6 +15,8 @@
  * Without the `user` scope step 1 is skipped and only the README is updated.
  */
 
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import process from "node:process";
 
 const REPO = "rennonuroktaviano-W/rennonuroktaviano-W";
@@ -44,8 +46,21 @@ async function tokenFromGitCredentialManager() {
   }
 }
 
+async function tokenFromFile() {
+  try {
+    const value = (
+      await readFile(path.resolve(".github-token.txt"), "utf8")
+    ).trim();
+    return value || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 const token =
-  process.env.GITHUB_TOKEN?.trim() || (await tokenFromGitCredentialManager());
+  process.env.GITHUB_TOKEN?.trim() ||
+  (await tokenFromFile()) ||
+  (await tokenFromGitCredentialManager());
 
 if (!token) {
   console.error(
