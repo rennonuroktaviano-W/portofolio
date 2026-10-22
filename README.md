@@ -127,6 +127,8 @@ The site is only discoverable once Google can reach it. Two things are needed: a
 4. URL Inspection → **Request Indexing** for `/`, `/about` and one locale path.
 5. Repeat in Bing Webmaster Tools (import the GSC property, submit the same sitemap). IndexNow is already wired up, and Bing is the engine that actually consumes it.
 
+**Status (22 Oct 2026):** the URL-prefix property is verified with the HTML-tag method — `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` is set on Vercel and the meta tag is live — and `sitemap.xml` has been submitted. URL Inspection was unavailable for this account, so discovery relies on the sitemap, internal links and the external links in the checklist below.
+
 #### Automated variant (`npm run gsc`)
 
 The steps above can be scripted. One browser step is needed once, to create Google OAuth credentials:
@@ -180,6 +182,7 @@ On-page signals are only half of it; the rest is what other sites say about the 
 - [x] GitHub profile README: portfolio badge, portfolio link in the ABOUT ME box, a featured-project entry and a CONTACT badge.
 - [x] GitHub Pages landing page at `https://rennonuroktaviano-W.github.io/`, with the same `Person` JSON-LD and an IndexNow key file.
 - [x] Repository READMEs: the portfolio link sits at the top of `portofolio` and of the public project repositories, so an already-indexed page points at the site.
+- [x] Google Search Console: property `https://rennonuroktaviano.vercel.app/` verified with the HTML tag, `sitemap.xml` submitted (22 Oct 2026).
 - [x] Repository metadata: `portofolio` has a description, a homepage and topics; the `PT.Deswa-Invisco-Multitama` and `rennonuroktaviano-W.github.io` repositories have a README.
 - [ ] GitHub profile **display name** (still `RennoNurOktavinao`) and the **Website** field — needs a token with the `user` scope, then `npm run github:profile` fixes both.
 - [ ] LinkedIn: headline `Full-Stack Developer`, the About section states the location (Indonesia) and the stack, and the Featured/website field links the portfolio.
