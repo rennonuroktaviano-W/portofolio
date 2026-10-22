@@ -16,17 +16,26 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://rennonuroktaviano.vercel.app"
-).replace(/\/+$/, "");
+const DEFAULT_SITE_URL = "https://rennonuroktaviano.vercel.app";
+
+/** Reads an env var, treating unset and empty values the same. */
+function envValue(name) {
+  const value = process.env[name]?.trim();
+  return value ? value : undefined;
+}
+
+const SITE_URL = (envValue("NEXT_PUBLIC_SITE_URL") ?? DEFAULT_SITE_URL).replace(
+  /\/+$/,
+  ""
+);
 
 const ENDPOINT =
-  process.env.INDEXNOW_ENDPOINT ?? "https://api.indexnow.org/indexnow";
+  envValue("INDEXNOW_ENDPOINT") ?? "https://api.indexnow.org/indexnow";
 
 const MAX_URLS_PER_REQUEST = 10000;
 
 async function resolveKey() {
-  const fromEnv = process.env.INDEXNOW_KEY?.trim();
+  const fromEnv = envValue("INDEXNOW_KEY");
   if (fromEnv) return fromEnv;
 
   const publicDir = path.resolve("public");
