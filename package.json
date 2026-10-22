@@ -12,6 +12,7 @@
     "indexnow": "node scripts/indexnow.mjs",
     "verify:file": "node scripts/generate-verification.mjs",
     "github:profile": "node scripts/update-github-profile.mjs",
+    "github:pages": "node scripts/create-github-pages.mjs",
     "gsc": "node scripts/gsc-setup.mjs"
   },
   "dependencies": {

@@ -25,6 +25,7 @@ npm run og         # regenerate the PNG social images from the SVG artwork
 npm run indexnow   # submit every sitemap URL to the IndexNow API
 npm run verify:file  # create the Search Console verification file (needs GOOGLE_SITE_VERIFICATION=<token>)
 npm run github:profile  # push the portfolio link + correct name to the GitHub profile
+npm run github:pages    # publish the github.io landing page that links to the portfolio
 npm run gsc        # add the Search Console property, submit the sitemap, request indexing
 ```
 
@@ -72,6 +73,7 @@ scripts/
   indexnow.mjs            submits sitemap URLs to the IndexNow API
   generate-verification.mjs  writes the Search Console verification file to public/
   update-github-profile.mjs   keeps the GitHub profile (name, website, README) in sync
+  create-github-pages.mjs      publishes the github.io landing page + IndexNow key file
   gsc-setup.mjs           adds the Search Console property, submits the sitemap, requests indexing
 .github/workflows/
   indexnow.yml            IndexNow submission on every push to main + daily cron
@@ -153,6 +155,15 @@ The GitHub profile is the strongest crawl path for a new domain, so the portfoli
 
 The script is idempotent — running it twice does not duplicate anything. Use `-- --dry-run` to preview the changes.
 
+### GitHub Pages landing page (`npm run github:pages`)
+
+A `github.io` page is crawled by Google and Bing within days, while a brand-new domain can take weeks. The script publishes a one-page site on `https://rennonuroktaviano-W.github.io/` that introduces the name, links to the portfolio and carries the same `Person` JSON-LD (same `@id`, so the two domains describe one entity):
+
+- creates the `<login>.github.io` repository if it does not exist,
+- publishes `index.html` and the IndexNow key file on the `gh-pages` branch,
+- enables GitHub Pages for that branch and submits the URL to IndexNow,
+- removes the project-style Pages site from the profile repository so there is only one surface.
+
 ### Custom domain
 
 No code change is needed — only env vars and Vercel settings.
@@ -167,6 +178,7 @@ No code change is needed — only env vars and Vercel settings.
 On-page signals are only half of it; the rest is what other sites say about the name.
 
 - GitHub profile: fix the display name (it was misspelled as `RennoNurOktavinao`), set the **Website** field to the live portfolio, and add a portfolio badge to the profile README. GitHub is the strongest crawl path for a new domain.
+- GitHub Pages: the landing page at `https://rennonuroktaviano-W.github.io/` links to the portfolio and is crawled fast — keep it published.
 - Repository READMEs: link the live site at the top of `portofolio` — a plain link from an already-indexed page is what triggers the first crawl.
 - LinkedIn: headline `Full-Stack Developer`, the About section states the location (Indonesia) and the stack, and the Featured/website field links the portfolio.
 - X / Twitter: the display name should read "Renno Nur Oktaviano" — currently the handle is `@rennuroktavW` while GitHub is `@rennonuroktaviano-W`; keeping the display name identical across both matters more than the handle. Put the portfolio URL in the bio.
