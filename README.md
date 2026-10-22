@@ -175,14 +175,17 @@ No code change is needed — only env vars and Vercel settings.
 
 ### Off-site checklist for name searches
 
-On-page signals are only half of it; the rest is what other sites say about the name.
+On-page signals are only half of it; the rest is what other sites say about the name. Automated with `npm run github:profile` and `npm run github:pages`:
 
-- GitHub profile: fix the display name (it was misspelled as `RennoNurOktavinao`), set the **Website** field to the live portfolio, and add a portfolio badge to the profile README. GitHub is the strongest crawl path for a new domain.
-- GitHub Pages: the landing page at `https://rennonuroktaviano-W.github.io/` links to the portfolio and is crawled fast — keep it published.
-- Repository READMEs: link the live site at the top of `portofolio` — a plain link from an already-indexed page is what triggers the first crawl.
-- LinkedIn: headline `Full-Stack Developer`, the About section states the location (Indonesia) and the stack, and the Featured/website field links the portfolio.
-- X / Twitter: the display name should read "Renno Nur Oktaviano" — currently the handle is `@rennuroktavW` while GitHub is `@rennonuroktaviano-W`; keeping the display name identical across both matters more than the handle. Put the portfolio URL in the bio.
-- Keep the handle consistent wherever possible, and make sure every profile links back to `https://rennonuroktaviano.vercel.app`.
+- [x] GitHub profile README: portfolio badge, portfolio link in the ABOUT ME box, a featured-project entry and a CONTACT badge.
+- [x] GitHub Pages landing page at `https://rennonuroktaviano-W.github.io/`, with the same `Person` JSON-LD and an IndexNow key file.
+- [x] Repository READMEs: the portfolio link sits at the top of `portofolio` and of the public project repositories, so an already-indexed page points at the site.
+- [x] Repository metadata: `portofolio` has a description, a homepage and topics; the `PT.Deswa-Invisco-Multitama` and `rennonuroktaviano-W.github.io` repositories have a README.
+- [ ] GitHub profile **display name** (still `RennoNurOktavinao`) and the **Website** field — needs a token with the `user` scope, then `npm run github:profile` fixes both.
+- [ ] LinkedIn: headline `Full-Stack Developer`, the About section states the location (Indonesia) and the stack, and the Featured/website field links the portfolio.
+- [ ] X / Twitter: the display name should read "Renno Nur Oktaviano" — currently the handle is `@rennuroktavW` while GitHub is `@rennonuroktaviano-W`; keeping the display name identical across both matters more than the handle. Put the portfolio URL in the bio.
+- [ ] Bing Webmaster Tools: import the Search Console property and submit the sitemap (IndexNow is already submitted, Bing is the engine that consumes it).
+- [ ] Keep the handle consistent wherever possible, and make sure every profile links back to `https://rennonuroktaviano.vercel.app`.
 
 ## Feedback loop
 
