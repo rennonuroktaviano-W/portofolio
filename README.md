@@ -24,6 +24,8 @@ npm run typecheck  # tsc --noEmit
 npm run og         # regenerate the PNG social images from the SVG artwork
 npm run indexnow   # submit every sitemap URL to the IndexNow API
 npm run verify:file  # create the Search Console verification file (needs GOOGLE_SITE_VERIFICATION=<token>)
+npm run github:profile  # push the portfolio link + correct name to the GitHub profile
+npm run gsc        # add the Search Console property, submit the sitemap, request indexing
 ```
 
 > This version of Next.js is newer than most training data. Before editing Next-specific code, read the bundled docs under `node_modules/next/dist/docs/`.
@@ -69,6 +71,8 @@ scripts/
   generate-og-images.mjs  rasterises the SVG artwork to PNG via sharp
   indexnow.mjs            submits sitemap URLs to the IndexNow API
   generate-verification.mjs  writes the Search Console verification file to public/
+  update-github-profile.mjs   keeps the GitHub profile (name, website, README) in sync
+  gsc-setup.mjs           adds the Search Console property, submits the sitemap, requests indexing
 .github/workflows/
   indexnow.yml            IndexNow submission on every push to main + daily cron
 ```
@@ -120,6 +124,34 @@ The site is only discoverable once Google can reach it. Two things are needed: a
 3. Submit `https://rennonuroktaviano.vercel.app/sitemap.xml` (16 URLs).
 4. URL Inspection → **Request Indexing** for `/`, `/about` and one locale path.
 5. Repeat in Bing Webmaster Tools (import the GSC property, submit the same sitemap). IndexNow is already wired up, and Bing is the engine that actually consumes it.
+
+#### Automated variant (`npm run gsc`)
+
+The steps above can be scripted. One browser step is needed once, to create Google OAuth credentials:
+
+1. [Google Cloud console](https://console.cloud.google.com) → create a project.
+2. Enable the **Search Console API** and the **Indexing API** for that project.
+3. Credentials → **OAuth client ID** → application type *Web application* → authorised redirect URI `http://127.0.0.1:8765`.
+4. Save them as `.gsc-credentials.json` (git-ignored):
+
+```json
+{
+  "client_id": "....apps.googleusercontent.com",
+  "client_secret": "....",
+  "api_key": "...."
+}
+```
+
+`npm run gsc` then lists the properties, adds the URL-prefix property, submits `sitemap.xml` and requests indexing for every URL in the sitemap. The OAuth token is cached in `.gsc-token.json`, so the browser step is only needed once.
+
+### GitHub profile automation (`npm run github:profile`)
+
+The GitHub profile is the strongest crawl path for a new domain, so the portfolio link lives in the profile README. `npm run github:profile` keeps it in sync:
+
+- sets the display name and the profile website (needs a token with the `user` scope — a classic PAT with `user` + `repo` works, or the token that the git credential manager already stores),
+- adds the portfolio badge, the portfolio link in the ABOUT ME box, a featured-project entry and a CONTACT badge to the profile README.
+
+The script is idempotent — running it twice does not duplicate anything. Use `-- --dry-run` to preview the changes.
 
 ### Custom domain
 
